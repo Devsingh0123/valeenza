@@ -15,7 +15,7 @@ const AllCatogries = () => {
   }
 
   return (
-    <div className="w-full border-b border-gray-200 pb-3 px-4 sm:hidden">
+    <div className="w-full border-b border-gray-200 pb-3 px-4 ">
       <div className="max-w-7xl mx-auto">
         <div className="flex gap-2 overflow-x-auto pb-2">
           {productCategories?.map((category) => (
