@@ -90,7 +90,7 @@ const CartSummary = () => {
           {/* Display crossed out subtotal price if an active discount markdown pattern exists */}
           {subTotalAmount > finalDisplayAmount && (
             <span className="text-xs text-gray-400 line-through font-normal">
-              ₹
+              $
               {subTotalAmount.toLocaleString("en-IN", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -100,7 +100,7 @@ const CartSummary = () => {
 
           {/* Active net checkout calculation node */}
           <span className="text-sm font-extrabold text-gray-900">
-            ₹
+            $
             {finalDisplayAmount.toLocaleString("en-IN", {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
@@ -141,7 +141,7 @@ const CartSummary = () => {
             <div className="flex justify-between items-center">
               <span className="text-gray-500">Sub total</span>
               <span className="text-gray-800">
-                ₹
+                $
                 {subTotalAmount.toLocaleString("en-IN", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2,
@@ -154,7 +154,7 @@ const CartSummary = () => {
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">Discount on MRP</span>
                 <span className="text-emerald-600 font-semibold">
-                  - ₹
+                  - $
                   {mrpDiscountAmount.toLocaleString("en-IN", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
@@ -171,7 +171,7 @@ const CartSummary = () => {
                   {appliedCoupon ? `(${appliedCoupon?.code})` : ""}
                 </span>
                 <span className="text-emerald-600 font-semibold">
-                  - ₹
+                  - $
                   {Number(couponDiscount).toLocaleString("en-IN", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
@@ -184,7 +184,7 @@ const CartSummary = () => {
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">Delivery Charge</span>
                 <span className="text-gray-800">
-                  + ₹
+                  + $
                   {deliveryCharge.toLocaleString("en-IN", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
@@ -196,7 +196,7 @@ const CartSummary = () => {
               <div className="flex justify-between items-center">
                 <span className="text-gray-500">COD Handling Surcharge</span>
                 <span className="text-gray-800">
-                  + ₹
+                  + $
                   {codCharge.toLocaleString("en-IN", {
                     minimumFractionDigits: 2,
                     maximumFractionDigits: 2,
@@ -253,14 +253,14 @@ const CartSummary = () => {
                     {/* Right: Dynamic Pricing Arrays */}
                     <div className="text-right shrink-0 pt-0.5 space-y-0.5 font-sans">
                       <p className="font-bold text-gray-800">
-                        ₹
+                        $
                         {(
                           activePrice * Number(item.quantity || 1)
                         ).toLocaleString("en-IN", { minimumFractionDigits: 2 })}
                       </p>
                       {originalMrp > activePrice && (
                         <p className="text-[11px] text-gray-400 line-through">
-                          ₹
+                          $
                           {(
                             originalMrp * Number(item.quantity || 1)
                           ).toLocaleString("en-IN", {

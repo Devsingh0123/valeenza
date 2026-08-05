@@ -125,7 +125,7 @@ const CouponSection = () => {
 
                 {defaultRecommendedCoupon?.min_amount && (
                   <p className="text-[11px] text-gray-400 font-medium">
-                    Valid on orders above ₹{parseInt(defaultRecommendedCoupon.min_amount)}
+                    Valid on orders above ${parseInt(defaultRecommendedCoupon.min_amount)}
                   </p>
                 )}
               </div>
@@ -192,7 +192,7 @@ const CouponSection = () => {
               <span className="bg-green-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-md tracking-tight shadow-sm shrink-0">
                 {appliedCouponDetails?.discount_type === "percentage"
                   ? `${parseFloat(couponDiscount)}% OFF`
-                  : `Saved ₹${Number(couponDiscount).toLocaleString("en-IN")}`
+                  : `Saved $${Number(couponDiscount).toLocaleString("en-IN")}`
                 }
               </span>
             </div>
@@ -320,7 +320,7 @@ const CouponSection = () => {
 
                       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-gray-400 font-medium pt-0.5 border-t border-gray-100/70">
                         {cp.min_amount && (
-                          <span>Min. Spend: ₹{parseInt(cp.min_amount)}</span>
+                          <span>Min. Spend: ${parseInt(cp.min_amount)}</span>
                         )}
                         {cp.expiry_date && (
                           <>

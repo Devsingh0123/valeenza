@@ -19,7 +19,7 @@ const WalletBalance = () => {
     setAdding(true);
     try {
       await dispatch(addMoneyToWallet(amt)).unwrap();
-      toast.success(`₹${amt} added to wallet`);
+      toast.success(`$${amt} added to wallet`);
       setAmount('');
       dispatch(fetchWallet()); // refresh balance
     } catch (err) {
@@ -32,7 +32,7 @@ const WalletBalance = () => {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <h3 className="text-lg font-semibold mb-2">Wallet</h3>
-      <p className="text-2xl font-bold text-amber-600 mb-3">₹{balance.toLocaleString()}</p>
+      <p className="text-2xl font-bold text-amber-600 mb-3">${balance.toLocaleString()}</p>
       <form onSubmit={handleAddMoney} className="flex gap-2">
         <input
           type="number"

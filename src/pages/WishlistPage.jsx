@@ -64,11 +64,11 @@ const WishlistCard = ({ product, onRemove }) => {
           <div className="flex items-end justify-between mt-auto">
             <div className='flex justify-center items-center gap-2'>
               <div className="text-sm  font-extrabold text-stone-900">
-                ₹{afterPrice.toLocaleString()}
+                ${afterPrice.toLocaleString()}
               </div>
               {beforePrice > afterPrice && (
                 <div className="text-[10px]  text-stone-400 line-through">
-                  ₹{beforePrice.toLocaleString()}
+                  ${beforePrice.toLocaleString()}
                 </div>
               )}
             </div>

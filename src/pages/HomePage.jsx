@@ -1,4 +1,4 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -10,27 +10,20 @@ import Loader from "@/components/common/Loader";
 import AllCatogries from "@/components/home/AllCatogries";
 import { addToCart, fetchCart } from "../redux/slices/cartSlice";
 import { openCartDrawer } from "@/redux/slices/uiSlice";
+import { fetchAllProductCategories, fetchAllProducts } from "@/redux/slices/productSlice";
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 const getProductPrice = (p) => Number(p?.after_price) || 0;
 const getProductRating = (p) => Number(p?.rating_avg) || 0;
+
 const getDiscountPercent = (p) => {
   const before = Number(p?.before_price) || 0;
   const after = Number(p?.after_price) || 0;
   return before > after && after > 0 ? Math.round(((before - after) / before) * 100) : 0;
 };
 
-const sortProducts = (products, sortType) => {
-  if (!products || !sortType || sortType === "default") return products;
-  const sorted = [...products];
-  if (sortType === "price-asc") sorted.sort((a, b) => getProductPrice(a) - getProductPrice(b));
-  else if (sortType === "price-desc") sorted.sort((a, b) => getProductPrice(b) - getProductPrice(a));
-  else if (sortType === "rating") sorted.sort((a, b) => getProductRating(b) - getProductRating(a));
-  else if (sortType === "name") sorted.sort((a, b) => a.name.localeCompare(b.name));
-  return sorted;
-};
-
+// Filter logic based on active filters
 const filterProducts = (products, filters) => {
   if (!products?.length) return [];
   return products.filter((p) => {
@@ -45,34 +38,49 @@ const filterProducts = (products, filters) => {
   });
 };
 
+// Sorting logic synced with FilterSidebar
+const sortProducts = (products, priceSort) => {
+  if (!products?.length || !priceSort) return products;
+  const sorted = [...products];
+  if (priceSort === "asc") sorted.sort((a, b) => getProductPrice(a) - getProductPrice(b));
+  if (priceSort === "desc") sorted.sort((a, b) => getProductPrice(b) - getProductPrice(a));
+  return sorted;
+};
+
+const initialFilterState = {
+  search: "",
+  minPrice: "",
+  maxPrice: "",
+  minRating: "",
+  minDiscount: "",
+  priceSort: "",
+};
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
-  const { items: products, productCategories, loading, error } = useSelector(
+  const { items: products = [], productCategories = [], loading, error } = useSelector(
     (state) => state.product
   );
 
-  const [filters, setFilters] = useState({
-    search: "",
-    minPrice: "",
-    maxPrice: "",
-    minRating: "",
-    minDiscount: "",
-    sort: "default",
-  });
+  const [filters, setFilters] = useState(initialFilterState);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [isSidebarOpen, setIsSidebarOpen] = useState(
-    typeof window !== "undefined" ? window.innerWidth >= 768 : true
-  );
-
-  // GTM tracking
-  useState(() => {
+  // GTM Tracking
+  useEffect(() => {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: "viewHome" });
   }, []);
 
+  // Fetch Products & Categories on Mount
+  useEffect(() => {
+    if (!products.length) dispatch(fetchAllProducts());
+    if (!productCategories.length) dispatch(fetchAllProductCategories());
+  }, [dispatch, products.length, productCategories.length]);
+
+  // Sort category list by product count
   const groupedCategories = useMemo(() => {
     if (!productCategories.length) return [];
     return productCategories
@@ -84,18 +92,22 @@ const HomePage = () => {
       });
   }, [productCategories, products]);
 
+  // Compute filtered & sorted products for each category section
   const categoryFilteredProducts = useMemo(() => {
     const result = {};
     groupedCategories.forEach((cat) => {
       const catProducts = products.filter((p) => p.category?.slug === cat.slug);
-      result[cat.id] = sortProducts(filterProducts(catProducts, filters), filters.sort);
+      const filtered = filterProducts(catProducts, filters);
+      result[cat.id] = sortProducts(filtered, filters.priceSort);
     });
-    result.all = sortProducts(filterProducts(products, filters), filters.sort);
     return result;
   }, [products, filters, groupedCategories]);
 
+  // Add To Cart Handler
   const handleAddToCart = async ({ product_id, quantity, name, ratti, price, image, stockQty }) => {
-    if (stockQty < quantity) return toast.info(`${stockQty} stock available only`);
+    if (stockQty < quantity) {
+      return toast.info(`${stockQty} stock available only`);
+    }
     try {
       await dispatch(
         addToCart({ product_id, quantity, name, ratti, price, image, stockAvilable: stockQty })
@@ -108,46 +120,63 @@ const HomePage = () => {
     }
   };
 
-  const clearFilters = () =>
-    setFilters({ search: "", minPrice: "", maxPrice: "", minRating: "", minDiscount: "", sort: "default" });
+  const clearFilters = () => setFilters(initialFilterState);
 
-  // ── Early returns ─────────────────────────────────────────────────────────
+  const handleToggleSidebar = (val) => {
+    setIsSidebarOpen((prev) => (typeof val === "boolean" ? val : !prev));
+  };
 
-  if (loading) return <div className="text-center py-10"><Loader data="Loading products..." /></div>;
-  if (error) return <div className="text-center py-10 text-red-500">Error: {error}</div>;
-  if (!products.length) return <div className="text-center py-10">No products found</div>;
+  // ── Render Helpers ─────────────────────────────────────────────────────────
 
-  // ── Render ────────────────────────────────────────────────────────────────
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <Loader data="Loading products..." />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-10 text-red-500 font-medium">
+        Error loading products: {error}
+      </div>
+    );
+  }
 
   return (
-    <div className="md:px-2">
+    <div className="md:px-2 pb-10">
       <AllCatogries />
       <HeroBanner />
 
-      <div className="flex items-start gap-4 mt-6">
-        {/* Filter sidebar (owns its own toggle button) */}
+      {/* Main Container: Sidebar + Product Grid */}
+      <div className="flex items-start gap-4 mt-6 relative">
         <FilterSidebar
           filters={filters}
           setFilters={setFilters}
           onClearFilters={clearFilters}
           isSidebarOpen={isSidebarOpen}
-          onToggleSidebar={() => setIsSidebarOpen((v) => !v)}
+          onToggleSidebar={handleToggleSidebar}
         />
 
-        {/* Product content — grows to fill remaining space */}
-        <div className="flex-1 min-w-0">
+        {/* Main Content Area */}
+        <div className="flex-1 min-w-0 space-y-6">
           <BestSellers onAddToCart={handleAddToCart} />
 
-          <div className="space-y-4 mt-4">
-            {groupedCategories.map((cat) => (
+          {groupedCategories.length > 0 ? (
+            groupedCategories.map((cat) => (
               <CategorySection
                 key={cat.id}
                 category={cat}
                 products={categoryFilteredProducts[cat.id] || []}
                 onAddToCart={handleAddToCart}
               />
-            ))}
-          </div>
+            ))
+          ) : (
+            <div className="text-center py-10 text-slate-500">
+              No product categories found.
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -455,7 +455,7 @@ console.log('verifyAdvCod',verifyAdvCod)
               >
                 {!codAvailable
                   ? " COD not available for this pincode"
-                  : "A non‑refundable COD charge of Rs.75 is required."}
+                  : "A non‑refundable COD charge of USD.75 is required."}
               </p>
               </div>
             </label>
@@ -474,13 +474,13 @@ console.log('verifyAdvCod',verifyAdvCod)
                 title="Processing fee added for manual cash courier collections."
               />
             </span>
-            <span>+ ₹{codCharge}</span>
+            <span>+ ${codCharge}</span>
           </div>
         )} */}
           <div className="flex justify-between items-center text-sm font-bold text-gray-900 pt-0.5 px-4 ">
             <span>Payable Amount:</span>
             <span className="text-amber-500 text-base tracking-wide">
-              ₹
+              $
               {finalPayableAmount.toLocaleString("en-IN", {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,

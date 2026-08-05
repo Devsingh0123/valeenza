@@ -416,10 +416,10 @@ const generateInvoiceBase64 = async (element) => {
                         {item.quantity}
                       </td>
                       <td className="text-right text-gray-600">
-                        ₹{parseFloat(item.price).toLocaleString()}
+                        ${parseFloat(item.price).toLocaleString()}
                       </td>
                       <td className="text-right font-medium text-gray-800">
-                        ₹
+                        $
                         {(
                           parseFloat(item.total) || item.price * item.quantity
                         ).toLocaleString()}
@@ -430,7 +430,7 @@ const generateInvoiceBase64 = async (element) => {
                 <tfoot className="border-t border-gray-200">
                   {/* <tr className="text-gray-600">
                     <td colSpan="3" className="pt-3 text-right">subtotal:</td>
-                    <td className="pt-3 text-right font-medium">₹{parseFloat(subtotal).toLocaleString()}</td>
+                    <td className="pt-3 text-right font-medium">${parseFloat(subtotal).toLocaleString()}</td>
                   </tr> */}
                   {/* cod payment charge */}
                   {order.payment.mode === "cod" && (
@@ -439,7 +439,7 @@ const generateInvoiceBase64 = async (element) => {
                         COD Charge:
                       </td>
                       <td className="pt-1 text-right">
-                        ₹{COD_SURCHARGE.toLocaleString()}
+                        ${COD_SURCHARGE.toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -449,7 +449,7 @@ const generateInvoiceBase64 = async (element) => {
                         Shipping Charge:
                       </td>
                       <td className="pt-1 text-right">
-                        ₹{parseFloat(deliveryCharge).toLocaleString()}
+                        ${parseFloat(deliveryCharge).toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -460,7 +460,7 @@ const generateInvoiceBase64 = async (element) => {
                         Discount:
                       </td>
                       <td className="pt-1 text-right">
-                        -₹{parseFloat(discount).toLocaleString()}
+                        -${parseFloat(discount).toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -470,7 +470,7 @@ const generateInvoiceBase64 = async (element) => {
                         Convenience Charge:
                       </td>
                       <td className="pt-1 text-right">
-                        -₹{parseFloat(advancePaid).toLocaleString()}
+                        -${parseFloat(advancePaid).toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -481,7 +481,7 @@ const generateInvoiceBase64 = async (element) => {
                         Wallet Used:
                       </td>
                       <td className="pt-1 text-right">
-                        -₹{parseFloat(walletUsed).toLocaleString()}
+                        -${parseFloat(walletUsed).toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -494,7 +494,7 @@ const generateInvoiceBase64 = async (element) => {
                         Total:
                       </td>
                       <td className="pt-2 text-right font-bold text-gray-800 text-lg">
-                        ₹{parseFloat(remainingCod).toLocaleString()}
+                        ${parseFloat(remainingCod).toLocaleString()}
                       </td>
                     </tr>
                   )}
@@ -507,7 +507,7 @@ const generateInvoiceBase64 = async (element) => {
                         Total:
                       </td>
                       <td className="pt-2 text-right font-bold text-gray-800 text-lg">
-                        ₹{parseFloat(totalPaid).toLocaleString()}
+                        ${parseFloat(totalPaid).toLocaleString()}
                       </td>
                     </tr>
                   )} */}
@@ -520,7 +520,7 @@ const generateInvoiceBase64 = async (element) => {
                       Total:
                     </td>
                     <td className="pt-2 text-right font-bold text-gray-800 text-sm">
-                      ₹{parseFloat(totalPaid).toLocaleString()}
+                      ${parseFloat(totalPaid).toLocaleString()}
                     </td>
                   </tr>
                 </tfoot>

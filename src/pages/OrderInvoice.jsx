@@ -210,9 +210,9 @@ const getCodTaxSplit = () => {
           <p className="mt-1">HSN: {hsnCode || 'N/A'}</p>
           </div>
         </td>
-        <td className="border-r border-black p-1 align-middle text-center">₹{price.toFixed(2)}</td>
+        <td className="border-r border-black p-1 align-middle text-center">${price.toFixed(2)}</td>
         <td className="border-r border-black p-1 align-middle text-center">{qty}</td>
-        <td className="border-r border-black p-1 align-middle text-center">₹{net.toFixed(2)}</td>
+        <td className="border-r border-black p-1 align-middle text-center">${net.toFixed(2)}</td>
 
         {/* Tax Rate column - stacked for CGST/SGST */}
         <td className="border-r border-black p-1 align-middle text-center">
@@ -242,15 +242,15 @@ const getCodTaxSplit = () => {
         <td className="border-r border-black p-1 align-middle text-center">
           {isItemCgstSgst ? (
             <>
-              <div>₹{displayGstAmount.toFixed(2)}</div>
-              <div>₹{displayGstAmount.toFixed(2)}</div>
+              <div>${displayGstAmount.toFixed(2)}</div>
+              <div>${displayGstAmount.toFixed(2)}</div>
             </>
           ) : (
-            <div>₹{displayGstAmount.toFixed(2)}</div>
+            <div>${displayGstAmount.toFixed(2)}</div>
           )}
         </td>
 
-        <td className="p-1 align-middle text-center">₹{net.toFixed(2)}</td>
+        <td className="p-1 align-middle text-center">${net.toFixed(2)}</td>
       </tr>
     );
   });
@@ -270,9 +270,9 @@ const getCodTaxSplit = () => {
         <td className="border-r border-b border-black p-2 align-middle text-left pl-6">
           <p>Shipping Charge</p>
         </td>
-        <td className="border-r border-b border-black p-1 align-middle text-center">₹{deliveryCharge.toFixed(2)}</td>
+        <td className="border-r border-b border-black p-1 align-middle text-center">${deliveryCharge.toFixed(2)}</td>
         <td className="border-r border-b border-black p-1 align-middle text-center">1</td>
-        <td className="border-r border-b border-black p-1 align-middle text-center">₹{shippingNet.toFixed(2)}</td>
+        <td className="border-r border-b border-black p-1 align-middle text-center">${shippingNet.toFixed(2)}</td>
 
         {/* Tax Rate column - stacked for CGST/SGST */}
         <td className="border-r border-b border-black p-1 align-middle text-center">
@@ -302,15 +302,15 @@ const getCodTaxSplit = () => {
         <td className="border-r border-b border-black p-1 align-middle text-center">
           {isCgstSgst ? (
             <>
-              <div>₹{taxSplit.cgst.toFixed(2)}</div>
-              <div>₹{taxSplit.sgst.toFixed(2)}</div>
+              <div>${taxSplit.cgst.toFixed(2)}</div>
+              <div>${taxSplit.sgst.toFixed(2)}</div>
             </>
           ) : (
-            <div>₹{taxSplit.igst.toFixed(2)}</div>
+            <div>${taxSplit.igst.toFixed(2)}</div>
           )}
         </td>
 
-        <td className="p-1 border-b border-black align-middle text-center">₹{shippingTotal.toFixed(2)}</td>
+        <td className="p-1 border-b border-black align-middle text-center">${shippingTotal.toFixed(2)}</td>
       </tr>
     );
   }
@@ -338,13 +338,13 @@ if (isCod && COD_SURCHARGE > 0) {
       </td>
 
       {/* Unit Price */}
-      <td className="border-r border-black p-1 align-middle text-center">₹{codNet.toFixed(2)}</td>
+      <td className="border-r border-black p-1 align-middle text-center">${codNet.toFixed(2)}</td>
 
       {/* Qty */}
       <td className="border-r border-black p-1 align-middle text-center">1</td>
 
       {/* Net Amount */}
-      <td className="border-r border-black p-1 align-middle text-center">₹{codNet.toFixed(2)}</td>
+      <td className="border-r border-black p-1 align-middle text-center">${codNet.toFixed(2)}</td>
 
       {/* Tax Rate - stacked for CGST/SGST */}
       <td className="border-r border-black p-1 align-middle text-center">
@@ -374,16 +374,16 @@ if (isCod && COD_SURCHARGE > 0) {
       <td className="border-r border-black p-1 align-middle text-center">
         {isCgstSgst ? (
           <>
-            <div>₹{taxSplit.cgst.toFixed(2)}</div>
-            <div>₹{taxSplit.sgst.toFixed(2)}</div>
+            <div>${taxSplit.cgst.toFixed(2)}</div>
+            <div>${taxSplit.sgst.toFixed(2)}</div>
           </>
         ) : (
-          <div>₹{taxSplit.igst.toFixed(2)}</div>
+          <div>${taxSplit.igst.toFixed(2)}</div>
         )}
       </td>
 
       {/* Total Amount */}
-      <td className="p-1 align-middle text-center">₹{codTotal.toFixed(2)}</td>
+      <td className="p-1 align-middle text-center">${codTotal.toFixed(2)}</td>
     </tr>
   );
 }
@@ -497,7 +497,7 @@ if (isCod && COD_SURCHARGE > 0) {
               {/* <tr className="border-b border-black">
                 <td colSpan="5" className="border-r border-black p-1 text-left font-semibold">Subtotal:</td>
                 <td colSpan="3" className="border-r border-black p-1 text-center">–</td>
-                <td className="p-1 text-center">₹{subtotal.toFixed(2)}</td>
+                <td className="p-1 text-center">${subtotal.toFixed(2)}</td>
               </tr> */}
 
 
@@ -506,7 +506,7 @@ if (isCod && COD_SURCHARGE > 0) {
                 <tr className="border-b border-black ">
                   <td colSpan="5" className="border-r border-black p-1 text-left font-semibold">Convenience Charge:</td>
                   <td colSpan="3" className="border-r border-black p-1 text-center ">–</td>
-                  <td className="p-1 text-center">-₹{advancePaid.toFixed(2)}</td>
+                  <td className="p-1 text-center">-${advancePaid.toFixed(2)}</td>
                 </tr>
               )}
               {/* Discount row - sirf tab dikhe jab discount > 0 */}
@@ -514,7 +514,7 @@ if (isCod && COD_SURCHARGE > 0) {
                 <tr className="border-b border-black ">
                   <td colSpan="5" className="border-r border-black p-1 text-left font-semibold">Discount:</td>
                   <td colSpan="3" className="border-r border-black p-1 text-center ">–</td>
-                  <td className="p-1 text-center">-₹{discount.toFixed(2)}</td>
+                  <td className="p-1 text-center">-${discount.toFixed(2)}</td>
                 </tr>
               )}
               
@@ -523,7 +523,7 @@ if (isCod && COD_SURCHARGE > 0) {
              {/* Original TOTAL row */}
               <tr className="border-b border-black font-bold">
                 <td colSpan="8" className="border-r border-black p-1 text-left">TOTAL:</td>
-                <td className="p-1 text-center">₹{grandTotal.toFixed(2)}</td>
+                <td className="p-1 text-center">${grandTotal.toFixed(2)}</td>
               </tr>
 
               {/* Baki sab rows (Amount in Words, signature, etc.) wahi rahega */}

@@ -491,7 +491,7 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "In the event that applicable law does not permit the limitation of liability as set forth above, the maximum aggregate liability of Veltex to the Member for all claims arising out of or relating to this Agreement or the Platform shall not exceed the total amount paid by the Member to Veltex in the twelve (12) months preceding the event giving rise to the claim, or Rs. 500 (Indian Rupees Five Hundred), whichever is higher."
+          text: "In the event that applicable law does not permit the limitation of liability as set forth above, the maximum aggregate liability of Veltex to the Member for all claims arising out of or relating to this Agreement or the Platform shall not exceed the total amount paid by the Member to Veltex in the twelve (12) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
         },
         {
           type: "paragraph",

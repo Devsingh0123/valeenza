@@ -154,7 +154,7 @@ useEffect(() => {
 
               {appliedCoupon && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Coupon</span>}
             </div>
-            <span className="text-xs font-bold text-amber-600">₹{displayTotal.toLocaleString()}</span>
+            <span className="text-xs font-bold text-amber-600">${displayTotal.toLocaleString()}</span>
 
           </button>
 
@@ -167,7 +167,7 @@ useEffect(() => {
                     <p className="font-sm text-sm text-gray-800">{item.name}</p>
                     <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
                     {item.ratti && <p className="text-xs text-gray-500">Ratti: {item.ratti}</p>}
-                    <p className="text-xs text-gray-500 ">Price: ₹{item.price}</p>
+                    <p className="text-xs text-gray-500 ">Price: ${item.price}</p>
 
                   </div>
 
@@ -176,29 +176,29 @@ useEffect(() => {
               <div className="border-t pt-3 space-y-1.5 text-sm">
                 <div className="flex justify-between text-gray-600">
                   <span>Subtotal</span>
-                  <span>₹{subtotal.toLocaleString()}</span>
+                  <span>${subtotal.toLocaleString()}</span>
                 </div>
                 {shipping !== null && (
                   <div className="flex justify-between text-gray-600">
                     <span>Shipping</span>
-                    <span>{shipping === 0 ? 'FREE' : `₹${shipping}`}</span>
+                    <span>{shipping === 0 ? 'FREE' : `$${shipping}`}</span>
                   </div>
                 )}
                 {appliedCoupon && (
                   <div className="flex justify-between text-green-600">
                     <span>Coupon ({appliedCoupon.code})</span>
-                    <span>-₹{couponDiscount.toLocaleString()}</span>
+                    <span>-${couponDiscount.toLocaleString()}</span>
                   </div>
                 )}
                 {selectedPaymentMethod === 'cod' && (
                   <div className="flex justify-between text-amber-600 text-sm">
                     <span>COD charge</span>
-                    <span>{isCodLoading ? '...' : `₹${codCharge}`}</span>
+                    <span>{isCodLoading ? '...' : `$${codCharge}`}</span>
                   </div>
                 )}
                 <div className="flex justify-between font-bold text-gray-800 pt-2 border-t">
                   <span>Total</span>
-                  <span>₹{displayTotal.toLocaleString()}</span>
+                  <span>${displayTotal.toLocaleString()}</span>
                 </div>
               </div>
             </div>

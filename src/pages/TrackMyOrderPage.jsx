@@ -335,7 +335,7 @@ const TrackMyOrderPage = () => {
                 Payment: <span className="font-semibold text-gray-700 uppercase">{order.payment?.mode || order.payment?.method || 'Online'}</span>
               </div>
               <div>
-                Total: <span className="font-bold text-gray-900">₹{parseFloat(order.pricing?.total_amount || order.total || 0).toFixed(2)}</span>
+                Total: <span className="font-bold text-gray-900">${parseFloat(order.pricing?.total_amount || order.total || 0).toFixed(2)}</span>
               </div>
             </div>
 

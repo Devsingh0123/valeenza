@@ -128,7 +128,7 @@ export const disclaimerData = {
         },
         {
           type: "paragraph",
-          text: "Where applicable law does not permit the complete exclusion of liability, Veltex's total aggregate liability to any User in respect of all claims arising from the use of the Platform shall not exceed the amount paid by that User to Veltex in the three (3) months preceding the event giving rise to the claim, or Rs. 500 (Indian Rupees Five Hundred), whichever is higher."
+          text: "Where applicable law does not permit the complete exclusion of liability, Veltex's total aggregate liability to any User in respect of all claims arising from the use of the Platform shall not exceed the amount paid by that User to Veltex in the three (3) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
         }
       ]
     },

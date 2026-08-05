@@ -96,7 +96,7 @@ const WalletPage = () => {
         amount: amountInPaise,
         currency: currency,
         name: 'AstroTring',
-        description: `Add ₹${numAmount} to wallet`,
+        description: `Add $${numAmount} to wallet`,
         order_id: order_id,
         handler: async (response) => {
           try {
@@ -108,7 +108,7 @@ const WalletPage = () => {
               },
               amount: numAmount,
             })).unwrap();
-            toast.success(`₹${numAmount} added to wallet successfully!`);
+            toast.success(`$${numAmount} added to wallet successfully!`);
             setAmount('');
             // Refresh all wallet data
             dispatch(fetchWallet());
@@ -202,7 +202,7 @@ const WalletPage = () => {
                 <div className="text-center mb-8">
                   <p className="text-sm text-gray-500">Available Balance</p>
                   <p className="text-4xl font-bold text-amber-600">
-                    ₹{formatBalance(balance)}
+                    ${formatBalance(balance)}
                   </p>
                 </div>
                 <div className="border-t pt-6">
@@ -247,7 +247,7 @@ const WalletPage = () => {
                           </p>
                         </div>
                         <div className={`font-semibold ${tx.type === "credit" ? 'text-green-600' : 'text-red-600'}`}>
-                          {tx.type === "credit" ? `+₹${formatBalance(tx.amount)}` : `-₹${formatBalance(Math.abs(tx.amount))}`}
+                          {tx.type === "credit" ? `+$${formatBalance(tx.amount)}` : `-$${formatBalance(Math.abs(tx.amount))}`}
                         </div>
                       </div>
                     ))}
@@ -273,7 +273,7 @@ const WalletPage = () => {
                           </p>
                         </div>
                         <div className="font-semibold text-red-600">
-                          -₹{formatBalance(tx.amount)}
+                          -${formatBalance(tx.amount)}
                         </div>
                       </div>
                     ))}
@@ -290,25 +290,25 @@ const WalletPage = () => {
                   <div className="flex justify-between border-b pb-2">
                     <span className="text-gray-600">Total Credits</span>
                     <span className="font-semibold text-green-600">
-                      ₹{formatBalance(summary.total_added || 0)}
+                      ${formatBalance(summary.total_added || 0)}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-2">
                     <span className="text-gray-600">Total Refunds</span>
                     <span className="font-semibold text-red-600">
-                      ₹{formatBalance(summary.total_refunded || 0)}
+                      ${formatBalance(summary.total_refunded || 0)}
                     </span>
                   </div>
                   <div className="flex justify-between border-b pb-2">
                     <span className="text-gray-600">Total Spent</span>
                     <span className="font-semibold text-red-600">
-                      ₹{formatBalance(summary.total_spent || 0)}
+                      ${formatBalance(summary.total_spent || 0)}
                     </span>
                   </div>
                   <div className="flex justify-between pt-2">
                     <span className="font-semibold text-gray-800">Net Balance</span>
                     <span className="font-bold text-amber-600 text-lg">
-                      ₹{formatBalance(balance)}
+                      ${formatBalance(balance)}
                     </span>
                   </div>
                 </div>

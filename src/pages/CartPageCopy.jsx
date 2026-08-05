@@ -138,7 +138,7 @@ const CartPage = () => {
       const minAmount = parseFloat(coupon.min_amount);
       if (subtotal < minAmount) {
         toast.error(
-          `Minimum order amount ₹${minAmount.toLocaleString()} required`,
+          `Minimum order amount $${minAmount.toLocaleString()} required`,
         );
         setCouponStatus("error");
         dispatch(clearAppliedCoupon());
@@ -299,7 +299,7 @@ const CartPage = () => {
                         )}
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-base font-bold text-stone-900">
-                            ₹{total.toLocaleString()}
+                            ${total.toLocaleString()}
                           </span>
                         </div>
                         <div className="flex items-center justify-between">
@@ -360,7 +360,7 @@ const CartPage = () => {
                         <p className="text-xs text-stone-600 mb-2">
                           Add{" "}
                           <strong>
-                            ₹{freeShippingRemaining.toLocaleString()}
+                            ${freeShippingRemaining.toLocaleString()}
                           </strong>{" "}
                           more for free shipping
                         </p>
@@ -457,23 +457,23 @@ const CartPage = () => {
                         {cartItems.reduce((s, i) => s + i.quantity, 0)} items)
                       </span>
                       <span className="font-semibold text-stone-900">
-                        ₹{subtotal.toLocaleString()}
+                        ${subtotal.toLocaleString()}
                       </span>
                     </div>
                     {productSavings > 0 && (
                       <div className="flex justify-between text-sm text-green-600 font-semibold">
                         <span>Product Discount</span>
-                        <span>-₹{productSavings.toLocaleString()}</span>
+                        <span>-${productSavings.toLocaleString()}</span>
                       </div>
                     )}
                     {/* <div className={`flex justify-between text-sm ${shippingFee === 0 ? 'text-green-600 font-semibold' : 'text-stone-600'}`}>
                       <span>Shipping</span>
-                      <span>{shippingFee === 0 ? 'FREE' : `₹${shippingFee}`}</span>
+                      <span>{shippingFee === 0 ? 'FREE' : `$${shippingFee}`}</span>
                     </div> */}
                     {appliedCoupon && (
                       <div className="flex justify-between text-sm text-green-600 font-semibold">
                         <span>Coupon ({appliedCoupon.code})</span>
-                        <span>-₹{couponDiscount.toLocaleString()}</span>
+                        <span>-${couponDiscount.toLocaleString()}</span>
                       </div>
                     )}
                     <div className="h-px bg-stone-200 my-2" />
@@ -482,13 +482,13 @@ const CartPage = () => {
                         Total
                       </span>
                       <span className="text-xl font-bold text-stone-900">
-                        ₹{grandTotal.toLocaleString()}
+                        ${grandTotal.toLocaleString()}
                       </span>
                     </div>
                     {totalSavings > 0 && (
                       <div className="flex items-center gap-1 bg-amber-50 text-amber-700 font-semibold rounded px-3 py-2 text-xs">
                         <Sparkles size={15} className="text-amber-600" /> You're
-                        saving ₹{totalSavings.toLocaleString()} on this order!
+                        saving ${totalSavings.toLocaleString()} on this order!
                       </div>
                     )}
                     {/* The checkout button - now opens the simple popup */}

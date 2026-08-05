@@ -11,37 +11,54 @@ import {
   Heart,
   MapPin,
   LogOut,
-  ChevronDown,
   Search,
   Menu,
   X,
+  Loader2,
 } from "lucide-react";
+
 import logo from "../../assets/logo.png";
 import { logout, userLogout } from "../../redux/slices/userAuthSlice";
 import { openCartDrawer, openLoginModal } from "../../redux/slices/uiSlice";
 import { fetchAllProductCategories } from "../../redux/slices/productSlice";
 import { toast } from "react-toastify";
 import { fetchCart } from "@/redux/slices/cartSlice";
+import { searchProducts, clearSearch } from "../../redux/slices/searchSlice";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const location = useLocation();
-  const searchInputRef = useRef(null);
 
+  const { results = [], loading } = useSelector((state) => state.search);
   const { user, isLoggedIn } = useSelector((state) => state.userAuth);
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector((state) => state.cart.items || []);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const { productCategories } = useSelector((state) => state.product);
+  const { productCategories = [] } = useSelector((state) => state.product);
 
-  // ── Effects ──────────────────────────────────────────────────────────
+  // ── Debounce Search Effect ──────────────────────────────────────────
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const q = searchQuery.trim();
+      if (q.length >= 2) {
+        dispatch(searchProducts(q));
+        setShowSuggestions(true);
+      } else {
+        dispatch(clearSearch());
+        setShowSuggestions(false);
+      }
+    }, 300);
 
+    return () => clearTimeout(timer);
+  }, [searchQuery, dispatch]);
+
+  // Initial Data Fetching
   useEffect(() => {
     dispatch(fetchCart());
   }, [dispatch, isLoggedIn]);
@@ -50,73 +67,74 @@ const Navbar = () => {
     if (productCategories.length === 0) dispatch(fetchAllProductCategories());
   }, [dispatch, productCategories.length]);
 
+  // Sticky Navbar Scroll Listener
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close user dropdown on outside click
+  // Close menus on outside click
   useEffect(() => {
     const handler = (e) => {
       if (!e.target.closest(".user-menu")) setDropdownOpen(false);
-    };
-    document.addEventListener("click", handler);
-    return () => document.removeEventListener("click", handler);
-  }, []);
-
-  // Close search on outside click
-  useEffect(() => {
-    if (!searchOpen) return;
-    const handler = (e) => {
-      if (!e.target.closest(".search-zone")) setSearchOpen(false);
+      if (!e.target.closest(".search-zone")) setShowSuggestions(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [searchOpen]);
+  }, []);
 
-  // Sync search query with URL
+  // Sync search query with URL (Optional)
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    setSearchQuery(params.get("search") ?? "");
+    if (!params.get("search")) {
+      setSearchQuery("");
+    }
   }, [location.search]);
 
-  // Lock body scroll when drawer is open
+  // Lock body scroll when mobile drawer is open
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [mobileMenuOpen]);
 
   // ── Handlers ─────────────────────────────────────────────────────────
+  const handleSelectProduct = (productId) => {
+    setShowSuggestions(false);
+    setSearchQuery("");
+    dispatch(clearSearch());
+    navigate(`/product/${productId}`);
+  };
 
-  const handleSearch = (e) => {
+  const handleSearchSubmit = (e) => {
     e.preventDefault();
     const q = searchQuery.trim();
-    navigate(q ? `/?search=${encodeURIComponent(q)}` : "/");
-    setSearchOpen(false);
+    if (q) {
+      setShowSuggestions(false);
+      navigate(`/?search=${encodeURIComponent(q)}`);
+    }
   };
 
   const handleLogout = async () => {
     setDropdownOpen(false);
     try {
       await dispatch(userLogout()).unwrap();
-      toast.success("Logged out!!");
+      toast.success("Logged out successfully!");
     } catch {
       dispatch(logout());
-      toast.error("Logged out!!");
+      toast.error("Logged out!");
     }
     navigate("/");
   };
 
-  // ── Style tokens ──────────────────────────────────────────────────────
-
+  // ── Helper Style Classes ────────────────────────────────────────────
   const iconBtn =
     "relative flex items-center justify-center w-10 h-10 rounded-full text-slate-700 hover:bg-slate-100 transition-colors duration-200";
 
   const menuLink =
     "flex items-center gap-3 px-4 py-2.5 text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors";
-
-  // ── JSX ───────────────────────────────────────────────────────────────
 
   return (
     <nav
@@ -124,12 +142,10 @@ const Navbar = () => {
         scrolled ? "shadow-md border-b border-slate-200" : "border-b border-slate-100"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* ── Main bar ── */}
-        <div className="flex items-center h-16 lg:h-[68px] gap-3">
-
-          {/* Hamburger (mobile only) */}
+      <div className=" mx-auto px-2">
+        <div className="flex items-center h-16 lg:h-[68px] gap-4">
+          
+          {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
             className={`${iconBtn} lg:hidden`}
@@ -143,47 +159,88 @@ const Navbar = () => {
             <img src={logo} alt="Valeenza" className="h-8 lg:h-9 w-auto" />
           </Link>
 
-      
+          {/* ── Search Bar Section (Desktop & Mobile Responsive) ── */}
+          <div className="search-zone flex-1 max-w-md mx-auto relative hidden sm:block">
+            <form onSubmit={handleSearchSubmit} className="relative">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onFocus={() => searchQuery.trim().length >= 2 && setShowSuggestions(true)}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm outline-none focus:bg-white focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition-all"
+              />
+              <Search
+                size={18}
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+              />
+              {loading && (
+                <Loader2
+                  size={16}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-sky-500 animate-spin"
+                />
+              )}
+            </form>
 
-          {/* Spacer */}
-          <div className="flex-1" />
-
-          {/* Desktop search — icon toggle with animated input */}
-          <div className="hidden lg:flex items-center search-zone">
+            {/* Live Search Suggestions Dropdown */}
             <AnimatePresence>
-              {searchOpen && (
-                <motion.form
-                  key="search-form"
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 260, opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  transition={{ duration: 0.22, ease: "easeInOut" }}
-                  onSubmit={handleSearch}
-                  className="overflow-hidden mr-2"
+              {showSuggestions && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                  transition={{ duration: 0.18, ease: "easeOut" }}
+                  className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden z-50 max-h-80 overflow-y-auto"
                 >
-                  <input
-                    ref={searchInputRef}
-                    autoFocus
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 py-2 rounded-full border border-slate-200 bg-slate-50 text-sm outline-none focus:bg-white focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all"
-                  />
-                </motion.form>
+                  {loading ? (
+                    <div className="p-4 text-center text-sm text-slate-500 flex items-center justify-center gap-2">
+                      <Loader2 size={16} className="animate-spin text-sky-600" /> Searching...
+                    </div>
+                  ) : results.length > 0 ? (
+                    <div className="py-2 divide-y divide-slate-50">
+                      {results.map((item) => (
+                        <div
+                          key={item.id || item._id}
+                          onClick={() => handleSelectProduct(item.id || item._id)}
+                          className="flex items-center gap-3 px-4 py-2.5 hover:bg-slate-50 cursor-pointer transition-colors"
+                        >
+                          {item.image || item.images?.[0] ? (
+                            <img
+                              src={item.image || item.images[0]}
+                              alt={item.name}
+                              className="w-10 h-10 object-cover rounded-lg border border-slate-100 shrink-0"
+                            />
+                          ) : (
+                            <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center shrink-0">
+                              <Search size={16} className="text-slate-400" />
+                            </div>
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-slate-800 truncate">
+                              {item.name}
+                            </p>
+                            {item.price && (
+                              <p className="text-xs font-semibold text-sky-600">
+                                ₹{item.price}
+                              </p>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="p-4 text-center text-sm text-slate-500">
+                      No products found
+                    </div>
+                  )}
+                </motion.div>
               )}
             </AnimatePresence>
-
-            <button
-              onClick={() => setSearchOpen((v) => !v)}
-              className={iconBtn}
-              aria-label="Search"
-            >
-              <Search size={20} />
-            </button>
           </div>
 
-          {/* Cart */}
+          <div className="flex-1 sm:flex-none" />
+
+          {/* Cart Button */}
           <button
             onClick={() => dispatch(openCartDrawer())}
             className={iconBtn}
@@ -197,14 +254,13 @@ const Navbar = () => {
             )}
           </button>
 
-          {/* Account */}
+          {/* User Profile / Auth */}
           {isLoggedIn ? (
             <div className="relative user-menu">
               <button
                 onClick={() => setDropdownOpen((v) => !v)}
                 className="flex items-center gap-1.5 p-1 rounded-full hover:bg-slate-100 transition-colors focus:outline-none cursor-pointer"
                 aria-label="Account menu"
-                aria-expanded={dropdownOpen}
               >
                 {user?.profile_image ? (
                   <img
@@ -217,7 +273,6 @@ const Navbar = () => {
                     {user?.name?.charAt(0).toUpperCase()}
                   </div>
                 )}
-               
               </button>
 
               <AnimatePresence>
@@ -287,29 +342,59 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* ── Mobile search bar (always visible below top bar) ── */}
-        <div className="lg:hidden pb-3">
-          <form onSubmit={handleSearch} className="relative">
+        {/* ── Mobile Search Bar (Only for smaller screens) ── */}
+        <div className="sm:hidden pb-3 search-zone relative">
+          <form onSubmit={handleSearchSubmit} className="relative">
             <input
               type="text"
               placeholder="Search products..."
               value={searchQuery}
+              onFocus={() => searchQuery.trim().length >= 2 && setShowSuggestions(true)}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-100 rounded-xl text-sm outline-none focus:bg-white focus:ring-2 focus:ring-sky-100 border border-transparent focus:border-sky-300 transition-all duration-200"
+              className="w-full pl-10 pr-4 py-2 bg-slate-100 rounded-full text-sm outline-none focus:bg-white focus:ring-2 focus:ring-sky-100 border border-transparent focus:border-sky-300 transition-all"
             />
             <Search
               size={17}
               className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
             />
           </form>
+
+          {/* Mobile Search Suggestions Dropdown */}
+          <AnimatePresence>
+            {showSuggestions && (
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-200 overflow-hidden z-50 max-h-64 overflow-y-auto"
+              >
+                {loading ? (
+                  <div className="p-3 text-center text-xs text-slate-500">Searching...</div>
+                ) : results.length > 0 ? (
+                  results.map((item) => (
+                    <div
+                      key={item.id || item._id}
+                      onClick={() => handleSelectProduct(item.id || item._id)}
+                      className="px-4 py-2.5 hover:bg-slate-100 cursor-pointer text-sm text-slate-700 border-b border-slate-50 last:border-none"
+                    >
+                      {item.name}
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-3 text-center text-xs text-slate-500">
+                    No Results Found
+                  </div>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
-      {/* ── Mobile drawer ── */}
+      {/* ── Mobile Sidebar Drawer ── */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
-            {/* Overlay */}
             <motion.div
               key="overlay"
               initial={{ opacity: 0 }}
@@ -320,7 +405,6 @@ const Navbar = () => {
               onClick={() => setMobileMenuOpen(false)}
             />
 
-            {/* Drawer panel */}
             <motion.div
               key="drawer"
               initial={{ x: "-100%" }}
@@ -329,7 +413,6 @@ const Navbar = () => {
               transition={{ duration: 0.25, ease: "easeInOut" }}
               className="fixed top-0 left-0 z-50 h-screen w-[82%] max-w-xs bg-white shadow-2xl flex flex-col lg:hidden"
             >
-              {/* Drawer header */}
               <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100">
                 <img src={logo} alt="Valeenza" className="h-7 w-auto" />
                 <button
@@ -341,16 +424,14 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {/* Drawer body */}
               <div className="flex-1 overflow-y-auto px-4 py-5">
                 <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider px-2 mb-3">
                   Categories
                 </p>
                 <div className="space-y-0.5">
-                 
                   {productCategories.map((cat) => (
                     <Link
-                      key={cat.id}
+                      key={cat.id || cat._id}
                       to={`/category/${cat.slug}`}
                       onClick={() => setMobileMenuOpen(false)}
                       className="block px-3 py-2.5 text-sm text-slate-600 hover:bg-slate-50 hover:text-sky-600 rounded-lg transition-colors"

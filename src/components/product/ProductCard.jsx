@@ -151,16 +151,16 @@ const ProductCard = ({ product, addToCart, compact = false }) => {
           </svg>
           <span className="text-sm font-semibold">Best price</span>
           <span className="font-semibold text-md">
-            ₹{afterPrice.toLocaleString()}
+            ${afterPrice.toLocaleString()}
           </span>
         </div>
 
         <div className="mt-auto flex items-end justify-between">
           <div className="flex gap-1 items-center">
-            <div className={priceClass}>₹{afterPrice.toLocaleString()}</div>
+            <div className={priceClass}>${afterPrice.toLocaleString()}</div>
             {beforePrice > afterPrice && (
               <div className={oldPriceClass}>
-                ₹{beforePrice.toLocaleString()}
+                ${beforePrice.toLocaleString()}
               </div>
             )}
           </div>

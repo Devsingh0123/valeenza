@@ -49,11 +49,11 @@ const YouMayAlsoLikeCard = ({ product }) => {
         </h3>
         <div className="mt-1 flex items-center gap-1 flex-wrap">
           <span className="text-amber-600 font-bold text-sm">
-            ₹{afterPrice.toLocaleString()}
+            ${afterPrice.toLocaleString()}
           </span>
           {beforePrice > afterPrice && (
             <span className="text-xs text-gray-400 line-through">
-              ₹{beforePrice.toLocaleString()}
+              ${beforePrice.toLocaleString()}
             </span>
           )}
         </div>

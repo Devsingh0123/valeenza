@@ -83,7 +83,7 @@ const ProductAccordionSections = ({
           damaged, or incorrect products in unused condition with original
           packaging. Note: Natural variations in Rudraksha or gemstones are not
           defects. Non-returnable items include any used, altered, or
-          personalized items. Refunds incur ₹100 fee but also available through
+          personalized items. Refunds incur $100 fee but also available through
           store credit. Please get in touch with the "Customer Support" for any
           query/assistance.
         </p>

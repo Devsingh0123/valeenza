@@ -94,11 +94,11 @@ const ProductDetailsPage = () => {
     if (coupons.length > 0) {
       return coupons.map((coupon) => ({
         title: coupon.label,
-        description: `Min order ₹${parseFloat(coupon.min_amount).toLocaleString()}`,
+        description: `Min order $${parseFloat(coupon.min_amount).toLocaleString()}`,
         price:
           coupon.discount_type === "percentage"
             ? `${coupon.discount_value}% OFF`
-            : `₹${parseFloat(coupon.discount_value).toLocaleString()} OFF`,
+            : `$${parseFloat(coupon.discount_value).toLocaleString()} OFF`,
         code: coupon.code,
         type: "discount",
       }));
@@ -554,7 +554,7 @@ const ProductDetailsPage = () => {
                  <BadgePercent size={20} className="font-bold animate-spin"/>
                   <span className="text-lg font-semibold">Best price</span>
                   <span className="font-semibold text-xl">
-                    ₹{displayAfterPrice.toLocaleString()}
+                    ${displayAfterPrice.toLocaleString()}
                   </span>
                 </div>
                 <span className="text-lg text-gray-400">|</span>
@@ -567,11 +567,11 @@ const ProductDetailsPage = () => {
             {/* Pricing */}
             <div className="flex items-baseline gap-3 flex-wrap">
               <span className="text-3xl md:text-4xl font-bold text-gray-900">
-                ₹{displayAfterPrice.toLocaleString()}
+                ${displayAfterPrice.toLocaleString()}
               </span>
               {displayBeforePrice > displayAfterPrice && (
                 <span className="text-xl text-gray-400 line-through">
-                  ₹{displayBeforePrice.toLocaleString()}
+                  ${displayBeforePrice.toLocaleString()}
                 </span>
               )}
               {discountText && (
@@ -607,7 +607,7 @@ const ProductDetailsPage = () => {
                 </div>
                 {selectedRattiObj && (
                   <p className="text-xs text-gray-500 mt-2">
-                    Price: ₹{selectedRattiObj.ratti_afterPrice} (MRP: ₹
+                    Price: ${selectedRattiObj.ratti_afterPrice} (MRP: $
                     {selectedRattiObj.ratti_beforePrice}) for {selectedRatti}{" "}
                     Ratti
                   </p>
@@ -621,7 +621,7 @@ const ProductDetailsPage = () => {
                 <Truck className="w-5 h-5 text-gray-500" />
                 <div className="text-xs">
                   <p className="font-semibold">Free Shipping</p>
-                  <p className="text-gray-500">on ₹799+</p>
+                  <p className="text-gray-500">on $799+</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
@@ -889,11 +889,11 @@ const ProductDetailsPage = () => {
               </div>
               <div className="flex items-center md:gap-2">
                 <span className="text-amber-600 font-bold text-lg md:text-xl">
-                  ₹{displayAfterPrice.toLocaleString()}
+                  ${displayAfterPrice.toLocaleString()}
                 </span>
                 {displayBeforePrice > displayAfterPrice && (
                   <span className="text-gray-400 line-through text-sm">
-                    ₹{displayBeforePrice.toLocaleString()}
+                    ${displayBeforePrice.toLocaleString()}
                   </span>
                 )}
                 {discountText && (

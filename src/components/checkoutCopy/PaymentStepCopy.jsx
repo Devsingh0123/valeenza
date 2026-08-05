@@ -291,7 +291,7 @@ const PaymentStep = forwardRef(
             setUseWallet(e.target.checked);
             setWalletAmount(e.target.checked ? Math.min(walletBalance, grandTotal) : 0);
           }} className="w-4 h-4 text-amber-600" />
-          <span className="font-medium">Use Wallet (balance: ₹{walletBalance.toLocaleString()})</span>
+          <span className="font-medium">Use Wallet (balance: ${walletBalance.toLocaleString()})</span>
         </label>
         {useWallet && (
           <div className="mt-3 ml-6">
@@ -303,7 +303,7 @@ const PaymentStep = forwardRef(
               max={Math.min(walletBalance, grandTotal)}
               className="w-full px-3 py-2 border rounded-lg focus:ring-amber-500"
             />
-            <p className="text-xs text-gray-500 mt-1">Max: ₹{Math.min(walletBalance, grandTotal).toLocaleString()}</p>
+            <p className="text-xs text-gray-500 mt-1">Max: ${Math.min(walletBalance, grandTotal).toLocaleString()}</p>
           </div>
         )}
  */}
@@ -376,9 +376,9 @@ const PaymentStep = forwardRef(
                       Cash on Delivery is available only for select pin codes
                       and incurs a non‑refundable handling fee.
                     </li>
-                    <li>A non‑refundable COD charge of Rs.49 is required.</li>
+                    <li>A non‑refundable COD charge of USD.49 is required.</li>
                     {/* <li>
-                      A non‑refundable advance of Rs. 199 is required, which is
+                      A non‑refundable advance of USD. 199 is required, which is
                       adjusted against the final product price.
                     </li> */}
                   </ul>
@@ -387,11 +387,11 @@ const PaymentStep = forwardRef(
             </label>
             {selectedPaymentMethod === "cod" && (
               // <p className="text-xs text-gray-500 ml-6">
-              //   A non‑refundable advance of Rs. 199 is required, which is
+              //   A non‑refundable advance of USD. 199 is required, which is
               //   adjusted against the final product price.
               // </p>
               <p className="text-xs text-gray-500 ml-6">
-                A non‑refundable COD charge of Rs.49 is required.
+                A non‑refundable COD charge of USD.49 is required.
               </p>
             )}
           </div>

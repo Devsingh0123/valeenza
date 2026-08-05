@@ -195,12 +195,12 @@ const CartPage = () => {
                           </p>
                         )}
                         <span className="text-xs text-gray-600">
-                          ₹{price.toFixed(2)}
+                          ${price.toFixed(2)}
                         </span>
                       </div>
                       {/* Individual Item Total */}
                       <span className="text-sm font-medium text-gray-900 whitespace-nowrap">
-                        ₹{itemTotal.toLocaleString("en-IN")}
+                        ${itemTotal.toLocaleString("en-IN")}
                       </span>
                     </div>
 
@@ -251,7 +251,7 @@ const CartPage = () => {
               Estimated total
             </span>
             <span className="text-md font-semibold text-gray-900">
-              ₹{totalAmount.toLocaleString("en-IN")}
+              ${totalAmount.toLocaleString("en-IN")}
             </span>
           </div>
           <p className="text-xs text-gray-500 leading-normal mb-5">

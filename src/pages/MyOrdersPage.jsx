@@ -195,12 +195,12 @@ const MyOrdersPage = () => {
                             </p>
                           )}
                           <p className="text-sm text-gray-600">
-                            ₹{item.price} each
+                            ${item.price} each
                           </p>
                         </div>
                         <div className="text-right">
                           <p className="font-semibold text-gray-900">
-                            ₹{item.price * item.quantity}
+                            ${item.price * item.quantity}
                           </p>
                         </div>
                       </div>
@@ -230,34 +230,34 @@ const MyOrdersPage = () => {
                     {/* Price Summary - Right side */}
                     <div className="text-right">
                       {/* <p className="text-sm text-gray-500">
-                        Subtotal: ₹{subtotal.toLocaleString()}
+                        Subtotal: ${subtotal.toLocaleString()}
                       </p> */}
                       <p className="text-sm text-gray-500">
-                        Shipping: ₹{shipping.toLocaleString()}
+                        Shipping: ${shipping.toLocaleString()}
                       </p>
                       {isCod && codCharge > 0 && (
                         <p className="text-sm text-gray-500">
-                          COD Charge: ₹{codCharge.toLocaleString()}
+                          COD Charge: ${codCharge.toLocaleString()}
                         </p>
                       )}
                       {discount > 0 && (
                         <p className="text-sm text-green-600">
-                          Discount: -₹{discount.toLocaleString()}
+                          Discount: -${discount.toLocaleString()}
                         </p>
                       )}
                       {advancepaid > 0 && (
                         <p className="text-sm text-green-600">
-                          Advance Paid: -₹{advancepaid.toLocaleString()}
+                          Advance Paid: -${advancepaid.toLocaleString()}
                         </p>
                       )}
                       {remainingCod > 0 && <p className="text-lg font-bold text-gray-900 mt-1">
-                        Total: ₹{remainingCod.toLocaleString()}
+                        Total: ${remainingCod.toLocaleString()}
                       </p>}
                       {/* {!isCod && <p className="text-lg font-bold text-gray-900 mt-1">
-                        Total: ₹{total.toLocaleString()}
+                        Total: ${total.toLocaleString()}
                       </p>} */}
                       <p className="text-lg font-bold text-gray-900 mt-1">
-                        Total: ₹{total.toLocaleString()}
+                        Total: ${total.toLocaleString()}
                       </p>
                     </div>
                   </div>

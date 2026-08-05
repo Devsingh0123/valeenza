@@ -103,7 +103,7 @@ export const refundPolicyData = {
               body: [
                 {
                   type: "paragraph",
-                  text: "Where a Customer requests a refund to the original payment method (rather than Store Credit), a processing fee of Rs. 199 (Indian Rupees One Hundred) will be deducted from the refund amount. The net refund will be credited to the original payment instrument within seven (7) to ten (10) business days of approval of the return, subject to processing timelines of the relevant bank or payment gateway."
+                  text: "Where a Customer requests a refund to the original payment method (rather than Store Credit), a processing fee of USD. 199 (Indian Rupees One Hundred) will be deducted from the refund amount. The net refund will be credited to the original payment instrument within seven (7) to ten (10) business days of approval of the return, subject to processing timelines of the relevant bank or payment gateway."
                 }
               ]
             },
@@ -224,7 +224,7 @@ export const refundPolicyData = {
               type: "table",
               headers: ["Category", "Refund Type", "Conditions / Notes"],
               rows: [
-                ["Defective / Damaged Product", "Full Store Credit (or refund to original method less Rs. 199 fee)", "Within 7 days; original condition; evidence required"],
+                ["Defective / Damaged Product", "Full Store Credit (or refund to original method less USD. 199 fee)", "Within 7 days; original condition; evidence required"],
                 ["Incorrect Product Delivered", "Full Store Credit or Replacement", "Within 7 days; original condition; evidence required"],
                 ["Partial Return (multi-item order)", "Partial Store Credit for returned items only", "Within 7 days; returned items must be unused"],
                 ["Used / Customer-Damaged Product", "Not eligible", "No return or refund available"],

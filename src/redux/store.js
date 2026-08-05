@@ -15,6 +15,7 @@ import affiliateReducer from "./slices/affiliateSlice";
 
 // import cartApiReducer from './slices/cartSlice';
 import uiReducer from "./slices/uiSlice";
+import searchReducer from "./slices/searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -33,6 +34,7 @@ export const store = configureStore({
     payment: paymentReducer,
     extraCheckoutCharge: extraCheckoutChargeReducer,
     affiliate: affiliateReducer,
+    search: searchReducer,
   },
   // for reduxdevtools
   devTools: {

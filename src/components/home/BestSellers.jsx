@@ -34,11 +34,11 @@ const BestSellers = ({ onAddToCart }) => {
             //     <div className="text-xs font-bold truncate">{product.name}</div>
             //     <div className="flex items-baseline gap-1 flex-wrap mt-1">
             //       <span className="text-xs font-semibold text-black">
-            //         ₹{afterPrice.toLocaleString()}
+            //         ${afterPrice.toLocaleString()}
             //       </span>
             //       {beforePrice > afterPrice && (
             //         <span className="text-[10px] text-gray-400 line-through">
-            //           ₹{beforePrice.toLocaleString()}
+            //           ${beforePrice.toLocaleString()}
             //         </span>
             //       )}
             //       {discount && (
