@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../baseApi";
-
-// ========== EMAIL OTP LOGIN FLOW ==========
+import { success } from "zod";
 
 export const userLogin = createAsyncThunk(
   "user/login",
-  async ({ email }, thunkApi) => {
+  async ({mobile, country_code}, thunkApi) => {
+    // mobile number as argument
     try {
-      const res = await api.post("/user/login", { email });
-
-      // OTP sent successfully to email
-      return res.data;
+      const res = await api.post("/user/login", { mobile,country_code });
+      // No token returned now, just success
+      // console.log("userLOgin", res.data);
+      return res.data; // { message: "OTP sent", ... }
     } catch (error) {
       return thunkApi.rejectWithValue(
         error.response?.data?.message || "Failed to send OTP",
@@ -21,20 +21,14 @@ export const userLogin = createAsyncThunk(
 
 export const userVerifyLoginOtp = createAsyncThunk(
   "user/verifyLoginOtp",
-  async ({ email, otp }, thunkApi) => {
+  async ({ mobile, otp, country_code }, thunkApi) => {
     try {
-      const res = await api.post("/user/verify-login-otp", {
-        email,
-        otp,
-      });
-
+      const res = await api.post("/user/verify-login-otp", { mobile, otp, country_code});
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("role_id", res.data.user?.role_id);
-
         return res.data.token;
       }
-
       return thunkApi.rejectWithValue("Invalid OTP");
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -43,8 +37,6 @@ export const userVerifyLoginOtp = createAsyncThunk(
     }
   },
 );
-
-// ========== REGISTER ==========
 
 export const userRegister = createAsyncThunk(
   "user/register",
@@ -59,15 +51,12 @@ export const userRegister = createAsyncThunk(
     }
   },
 );
-
-// ========== UPDATE USER ==========
-
 export const userUpdate = createAsyncThunk(
   "user/updateuser",
   async (data, thunkApi) => {
     try {
       const res = await api.post("/user/update", data);
-
+      // console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -76,15 +65,12 @@ export const userUpdate = createAsyncThunk(
     }
   },
 );
-
-// ========== LOGOUT ==========
-
 export const userLogout = createAsyncThunk(
   "user/logout",
   async (data, thunkApi) => {
     try {
       const res = await api.post("/user/logout", data);
-
+      // console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -93,15 +79,12 @@ export const userLogout = createAsyncThunk(
     }
   },
 );
-
-// ========== USER PROFILE ==========
-
 export const userProfile = createAsyncThunk(
   "user/profile",
   async (data, thunkApi) => {
     try {
       const res = await api.get("/user/profile");
-
+      // console.log("user profile", res.data);
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -112,16 +95,11 @@ export const userProfile = createAsyncThunk(
 );
 
 // ========== FORGOT PASSWORD FLOW FOR USER ==========
-
 export const userForgotPasswordRequest = createAsyncThunk(
   "user/forgotPasswordRequest",
   async ({ email, type }, thunkApi) => {
     try {
-      const res = await api.post(`/user/forgot-password`, {
-        email,
-        type,
-      });
-
+      const res = await api.post(`/user/forgot-password`, { email, type });
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -135,12 +113,7 @@ export const userVerifyOtp = createAsyncThunk(
   "user/verifyOtp",
   async ({ email, otp, type }, thunkApi) => {
     try {
-      const res = await api.post(`/user/verify-otp`, {
-        email,
-        otp,
-        type,
-      });
-
+      const res = await api.post(`/user/verify-otp`, { email, otp, type });
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -152,10 +125,7 @@ export const userVerifyOtp = createAsyncThunk(
 
 export const userResetPassword = createAsyncThunk(
   "user/resetPassword",
-  async (
-    { email, password, password_confirmation, type },
-    thunkApi,
-  ) => {
+  async ({ email, password, password_confirmation, type }, thunkApi) => {
     try {
       const res = await api.post(`/user/reset-password`, {
         email,
@@ -163,7 +133,6 @@ export const userResetPassword = createAsyncThunk(
         password_confirmation,
         type,
       });
-
       return res.data;
     } catch (error) {
       return thunkApi.rejectWithValue(
@@ -173,17 +142,15 @@ export const userResetPassword = createAsyncThunk(
   },
 );
 
-// ========== DELETE ACCOUNT ==========
-
+// delete account
 export const userDeleteAccount = createAsyncThunk(
   "user/deleteAccount",
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.delete("/user/delete");
-
+      // optionally clear local storage
       localStorage.removeItem("token");
       localStorage.removeItem("role_id");
-
       return response.data;
     } catch (error) {
       return rejectWithValue(
@@ -192,8 +159,6 @@ export const userDeleteAccount = createAsyncThunk(
     }
   },
 );
-
-// ========== INITIAL STATE ==========
 
 const tokenFromStorage = localStorage.getItem("token");
 
@@ -205,14 +170,9 @@ const initialState = {
   isLoggedIn: !!tokenFromStorage,
   error: null,
 };
-
-// ========== AUTH SLICE ==========
-
 const UserAuthSlice = createSlice({
   name: "userAuth",
-
   initialState,
-
   reducers: {
     logout: (state) => {
       state.token = null;
@@ -220,164 +180,114 @@ const UserAuthSlice = createSlice({
       state.isLoggedIn = false;
       state.loading = false;
       state.error = null;
-
       localStorage.removeItem("token");
-      localStorage.removeItem("role_id");
-    },
-
-    clearError: (state) => {
-      state.error = null;
     },
   },
 
   extraReducers: (builder) => {
     builder
-
-      // ========================================
-      // LOGIN - SEND EMAIL OTP
-      // ========================================
-
+      // LOGIN
       .addCase(userLogin.pending, (state) => {
         state.loading = true;
         state.error = null;
         state.isLoggedIn = false;
       })
-
-      .addCase(userLogin.fulfilled, (state) => {
+      .addCase(userLogin.fulfilled, (state, action) => {
         state.loading = false;
-
-        // OTP sent, user is not logged in yet
         state.isLoggedIn = false;
       })
-
       .addCase(userLogin.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
         state.isLoggedIn = false;
       })
 
-      // ========================================
-      // VERIFY EMAIL OTP LOGIN
-      // ========================================
-
+      //  VERIFY OTP LOGIN
       .addCase(userVerifyLoginOtp.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
       .addCase(userVerifyLoginOtp.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload;
+        state.token = action.payload; // token from thunk
         state.isLoggedIn = true;
       })
-
       .addCase(userVerifyLoginOtp.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
         state.isLoggedIn = false;
       })
 
-      // ========================================
       // REGISTER
-      // ========================================
-
       .addCase(userRegister.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
-      .addCase(userRegister.fulfilled, (state) => {
+      .addCase(userRegister.fulfilled, (state, action) => {
         state.loading = false;
       })
-
       .addCase(userRegister.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
-
-      // ========================================
       // PROFILE
-      // ========================================
 
       .addCase(userProfile.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
       .addCase(userProfile.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.user;
         state.userWallet = action.payload.wallet;
       })
-
       .addCase(userProfile.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
 
-      // ========================================
-      // UPDATE USER
-      // ========================================
-
+      // update user
       .addCase(userUpdate.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
-      .addCase(userUpdate.fulfilled, (state) => {
+      .addCase(userUpdate.fulfilled, (state, action) => {
         state.loading = false;
       })
-
       .addCase(userUpdate.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
         state.user = null;
       })
-
-      // ========================================
-      // LOGOUT USER
-      // ========================================
-
+      // logout user
       .addCase(userLogout.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-
       .addCase(userLogout.fulfilled, (state) => {
         state.token = null;
         state.user = null;
         state.isLoggedIn = false;
         state.loading = false;
         state.error = null;
-
         localStorage.removeItem("token");
         localStorage.removeItem("role_id");
       })
-
       .addCase(userLogout.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
         state.user = null;
       })
-
-      // ========================================
-      // DELETE USER
-      // ========================================
-
+      // delete user
       .addCase(userDeleteAccount.pending, (state) => {
         state.loading = true;
       })
-
       .addCase(userDeleteAccount.fulfilled, (state) => {
         state.loading = false;
         state.user = null;
         state.token = null;
         state.isLoggedIn = false;
-
-        localStorage.removeItem("token");
-        localStorage.removeItem("role_id");
       })
-
       .addCase(userDeleteAccount.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -386,5 +296,4 @@ const UserAuthSlice = createSlice({
 });
 
 export const { logout, clearError } = UserAuthSlice.actions;
-
 export default UserAuthSlice.reducer;

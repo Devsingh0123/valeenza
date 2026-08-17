@@ -3,7 +3,7 @@ import { logout } from "./slices/userAuthSlice";
 // import {store} from "./store"
 
 export const api = axios.create({
-  baseURL: "https://backend.astrotring.shop/api",
+  baseURL: "https://backend.valeenza.co/api",
 });
 
 api.interceptors.request.use((config) => {

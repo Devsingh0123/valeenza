@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/favicon.png"; // ← apne logo ka path daalo
+import logo from "/favicon.jpg";
 
 const Loader = ({ data }) => {
   return (
@@ -14,13 +14,13 @@ const Loader = ({ data }) => {
           <div className="w-12 h-12 rounded-full border-t-2 border-r-2 border-b-0 border-transparent border-t-amber-400 border-b-amber-400 border-r-amber-400 animate-spin"></div>
           
           {/* Logo */}
-          {/* <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
             <img 
               src={logo} 
-              alt="AstroTring" 
+              alt="Veelnza Logo" 
               className="w-12 h-12 object-contain"
             />
-          </div> */}
+          </div>
         </div>
 
         {/* Loading Text */}
