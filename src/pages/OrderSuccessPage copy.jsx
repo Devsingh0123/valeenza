@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CheckCircle, Download, ShoppingBag, Truck } from "lucide-react";
 import {
   fetchOrderDetails,
   clearCurrentOrder,
+  uploadInvoice,
 } from "../redux/slices/orderSlice";
 import Loader from "@/components/common/Loader";
-import { api } from "@/redux/baseApi";
+import OrderInvoice from "./OrderInvoice";
+import html2canvas from "html2canvas-pro";
+import jsPDF from "jspdf";
 import { toast } from "react-toastify";
 
 const OrderSuccessPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const [invoiceUrl, setInvoiceUrl] = useState("");
-  const [invoiceLoading, setInvoiceLoading] = useState(false);
+  const invoiceRef = useRef(null);
   const [downloadInvoiceLoading, setDownloadInvoiceLoading] = useState(false);
+  const [uploadToBackendInvoiceLoading, setUploadToBackendInvoiceLoading] =
+    useState(false);
+  const [invoiceUploadAttempted, setInvoiceUploadAttempted] = useState(false);
 
   // Redux state se data lo
   const {
@@ -44,11 +49,10 @@ const OrderSuccessPage = () => {
 
   // ---------- add dataLayer for gtm tracking ----------
   useEffect(() => {
-    const items = order?.items || order?.order_items || [];
-
     if (order && items.length > 0) {
       const transactionId = String(order?.payment?.transaction_id);
       const totalValue = parseFloat(order.pricing?.total_amount) || 0;
+      const items = order.items || order.order_items || [];
       const discount = order.pricing?.discount || 0;
 
       // console.log(discount)
@@ -75,76 +79,92 @@ const OrderSuccessPage = () => {
     }
   }, [order]);
 
-  // ========================================
-  // BACKEND INVOICE
-  // GET /api/user/orders/{orderId}/invoice
-  // ========================================
+const generateInvoiceBase64 = async (element) => {
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    useCORS: true,
+    logging: false,
+  });
+  const imgData = canvas.toDataURL("image/png");
 
-  const fetchBackendInvoice = async (id = orderId) => {
-    if (!id) return "";
+  const pdf = new jsPDF({
+    unit: "mm",
+    format: "a4",
+    orientation: "portrait",
+  });
 
-    try {
-      setInvoiceLoading(true);
+  const pageWidth = 210;
+  const pageHeight = 297;
 
-      const response = await api.get(`/user/orders/${id}/invoice`);
+  let imgWidth = pageWidth;
+  let imgHeight = (canvas.height * imgWidth) / canvas.width;
 
-      const pdfUrl =
-        response?.data?.pdf_url ||
-        response?.data?.data?.pdf_url ||
-        response?.data?.invoice_url ||
-        response?.data?.data?.invoice_url;
+  if (imgHeight > pageHeight) {
+    const scale = pageHeight / imgHeight;
+    imgWidth = imgWidth * scale;
+    imgHeight = pageHeight;
+  }
 
-      if (!pdfUrl) {
-        throw new Error("Invoice PDF URL was not returned by the server.");
-      }
+  const xOffset = (pageWidth - imgWidth) / 2;
 
-      setInvoiceUrl(pdfUrl);
-      return pdfUrl;
-    } catch (err) {
-      console.error("Backend invoice API error:", err);
+  pdf.addImage(imgData, "PNG", xOffset, 0, imgWidth, imgHeight, undefined, "FAST");
+  const pdfDataUrl = pdf.output("dataurlstring");
+  return pdfDataUrl;
+};
 
-      toast.error(
-        err?.response?.data?.message ||
-          err?.message ||
-          "Unable to generate invoice.",
-      );
-
-      return "";
-    } finally {
-      setInvoiceLoading(false);
-    }
-  };
-
-  // Backend generates/returns the invoice PDF URL.
   useEffect(() => {
-    if (!orderId) return;
+    const autoUpload = async () => {
+      //  conditions check
+      if (!order || invoiceUploadAttempted) return;
 
-    fetchBackendInvoice(orderId);
-  }, [orderId]);
+      // Hidden div ke DOM mein aane ka wait kar
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      if (!invoiceRef.current) return;
+
+      //  Agar sirf online orders ke liye chahiye to
+      // if (order.payment?.mode !== 'online' && order.status !== 'paid') return;
+      setUploadToBackendInvoiceLoading(true);
+      try {
+        const pdfBase64 = await generateInvoiceBase64(invoiceRef.current);
+        await dispatch(
+          uploadInvoice({
+            order_id: order.order_id, // order_id
+            pdf: pdfBase64,
+          }),
+        ).unwrap();
+        // console.log(" Invoice auto-uploaded");
+        setInvoiceUploadAttempted(true);
+        setUploadToBackendInvoiceLoading(false);
+      } catch (err) {
+        console.error(" Auto-upload failed:", err);
+        toast.info("You can download invoice manually.");
+      } finally {
+        // Always reset loader, even on error or early return inside try
+        setUploadToBackendInvoiceLoading(false);
+      }
+    };
+    autoUpload();
+  }, [order, invoiceUploadAttempted, dispatch]);
 
   const handleDownloadInvoice = async () => {
+    if (!order || !invoiceRef.current) {
+      toast.error("Invoice data not ready.");
+      return;
+    }
     setDownloadInvoiceLoading(true);
-
-    // Open immediately from the click event to reduce popup-blocker issues.
-    const invoiceWindow = window.open("", "_blank");
-
     try {
-      const pdfUrl = invoiceUrl || (await fetchBackendInvoice(orderId));
-
-      if (!pdfUrl) {
-        invoiceWindow?.close();
-        return;
-      }
-
-      if (invoiceWindow) {
-        invoiceWindow.location.href = pdfUrl;
-      } else {
-        window.location.href = pdfUrl;
-      }
+      const pdfBase64 = await generateInvoiceBase64(invoiceRef.current);
+      const pdfDataUrl = `${pdfBase64}`;
+      const link = document.createElement("a");
+      link.href = pdfDataUrl;
+      link.download = `Invoice_${order.order_number}.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      toast.success("Invoice downloaded!");
     } catch (err) {
-      console.error("Invoice open error:", err);
-      invoiceWindow?.close();
-      toast.error("Unable to open invoice.");
+      console.error("PDF Error:", err);
+      toast.error(`Download failed: ${err.message}`);
     } finally {
       setDownloadInvoiceLoading(false);
     }
@@ -254,21 +274,15 @@ const OrderSuccessPage = () => {
   const items = order.items || order.order_items || [];
   const address = order.address?.snapshot || order.address || {};
   const payment = order.payment || {};
-  const COD_SURCHARGE = Number(order?.pricing?.cod_charge || 0);
+  const COD_SURCHARGE = order?.pricing?.cod_charge;
   const advancePaid = order?.pricing?.advance_paid_amount;
   const remainingCod = order?.pricing?.remaining_cod_amount;
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       {/* ✅ Loader overlay – सिर्फ tab dikhe jab loading/upload चल रहा हो */}
-      {(loading || invoiceLoading) && (
+      {(loading || uploadToBackendInvoiceLoading) && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/20 backdrop-blur-xs">
-          <Loader
-            data={
-              invoiceLoading
-                ? "Generating invoice..."
-                : "Loading order details..."
-            }
-          />
+          <Loader data="Please do not refresh, Loading order details..." />
         </div>
       )}
       <div className="max-w-3xl mx-auto">
@@ -520,7 +534,7 @@ const OrderSuccessPage = () => {
               <div>
                 <span className="text-gray-500">Payment Mode:</span>
                 <span className="ml-2 font-medium capitalize">
-                  {(payment.mode || "online").toUpperCase()}
+                  {payment.mode.toUpperCase() || "Online"}
                 </span>
               </div>
               {payment.mode === "online" && (
@@ -561,11 +575,7 @@ const OrderSuccessPage = () => {
             className="flex items-center justify-center gap-2 px-5 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition text-sm font-medium cursor-pointer"
           >
             <Download className="w-4 h-4" />{" "}
-            {downloadInvoiceLoading
-              ? "Opening..."
-              : invoiceLoading
-                ? "Generating..."
-                : "Download Invoice"}
+            {downloadInvoiceLoading ? "Downloading..." : "Download Invoice"}
           </button>
           <div className="flex gap-3">
             <Link
@@ -590,6 +600,22 @@ const OrderSuccessPage = () => {
             Estimated delivery in 5-7 business days
           </p>
         </div>
+      </div>
+
+      {/* Hidden invoice template - same as MyOrderDetailsPage */}
+      <div
+        ref={invoiceRef}
+        style={{
+          position: "absolute",
+          top: "-9999px",
+          left: "-9999px",
+          //  visibility: 'hidden',
+          width: "794px",
+          background: "white",
+          zIndex: -1,
+        }}
+      >
+        <OrderInvoice order={order} />
       </div>
     </div>
   );
