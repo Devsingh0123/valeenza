@@ -49,7 +49,7 @@ const BecomeAnAffiliate = () => {
             <span className="text-amber-500">Earn Advertising Fees.</span>
           </h1>
           <p className="text-white text-sm md:text-lg  mb-4">
-            Join Astrotring Affiliate Program, the  spiritual
+            Join Valeenza Affiliate Program, the  spiritual
             product affiliate networks.
           </p>
           <Link
@@ -65,10 +65,10 @@ const BecomeAnAffiliate = () => {
       <div className="max-w-7xl mx-auto mt-12 md:mt-10 px-4">
         <div className="space-y-4">
           <h1 className="text-2xl md:text-3xl font-semibold">
-            Astrotring Associates - Astrotring's affiliate marketing program
+            Valeenza Associates - Valeenza's affiliate marketing program
           </h1>
           <p className="text-gray-900 text-md leading-relaxed mb-10">
-            Welcome to the Astrotring's affiliate marketing program. The Astrotring Affiliate Program helps content creators,
+            Welcome to the Valeenza's affiliate marketing program. The Valeenza Affiliate Program helps content creators,
             publishers and bloggers monetize their traffic. With many
             spiritual and wellness products available, affiliates use easy
             link-building tools to direct their audience to their
@@ -87,7 +87,7 @@ const BecomeAnAffiliate = () => {
             </h3>
             <p className="text-gray-900 ">
               Join creators, publishers and bloggers who
-              are earning with the Astrotring Affiliate Program.
+              are earning with the Valeenza Affiliate Program.
             </p>
           </div>
           <div className="text-center ">
@@ -159,7 +159,7 @@ const BecomeAnAffiliate = () => {
             icon={HelpCircle}
           >
             <p className="text-gray-600 ">
-              You can share products and available programs on Astrotring with
+              You can share products and available programs on Valeenza with
               your audience through customized linking tools and earn money on
               qualifying purchases and customer actions like signing up for a
               free trial program.
@@ -182,7 +182,7 @@ const BecomeAnAffiliate = () => {
           >
             <p className="text-gray-600">
               You earn from qualifying purchases through the traffic you drive
-              to Astrotring. Advertising fees for qualifying purchases differ
+              to Valeenza. Advertising fees for qualifying purchases differ
               based on product category.
             </p>
           </AccordionSection>

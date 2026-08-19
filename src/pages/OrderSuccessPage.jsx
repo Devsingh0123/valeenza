@@ -545,10 +545,10 @@ const OrderSuccessPage = () => {
             <p className="text-xs text-gray-400">
               For any queries, contact us at{" "}
               <a
-                href="mailto:care@astrotring.com"
+                href="mailto:care@valeenza.co"
                 className="text-amber-600 hover:underline"
               >
-                care@astrotring.com
+                care@valeenza.co
               </a>
             </p>
           </div>

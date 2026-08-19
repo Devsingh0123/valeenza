@@ -22,7 +22,7 @@ export const categoryStaticData = {
     ]
   },
   bracelets: {
-    about: "Astrotring bracelets combine gemstones, Rudraksha, and healing crystals into elegant designs. They are crafted to channel positive energy and complement your personal style.",
+    about: "Valeenza bracelets combine gemstones, Rudraksha, and healing crystals into elegant designs. They are crafted to channel positive energy and complement your personal style.",
     benefits: "Bracelets offer continuous energetic support throughout the day. They can be customized to target specific intentions such as love, wealth, or stress relief.",
     qualityPrice: "All bracelets use high-quality materials including genuine gemstones, sterling silver, and durable elastic. Prices reflect the stones used and craftsmanship.",
     faqs: [

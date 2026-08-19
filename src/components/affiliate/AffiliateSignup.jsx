@@ -520,7 +520,7 @@ const AffiliateSignup = () => {
                       <p>
                         Thank you for applying to the{" "}
                         <span className="font-semibold">
-                          Astrotring Affiliate Program
+                          Valeenza Affiliate Program
                         </span>
                         .
                       </p>
@@ -576,7 +576,7 @@ const AffiliateSignup = () => {
             <p className="text-center text-sm text-gray-600 mt-6 pt-6 border-t border-gray-300">
               Already have an account?{" "}
               <a
-                href="https://backend.astrotring.shop/"
+                href="https://backend.valeenza.co/"
                 className="text-orange-600 hover:underline"
               >
                 Login here

@@ -47,7 +47,7 @@ const stripePromise = STRIPE_PUBLISHABLE_KEY
 // STRIPE PAYMENT FORM
 // ========================================
 
-const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
+const StripePaymentForm = ({ onSuccess, onCancel, onReady, isReady }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -57,8 +57,8 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !elements) {
-      setErrorMessage("Payment system is still loading. Please wait.");
+    if (!stripe || !elements || !isReady) {
+      setErrorMessage("Payment form is still loading. Please wait.");
       return;
     }
 
@@ -78,7 +78,7 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
       if (error) {
         console.error("Stripe payment error:", error);
 
-        setErrorMessage(error.message || "Payment failed. Please try again.");
+        setErrorMessage("Payment could not be completed. Please try again.");
 
         return;
       }
@@ -102,13 +102,11 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
       }
 
       // Other Stripe status
-      setErrorMessage(
-        `Payment was not completed. Current status: ${paymentIntent.status}`,
-      );
+      setErrorMessage("Payment could not be completed. Please try again.");
     } catch (error) {
       console.error("Stripe confirmation error:", error);
 
-      setErrorMessage(error?.message || "Unable to process payment.");
+      setErrorMessage("Unable to process payment. Please try again.");
     } finally {
       setProcessing(false);
     }
@@ -120,13 +118,13 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
       <div className="bg-white rounded-xl">
         <PaymentElement
           onReady={() => {
-            onReady?.();
+            onReady?.(true);
           }}
           onLoadError={(event) => {
             console.error("Stripe PaymentElement load error:", event);
+            onReady?.(false);
             setErrorMessage(
-              event?.error?.message ||
-                "Unable to load the payment form. Please try again."
+              "Unable to load the payment form. Please try again."
             );
           }}
         />
@@ -152,7 +150,7 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady }) => {
 
         <button
           type="submit"
-          disabled={!stripe || !elements || processing}
+          disabled={!stripe || !elements || !isReady || processing}
           className="flex-1 px-4 py-3 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-lg disabled:bg-gray-200 disabled:text-gray-500 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           {processing ? (
@@ -533,11 +531,11 @@ const PaymentSection = () => {
         setStripeClientSecret(orderData.client_secret);
         setStripePaymentIntentId(paymentIntentId);
 
-        toast.success("Secure payment form is ready.");
+        toast.success("Secure payment form is loading.");
       } catch (err) {
         console.error("Stripe initialization error:", err);
 
-        toast.error(err?.message || err || "Could not initiate payment.");
+        toast.error("Unable to start payment. Please try again.");
       } finally {
         setStripeLoading(false);
       }
@@ -655,7 +653,7 @@ const PaymentSection = () => {
     } catch (err) {
       console.error("Stripe verification error:", err);
 
-      toast.error(err?.message || err || "Payment verification failed.");
+      toast.error("Payment verification failed. Please try again.");
     } finally {
       setStripeLoading(false);
     }
@@ -791,7 +789,7 @@ const PaymentSection = () => {
               COD
           ====================================== */}
 
-          {appliedCoupon?.payment_type !== "prepaid" && (
+          {/* {appliedCoupon?.payment_type !== "prepaid" && (
             <label
               className={`flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition-all
                 ${!codAvailable ? "opacity-50 cursor-not-allowed" : ""}
@@ -828,7 +826,7 @@ const PaymentSection = () => {
                 </p>
               </div>
             </label>
-          )}
+          )} */}
         </div>
 
         {/* ========================================
@@ -961,7 +959,8 @@ const PaymentSection = () => {
                   <StripePaymentForm
                     onSuccess={handleStripePaymentSuccess}
                     onCancel={handleStripeCancel}
-                    onReady={() => setStripeElementReady(true)}
+                    isReady={stripeElementReady}
+                    onReady={(ready) => setStripeElementReady(ready)}
                   />
                 </Elements>
               </div>
