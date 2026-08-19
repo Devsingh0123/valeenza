@@ -1,14 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../baseApi";
 
-// Fetch all addresses
+/**
+ * Fetch all saved addresses
+ */
 export const fetchAddresses = createAsyncThunk(
   "address/fetchAll",
   async (_, { rejectWithValue }) => {
     try {
       const response = await api.get("/user/addresses");
-      // console.log("view address", response.data.data);
-      return response.data.data; // assuming API returns { data: [...] }
+
+      return response.data?.data ?? [];
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to fetch addresses",
@@ -17,15 +19,20 @@ export const fetchAddresses = createAsyncThunk(
   },
 );
 
+/**
+ * Add new address
+ */
 export const addAddress = createAsyncThunk(
   "address/add",
   async (addressData, { rejectWithValue }) => {
     try {
       const response = await api.post("/user/addresses", addressData, {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      // console.log("add address", response.data.data);
-      return response.data.data;
+
+      return response.data?.data;
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to add address",
@@ -34,15 +41,20 @@ export const addAddress = createAsyncThunk(
   },
 );
 
+/**
+ * Update existing address
+ */
 export const updateAddress = createAsyncThunk(
   "address/update",
   async ({ id, addressData }, { rejectWithValue }) => {
     try {
       const response = await api.put(`/user/addresses/${id}`, addressData, {
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      // console.log("update address", response.data.data);
-      return response.data.data;
+
+      return response.data?.data;
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to update address",
@@ -51,14 +63,16 @@ export const updateAddress = createAsyncThunk(
   },
 );
 
-// Delete an address
+/**
+ * Delete address
+ */
 export const deleteAddress = createAsyncThunk(
   "address/delete",
   async (id, { rejectWithValue }) => {
     try {
-      const response = await api.delete(`/user/addresses/${id}`);
-      // console.log("delete address", response.data);
-      return id; // return the deleted id to remove from state
+      await api.delete(`/user/addresses/${id}`);
+
+      return id;
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to delete address",
@@ -67,14 +81,42 @@ export const deleteAddress = createAsyncThunk(
   },
 );
 
-// Fetch pincode details
+/**
+ * Fetch pincode details
+ *
+ * API:
+ * POST /user/get-pincode-data
+ *
+ * Body:
+ * {
+ *   pincode: "35143"
+ * }
+ */
 export const fetchPincodeDetails = createAsyncThunk(
   "address/fetchPincode",
   async (pincode, { rejectWithValue }) => {
     try {
-      const response = await api.post("/user/get-pincode-data", { pincode });
-      // console.log("Pincode API response:", response.data);
-      return response.data; // full response data
+      const cleanPincode = String(pincode || "")
+        .replace(/\D/g, "")
+        .slice(0, 5);
+
+      if (cleanPincode.length !== 5) {
+        return rejectWithValue("Please enter a valid 5-digit pincode.");
+      }
+
+      const response = await api.post(
+        "/user/get-pincode-data",
+        {
+          pincode: cleanPincode,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      return response.data;
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message || "Failed to fetch pincode data",
@@ -87,108 +129,167 @@ const initialState = {
   addresses: [],
   selectedAddressId: null,
   selectedAddress: null,
+
+  // Address API loading only
   loading: false,
+
   error: null,
 };
 
 const addressSlice = createSlice({
   name: "address",
   initialState,
+
   reducers: {
     clearAddressError: (state) => {
       state.error = null;
     },
+
     setSelectedAddressId: (state, action) => {
-      state.selectedAddressId = action.payload; // payload = address id
+      state.selectedAddressId = action.payload;
     },
+
     setSelectedAddress: (state, action) => {
-    // action.payload is the full address object
-    state.selectedAddress = action.payload;
-   
+      state.selectedAddress = action.payload;
+    },
+
+    clearSelectedAddress: (state) => {
+      state.selectedAddressId = null;
+      state.selectedAddress = null;
+    },
   },
-  },
+
   extraReducers: (builder) => {
     builder
-      // Fetch all
+
+      // =========================================================
+      // FETCH ADDRESSES
+      // =========================================================
       .addCase(fetchAddresses.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
+
       .addCase(fetchAddresses.fulfilled, (state, action) => {
         state.loading = false;
-        state.addresses = action.payload;
-      })
-      .addCase(fetchAddresses.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        if (action.payload.length === 0) {
+        state.addresses = Array.isArray(action.payload) ? action.payload : [];
+
+        // Keep selected address valid
+        if (
+          state.selectedAddressId &&
+          !state.addresses.some(
+            (address) => Number(address.id) === Number(state.selectedAddressId),
+          )
+        ) {
           state.selectedAddressId = null;
+          state.selectedAddress = null;
         }
       })
-      // Add
+
+      .addCase(fetchAddresses.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || "Failed to fetch addresses";
+      })
+
+      // =========================================================
+      // ADD ADDRESS
+      // =========================================================
       .addCase(addAddress.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
+
       .addCase(addAddress.fulfilled, (state, action) => {
         state.loading = false;
-        state.addresses.push(action.payload);
+
+        if (action.payload) {
+          state.addresses.push(action.payload);
+        }
       })
+
       .addCase(addAddress.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload || "Failed to add address";
       })
-      // Update
+
+      // =========================================================
+      // UPDATE ADDRESS
+      // =========================================================
       .addCase(updateAddress.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
+
       .addCase(updateAddress.fulfilled, (state, action) => {
         state.loading = false;
+
+        if (!action.payload?.id) {
+          return;
+        }
+
         const index = state.addresses.findIndex(
-          (addr) => addr.id === action.payload.id,
+          (address) => Number(address.id) === Number(action.payload.id),
         );
-        if (index !== -1) state.addresses[index] = action.payload;
+
+        if (index !== -1) {
+          state.addresses[index] = action.payload;
+        }
+
+        if (Number(state.selectedAddressId) === Number(action.payload.id)) {
+          state.selectedAddress = action.payload;
+        }
       })
+
       .addCase(updateAddress.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload || "Failed to update address";
       })
-      // Delete
+
+      // =========================================================
+      // DELETE ADDRESS
+      // =========================================================
       .addCase(deleteAddress.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
+
       .addCase(deleteAddress.fulfilled, (state, action) => {
         state.loading = false;
+
         const deletedId = action.payload;
+
         state.addresses = state.addresses.filter(
-          (addr) => addr.id !== action.payload,
+          (address) => Number(address.id) !== Number(deletedId),
         );
-        if (state.selectedAddressId === deletedId) {
+
+        if (Number(state.selectedAddressId) === Number(deletedId)) {
           state.selectedAddressId = null;
+          state.selectedAddress = null;
         }
       })
+
       .addCase(deleteAddress.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.error = action.payload || "Failed to delete address";
       })
-      // inside extraReducers builder
-      .addCase(fetchPincodeDetails.pending, (state) => {
-        state.loading = true; // optional, you can have separate loading state
-      })
-      .addCase(fetchPincodeDetails.fulfilled, (state, action) => {
-        state.loading = false;
-        // You can store pincode data in a separate state if needed
-        // console.log("Pincode fulfilled data:", action.payload);
-      })
+
+      // =========================================================
+      // PINCODE
+      // =========================================================
+      // IMPORTANT:
+      // Pincode loading is handled locally inside the components.
+      // Therefore it does NOT modify state.loading.
       .addCase(fetchPincodeDetails.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        console.error("Pincode rejected:", action.payload);
+        state.error = action.payload || "Failed to fetch pincode data";
       });
   },
 });
 
-export const { clearAddressError, setSelectedAddress , setSelectedAddressId} = addressSlice.actions;
+export const {
+  clearAddressError,
+  setSelectedAddress,
+  setSelectedAddressId,
+  clearSelectedAddress,
+} = addressSlice.actions;
+
 export default addressSlice.reducer;

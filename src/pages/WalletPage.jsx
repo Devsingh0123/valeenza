@@ -95,7 +95,7 @@ const WalletPage = () => {
         key: razorpayKey,
         amount: amountInPaise,
         currency: currency,
-        name: 'AstroTring',
+        name: 'Valeenza',
         description: `Add $${numAmount} to wallet`,
         order_id: order_id,
         handler: async (response) => {
