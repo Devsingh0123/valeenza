@@ -1,26 +1,18 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 import { api } from "../baseApi";
 
 export const searchProducts = createAsyncThunk(
   "search/searchProducts",
   async (query, { rejectWithValue }) => {
     try {
-      const trimmedQuery = query?.trim();
-
-      if (!trimmedQuery) {
-        return [];
-      }
-
-      const response = await api.get(
-        `/v1/search?q=${encodeURIComponent(trimmedQuery)}`,
+      const { data } = await api.get(`/v1/search?q=${encodeURIComponent(query)}`,
       );
 
-      console.log("Search API response:", response.data);
-
-      return Array.isArray(response.data?.data) ? response.data.data : [];
+      // Agar API response ka structure alag ho to yaha change kar dena
+      console.log("search",data)
+      return data;
     } catch (error) {
-      console.error("Search API error:", error);
-
       return rejectWithValue(error.response?.data?.message || "Search failed");
     }
   },
@@ -35,15 +27,12 @@ const initialState = {
 const searchSlice = createSlice({
   name: "search",
   initialState,
-
   reducers: {
-    clearSearch: (state) => {
+    clearSearch(state) {
       state.results = [];
       state.error = null;
-      state.loading = false;
     },
   },
-
   extraReducers: (builder) => {
     builder
 
@@ -54,14 +43,13 @@ const searchSlice = createSlice({
 
       .addCase(searchProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.results = Array.isArray(action.payload) ? action.payload : [];
-        state.error = null;
+        state.results = action.payload;
       })
 
       .addCase(searchProducts.rejected, (state, action) => {
         state.loading = false;
         state.results = [];
-        state.error = action.payload || "Search failed";
+        state.error = action.payload;
       });
   },
 });

@@ -1,7 +1,7 @@
 // src/constants/allPolicyData/termsData.js
 export const termsAndConditionsData = {
-  name: "VELTEX SERVICES PRIVATE LIMITED",
-  website: "www.astrotring.com",
+  name: "Valeenza services LLc ",
+  website: "www.Valeenza.com",
   title: "TERMS AND CONDITIONS OF USE",
   lastUpdated: "March 2026",
   sections: [
@@ -10,11 +10,11 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "These Terms and Conditions (hereinafter referred to as this \"Agreement\") govern the access and use of the online platform, website, and all associated services (collectively, the \"Platform\") operated by Veltex Services Private Limited (hereinafter referred to as \"Veltex\", \"We\", \"Us\", or \"Our\") at www.astrotring.com (hereinafter referred to as the \"Site\"), including all mobile applications, third-party integrations, and digital channels through which services are made accessible."
+          text: "These Terms and Conditions (hereinafter referred to as this \"Agreement\") govern the access and use of the online platform, website, and all associated services (collectively, the \"Platform\") operated by Valeenza services LLc  (hereinafter referred to as \"Valeenza \", \"We\", \"Us\", or \"Our\") at www.Valeenza.com (hereinafter referred to as the \"Site\"), including all mobile applications, third-party integrations, and digital channels through which services are made accessible."
         },
         {
           type: "paragraph",
-          text: "By accessing or using any part of the Platform, you (\"User\", \"Member\", or \"You\") represent that you have read, understood, and agree to be bound by this Agreement and all policies incorporated herein by reference. This Agreement constitutes a legally binding and enforceable contract between You and Veltex Services Private Limited under the applicable laws of India."
+          text: "By accessing or using any part of the Platform, you (\"User\", \"Member\", or \"You\") represent that you have read, understood, and agree to be bound by this Agreement and all policies incorporated herein by reference. This Agreement constitutes a legally binding and enforceable contract between You and Valeenza services LLc  under the applicable laws of India."
         },
         {
           type: "paragraph",
@@ -36,15 +36,15 @@ export const termsAndConditionsData = {
         {
           type: "list",
           items: [
-            "\"Platform\" means the website www.astrotring.com, mobile applications, and all associated digital tools and services owned and operated by Veltex Services Private Limited.",
-            "\"Member\" means any individual who has registered an account on the Platform and whose registration has been accepted by Veltex.",
-            "\"Expert\" or \"Service Provider\" means any individual listed on the Platform who provides astrological, spiritual, lifestyle, or allied advisory services, and whose profile has been activated by Veltex.",
+            "\"Platform\" means the website www.Valeenza.com, mobile applications, and all associated digital tools and services owned and operated by Valeenza services LLc .",
+            "\"Member\" means any individual who has registered an account on the Platform and whose registration has been accepted by Valeenza .",
+            "\"Expert\" or \"Service Provider\" means any individual listed on the Platform who provides astrological, spiritual, lifestyle, or allied advisory services, and whose profile has been activated by Valeenza .",
             "\"Services\" means all services offered through the Platform, including but not limited to astrological consultations, reports, tarot readings, numerology, lifestyle advice, telephone sessions, video sessions, chat consultations, and any other content or features available on the Platform, whether free or paid.",
             "\"Transaction\" means any exchange of services, payments, or communications occurring between a Member and a Service Provider through the Platform.",
             "\"Content\" means all text, data, graphics, reports, recordings, advice, transmissions, and other materials generated, provided, or made available on or through the Platform.",
             "\"Registration Data\" means all information provided by a Member during the registration process and any subsequent updates thereto.",
-            "\"Service Credits\" means notional units of value recorded in a Member's Astrotring Wallet for the sole purpose of availing services on the Platform, which do not constitute legal tender, stored value, or a deposit.",
-            "\"Astrotring Wallet\" means the digital account maintained by Veltex on the Platform in a Member's name, which reflects the balance of Service Credits held, subject to these Terms and Conditions."
+            "\"Service Credits\" means notional units of value recorded in a Member's Valeenza Wallet for the sole purpose of availing services on the Platform, which do not constitute legal tender, stored value, or a deposit.",
+            "\"Valeenza Wallet\" means the digital account maintained by Valeenza  on the Platform in a Member's name, which reflects the balance of Service Credits held, subject to these Terms and Conditions."
           ]
         }
       ]
@@ -68,7 +68,7 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "A Member's account may be created using a registered mobile number and one-time password (OTP), or through third-party login credentials (including Facebook or Google accounts), in which event the Member consents to Veltex collecting information from such third-party platforms. Veltex shall not be responsible for the privacy practices of any third-party authentication provider."
+          text: "A Member's account may be created using a registered mobile number and one-time password (OTP), or through third-party login credentials (including Facebook or Google accounts), in which event the Member consents to Valeenza  collecting information from such third-party platforms. Valeenza  shall not be responsible for the privacy practices of any third-party authentication provider."
         },
         {
           type: "paragraph",
@@ -84,11 +84,11 @@ export const termsAndConditionsData = {
           body: [
             {
               type: "paragraph",
-              text: "The Platform facilitates connections between Members and Service Providers for the purpose of astrological consultations and allied spiritual advisory services. Veltex acts solely as an intermediary technology platform and does not itself provide astrological, medical, legal, financial, or any other professional advice."
+              text: "The Platform facilitates connections between Members and Service Providers for the purpose of astrological consultations and allied spiritual advisory services. Valeenza  acts solely as an intermediary technology platform and does not itself provide astrological, medical, legal, financial, or any other professional advice."
             },
             {
               type: "paragraph",
-              text: "Service Providers are independent professionals operating in their personal capacity. They are neither employees, agents, nor representatives of Veltex. Veltex assumes no responsibility for any act, omission, prediction, advice, or representation made by any Service Provider."
+              text: "Service Providers are independent professionals operating in their personal capacity. They are neither employees, agents, nor representatives of Valeenza . Valeenza  assumes no responsibility for any act, omission, prediction, advice, or representation made by any Service Provider."
             }
           ]
         },
@@ -114,7 +114,7 @@ export const termsAndConditionsData = {
             },
             {
               type: "paragraph",
-              text: "Members are expressly warned not to disregard, delay, or avoid seeking in-person professional medical care based on information or advice received through the Platform. Veltex does not endorse or warrant the accuracy of any health-related content provided by Service Providers."
+              text: "Members are expressly warned not to disregard, delay, or avoid seeking in-person professional medical care based on information or advice received through the Platform. Valeenza  does not endorse or warrant the accuracy of any health-related content provided by Service Providers."
             }
           ]
         },
@@ -123,7 +123,7 @@ export const termsAndConditionsData = {
           body: [
             {
               type: "paragraph",
-              text: "To the extent any Service Provider provides commentary relating to legal or financial matters, such commentary is for general informational purposes only and does not constitute professional legal or financial advice. Members should consult licensed legal and financial professionals for all such matters. Veltex shall not be liable for any decisions made by a Member in reliance on such commentary."
+              text: "To the extent any Service Provider provides commentary relating to legal or financial matters, such commentary is for general informational purposes only and does not constitute professional legal or financial advice. Members should consult licensed legal and financial professionals for all such matters. Valeenza  shall not be liable for any decisions made by a Member in reliance on such commentary."
             }
           ]
         },
@@ -132,11 +132,11 @@ export const termsAndConditionsData = {
           body: [
             {
               type: "paragraph",
-              text: "While Veltex endeavours to verify the credentials and qualifications of Service Providers based on its internal eligibility criteria (which may vary from time to time), Veltex does not represent, guarantee, or warrant the accuracy, completeness, validity, or authenticity of any Service Provider's credentials, qualifications, certifications, or claims."
+              text: "While Valeenza  endeavours to verify the credentials and qualifications of Service Providers based on its internal eligibility criteria (which may vary from time to time), Valeenza  does not represent, guarantee, or warrant the accuracy, completeness, validity, or authenticity of any Service Provider's credentials, qualifications, certifications, or claims."
             },
             {
               type: "paragraph",
-              text: "Members are solely responsible for independently verifying the identity, qualifications, and suitability of any Service Provider before engaging in a consultation. Veltex does not endorse, refer, recommend, or guarantee the services or advice of any Service Provider."
+              text: "Members are solely responsible for independently verifying the identity, qualifications, and suitability of any Service Provider before engaging in a consultation. Valeenza  does not endorse, refer, recommend, or guarantee the services or advice of any Service Provider."
             }
           ]
         }
@@ -159,17 +159,17 @@ export const termsAndConditionsData = {
             "You shall not send unsolicited emails, messages, chain letters, spam, or promotional materials through the Platform.",
             "You shall not impersonate any person or entity or make false representations regarding your affiliation with any person or entity.",
             "You shall not stalk, threaten, harass, or infringe upon the privacy of any Member or Service Provider.",
-            "You shall not resell, commercially exploit, reverse engineer, copy, distribute, or create derivative works from any Content, software, or proprietary material available on the Platform without the express prior written consent of Veltex.",
+            "You shall not resell, commercially exploit, reverse engineer, copy, distribute, or create derivative works from any Content, software, or proprietary material available on the Platform without the express prior written consent of Valeenza .",
             "You shall not violate any applicable local, state, national, or international law or regulation in your use of the Platform.",
             "You shall not engage in any discriminatory behaviour against Service Providers on the basis of race, religion, caste, national origin, gender, sexual orientation, disability, age, marital status, or any other protected characteristic.",
             "You shall treat all Service Providers with respect and courtesy, and refrain from abusive, harassing, or inappropriate communications.",
             "You shall provide only genuine and accurate feedback about Service Providers. False, misleading, or baseless feedback may result in account termination without refund.",
-            "You shall report any misuse, abuse, or violation of these Terms to Veltex's Customer Care promptly."
+            "You shall report any misuse, abuse, or violation of these Terms to Valeenza 's Customer Care promptly."
           ]
         },
         {
           type: "paragraph",
-          text: "Veltex reserves the right to issue written warnings for violations of the above obligations. Repeated violations shall result in a permanent ban from the Platform. Any credit balance remaining in a suspended account shall be subject to applicable deductions prior to refund processing."
+          text: "Valeenza  reserves the right to issue written warnings for violations of the above obligations. Repeated violations shall result in a permanent ban from the Platform. Any credit balance remaining in a suspended account shall be subject to applicable deductions prior to refund processing."
         }
       ]
     },
@@ -181,7 +181,7 @@ export const termsAndConditionsData = {
           body: [
             {
               type: "paragraph",
-              text: "The Platform strictly prohibits any content or activity that endangers, exploits, or abuses minors. Veltex maintains a zero-tolerance policy for child sexual abuse material (CSAM) and any conduct designed to groom, solicit, sexualise, traffic, or otherwise harm children. Prohibited conduct includes, without limitation:"
+              text: "The Platform strictly prohibits any content or activity that endangers, exploits, or abuses minors. Valeenza  maintains a zero-tolerance policy for child sexual abuse material (CSAM) and any conduct designed to groom, solicit, sexualise, traffic, or otherwise harm children. Prohibited conduct includes, without limitation:"
             },
             {
               type: "list",
@@ -195,7 +195,7 @@ export const termsAndConditionsData = {
             },
             {
               type: "paragraph",
-              text: "Any user found engaging in such conduct will have their account permanently deleted with immediate effect and the matter will be reported to the appropriate law enforcement authorities. Any such behaviour must be reported immediately to care@astrotring.com."
+              text: "Any user found engaging in such conduct will have their account permanently deleted with immediate effect and the matter will be reported to the appropriate law enforcement authorities. Any such behaviour must be reported immediately to care@Valeenza.com."
             }
           ]
         },
@@ -204,11 +204,11 @@ export const termsAndConditionsData = {
           body: [
             {
               type: "paragraph",
-              text: "Veltex strictly prohibits any Service Provider or Member from engaging in, promoting, or facilitating black magic, witchcraft, voodoo, tantrism, or any practice involving occult harm directed at individuals. Where it comes to the knowledge of Veltex that any user has engaged in such activity, whether intentionally or unintentionally, Veltex reserves the right to permanently delete such account with immediate effect."
+              text: "Valeenza  strictly prohibits any Service Provider or Member from engaging in, promoting, or facilitating black magic, witchcraft, voodoo, tantrism, or any practice involving occult harm directed at individuals. Where it comes to the knowledge of Valeenza  that any user has engaged in such activity, whether intentionally or unintentionally, Valeenza  reserves the right to permanently delete such account with immediate effect."
             },
             {
               type: "paragraph",
-              text: "Any such activity must be reported immediately to care@astrotring.com."
+              text: "Any such activity must be reported immediately to care@Valeenza.com."
             }
           ]
         },
@@ -253,16 +253,16 @@ export const termsAndConditionsData = {
             },
             {
               type: "paragraph",
-              text: "Payments may be made by credit card, debit card, net banking, or other authorised payment methods made available on the Platform. Each Member expressly authorises Veltex to process payments for all services utilised under their account."
+              text: "Payments may be made by credit card, debit card, net banking, or other authorised payment methods made available on the Platform. Each Member expressly authorises Valeenza  to process payments for all services utilised under their account."
             }
           ]
         },
         {
-          heading: "7.2 Astrotring Wallet and Service Credits",
+          heading: "7.2 Valeenza Wallet and Service Credits",
           body: [
             {
               type: "paragraph",
-              text: "The Astrotring Wallet is a digital account maintained by Veltex in a Member's name for the limited purpose of storing and utilising Service Credits to avail services on the Platform. The Astrotring Wallet does not constitute a bank account, prepaid payment instrument, electronic wallet, stored value facility, payment system, or a deposit of money or funds under applicable law, including the Payment and Settlement Systems Act, 2007, or any rules, regulations, circulars, or directions issued thereunder."
+              text: "The Valeenza Wallet is a digital account maintained by Valeenza  in a Member's name for the limited purpose of storing and utilising Service Credits to avail services on the Platform. The Valeenza Wallet does not constitute a bank account, prepaid payment instrument, electronic wallet, stored value facility, payment system, or a deposit of money or funds under applicable law, including the Payment and Settlement Systems Act, 2007, or any rules, regulations, circulars, or directions issued thereunder."
             },
             {
               type: "paragraph",
@@ -290,7 +290,7 @@ export const termsAndConditionsData = {
             },
             {
               type: "paragraph",
-              text: "The Member is solely responsible for monitoring their Wallet balance, expiry dates, and order of utilisation. The expiry and automatic lapse of Service Credits shall not constitute a deficiency of service, non-delivery, or grounds for a chargeback or payment reversal. Veltex is not liable for Service Credits that lapse due to non-use."
+              text: "The Member is solely responsible for monitoring their Wallet balance, expiry dates, and order of utilisation. The expiry and automatic lapse of Service Credits shall not constitute a deficiency of service, non-delivery, or grounds for a chargeback or payment reversal. Valeenza  is not liable for Service Credits that lapse due to non-use."
             },
             {
               type: "paragraph",
@@ -314,18 +314,18 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex maintains a refund policy for genuine cases as determined by its audit team, whose decision shall be final and binding. Refund requests must be submitted within seven (7) days of the relevant Transaction. The following conditions apply:"
+          text: "Valeenza  maintains a refund policy for genuine cases as determined by its audit team, whose decision shall be final and binding. Refund requests must be submitted within seven (7) days of the relevant Transaction. The following conditions apply:"
         },
         {
           type: "list",
           items: [
             "No refund shall be processed once an order for astrological reports or services has reached the processing stage (i.e., assigned to a Service Provider).",
-            "Refunds for completed consultations must be requested within twenty-four (24) hours of service completion and are subject to review by Veltex's operations team.",
-            "If a Member wishes to cancel a successfully placed order prior to execution, they must contact Customer Care within one (1) hour of payment, whereafter issuance of a refund shall be at Veltex's sole discretion.",
+            "Refunds for completed consultations must be requested within twenty-four (24) hours of service completion and are subject to review by Valeenza 's operations team.",
+            "If a Member wishes to cancel a successfully placed order prior to execution, they must contact Customer Care within one (1) hour of payment, whereafter issuance of a refund shall be at Valeenza 's sole discretion.",
             "Refunds shall not be processed for: incorrect information or data provided by the Member; calls that were connected but not utilised; damaged physical products post-delivery; or incorrect contact numbers provided for the \"Call with Service Provider\" feature.",
-            "No refund shall be issued on grounds of dissatisfaction with the accuracy or outcome of any astrological consultation, as Veltex takes no responsibility for the factual accuracy of consultations.",
-            "Refunds, where approved, shall be credited to the Member's Astrotring Wallet as Service Credits, unless otherwise elected by the Member and permitted under applicable law.",
-            "Technical delays or system glitches during the generation of reports shall not independently constitute grounds for a refund, provided that Veltex endeavours to adhere to communicated timelines.",
+            "No refund shall be issued on grounds of dissatisfaction with the accuracy or outcome of any astrological consultation, as Valeenza  takes no responsibility for the factual accuracy of consultations.",
+            "Refunds, where approved, shall be credited to the Member's Valeenza Wallet as Service Credits, unless otherwise elected by the Member and permitted under applicable law.",
+            "Technical delays or system glitches during the generation of reports shall not independently constitute grounds for a refund, provided that Valeenza  endeavours to adhere to communicated timelines.",
             "Refunds, if any, will be processed after deduction of applicable transaction charges levied by the bank and/or payment gateway, shipping costs, customs duties, and other incidental charges as applicable.",
             "Duplicate payments due to server errors or session timeouts shall be refunded in full without deduction, provided the Member reports the duplicate transaction to Customer Care immediately and does not initiate a second payment after confirming the debit.",
             "Cash cards, prepaid instruments, demand drafts, or cheques cannot be refunded."
@@ -333,7 +333,7 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "By requesting a refund, the Member grants Veltex's quality audit team permission to access relevant chat and call recordings of the consultation in question for the purposes of evaluating eligibility."
+          text: "By requesting a refund, the Member grants Valeenza 's quality audit team permission to access relevant chat and call recordings of the consultation in question for the purposes of evaluating eligibility."
         },
         {
           type: "paragraph",
@@ -359,7 +359,7 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "Members must notify Veltex immediately of any unauthorised use of their account or any suspected breach of security. Veltex shall not be liable for any loss or damage resulting from a Member's failure to maintain the confidentiality of their credentials. A Member shall be liable for any losses incurred by Veltex or other users as a result of unauthorised use of their account. Members are encouraged to change their password regularly. Accounts must not be shared with or used by any person other than the registered Member."
+          text: "Members must notify Valeenza  immediately of any unauthorised use of their account or any suspected breach of security. Valeenza  shall not be liable for any loss or damage resulting from a Member's failure to maintain the confidentiality of their credentials. A Member shall be liable for any losses incurred by Valeenza  or other users as a result of unauthorised use of their account. Members are encouraged to change their password regularly. Accounts must not be shared with or used by any person other than the registered Member."
         }
       ]
     },
@@ -368,19 +368,19 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "The Platform, including all software, graphics, text, images, databases, designs, arrangements, and other materials contained therein, are owned by or licensed to Veltex Services Private Limited and are protected by applicable copyright, trademark, patent, and other intellectual property laws in India and internationally."
+          text: "The Platform, including all software, graphics, text, images, databases, designs, arrangements, and other materials contained therein, are owned by or licensed to Valeenza services LLc  and are protected by applicable copyright, trademark, patent, and other intellectual property laws in India and internationally."
         },
         {
           type: "paragraph",
-          text: "This Agreement does not grant the Member any rights, licence, or interest in any intellectual property of Veltex or its licensors. Members may not copy, reproduce, distribute, modify, create derivative works from, publicly display, reverse engineer, or commercially exploit any portion of the Platform or its Content without the express prior written consent of Veltex."
+          text: "This Agreement does not grant the Member any rights, licence, or interest in any intellectual property of Valeenza  or its licensors. Members may not copy, reproduce, distribute, modify, create derivative works from, publicly display, reverse engineer, or commercially exploit any portion of the Platform or its Content without the express prior written consent of Valeenza ."
         },
         {
           type: "paragraph",
-          text: "By submitting, posting, or transmitting any content to or through the Platform, the Member grants Veltex an unlimited, irrevocable, royalty-free, worldwide licence to use, reproduce, edit, copy, transmit, distribute, publicly display, and create derivative works based on such content for the purposes of operating, improving, and promoting the Platform."
+          text: "By submitting, posting, or transmitting any content to or through the Platform, the Member grants Valeenza  an unlimited, irrevocable, royalty-free, worldwide licence to use, reproduce, edit, copy, transmit, distribute, publicly display, and create derivative works based on such content for the purposes of operating, improving, and promoting the Platform."
         },
         {
           type: "paragraph",
-          text: "Members may not adapt or use any trademark, service mark, trade name, logo, or domain name that is similar to or likely to be confused with those of Veltex or its licensors."
+          text: "Members may not adapt or use any trademark, service mark, trade name, logo, or domain name that is similar to or likely to be confused with those of Valeenza  or its licensors."
         }
       ]
     },
@@ -389,11 +389,11 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "The Platform may contain hyperlinks to third-party websites, products, or services not owned or controlled by Veltex. Veltex has no control over, and assumes no responsibility for, the content, privacy policies, practices, or security of such third-party websites. The presence of any third-party link does not constitute an endorsement by Veltex of such website or its content."
+          text: "The Platform may contain hyperlinks to third-party websites, products, or services not owned or controlled by Valeenza . Valeenza  has no control over, and assumes no responsibility for, the content, privacy policies, practices, or security of such third-party websites. The presence of any third-party link does not constitute an endorsement by Valeenza  of such website or its content."
         },
         {
           type: "paragraph",
-          text: "Members access third-party links at their own risk. Veltex shall not be responsible or liable for any damage, loss, or claim arising from or in connection with the use of or reliance on any third-party content, product, website, or service. Members are advised to review the applicable terms, conditions, and privacy policies of any third-party platform before engaging in transactions."
+          text: "Members access third-party links at their own risk. Valeenza  shall not be responsible or liable for any damage, loss, or claim arising from or in connection with the use of or reliance on any third-party content, product, website, or service. Members are advised to review the applicable terms, conditions, and privacy policies of any third-party platform before engaging in transactions."
         }
       ]
     },
@@ -402,19 +402,19 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "By registering as a Member and using the Platform, you agree to the collection, use, and disclosure of your personal information in accordance with Veltex's Privacy Policy, which is incorporated into this Agreement by reference and is available on the Platform."
+          text: "By registering as a Member and using the Platform, you agree to the collection, use, and disclosure of your personal information in accordance with Valeenza 's Privacy Policy, which is incorporated into this Agreement by reference and is available on the Platform."
         },
         {
           type: "paragraph",
-          text: "Veltex collects personal information including name, contact details, payment information, communication transcripts, recordings, browsing data, and device information for the purposes of providing services, improving the Platform, customer support, legal compliance, and other lawful purposes described in the Privacy Policy."
+          text: "Valeenza  collects personal information including name, contact details, payment information, communication transcripts, recordings, browsing data, and device information for the purposes of providing services, improving the Platform, customer support, legal compliance, and other lawful purposes described in the Privacy Policy."
         },
         {
           type: "paragraph",
-          text: "You expressly consent to receive communications from Veltex through email, SMS, WhatsApp, push notifications, and other electronic means regarding your account, services, updates, and promotions, including where your contact number is registered under the DND/NCPR list under the Telecom Commercial Customer Preference Regulations, 2018."
+          text: "You expressly consent to receive communications from Valeenza  through email, SMS, WhatsApp, push notifications, and other electronic means regarding your account, services, updates, and promotions, including where your contact number is registered under the DND/NCPR list under the Telecom Commercial Customer Preference Regulations, 2018."
         },
         {
           type: "paragraph",
-          text: "Veltex shall not sell, trade, or rent your personal information to third parties for direct marketing purposes, except as provided in the Privacy Policy or with your express consent."
+          text: "Valeenza  shall not sell, trade, or rent your personal information to third parties for direct marketing purposes, except as provided in the Privacy Policy or with your express consent."
         }
       ]
     },
@@ -423,13 +423,13 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex may disclose Member information, including personal information, where it reasonably believes that such disclosure is:"
+          text: "Valeenza  may disclose Member information, including personal information, where it reasonably believes that such disclosure is:"
         },
         {
           type: "list",
           items: [
             "Necessary to comply with a legal process, court order, subpoena, search warrant, or other legal requirement of any governmental or regulatory authority;",
-            "Necessary or appropriate to protect the rights, property, or safety of Veltex, its users, or the general public;",
+            "Necessary or appropriate to protect the rights, property, or safety of Valeenza , its users, or the general public;",
             "Required to enforce this Agreement, including the collection of fees;",
             "Intended to prevent or investigate fraud, unauthorized Transactions, or other illegal activities;",
             "Required to mitigate potential or actual liability in legal proceedings."
@@ -442,11 +442,11 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex respects the intellectual property rights of third parties and expects all users to do likewise. Veltex may, in its discretion, terminate the accounts of users who infringe upon the intellectual property rights of others."
+          text: "Valeenza  respects the intellectual property rights of third parties and expects all users to do likewise. Valeenza  may, in its discretion, terminate the accounts of users who infringe upon the intellectual property rights of others."
         },
         {
           type: "paragraph",
-          text: "If you believe that your copyrighted work has been used on the Platform in a manner that constitutes infringement, please submit a notice to Veltex's Customer Care containing the following:"
+          text: "If you believe that your copyrighted work has been used on the Platform in a manner that constitutes infringement, please submit a notice to Valeenza 's Customer Care containing the following:"
         },
         {
           type: "list",
@@ -470,11 +470,11 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "Veltex does not review, endorse, recommend, verify, evaluate, or guarantee the qualifications, expertise, credentials, background, or any opinion, advice, prediction, representation, or service provided by any Service Provider. Nothing in this Agreement shall be construed as a referral, endorsement, recommendation, or warranty with respect to any Service Provider or their advice."
+          text: "Valeenza  does not review, endorse, recommend, verify, evaluate, or guarantee the qualifications, expertise, credentials, background, or any opinion, advice, prediction, representation, or service provided by any Service Provider. Nothing in this Agreement shall be construed as a referral, endorsement, recommendation, or warranty with respect to any Service Provider or their advice."
         },
         {
           type: "paragraph",
-          text: "Veltex does not warrant that: (a) the Platform will be available on an uninterrupted, timely, secure, or error-free basis; (b) results obtained from use of the Platform will be accurate, reliable, or satisfactory; (c) any errors or defects in the Platform will be corrected; or (d) the Platform or its servers are free from viruses or other harmful components."
+          text: "Valeenza  does not warrant that: (a) the Platform will be available on an uninterrupted, timely, secure, or error-free basis; (b) results obtained from use of the Platform will be accurate, reliable, or satisfactory; (c) any errors or defects in the Platform will be corrected; or (d) the Platform or its servers are free from viruses or other harmful components."
         },
         {
           type: "paragraph",
@@ -487,15 +487,15 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, VELTEX SERVICES PRIVATE LIMITED, ITS AFFILIATES, AND ANY OF THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, SHAREHOLDERS, AGENTS, SUCCESSORS, AND ASSIGNS SHALL NOT BE LIABLE TO ANY MEMBER OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, PROFITS, DATA, USE, BUSINESS, OR GOODWILL, ARISING OUT OF OR RELATED TO THIS AGREEMENT, THE PLATFORM, OR ANY SERVICES RENDERED THROUGH THE PLATFORM, REGARDLESS OF THE LEGAL THEORY ADVANCED OR WHETHER VELTEX HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES."
+          text: "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Valeenza services LLc , ITS AFFILIATES, AND ANY OF THEIR RESPECTIVE OFFICERS, DIRECTORS, EMPLOYEES, SHAREHOLDERS, AGENTS, SUCCESSORS, AND ASSIGNS SHALL NOT BE LIABLE TO ANY MEMBER OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF REVENUE, PROFITS, DATA, USE, BUSINESS, OR GOODWILL, ARISING OUT OF OR RELATED TO THIS AGREEMENT, THE PLATFORM, OR ANY SERVICES RENDERED THROUGH THE PLATFORM, REGARDLESS OF THE LEGAL THEORY ADVANCED OR WHETHER Valeenza  HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES."
         },
         {
           type: "paragraph",
-          text: "In the event that applicable law does not permit the limitation of liability as set forth above, the maximum aggregate liability of Veltex to the Member for all claims arising out of or relating to this Agreement or the Platform shall not exceed the total amount paid by the Member to Veltex in the twelve (12) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
+          text: "In the event that applicable law does not permit the limitation of liability as set forth above, the maximum aggregate liability of Valeenza  to the Member for all claims arising out of or relating to this Agreement or the Platform shall not exceed the total amount paid by the Member to Valeenza  in the twelve (12) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
         },
         {
           type: "paragraph",
-          text: "Veltex shall not be held liable for any failure or delay in performing its obligations hereunder due to circumstances beyond its reasonable control, including but not limited to acts of God, natural disasters, government orders, pandemics, cyber-attacks, telecommunications disruptions, or other force majeure events."
+          text: "Valeenza  shall not be held liable for any failure or delay in performing its obligations hereunder due to circumstances beyond its reasonable control, including but not limited to acts of God, natural disasters, government orders, pandemics, cyber-attacks, telecommunications disruptions, or other force majeure events."
         },
         {
           type: "paragraph",
@@ -508,7 +508,7 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "The Member shall defend, indemnify, and hold harmless Veltex Services Private Limited, its affiliates, and their respective officers, directors, employees, agents, consultants, and representatives (collectively, the \"Indemnified Parties\") from and against any and all losses, liabilities, damages, judgments, costs, and expenses (including reasonable legal fees) arising out of or in connection with:"
+          text: "The Member shall defend, indemnify, and hold harmless Valeenza services LLc , its affiliates, and their respective officers, directors, employees, agents, consultants, and representatives (collectively, the \"Indemnified Parties\") from and against any and all losses, liabilities, damages, judgments, costs, and expenses (including reasonable legal fees) arising out of or in connection with:"
         },
         {
           type: "list",
@@ -531,15 +531,15 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex may assign, approve, or permit Service Providers to use a display name, screen name, pseudonym, or professional name on the Platform (\"Display Name\"). A Display Name may differ from the Service Provider's legal or registered name and shall serve as the primary identifier visible to Members on the Platform."
+          text: "Valeenza  may assign, approve, or permit Service Providers to use a display name, screen name, pseudonym, or professional name on the Platform (\"Display Name\"). A Display Name may differ from the Service Provider's legal or registered name and shall serve as the primary identifier visible to Members on the Platform."
         },
         {
           type: "paragraph",
-          text: "The use of Display Names is intended to protect the privacy and professional presentation of Service Providers and shall not be construed as misrepresentation or impersonation. Veltex verifies Service Providers in accordance with its internal compliance policies and applicable law. Veltex reserves the right to approve, modify, suspend, or withdraw any Display Name at its discretion to ensure compliance with its policies or applicable regulatory requirements."
+          text: "The use of Display Names is intended to protect the privacy and professional presentation of Service Providers and shall not be construed as misrepresentation or impersonation. Valeenza  verifies Service Providers in accordance with its internal compliance policies and applicable law. Valeenza  reserves the right to approve, modify, suspend, or withdraw any Display Name at its discretion to ensure compliance with its policies or applicable regulatory requirements."
         },
         {
           type: "paragraph",
-          text: "In the event of a Member complaint, dispute, or lawful request by a competent authority, Veltex may, where required by law, disclose the legal details of a Service Provider to the appropriate authority through its grievance redressal mechanisms."
+          text: "In the event of a Member complaint, dispute, or lawful request by a competent authority, Valeenza  may, where required by law, disclose the legal details of a Service Provider to the appropriate authority through its grievance redressal mechanisms."
         }
       ]
     },
@@ -548,15 +548,15 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex reserves the right to modify, suspend, or permanently discontinue, in whole or in part, any service, feature, or Content available through the Platform at any time, with or without notice to the Member. Veltex shall not be liable to the Member or any third party for any modification, suspension, or discontinuation of services."
+          text: "Valeenza  reserves the right to modify, suspend, or permanently discontinue, in whole or in part, any service, feature, or Content available through the Platform at any time, with or without notice to the Member. Valeenza  shall not be liable to the Member or any third party for any modification, suspension, or discontinuation of services."
         },
         {
           type: "paragraph",
-          text: "Veltex may, in its sole discretion and for any reason, terminate a Member's access to the Platform and refuse any current or future use of the Platform. Veltex is not obligated to provide reasons for such termination."
+          text: "Valeenza  may, in its sole discretion and for any reason, terminate a Member's access to the Platform and refuse any current or future use of the Platform. Valeenza  is not obligated to provide reasons for such termination."
         },
         {
           type: "paragraph",
-          text: "Veltex shall not be responsible for any service disruptions arising from factors outside its reasonable control, including failures in third-party networks, hardware, or communications infrastructure."
+          text: "Valeenza  shall not be responsible for any service disruptions arising from factors outside its reasonable control, including failures in third-party networks, hardware, or communications infrastructure."
         }
       ]
     },
@@ -582,7 +582,7 @@ export const termsAndConditionsData = {
       body: [
         {
           type: "paragraph",
-          text: "No Assignment: The Member shall not assign, transfer, sub-licence, or otherwise dispose of any rights or obligations arising under this Agreement, in whole or in part, without the prior written consent of Veltex. Any purported assignment without such consent shall be null and void."
+          text: "No Assignment: The Member shall not assign, transfer, sub-licence, or otherwise dispose of any rights or obligations arising under this Agreement, in whole or in part, without the prior written consent of Valeenza . Any purported assignment without such consent shall be null and void."
         },
         {
           type: "paragraph",
@@ -590,31 +590,31 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "Entire Agreement: This Agreement, together with all policies incorporated by reference, constitutes the entire agreement between Veltex and the Member with respect to the subject matter hereof and supersedes all prior representations, warranties, agreements, and understandings, whether oral or written."
+          text: "Entire Agreement: This Agreement, together with all policies incorporated by reference, constitutes the entire agreement between Valeenza  and the Member with respect to the subject matter hereof and supersedes all prior representations, warranties, agreements, and understandings, whether oral or written."
         },
         {
           type: "paragraph",
-          text: "Waiver: Veltex's failure to exercise or enforce any right or provision of this Agreement shall not constitute a waiver of such right or provision."
+          text: "Waiver: Valeenza 's failure to exercise or enforce any right or provision of this Agreement shall not constitute a waiver of such right or provision."
         },
         {
           type: "paragraph",
-          text: "No Partnership: Nothing in this Agreement shall be construed as creating a partnership, joint venture, agency, employment, or franchise relationship between Veltex and the Member or any Service Provider."
+          text: "No Partnership: Nothing in this Agreement shall be construed as creating a partnership, joint venture, agency, employment, or franchise relationship between Valeenza  and the Member or any Service Provider."
         },
         {
           type: "paragraph",
-          text: "Notices: All notices from Veltex to Members shall be communicated electronically through the email address provided in the Member's Registration Data or through the Platform. Notices shall be deemed received twenty-four (24) hours after dispatch by email. Members may contact Veltex at the following address:"
+          text: "Notices: All notices from Valeenza  to Members shall be communicated electronically through the email address provided in the Member's Registration Data or through the Platform. Notices shall be deemed received twenty-four (24) hours after dispatch by email. Members may contact Valeenza  at the following address:"
         },
         {
           type: "paragraph",
-          text: "Veltex Services Private Limited"
+          text: "Valeenza services LLc "
         },
         {
           type: "paragraph",
-          text: "Website: www.astrotring.com"
+          text: "Website: www.Valeenza.com"
         },
         {
           type: "paragraph",
-          text: "Email: care@astrotring.com"
+          text: "Email: care@Valeenza.com"
         },
         {
           type: "paragraph",
@@ -622,7 +622,7 @@ export const termsAndConditionsData = {
         },
         {
           type: "paragraph",
-          text: "Updates to this Agreement: Veltex reserves the right to amend this Agreement at any time. Amended Terms will be posted on the Platform with an updated \"Last Updated\" date. Continued use of the Platform following such amendments shall constitute acceptance of the revised Agreement. Members are encouraged to review this Agreement periodically."
+          text: "Updates to this Agreement: Valeenza  reserves the right to amend this Agreement at any time. Amended Terms will be posted on the Platform with an updated \"Last Updated\" date. Continued use of the Platform following such amendments shall constitute acceptance of the revised Agreement. Members are encouraged to review this Agreement periodically."
         }
       ]
     },

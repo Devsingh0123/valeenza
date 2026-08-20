@@ -1,11 +1,5 @@
 import { Link } from "react-router-dom";
-import {
-  Mail,
-  Facebook,
-  Instagram,
-  Twitter,
-  Youtube,
-} from "lucide-react";
+import { Mail, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import logo from "../../assets/logo.png";
 import { useSelector } from "react-redux";
 
@@ -160,7 +154,7 @@ const Footer = () => {
             <p className="text-sm text-stone-600 leading-relaxed mt-4 max-w-md">
               We are available 24×7 on chat support.{" "}
               <a
-                href="https://wa.me/919485628238?text=Hi"
+                href="https://wa.me/16263624253?text=Hi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#D63B3B] hover:text-[#1E3354] font-medium transition-colors"

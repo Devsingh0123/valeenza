@@ -1,7 +1,7 @@
 // src/constants/allPolicyData/shippingPolicyData.js
 export const shippingPolicyData = {
-  name: "VELTEX SERVICES PRIVATE LIMITED",
-  website: "www.astrotring.com",
+  name: "Valeenza services LLc ",
+  website: "www.Valeenza.co",
   title: "SHIPPING POLICY",
   lastUpdated: "March 2026",
   sections: [
@@ -10,7 +10,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "This Shipping Policy (hereinafter referred to as the \"Policy\") sets out the terms and conditions governing the dispatch, delivery, and logistics of physical products ordered through the Platform operated by Veltex Services Private Limited (hereinafter referred to as \"Veltex\", \"We\", \"Us\", or \"Our\") at www.astrotring.com (the \"Platform\")."
+          text: "This Shipping Policy (hereinafter referred to as the \"Policy\") sets out the terms and conditions governing the dispatch, delivery, and logistics of physical products ordered through the Platform operated by Valeenza services LLc  (hereinafter referred to as \"Valeenza \", \"We\", \"Us\", or \"Our\") at www.Valeenza.co (the \"Platform\")."
         },
         {
           type: "paragraph",
@@ -18,7 +18,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "Veltex reserves the right to update or amend this Policy at any time without prior notice. The most current version will be published on the Platform. Continued use of the Platform and placement of orders following any amendment shall constitute acceptance of the revised Policy."
+          text: "Valeenza  reserves the right to update or amend this Policy at any time without prior notice. The most current version will be published on the Platform. Continued use of the Platform and placement of orders following any amendment shall constitute acceptance of the revised Policy."
         }
       ]
     },
@@ -27,11 +27,11 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex partners with reputable and trusted third-party logistics and courier service providers to facilitate the timely and secure delivery of products to Users across India and select international destinations. The choice of courier partner for any specific order shall be at the sole discretion of Veltex, based on factors including the delivery location, product type, and availability of services."
+          text: "Valeenza  partners with reputable and trusted third-party logistics and courier service providers to facilitate the timely and secure delivery of products to Users across India and select international destinations. The choice of courier partner for any specific order shall be at the sole discretion of Valeenza , based on factors including the delivery location, product type, and availability of services."
         },
         {
           type: "paragraph",
-          text: "Veltex does not directly operate or control the logistics infrastructure of its courier partners. While Veltex endeavours to engage only reliable service providers, it shall not be liable for any delay, loss, or damage caused by the acts or omissions of third-party courier partners, subject to the provisions of this Policy."
+          text: "Valeenza  does not directly operate or control the logistics infrastructure of its courier partners. While Valeenza  endeavours to engage only reliable service providers, it shall not be liable for any delay, loss, or damage caused by the acts or omissions of third-party courier partners, subject to the provisions of this Policy."
         }
       ]
     },
@@ -40,7 +40,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Upon successful placement and confirmation of an order on the Platform, Veltex shall process the order within one (1) to two (2) business days. \"Business days\" for the purposes of this Policy refer to Monday through Saturday, excluding public holidays as observed in India."
+          text: "Upon successful placement and confirmation of an order on the Platform, Valeenza  shall process the order within one (1) to two (2) business days. \"Business days\" for the purposes of this Policy refer to Monday through Saturday, excluding public holidays as observed in India."
         },
         {
           type: "paragraph",
@@ -48,7 +48,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "Veltex reserves the right to cancel or hold any order where payment verification is unsuccessful, where the item is found to be unavailable, or where any other issue is identified during the processing stage. Users will be notified in such circumstances, and any amounts charged will be refunded in accordance with the Refund and Cancellation Policy."
+          text: "Valeenza  reserves the right to cancel or hold any order where payment verification is unsuccessful, where the item is found to be unavailable, or where any other issue is identified during the processing stage. Users will be notified in such circumstances, and any amounts charged will be refunded in accordance with the Refund and Cancellation Policy."
         }
       ]
     },
@@ -57,11 +57,11 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Subject to successful order processing, products are ordinarily dispatched within twenty-four (24) to forty-eight (48) hours of the completion of the processing stage. Dispatch timelines may vary during peak seasons, festivals, or other periods of high demand, and Veltex shall endeavour to communicate any significant delays to the affected Users."
+          text: "Subject to successful order processing, products are ordinarily dispatched within twenty-four (24) to forty-eight (48) hours of the completion of the processing stage. Dispatch timelines may vary during peak seasons, festivals, or other periods of high demand, and Valeenza  shall endeavour to communicate any significant delays to the affected Users."
         },
         {
           type: "paragraph",
-          text: "Dispatch is subject to the availability of courier services at the delivery location and may be extended in instances of force majeure, adverse weather conditions, logistical disruptions, or other circumstances beyond the reasonable control of Veltex."
+          text: "Dispatch is subject to the availability of courier services at the delivery location and may be extended in instances of force majeure, adverse weather conditions, logistical disruptions, or other circumstances beyond the reasonable control of Valeenza ."
         }
       ]
     },
@@ -70,7 +70,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "The following are the estimated delivery timelines from the date of dispatch. These are indicative timeframes only and are not guaranteed. Actual delivery times may vary based on the courier partner's operations, the delivery location, and external factors beyond Veltex's control."
+          text: "The following are the estimated delivery timelines from the date of dispatch. These are indicative timeframes only and are not guaranteed. Actual delivery times may vary based on the courier partner's operations, the delivery location, and external factors beyond Valeenza 's control."
         },
         {
           type: "table",
@@ -84,7 +84,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "The above timelines are subject to change during peak shopping periods, national holidays, or in the event of disruptions to courier operations. Veltex shall not be held liable for delays falling within the above estimated windows or for delays caused by circumstances beyond its reasonable control."
+          text: "The above timelines are subject to change during peak shopping periods, national holidays, or in the event of disruptions to courier operations. Valeenza  shall not be held liable for delays falling within the above estimated windows or for delays caused by circumstances beyond its reasonable control."
         }
       ]
     },
@@ -96,7 +96,7 @@ export const shippingPolicyData = {
           body: [
             {
               type: "paragraph",
-              text: "Veltex ships to all serviceable pin codes across India. To verify whether delivery is available at a specific pin code, Users may contact the customer support team prior to placing an order. In the event that a pin code is found to be non-serviceable after the order has been placed, Veltex will notify the User and arrange for a full refund of the amount paid."
+              text: "Valeenza  ships to all serviceable pin codes across India. To verify whether delivery is available at a specific pin code, Users may contact the customer support team prior to placing an order. In the event that a pin code is found to be non-serviceable after the order has been placed, Valeenza  will notify the User and arrange for a full refund of the amount paid."
             }
           ]
         },
@@ -105,11 +105,11 @@ export const shippingPolicyData = {
           body: [
             {
               type: "paragraph",
-              text: "International shipping is currently available for select countries and territories. Users wishing to place international orders are advised to confirm availability for their specific country with Veltex customer support prior to placing an order. International deliveries are subject to customs clearance procedures at the destination country, which may result in additional delays and/or charges."
+              text: "International shipping is currently available for select countries and territories. Users wishing to place international orders are advised to confirm availability for their specific country with Valeenza  customer support prior to placing an order. International deliveries are subject to customs clearance procedures at the destination country, which may result in additional delays and/or charges."
             },
             {
               type: "paragraph",
-              text: "Any customs duties, import taxes, or other levies imposed by the destination country's authorities are the sole responsibility of the recipient. Veltex shall not be liable for delays resulting from customs processing or for any additional charges incurred at the point of importation."
+              text: "Any customs duties, import taxes, or other levies imposed by the destination country's authorities are the sole responsibility of the recipient. Valeenza  shall not be liable for delays resulting from customs processing or for any additional charges incurred at the point of importation."
             }
           ]
         }
@@ -120,11 +120,11 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Upon dispatch of an order, Veltex shall send a shipment confirmation to the User via SMS to the registered mobile number associated with the User's account. The confirmation will include relevant details to enable the User to monitor the status of their delivery."
+          text: "Upon dispatch of an order, Valeenza  shall send a shipment confirmation to the User via SMS to the registered mobile number associated with the User's account. The confirmation will include relevant details to enable the User to monitor the status of their delivery."
         },
         {
           type: "paragraph",
-          text: "Users may contact Veltex customer support at any time to enquire about the status of their order or to report a delay. Veltex will endeavour to provide timely and accurate information to the best of its ability, subject to information received from the relevant courier partner."
+          text: "Users may contact Valeenza  customer support at any time to enquire about the status of their order or to report a delay. Valeenza  will endeavour to provide timely and accurate information to the best of its ability, subject to information received from the relevant courier partner."
         }
       ]
     },
@@ -133,7 +133,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "While Veltex makes every reasonable effort to ensure that orders are delivered within the estimated timelines, there may be instances where deliveries are delayed due to circumstances beyond Veltex's control. Such circumstances may include, without limitation:"
+          text: "While Valeenza  makes every reasonable effort to ensure that orders are delivered within the estimated timelines, there may be instances where deliveries are delayed due to circumstances beyond Valeenza 's control. Such circumstances may include, without limitation:"
         },
         {
           type: "list",
@@ -149,11 +149,11 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "In the event of a significant delay, Veltex shall endeavour to notify the affected User and coordinate with the courier partner to facilitate delivery at the earliest possible date. Users experiencing delivery delays are encouraged to contact Veltex customer support for assistance."
+          text: "In the event of a significant delay, Valeenza  shall endeavour to notify the affected User and coordinate with the courier partner to facilitate delivery at the earliest possible date. Users experiencing delivery delays are encouraged to contact Valeenza  customer support for assistance."
         },
         {
           type: "paragraph",
-          text: "Veltex shall not be liable for any loss, damage, or inconvenience arising from delivery delays caused by the above circumstances. However, Veltex will work with the User in good faith to resolve any delivery issues in a reasonable and timely manner."
+          text: "Valeenza  shall not be liable for any loss, damage, or inconvenience arising from delivery delays caused by the above circumstances. However, Valeenza  will work with the User in good faith to resolve any delivery issues in a reasonable and timely manner."
         }
       ]
     },
@@ -162,7 +162,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex is committed to ensuring that all products reach Users in optimal condition. All items are carefully packed prior to dispatch in accordance with the following standards:"
+          text: "Valeenza  is committed to ensuring that all products reach Users in optimal condition. All items are carefully packed prior to dispatch in accordance with the following standards:"
         },
         {
           type: "list",
@@ -175,7 +175,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "In the event that a product is received in a damaged condition, Users should contact Veltex customer support within forty-eight (48) hours of delivery, providing photographic evidence of the damaged packaging and product. Veltex will investigate the matter and take appropriate action in accordance with the Refund and Cancellation Policy."
+          text: "In the event that a product is received in a damaged condition, Users should contact Valeenza  customer support within forty-eight (48) hours of delivery, providing photographic evidence of the damaged packaging and product. Valeenza  will investigate the matter and take appropriate action in accordance with the Refund and Cancellation Policy."
         }
       ]
     },
@@ -196,11 +196,11 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "In the event of a failed delivery, the courier partner may make additional delivery attempts or leave a notification for the recipient to arrange re-delivery or collection. If the shipment is returned to Veltex following repeated failed delivery attempts, Veltex will contact the User to arrange re-dispatch, subject to payment of re-shipping charges where applicable. If the User does not respond within a reasonable time, Veltex reserves the right to treat the order as cancelled, and any applicable refund will be processed in accordance with the Refund and Cancellation Policy after deduction of shipping and handling charges."
+          text: "In the event of a failed delivery, the courier partner may make additional delivery attempts or leave a notification for the recipient to arrange re-delivery or collection. If the shipment is returned to Valeenza  following repeated failed delivery attempts, Valeenza  will contact the User to arrange re-dispatch, subject to payment of re-shipping charges where applicable. If the User does not respond within a reasonable time, Valeenza  reserves the right to treat the order as cancelled, and any applicable refund will be processed in accordance with the Refund and Cancellation Policy after deduction of shipping and handling charges."
         },
         {
           type: "paragraph",
-          text: "Users are solely responsible for ensuring that accurate and complete delivery information is provided at the time of placing an order. Veltex shall not be responsible for non-delivery arising from incorrect or incomplete address details provided by the User, and no refund shall be payable in such circumstances except at Veltex's sole discretion."
+          text: "Users are solely responsible for ensuring that accurate and complete delivery information is provided at the time of placing an order. Valeenza  shall not be responsible for non-delivery arising from incorrect or incomplete address details provided by the User, and no refund shall be payable in such circumstances except at Valeenza 's sole discretion."
         }
       ]
     },
@@ -209,7 +209,7 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex shall use all reasonable efforts to ensure that orders are dispatched and delivered within the timelines specified in this Policy. However, Veltex does not guarantee the delivery of any order within any specific time period and shall not be liable for any direct, indirect, incidental, or consequential loss or damage arising from:"
+          text: "Valeenza  shall use all reasonable efforts to ensure that orders are dispatched and delivered within the timelines specified in this Policy. However, Valeenza  does not guarantee the delivery of any order within any specific time period and shall not be liable for any direct, indirect, incidental, or consequential loss or damage arising from:"
         },
         {
           type: "list",
@@ -223,7 +223,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "To the extent permitted by applicable law, Veltex's liability to any User in connection with a shipping-related claim shall not exceed the amount paid by the User for the relevant product and its associated shipping charges."
+          text: "To the extent permitted by applicable law, Valeenza 's liability to any User in connection with a shipping-related claim shall not exceed the amount paid by the User for the relevant product and its associated shipping charges."
         }
       ]
     },
@@ -232,19 +232,19 @@ export const shippingPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "For any queries, concerns, or assistance relating to shipping, dispatch, or delivery of orders, Users may contact Veltex customer support through the following channels:"
+          text: "For any queries, concerns, or assistance relating to shipping, dispatch, or delivery of orders, Users may contact Valeenza  customer support through the following channels:"
         },
         {
           type: "paragraph",
-          text: "Veltex Services Private Limited"
+          text: "Valeenza services LLc "
         },
         {
           type: "paragraph",
-          text: "Website: www.astrotring.com"
+          text: "Website: www.Valeenza.co"
         },
         {
           type: "paragraph",
-          text: "Email: care@astrotring.com"
+          text: "Email: care@valeenza.co"
         },
         {
           type: "paragraph",
@@ -252,7 +252,7 @@ export const shippingPolicyData = {
         },
         {
           type: "paragraph",
-          text: "Veltex customer support is available twenty-four (24) hours a day, seven (7) days a week, to address any shipping-related concerns. Users are encouraged to have their order details ready when contacting support to enable prompt assistance."
+          text: "Valeenza  customer support is available twenty-four (24) hours a day, seven (7) days a week, to address any shipping-related concerns. Users are encouraged to have their order details ready when contacting support to enable prompt assistance."
         }
       ]
     },

@@ -1,7 +1,7 @@
 // src/constants/allPolicyData/refundPolicyData.js
 export const refundPolicyData = {
-  name: "VELTEX SERVICES PRIVATE LIMITED",
-  website: "www.astrotring.com",
+  name: "Valeenza services LLc ",
+  website: "www.Valeenza.com",
   title: "REFUND AND RETURN POLICY",
   lastUpdated: "March 2026",
   sections: [
@@ -10,7 +10,7 @@ export const refundPolicyData = {
       body: [
         {
           type: "paragraph",
-          text: "This Refund and Return Policy (hereinafter referred to as the \"Policy\") sets out the terms and conditions governing refunds, returns, and replacements for products and services purchased through the Platform operated by Veltex Services Private Limited (hereinafter referred to as \"Veltex\", \"We\", \"Us\", or \"Our\") at www.astrotring.com (the \"Platform\")."
+          text: "This Refund and Return Policy (hereinafter referred to as the \"Policy\") sets out the terms and conditions governing refunds, returns, and replacements for products and services purchased through the Platform operated by Valeenza services LLc  (hereinafter referred to as \"Valeenza \", \"We\", \"Us\", or \"Our\") at www.Valeenza.com (the \"Platform\")."
         },
         {
           type: "paragraph",
@@ -22,7 +22,7 @@ export const refundPolicyData = {
         },
         {
           type: "paragraph",
-          text: "Veltex reserves the right to update or amend this Policy at any time without prior notice. The most current version will be published on the Platform, and continued use of the Platform following any amendment shall constitute acceptance of the revised Policy."
+          text: "Valeenza  reserves the right to update or amend this Policy at any time without prior notice. The most current version will be published on the Platform, and continued use of the Platform following any amendment shall constitute acceptance of the revised Policy."
         }
       ]
     },
@@ -43,7 +43,7 @@ export const refundPolicyData = {
                 "The product must be defective, damaged upon delivery, or materially different from the product described or ordered on the Platform (i.e., an incorrect item was delivered).",
                 "The product must be in its original, unused condition, with all original packaging intact, tags attached, and accessories included. Products that have been used, altered, or damaged by the Customer after delivery are not eligible for return or replacement.",
                 "The Customer must provide clear supporting photographs and/or video evidence documenting the defect, damage, or discrepancy at the time of initiating the return request.",
-                "In cases involving a missing item from an order, the Customer must report the missing item to Veltex customer support within seventy-two (72) hours of delivery of the order. Claims received after this period will not be entertained.",
+                "In cases involving a missing item from an order, the Customer must report the missing item to Valeenza  customer support within seventy-two (72) hours of delivery of the order. Claims received after this period will not be entertained.",
                 "Returns will be collected from the same delivery address at which the product was originally delivered. Customers must ensure the product is available at this address for pickup."
               ]
             }
@@ -63,7 +63,7 @@ export const refundPolicyData = {
                 "Products damaged by the Customer after delivery, including due to misuse, negligence, improper storage, or accidental damage;",
                 "Products returned without their original packaging, tags, or accessories;",
                 "Products for which the return request is submitted after the seven (7) day return window has expired;",
-                "Products returned on grounds of dissatisfaction with the claimed benefits or effectiveness of the product. While Veltex guarantees the quality and authenticity of all products sold on the Platform, it does not guarantee that any Customer will experience specific benefits or outcomes associated with the use of any product. The effectiveness of products may vary based on individual use, circumstances, and other personal factors. No return or replacement shall be available under this category."
+                "Products returned on grounds of dissatisfaction with the claimed benefits or effectiveness of the product. While Valeenza  guarantees the quality and authenticity of all products sold on the Platform, it does not guarantee that any Customer will experience specific benefits or outcomes associated with the use of any product. The effectiveness of products may vary based on individual use, circumstances, and other personal factors. No return or replacement shall be available under this category."
               ]
             }
           ]
@@ -78,10 +78,10 @@ export const refundPolicyData = {
             {
               type: "list",
               items: [
-                "Initiation: Contact Veltex customer support at care@astrotring.com with your order number, a description of the issue (defective, damaged, or incorrect item), and clear supporting photographs or video evidence. Return requests must be submitted within seven (7) days of receipt of the product.",
-                "Review and Approval: Veltex will review the return request and supporting evidence. Upon approval, the Customer will receive written confirmation and instructions on how to proceed. Veltex reserves the right to decline return requests that do not meet the eligibility criteria set out in this Policy.",
-                "Pickup and Return Shipping: Upon approval of the return, Veltex will arrange for the product to be picked up from the original delivery address. A prepaid shipping label will be provided to the Customer, which must be affixed to the return package. The Customer is responsible for ensuring the product is securely packaged for return shipment.",
-                "Processing and Resolution: Upon receipt and inspection of the returned product, Veltex will process the applicable refund or replacement in accordance with Section 5 of this Policy."
+                "Initiation: Contact Valeenza  customer support at care@Valeenza.com with your order number, a description of the issue (defective, damaged, or incorrect item), and clear supporting photographs or video evidence. Return requests must be submitted within seven (7) days of receipt of the product.",
+                "Review and Approval: Valeenza  will review the return request and supporting evidence. Upon approval, the Customer will receive written confirmation and instructions on how to proceed. Valeenza  reserves the right to decline return requests that do not meet the eligibility criteria set out in this Policy.",
+                "Pickup and Return Shipping: Upon approval of the return, Valeenza  will arrange for the product to be picked up from the original delivery address. A prepaid shipping label will be provided to the Customer, which must be affixed to the return package. The Customer is responsible for ensuring the product is securely packaged for return shipment.",
+                "Processing and Resolution: Upon receipt and inspection of the returned product, Valeenza  will process the applicable refund or replacement in accordance with Section 5 of this Policy."
               ]
             }
           ]
@@ -94,7 +94,7 @@ export const refundPolicyData = {
               body: [
                 {
                   type: "paragraph",
-                  text: "For eligible products returned within the seven (7) day return window, Veltex will issue a Store Credit equivalent to the value of the returned item(s) to the Customer's Platform account. Store Credits may be applied towards future purchases on the Platform and are subject to the terms and conditions governing Store Credits as published on the Platform."
+                  text: "For eligible products returned within the seven (7) day return window, Valeenza  will issue a Store Credit equivalent to the value of the returned item(s) to the Customer's Platform account. Store Credits may be applied towards future purchases on the Platform and are subject to the terms and conditions governing Store Credits as published on the Platform."
                 }
               ]
             },
@@ -130,7 +130,7 @@ export const refundPolicyData = {
               body: [
                 {
                   type: "paragraph",
-                  text: "Where a Customer opts for a replacement rather than a refund, Veltex will dispatch the replacement product within four (4) business days of receipt and inspection of the returned item. Replacement products are subject to availability. In the event that the requested replacement product is unavailable, Veltex will offer the Customer a Store Credit or a refund in accordance with the applicable terms above."
+                  text: "Where a Customer opts for a replacement rather than a refund, Valeenza  will dispatch the replacement product within four (4) business days of receipt and inspection of the returned item. Replacement products are subject to availability. In the event that the requested replacement product is unavailable, Valeenza  will offer the Customer a Store Credit or a refund in accordance with the applicable terms above."
                 }
               ]
             }
@@ -141,11 +141,11 @@ export const refundPolicyData = {
           body: [
             {
               type: "paragraph",
-              text: "Veltex guarantees the authenticity of all physical products sold through the Platform. All products are sourced from reputable suppliers and are subject to quality checks before being listed on the Platform and prior to dispatch. Veltex is committed to ensuring that every product meets stringent quality standards before it is offered to Customers."
+              text: "Valeenza  guarantees the authenticity of all physical products sold through the Platform. All products are sourced from reputable suppliers and are subject to quality checks before being listed on the Platform and prior to dispatch. Valeenza  is committed to ensuring that every product meets stringent quality standards before it is offered to Customers."
             },
             {
               type: "paragraph",
-              text: "Notwithstanding the above quality assurance measures, Veltex does not guarantee that any Customer will experience specific benefits, outcomes, or results associated with the use of any product. The effectiveness of products, including gemstones, spiritual items, and allied products, may vary significantly based on individual use, personal circumstances, and other factors beyond Veltex's control. No return, replacement, or refund shall be available on the grounds that a product has not produced an expected or desired effect."
+              text: "Notwithstanding the above quality assurance measures, Valeenza  does not guarantee that any Customer will experience specific benefits, outcomes, or results associated with the use of any product. The effectiveness of products, including gemstones, spiritual items, and allied products, may vary significantly based on individual use, personal circumstances, and other factors beyond Valeenza 's control. No return, replacement, or refund shall be available on the grounds that a product has not produced an expected or desired effect."
             }
           ]
         }
@@ -165,10 +165,10 @@ export const refundPolicyData = {
               type: "list",
               items: [
                 "All refund requests must be submitted within twenty-four (24) hours of the completion of the relevant consultation or service session. Requests submitted after this period will not be entertained.",
-                "Refunds for digital services will be processed exclusively as credits to the User's Astrotring Wallet. Refunds to the original payment method or bank account are not available for digital services. All transactions for digital services on the Platform are final in this regard.",
-                "By submitting a refund request, the User expressly consents to Veltex's quality audit team accessing the relevant chat transcript, call recording, or session recording for the purpose of evaluating the refund request. Without this consent, the refund request cannot be processed.",
-                "The decision of Veltex's quality audit team as to whether a refund is appropriate, and the quantum of any refund, is made at the team's sole discretion and shall be final and binding on the User.",
-                "Veltex will make best efforts to analyse and process eligible refunds to the User's Astrotring Wallet within twenty-four (24) hours of the decision to approve the refund request. Processing times may vary in complex or disputed cases."
+                "Refunds for digital services will be processed exclusively as credits to the User's Valeenza Wallet. Refunds to the original payment method or bank account are not available for digital services. All transactions for digital services on the Platform are final in this regard.",
+                "By submitting a refund request, the User expressly consents to Valeenza 's quality audit team accessing the relevant chat transcript, call recording, or session recording for the purpose of evaluating the refund request. Without this consent, the refund request cannot be processed.",
+                "The decision of Valeenza 's quality audit team as to whether a refund is appropriate, and the quantum of any refund, is made at the team's sole discretion and shall be final and binding on the User.",
+                "Valeenza  will make best efforts to analyse and process eligible refunds to the User's Valeenza Wallet within twenty-four (24) hours of the decision to approve the refund request. Processing times may vary in complex or disputed cases."
               ]
             }
           ]
@@ -178,7 +178,7 @@ export const refundPolicyData = {
           body: [
             {
               type: "paragraph",
-              text: "Refunds for digital services will be considered by Veltex's quality audit team on a case-by-case basis, and only in the following circumstances:"
+              text: "Refunds for digital services will be considered by Valeenza 's quality audit team on a case-by-case basis, and only in the following circumstances:"
             },
             {
               type: "list",
@@ -191,7 +191,7 @@ export const refundPolicyData = {
             },
             {
               type: "paragraph",
-              text: "Partial or full refunds, at Veltex's discretion, may be issued as Astrotring Wallet credits where one or more of the above circumstances are substantiated by the relevant session records."
+              text: "Partial or full refunds, at Valeenza 's discretion, may be issued as Valeenza Wallet credits where one or more of the above circumstances are substantiated by the relevant session records."
             }
           ]
         },
@@ -205,10 +205,10 @@ export const refundPolicyData = {
             {
               type: "list",
               items: [
-                "Lack of Accuracy: No refund will be granted on the grounds that the User is dissatisfied with the accuracy, reliability, or outcome of any astrological prediction or consultation. Veltex acts as a technology intermediary platform and does not warrant or guarantee the factual accuracy of any astrological advice provided by Service Providers. Users access astrological consultations at their own discretion and risk.",
+                "Lack of Accuracy: No refund will be granted on the grounds that the User is dissatisfied with the accuracy, reliability, or outcome of any astrological prediction or consultation. Valeenza  acts as a technology intermediary platform and does not warrant or guarantee the factual accuracy of any astrological advice provided by Service Providers. Users access astrological consultations at their own discretion and risk.",
                 "Personal Dissatisfaction: General dissatisfaction with the content or nature of advice provided, where the consultation was otherwise completed in a technically satisfactory manner, does not constitute grounds for a refund.",
                 "Requests Submitted Outside the Claim Window: Refund requests submitted more than twenty-four (24) hours after the completion of the relevant service session will not be processed under any circumstances.",
-                "Refusal of Consent: Where a User declines to consent to the quality audit team's access to session records, Veltex will be unable to process the refund request."
+                "Refusal of Consent: Where a User declines to consent to the quality audit team's access to session records, Valeenza  will be unable to process the refund request."
               ]
             }
           ]
@@ -229,7 +229,7 @@ export const refundPolicyData = {
                 ["Partial Return (multi-item order)", "Partial Store Credit for returned items only", "Within 7 days; returned items must be unused"],
                 ["Used / Customer-Damaged Product", "Not eligible", "No return or refund available"],
                 ["Product Ineffectiveness", "Not eligible", "No guaranteed outcomes; no refund on this basis"],
-                ["Digital Service -- Technical Disruption / Language Failure / Undue Delay / Irrelevant Response", "Partial or Full Astrotring Wallet Credit (at Veltex's discretion)", "Within 24 hours of session; subject to audit team review and session record access"],
+                ["Digital Service -- Technical Disruption / Language Failure / Undue Delay / Irrelevant Response", "Partial or Full Valeenza Wallet Credit (at Valeenza 's discretion)", "Within 24 hours of session; subject to audit team review and session record access"],
                 ["Digital Service -- Accuracy Dissatisfaction", "Not eligible", "No refund on accuracy grounds"]
               ]
             }
@@ -240,23 +240,23 @@ export const refundPolicyData = {
           body: [
             {
               type: "paragraph",
-              text: "For all queries, refund requests, or further assistance regarding this Policy, Users may contact Veltex customer support through the following channels:"
+              text: "For all queries, refund requests, or further assistance regarding this Policy, Users may contact Valeenza  customer support through the following channels:"
             },
             {
               type: "paragraph",
-              text: "Veltex Services Private Limited"
+              text: "Valeenza services LLc "
             },
             {
               type: "paragraph",
-              text: "Website: www.astrotring.com"
+              text: "Website: www.Valeenza.com"
             },
             {
               type: "paragraph",
-              text: "Email: care@astrotring.com"
+              text: "Email: care@Valeenza.com"
             },
             {
               type: "paragraph",
-              text: "Veltex's customer support team is available to assist Users with any issues or questions relating to purchases, returns, refunds, or exchanges. Users are encouraged to provide their order number and all relevant details when submitting a query to enable prompt resolution."
+              text: "Valeenza 's customer support team is available to assist Users with any issues or questions relating to purchases, returns, refunds, or exchanges. Users are encouraged to provide their order number and all relevant details when submitting a query to enable prompt resolution."
             }
           ]
         }

@@ -65,7 +65,7 @@ const DisclaimerPage = () => {
             {name}
           </h1>
           <p className="text-stone-400 text-xs mb-4">
-            <Link to="https://astrotring.com/">{website}</Link>
+            <Link to="https://valeenza.co/">{website}</Link>
           </p> */}
           <h2 className="text-2xl font-semibold text-stone-900 mb-2">
             {title}
@@ -88,12 +88,12 @@ const DisclaimerPage = () => {
   </h3>
   <div className="space-y-4 text-stone-600 text-sm leading-relaxed">
     <p className="text-justify">
-      The following short-form notice is to be displayed in the footer of every page of www.astrotring.com :-
+      The following short-form notice is to be displayed in the footer of every page of www.Valeenza.co :-
     </p>
   </div>
   <div className="space-y-4 mt-4 text-stone-600 text-xs font-sans leading-relaxed">
     <p className="text-justify">
-      *Astrology services on www.astrotring.com are provided for guidance and knowledge  purposes only. Results may vary. Please read our full Disclaimer, Terms and Conditions, and Privacy Policy before using this website.*
+      *Astrology services on www.Valeenza.co are provided for guidance and knowledge  purposes only. Results may vary. Please read our full Disclaimer, Terms and Conditions, and Privacy Policy before using this website.*
     </p>
   </div>
 </div>
@@ -101,7 +101,7 @@ const DisclaimerPage = () => {
         {/* Footer */}
         {/* <div className="mt-12 pt-8 border-t border-stone-100 text-center">
           <p className="text-xs text-stone-400 tracking-wide">
-            © 2026 Veltex Services Private Limited. All rights reserved.
+            © 2026 Valeenza services LLc . All rights reserved.
           </p>
         </div> */}
       </div>

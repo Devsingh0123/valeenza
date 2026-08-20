@@ -10,7 +10,7 @@ const AffiliateHeader = () => {
           </Link>
           <div className="flex items-center gap-4">
             <Link
-              to="https://backend.astrotring.shop/"
+              to="https://backend.valeenza.co/"
               className="text-sm font-medium text-gray-700 hover:text-amber-600 transition"
             >
               Sign in

@@ -93,7 +93,7 @@ const RefundPolicyPage = () => {
                         {name}
                     </h1>
                     <p className="text-stone-400 text-xs mb-4">
-                        <Link to="https://astrotring.com/">{website}</Link>
+                        <Link to="https://valeenza.co/">{website}</Link>
                     </p> */}
                     <h2 className="text-2xl font-semibold text-stone-900 mb-2">
                         {title}
@@ -114,7 +114,7 @@ const RefundPolicyPage = () => {
                     </h3>
                     <div className="space-y-4 text-stone-600 text-sm leading-relaxed">
                         <p className="text-justify">
-                            This Refund and Return Policy is subject to change at any time without prior notice. Users are advised to refer to the latest version of this Policy published on www.astrotring.com before initiating any return or refund request. For the most current information, please visit the Platform or contact our customer support team.
+                            This Refund and Return Policy is subject to change at any time without prior notice. Users are advised to refer to the latest version of this Policy published on www.valeenza.co before initiating any return or refund request. For the most current information, please visit the Platform or contact our customer support team.
                         </p>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ const RefundPolicyPage = () => {
                 {/* Footer */}
                 {/* <div className="mt-12 pt-8 border-t border-stone-100 text-center">
                     <p className="text-xs text-stone-400 tracking-wide">
-                        © 2026 Veltex Services Private Limited. All rights reserved.
+                        © 2026 Valeenza services LLc . All rights reserved.
                     </p>
                 </div> */}
             </div>

@@ -1,5 +1,4 @@
-// src/components/checkout/AddressSection.jsx
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchAddresses,
@@ -9,187 +8,272 @@ import {
   setSelectedAddressId,
 } from "../../redux/slices/addressSlice";
 import { toast } from "react-toastify";
-import { Bold, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useCountryCodes } from "@/hooks/useCountryCodes";
 import Select from "react-select";
 
-/**
- * AddressSection Component
- * Manages delivery address selection and a professional, compact 10-field grid form.
- * No labels used—clean, descriptive placeholders only with Amber design.
- */
+const EMPTY_FORM = {
+  name: "",
+  email: "",
+  country_code: "+91",
+  mobile: "",
+  alternative_mobile: "",
+  pincode: "",
+  address: "",
+  city: "",
+  state: "",
+  state_code: "",
+  country: "",
+  by_default: false,
+};
+
 const AddressSection = () => {
   const dispatch = useDispatch();
+
   const { countryCodes, loading: loadingCodes } = useCountryCodes();
 
-  // Redux global state
-  const { addresses, loading, selectedAddressId, selectedAddress } =
-    useSelector((state) => state.address);
+  const { addresses, loading, selectedAddressId } = useSelector(
+    (state) => state.address,
+  );
+
   const { isLoggedIn } = useSelector((state) => state.userAuth);
 
-  // Local active states
   const [showNewForm, setShowNewForm] = useState(false);
   const [adding, setAdding] = useState(false);
+
   const [pincodeLoading, setPincodeLoading] = useState(false);
+
   const [pincodeError, setPincodeError] = useState("");
 
-  const hasFetched = useRef(false);
   const debounceTimer = useRef(null);
+  const pincodeRequestId = useRef(0);
 
-  // EXACTLY 10 FIELDS
-  const [formData, setFormData] = useState({
-    name: "", // 1. Name / Tag
-    email: "", // 2. Email (mandatory)
-    country_code: "+91", // 3. Country Code
-    mobile: "", // 4. Mobile Number
-    alternative_mobile: "", // 5. Mobile Number
-    pincode: "", // 6. Pincode
-    address: "", // 7. Full Address Line
-    city: "", // 8. City
-    state: "", // 9. State
-    state_code: "", // 10. State Code
-    country: "India", // 11. Country
-    by_default: false, // 12. Default Checklist Flag
-  });
+  const [formData, setFormData] = useState(EMPTY_FORM);
 
-  // country options for country codes
+  // =========================================================
+  // COUNTRY OPTIONS
+  // =========================================================
   const countryOptions = countryCodes.map((code) => ({
     value: code.value,
     label: code.label,
   }));
-  // Fetch saved addresses on mount
-  // useEffect(() => {
-  //   if (!hasFetched.current && !loading) {
-  //     hasFetched.current = true;
-  //     dispatch(fetchAddresses());
-  //   //    if (addresses.length === 0) {
-  //   // setShowNewForm(true);
-  // // }
-  //   }
-  // }, [dispatch, loading,isLoggedIn]);
 
+  // =========================================================
+  // FETCH SAVED ADDRESSES
+  // =========================================================
   useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(fetchAddresses());
+    if (!isLoggedIn) {
+      return;
     }
-  }, [isLoggedIn, dispatch]);
 
+    dispatch(fetchAddresses());
+  }, [dispatch, isLoggedIn]);
+
+  // =========================================================
+  // SHOW NEW FORM WHEN NO ADDRESS EXISTS
+  // =========================================================
   useEffect(() => {
-    setShowNewForm(addresses.length === 0);
-  }, [addresses]);
+    if (!loading) {
+      setShowNewForm(addresses.length === 0);
+    }
+  }, [addresses.length, loading]);
 
-  // Debouncer Cleanup Hook
+  // =========================================================
+  // CLEANUP DEBOUNCE
+  // =========================================================
   useEffect(() => {
     return () => {
-      if (debounceTimer.current) clearTimeout(debounceTimer.current);
+      if (debounceTimer.current) {
+        clearTimeout(debounceTimer.current);
+      }
+
+      pincodeRequestId.current += 1;
     };
   }, []);
 
-  // Auto-select default/first address locally
+  // =========================================================
+  // AUTO SELECT DEFAULT ADDRESS
+  // =========================================================
   useEffect(() => {
-    if (!loading && addresses.length > 0 && !selectedAddressId) {
-      const defaultAddr = addresses.find(
-        (addr) => Number(addr.by_default) === 1,
-      );
-      const addrToSelect = defaultAddr || addresses[0];
-      dispatch(setSelectedAddressId(addrToSelect.id));
-      dispatch(setSelectedAddress(addrToSelect));
+    if (loading || addresses.length === 0 || selectedAddressId) {
+      return;
     }
+
+    const defaultAddress = addresses.find(
+      (address) => Number(address.by_default) === 1,
+    );
+
+    const addressToSelect = defaultAddress || addresses[0];
+
+    dispatch(setSelectedAddressId(addressToSelect.id));
+
+    dispatch(setSelectedAddress(addressToSelect));
   }, [addresses, selectedAddressId, loading, dispatch]);
 
-  // Standard input tracker
+  // =========================================================
+  // INPUT CHANGE
+  // =========================================================
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  // Pincode Auto-Resolution Handler (Keeps inputs editable)
-  const fetchPincodeData = async (pin) => {
-    if (!pin || pin.length !== 6) return;
+  // =========================================================
+  // PINCODE API
+  // POST /user/get-pincode-data
+  // =========================================================
+  const fetchPincodeData = async (pincode) => {
+    if (!/^\d{5}$/.test(pincode)) {
+      return;
+    }
+
+    const requestId = ++pincodeRequestId.current;
+
     setPincodeLoading(true);
     setPincodeError("");
+
     try {
-      const response = await dispatch(fetchPincodeDetails(pin)).unwrap();
-      if (response?.status === true && response.data?.length > 0) {
+      const response = await dispatch(fetchPincodeDetails(pincode)).unwrap();
+
+      // Ignore old/stale API response
+      if (requestId !== pincodeRequestId.current) {
+        return;
+      }
+
+      if (
+        response?.status === true &&
+        Array.isArray(response.data) &&
+        response.data.length > 0
+      ) {
         const first = response.data[0];
+
         setFormData((prev) => ({
           ...prev,
           city: first.city || "",
           state: first.state || "",
           state_code: first.state_code || "",
-          country: response.country || "India",
+          country: response.country || first.country || "",
         }));
+
         setPincodeError("");
       } else {
-        setPincodeError("Not found. Enter manually.");
+        setPincodeError("Pincode not found. Please enter location manually.");
       }
-    } catch (err) {
-      setPincodeError(err);
+    } catch (error) {
+      if (requestId !== pincodeRequestId.current) {
+        return;
+      }
+
+      setPincodeError(
+        typeof error === "string"
+          ? error
+          : "Unable to fetch pincode details. Please enter location manually.",
+      );
     } finally {
-      setPincodeLoading(false);
+      if (requestId === pincodeRequestId.current) {
+        setPincodeLoading(false);
+      }
     }
   };
 
-  // Pincode Input Custom Watcher
+  // =========================================================
+  // PINCODE INPUT
+  // =========================================================
   const handlePincodeChange = (e) => {
-    const value = e.target.value.replace(/\D/g, "").slice(0, 6);
-    setFormData((prev) => ({ ...prev, pincode: value }));
+    const value = e.target.value.replace(/\D/g, "").slice(0, 5);
 
-    if (debounceTimer.current) clearTimeout(debounceTimer.current);
+    setFormData((prev) => ({
+      ...prev,
+      pincode: value,
+    }));
 
-    if (value.length === 6) {
+    setPincodeError("");
+
+    if (debounceTimer.current) {
+      clearTimeout(debounceTimer.current);
+    }
+
+    // Invalidate previous request
+    pincodeRequestId.current += 1;
+
+    if (value.length === 5) {
       debounceTimer.current = setTimeout(() => {
         fetchPincodeData(value);
       }, 500);
+    } else {
+      setPincodeLoading(false);
+
+      setFormData((prev) => ({
+        ...prev,
+        city: "",
+        state: "",
+        state_code: "",
+        country: "",
+      }));
     }
   };
 
-  // Submit handling & payload submission
+  // =========================================================
+  // SAVE ADDRESS
+  // =========================================================
   const handleSaveAddress = async (e) => {
     e.preventDefault();
 
+    if (pincodeLoading) {
+      toast.info("Please wait while pincode details are being fetched.");
+      return;
+    }
+
     setAdding(true);
+
     const payload = {
       ...formData,
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      mobile: formData.mobile.trim(),
+      alternative_mobile: formData.alternative_mobile.trim(),
+      address: formData.address.trim(),
+      city: formData.city.trim(),
+      state: formData.state.trim(),
+      state_code: formData.state_code.trim(),
+      country: formData.country.trim(),
+      pincode: formData.pincode.trim(),
       by_default: formData.by_default ? 1 : 0,
     };
 
     try {
       const newAddress = await dispatch(addAddress(payload)).unwrap();
-      toast.success("Address added successfully!");
-      setShowNewForm(false);
 
-      // Reset Form State perfectly
-      setFormData({
-        name: "",
-        email: "",
-        country_code: "+91",
-        mobile: "",
-        alternative_mobile: "",
-        pincode: "",
-        address: "",
-        city: "",
-        state: "",
-        state_code: "",
-        country: "India",
-        by_default: false,
-      });
+      toast.success("Address added successfully!");
+
+      setFormData(EMPTY_FORM);
       setPincodeError("");
+      setShowNewForm(false);
 
       if (newAddress?.id) {
         dispatch(setSelectedAddressId(newAddress.id));
+
         dispatch(setSelectedAddress(newAddress));
       }
 
-      hasFetched.current = false;
-      dispatch(fetchAddresses());
-    } catch (err) {
-      toast.error(err || "Failed to save address");
+      // Refresh addresses from backend
+      await dispatch(fetchAddresses()).unwrap();
+    } catch (error) {
+      toast.error(
+        typeof error === "string" ? error : "Failed to save address.",
+      );
     } finally {
       setAdding(false);
     }
   };
 
+  // =========================================================
+  // LOADING
+  // =========================================================
   if (loading && addresses.length === 0) {
     return (
       <div className="text-center py-6 text-sm font-medium text-gray-500">
@@ -200,39 +284,40 @@ const AddressSection = () => {
 
   return (
     <div className="w-full bg-white border border-gray-100 rounded-xl p-4 sm:p-5 shadow-sm space-y-4 text-left">
-      {/* Upper Action Banner */}
+      {/* HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-amber-400/10 text-amber-500 rounded-lg shrink-0">
             <MapPin size={20} />
           </div>
-          <div>
-            <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
-              Delivery Address
-            </h3>
-          </div>
+
+          <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
+            Delivery Address
+          </h3>
         </div>
 
         <button
           type="button"
-          onClick={() => setShowNewForm(!showNewForm)}
+          onClick={() => setShowNewForm((prev) => !prev)}
           className="self-start sm:self-center text-xs font-bold text-amber-500 hover:text-amber-600 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
         >
           {showNewForm ? "Saved Addresses" : "+ Add New Address"}
         </button>
       </div>
 
-      {/* Screen Mode Render Engine */}
+      {/* =====================================================
+          SAVED ADDRESSES
+      ====================================================== */}
       {!showNewForm ? (
-        /* --- MODE 1: SELECT EXISTING TILES --- */
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {addresses.map((addr) => {
-            const isTargeted = selectedAddressId === addr.id;
+            const isSelected = Number(selectedAddressId) === Number(addr.id);
+
             return (
               <label
                 key={addr.id}
                 className={`relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all ${
-                  isTargeted
+                  isSelected
                     ? "border-amber-400 bg-amber-50 ring-1 ring-amber-400"
                     : "border-gray-200 hover:border-gray-300 bg-white"
                 }`}
@@ -242,44 +327,50 @@ const AddressSection = () => {
                     <span className="text-[10px] font-extrabold px-2 py-0.5 bg-gray-100 text-gray-600 rounded-md uppercase tracking-wider">
                       {addr.name}
                     </span>
+
                     {Number(addr.by_default) === 1 && (
                       <span className="text-[10px] font-extrabold px-2 py-0.5 bg-amber-100 text-amber-700 rounded-md uppercase tracking-wider">
                         Default
                       </span>
                     )}
                   </div>
+
                   <input
                     type="radio"
                     name="checkout_address"
                     value={addr.id}
-                    checked={isTargeted}
+                    checked={isSelected}
                     onChange={() => {
                       dispatch(setSelectedAddressId(addr.id));
+
                       dispatch(setSelectedAddress(addr));
                     }}
-                    className="h-4 w-4 text-amber-500 accent-amber-600 border-gray-300 focus:ring-amber-500 cursor-pointer"
+                    className="h-4 w-4 accent-amber-600 cursor-pointer"
                   />
                 </div>
 
                 <p className="text-xs font-semibold text-gray-700 line-clamp-2 mb-2 leading-relaxed">
-                  {addr.address}, {addr.city}, {addr.state} ({addr.state_code})
-                  - {addr.pincode}, {addr.country}
+                  {addr.address}, {addr.city}, {addr.state}
+                  {addr.state_code ? ` (${addr.state_code})` : ""} -{" "}
+                  {addr.pincode}, {addr.country}
                 </p>
-                <p className="text-[11px] font-medium text-gray-400 mt-auto flex items-center gap-1.5">
-                  <span className="text-xs">📞</span>{" "}
-                  {addr.country_code || "+91"} {addr.mobile}
+
+                <p className="text-[11px] font-medium text-gray-400 mt-auto">
+                  📞 {addr.country_code || "+91"} {addr.mobile}
                 </p>
               </label>
             );
           })}
         </div>
       ) : (
-        /* --- MODE 2: HIGHLY OPTIMIZED 10-FIELD INTUITIVE GRID FORM --- */
+        /* =====================================================
+           NEW ADDRESS FORM
+        ====================================================== */
         <form
           onSubmit={handleSaveAddress}
-          className="grid grid-cols-12 gap-3 p-4 bg-gray-50/50 rounded-xl border border-gray-200/60 transition-all"
+          className="grid grid-cols-12 gap-3 p-4 bg-gray-50/50 rounded-xl border border-gray-200/60"
         >
-          {/*  Name / Address Tag */}
+          {/* NAME */}
           <input
             type="text"
             name="name"
@@ -287,24 +378,22 @@ const AddressSection = () => {
             value={formData.name}
             onChange={handleInputChange}
             placeholder="Enter Your Name *"
-            className="col-span-12 sm:col-span-6 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-6 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white"
           />
 
-          {/* Email */}
-          <div className="col-span-12 sm:col-span-6">
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Enter Your Email*"
-              required
-              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
-            />
-          </div>
+          {/* EMAIL */}
+          <input
+            type="email"
+            name="email"
+            required
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder="Enter Your Email *"
+            className="col-span-12 sm:col-span-6 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white"
+          />
 
-          {/*  Country Code */}
-          <div className="col-span-4 sm:col-span-3 ">
+          {/* COUNTRY CODE */}
+          <div className="col-span-4 sm:col-span-3">
             {loadingCodes ? (
               <div className="w-full px-2 py-2 text-xs font-semibold text-center border border-gray-200 rounded-lg bg-gray-100 text-gray-500">
                 Loading...
@@ -314,61 +403,45 @@ const AddressSection = () => {
                 name="country_code"
                 options={countryOptions}
                 value={countryOptions.find(
-                  (opt) => opt.value === formData.country_code,
+                  (option) => option.value === formData.country_code,
                 )}
                 onChange={(selected) =>
                   setFormData((prev) => ({
                     ...prev,
-                    country_code: selected ? selected.value : "",
+                    country_code: selected?.value || "",
                   }))
                 }
-                placeholder="Select country code"
-                classNamePrefix="react-select"
                 isClearable={false}
-                isSearchable={true}
-                formatOptionLabel={(option, { context }) => {
-                  //  Show only value in the input (context === 'value')
-                  if (context === "value") {
-                    return option.value; // e.g., "+91"
-                  }
-                  //  Show full label in dropdown menu
-                  return option.label; // e.g., "+91 (IN)"
-                }}
+                isSearchable
+                formatOptionLabel={(option, { context }) =>
+                  context === "value" ? option.value : option.label
+                }
+                classNamePrefix="react-select"
                 styles={{
                   control: (base) => ({
                     ...base,
                     borderColor: "#d1d5db",
                     boxShadow: "none",
-                    "&:hover": { borderColor: "#f59e0b" },
                     borderRadius: "0.5rem",
                     minHeight: "2.5rem",
                     fontSize: "0.65rem",
                     fontWeight: "bold",
-                    textAlign: "center",
-                    width: "100px",
                   }),
-                  menu: (base) => ({ ...base, zIndex: 9999, width: "200px" }),
-                  option: (base, state) => ({
+                  menu: (base) => ({
                     ...base,
-                    backgroundColor: state.isSelected
-                      ? "#f59e0b"
-                      : state.isFocused
-                        ? "#fef3c7"
-                        : "white",
-                    color: state.isSelected ? "white" : "#374151",
-                    "&:active": { backgroundColor: "#f59e0b" },
-                    fontSize: "0.65rem",
+                    zIndex: 9999,
                   }),
                 }}
               />
             )}
           </div>
 
-          {/*  Mobile Number */}
+          {/* MOBILE */}
           <input
             type="tel"
             name="mobile"
-            maxLength={10}
+            required
+            maxLength={15}
             value={formData.mobile}
             onChange={(e) =>
               setFormData((prev) => ({
@@ -377,14 +450,14 @@ const AddressSection = () => {
               }))
             }
             placeholder="Mobile Number *"
-            className="col-span-8 sm:col-span-4 px-4 ml-4 sm:ml-0 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-8 sm:col-span-4 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/* ====== Alternative Mobile (optional) ====== */}
+          {/* ALTERNATIVE MOBILE */}
           <input
             type="tel"
             name="alternative_mobile"
-            maxLength={10}
+            maxLength={15}
             value={formData.alternative_mobile}
             onChange={(e) =>
               setFormData((prev) => ({
@@ -393,34 +466,37 @@ const AddressSection = () => {
               }))
             }
             placeholder="Alternate Mobile (Optional)"
-            className="col-span-12 sm:col-span-5 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-5 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  Pincode Input (Compact with absolute loading text) */}
+          {/* PINCODE */}
           <div className="col-span-5 sm:col-span-4 relative">
             <input
               type="text"
               name="pincode"
               required
-              maxLength={6}
+              maxLength={5}
+              inputMode="numeric"
               value={formData.pincode}
               onChange={handlePincodeChange}
               placeholder="Pincode *"
-              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
             />
+
             {pincodeLoading && (
               <span className="absolute right-2 top-2.5 text-[9px] font-bold text-amber-500 animate-pulse">
-                Syncing...
+                Fetching...
               </span>
             )}
+
             {pincodeError && (
-              <p className="text-[9px] text-amber-600 font-bold mt-0.5 pl-1 absolute bg-gray-50 px-1 rounded border border-gray-100 z-10">
+              <p className="text-[9px] text-red-500 font-semibold mt-1">
                 {pincodeError}
               </p>
             )}
           </div>
 
-          {/*  City Input */}
+          {/* CITY */}
           <input
             type="text"
             name="city"
@@ -428,10 +504,10 @@ const AddressSection = () => {
             value={formData.city}
             onChange={handleInputChange}
             placeholder="City Name *"
-            className="col-span-7 sm:col-span-8 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-7 sm:col-span-8 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  Full Address Line */}
+          {/* ADDRESS */}
           <input
             type="text"
             name="address"
@@ -439,10 +515,10 @@ const AddressSection = () => {
             value={formData.address}
             onChange={handleInputChange}
             placeholder="Flat, House No., Building, Apartment, Street Area *"
-            className="col-span-12 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  State Input */}
+          {/* STATE */}
           <input
             type="text"
             name="state"
@@ -450,21 +526,21 @@ const AddressSection = () => {
             value={formData.state}
             onChange={handleInputChange}
             placeholder="State Name *"
-            className="col-span-12 sm:col-span-5 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-5 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  State Code Input (Compact width) */}
+          {/* STATE CODE */}
           <input
             type="text"
             name="state_code"
             required
             value={formData.state_code}
             onChange={handleInputChange}
-            placeholder="State Code*"
-            className="col-span-4 sm:col-span-3 px-3 py-2 text-xs font-semibold text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            placeholder="State Code *"
+            className="col-span-4 sm:col-span-3 px-3 py-2 text-xs font-semibold text-center border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  Country Input */}
+          {/* COUNTRY */}
           <input
             type="text"
             name="country"
@@ -472,11 +548,11 @@ const AddressSection = () => {
             value={formData.country}
             onChange={handleInputChange}
             placeholder="Country *"
-            className="col-span-8 sm:col-span-4 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-8 sm:col-span-4 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
           />
 
-          {/*  Default Checklist Option */}
-          <label className="col-span-12 flex items-center gap-2 text-xs text-gray-600 font-semibold select-none py-1 pl-1 cursor-pointer">
+          {/* DEFAULT */}
+          <label className="col-span-12 flex items-center gap-2 text-xs text-gray-600 font-semibold cursor-pointer">
             <input
               type="checkbox"
               name="by_default"
@@ -487,18 +563,22 @@ const AddressSection = () => {
                   by_default: e.target.checked,
                 }))
               }
-              className="h-4 w-4 text-amber-500 accent-amber-500 border-gray-300 rounded focus:ring-amber-500 cursor-pointer"
+              className="h-4 w-4 accent-amber-500"
             />
             Set as default delivery location
           </label>
 
-          {/* Form Action Submit Button */}
+          {/* SUBMIT */}
           <button
             type="submit"
-            disabled={adding}
-            className="col-span-12 w-full py-2.5 bg-amber-500 text-white font-extrabold text-xs rounded-lg hover:bg-amber-600 transition-all tracking-wide shadow-sm cursor-pointer mt-1 disabled:opacity-50"
+            disabled={adding || pincodeLoading}
+            className="col-span-12 w-full py-2.5 bg-amber-500 text-white font-extrabold text-xs rounded-lg hover:bg-amber-600 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {adding ? "Saving Destination..." : "Save and Use This Address"}
+            {adding
+              ? "Saving Destination..."
+              : pincodeLoading
+                ? "Fetching Pincode..."
+                : "Save and Use This Address"}
           </button>
         </form>
       )}
