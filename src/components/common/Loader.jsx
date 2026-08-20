@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "/favicon.png"; // ← apne logo ka path daalo
+
 
 const Loader = ({ data }) => {
   return (
