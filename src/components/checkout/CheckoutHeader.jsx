@@ -38,7 +38,7 @@ const CheckoutHeader = ({onBackClick}) => {
       {/* Under-Header Promo Banner Strip */}
       <div className="w-full bg-amber-500 py-1.5 px-4 text-center shadow-inner">
         <p className="text-[11px] font-bold text-white tracking-wider">
-          Login To Unlock Discount
+          ✦ Good Fortune Awaits — Shop & Save!
         </p>
       </div>
     </div>
