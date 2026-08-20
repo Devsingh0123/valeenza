@@ -409,7 +409,7 @@ if (isCod && COD_SURCHARGE > 0) {
         <div className="flex justify-between px-10 mt-14">
           <div className="w-[45%] text-md leading-[1.15]">
             <p className="font-bold text-sm">Sold By :</p>
-            <p>Veltex Services Private Limited, </p>
+            <p>Valeenza services LLc , </p>
             <div className="">
               <p>711, Plot A09, ITL Tower, Netaji Subhash Place, Pitampura, Delhi 110034</p>
             </div>
@@ -535,7 +535,7 @@ if (isCod && COD_SURCHARGE > 0) {
                       <p className="font-bold text-sm">{amountInWords}</p>
                     </div>
                     <div className="w-2/5 pl-2 text-right">
-                      <p className="font-bold text-sm">For Veltex Services Private Limited:</p>
+                      <p className="font-bold text-sm">For Valeenza services LLc :</p>
                       <div className="flex justify-end pr-10">
                         <img src="/signature.png" alt="signature" className="w-[90px]" />
                       </div>
@@ -569,7 +569,7 @@ if (isCod && COD_SURCHARGE > 0) {
           <p className="mb-1">Please note that this invoice is not a demand for payment.</p>
           <div className="mb-1">
             <p className="font-semibold flex justify-center">
-              Regd Office: VELTEX SERVICES PRIVATE LIMITED
+              Regd Office: Valeenza services LLc 
             </p>
 
             <div className="font-semibold flex flex-col items-center">

@@ -1,7 +1,7 @@
 // src/constants/allPolicyData/disclaimerData.js
 export const disclaimerData = {
-  name: "VELTEX SERVICES PRIVATE LIMITED",
-  website: "www.astrotring.com",
+  name: "Valeenza services LLc ",
+  website: "www.Valeenza.co",
   title: "DISCLAIMER",
   lastUpdated: "March 2026",
   sections: [
@@ -10,7 +10,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "The information, consultations, predictions, and guidance provided on www.astrotring.com, a platform owned and operated by Veltex Services Private Limited (hereinafter referred to as \"Veltex\", \"We\", \"Us\", or \"Our\"), are based on traditional principles of astrology, numerology, tarot, vastu, and other metaphysical sciences. All services offered through the Platform are intended solely for the purposes of spiritual guidance, personal insight, self-reflection, and entertainment."
+          text: "The information, consultations, predictions, and guidance provided on www.Valeenza.co, a platform owned and operated by Valeenza services LLc  (hereinafter referred to as \"Valeenza \", \"We\", \"Us\", or \"Our\"), are based on traditional principles of astrology, numerology, tarot, vastu, and other metaphysical sciences. All services offered through the Platform are intended solely for the purposes of spiritual guidance, personal insight, self-reflection, and entertainment."
         },
         {
           type: "paragraph",
@@ -27,7 +27,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "The content, consultations, and services provided through www.astrotring.com do not constitute professional advice of any kind. In particular, and without limitation, nothing on the Platform constitutes or should be construed as:"
+          text: "The content, consultations, and services provided through www.Valeenza.co do not constitute professional advice of any kind. In particular, and without limitation, nothing on the Platform constitutes or should be construed as:"
         },
         {
           type: "list",
@@ -40,7 +40,7 @@ export const disclaimerData = {
         },
         {
           type: "paragraph",
-          text: "Users are expressly and strongly encouraged to consult appropriately qualified and licensed professionals, including but not limited to registered medical practitioners, certified financial advisors, and qualified legal practitioners, before making any significant personal, financial, health-related, or legal decision. Veltex and its Service Providers (astrologers, consultants, and allied experts) are not licensed professionals in any of the above fields, and their services on the Platform must not be relied upon as a substitute for professional advice in these domains."
+          text: "Users are expressly and strongly encouraged to consult appropriately qualified and licensed professionals, including but not limited to registered medical practitioners, certified financial advisors, and qualified legal practitioners, before making any significant personal, financial, health-related, or legal decision. Valeenza  and its Service Providers (astrologers, consultants, and allied experts) are not licensed professionals in any of the above fields, and their services on the Platform must not be relied upon as a substitute for professional advice in these domains."
         }
       ]
     },
@@ -49,11 +49,11 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex Services Private Limited makes no representation, warranty, or guarantee as to the accuracy, completeness, reliability, or outcome of any astrological prediction, spiritual remedy, gemstone recommendation, numerological reading, vastu consultation, or any other service or content provided through www.astrotring.com."
+          text: "Valeenza services LLc  makes no representation, warranty, or guarantee as to the accuracy, completeness, reliability, or outcome of any astrological prediction, spiritual remedy, gemstone recommendation, numerological reading, vastu consultation, or any other service or content provided through www.Valeenza.co."
         },
         {
           type: "paragraph",
-          text: "Astrological and metaphysical interpretations are subject to multiple variables including, but not limited to, the time, place and circumstances of birth, planetary positions, individual karmic factors, and the interpretive judgment of the Service Provider. As a result, outcomes cannot be guaranteed, and results may vary materially between individuals. Veltex shall not be held responsible for any failure of a prediction, remedy, or recommendation to produce an expected result."
+          text: "Astrological and metaphysical interpretations are subject to multiple variables including, but not limited to, the time, place and circumstances of birth, planetary positions, individual karmic factors, and the interpretive judgment of the Service Provider. As a result, outcomes cannot be guaranteed, and results may vary materially between individuals. Valeenza  shall not be held responsible for any failure of a prediction, remedy, or recommendation to produce an expected result."
         }
       ]
     },
@@ -62,11 +62,11 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "By accessing and using www.astrotring.com, Users acknowledge and agree that any action taken, decision made, or course of conduct adopted on the basis of information, predictions, advice, or consultations obtained through the Platform is made solely at the User's own discretion, risk, and responsibility."
+          text: "By accessing and using www.Valeenza.co, Users acknowledge and agree that any action taken, decision made, or course of conduct adopted on the basis of information, predictions, advice, or consultations obtained through the Platform is made solely at the User's own discretion, risk, and responsibility."
         },
         {
           type: "paragraph",
-          text: "Veltex Services Private Limited, its directors, officers, employees, affiliates, Service Providers, agents, and representatives shall not be held liable for any direct or indirect loss, damage, harm, financial loss, emotional distress, or adverse consequence of any nature arising from or in connection with any decision or action taken by the User in reliance on any content or service available on the Platform."
+          text: "Valeenza services LLc , its directors, officers, employees, affiliates, Service Providers, agents, and representatives shall not be held liable for any direct or indirect loss, damage, harm, financial loss, emotional distress, or adverse consequence of any nature arising from or in connection with any decision or action taken by the User in reliance on any content or service available on the Platform."
         }
       ]
     },
@@ -75,11 +75,11 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "Access to consultations and paid services offered on www.astrotring.com is restricted to individuals who are eighteen (18) years of age or older. By accessing the Platform and availing any service, the User represents and warrants that they are at least 18 years of age and are legally competent to enter into a binding agreement under the Indian Contract Act, 1872 or the applicable law of their jurisdiction."
+          text: "Access to consultations and paid services offered on www.Valeenza.co is restricted to individuals who are eighteen (18) years of age or older. By accessing the Platform and availing any service, the User represents and warrants that they are at least 18 years of age and are legally competent to enter into a binding agreement under the Indian Contract Act, 1872 or the applicable law of their jurisdiction."
         },
         {
           type: "paragraph",
-          text: "Veltex reserves the right to refuse access to or terminate the account of any User who is found to have misrepresented their age or eligibility. Veltex shall not be liable for any misuse of the Platform by individuals who access it in contravention of the age restriction set out herein."
+          text: "Valeenza  reserves the right to refuse access to or terminate the account of any User who is found to have misrepresented their age or eligibility. Valeenza  shall not be liable for any misuse of the Platform by individuals who access it in contravention of the age restriction set out herein."
         }
       ]
     },
@@ -88,11 +88,11 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "Astrology, tarot, numerology, vastu shastra, and other metaphysical and divinatory practices offered through the Platform are rooted in ancient cultural, spiritual, and traditional systems of knowledge. The services provided through www.astrotring.com are made available exclusively for the benefit of individuals who voluntarily and knowingly seek spiritual guidance, personal reflection, or cultural engagement with these traditions."
+          text: "Astrology, tarot, numerology, vastu shastra, and other metaphysical and divinatory practices offered through the Platform are rooted in ancient cultural, spiritual, and traditional systems of knowledge. The services provided through www.Valeenza.co are made available exclusively for the benefit of individuals who voluntarily and knowingly seek spiritual guidance, personal reflection, or cultural engagement with these traditions."
         },
         {
           type: "paragraph",
-          text: "Veltex does not represent that the services provided through the Platform are based on empirical science, nor does it make any claim as to the scientific validity of astrological or metaphysical practice. Users engage with these services on the basis of their own cultural, spiritual, or personal interest and do so voluntarily and at their own discretion."
+          text: "Valeenza  does not represent that the services provided through the Platform are based on empirical science, nor does it make any claim as to the scientific validity of astrological or metaphysical practice. Users engage with these services on the basis of their own cultural, spiritual, or personal interest and do so voluntarily and at their own discretion."
         }
       ]
     },
@@ -101,11 +101,11 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "www.astrotring.com is operated from India and is governed by the laws of India. Users accessing the Platform from locations outside India are solely responsible for ensuring that their access to and use of astrology, metaphysical consultation, or related services is permitted under the laws, regulations, and applicable restrictions of their respective jurisdictions."
+          text: "www.Valeenza.co is operated from India and is governed by the laws of India. Users accessing the Platform from locations outside India are solely responsible for ensuring that their access to and use of astrology, metaphysical consultation, or related services is permitted under the laws, regulations, and applicable restrictions of their respective jurisdictions."
         },
         {
           type: "paragraph",
-          text: "Veltex makes no representation that the content, services, or products available through the Platform are appropriate or lawful for access or use in jurisdictions outside India. Veltex shall not be responsible for any legal consequences, penalties, or liabilities arising from a User's access to or use of the Platform in a jurisdiction where such services are restricted or prohibited by applicable law."
+          text: "Valeenza  makes no representation that the content, services, or products available through the Platform are appropriate or lawful for access or use in jurisdictions outside India. Valeenza  shall not be responsible for any legal consequences, penalties, or liabilities arising from a User's access to or use of the Platform in a jurisdiction where such services are restricted or prohibited by applicable law."
         }
       ]
     },
@@ -114,7 +114,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "To the maximum extent permitted under the laws of India, Veltex Services Private Limited, its operators, directors, officers, employees, Service Providers, affiliates, agents, and representatives shall not be liable for any loss or damage of any kind arising out of or in connection with the use of or reliance on the Platform, including without limitation:"
+          text: "To the maximum extent permitted under the laws of India, Valeenza services LLc , its operators, directors, officers, employees, Service Providers, affiliates, agents, and representatives shall not be liable for any loss or damage of any kind arising out of or in connection with the use of or reliance on the Platform, including without limitation:"
         },
         {
           type: "list",
@@ -128,7 +128,7 @@ export const disclaimerData = {
         },
         {
           type: "paragraph",
-          text: "Where applicable law does not permit the complete exclusion of liability, Veltex's total aggregate liability to any User in respect of all claims arising from the use of the Platform shall not exceed the amount paid by that User to Veltex in the three (3) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
+          text: "Where applicable law does not permit the complete exclusion of liability, Valeenza 's total aggregate liability to any User in respect of all claims arising from the use of the Platform shall not exceed the amount paid by that User to Valeenza  in the three (3) months preceding the event giving rise to the claim, or USD. 500 (Indian Rupees Five Hundred), whichever is higher."
         }
       ]
     },
@@ -137,7 +137,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "The Platform may contain links to third-party websites, resources, or services not owned or operated by Veltex. The inclusion of any such link does not constitute an endorsement, recommendation, or approval by Veltex of the linked website, its content, or the products and services offered thereon. Veltex has no control over and assumes no responsibility for the content, accuracy, or practices of any third-party website."
+          text: "The Platform may contain links to third-party websites, resources, or services not owned or operated by Valeenza . The inclusion of any such link does not constitute an endorsement, recommendation, or approval by Valeenza  of the linked website, its content, or the products and services offered thereon. Valeenza  has no control over and assumes no responsibility for the content, accuracy, or practices of any third-party website."
         },
         {
           type: "paragraph",
@@ -150,7 +150,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "By accessing or using www.astrotring.com, including by browsing the Platform, registering as a Member, or availing any service, the User unconditionally acknowledges that they have read, understood, and agree to be bound by the terms of this Disclaimer and all other policies governing the use of the Platform, including the Terms and Conditions of Use, Privacy Policy, Refund and Return Policy, and Shipping Policy."
+          text: "By accessing or using www.Valeenza.co, including by browsing the Platform, registering as a Member, or availing any service, the User unconditionally acknowledges that they have read, understood, and agree to be bound by the terms of this Disclaimer and all other policies governing the use of the Platform, including the Terms and Conditions of Use, Privacy Policy, Refund and Return Policy, and Shipping Policy."
         },
         {
           type: "paragraph",
@@ -163,7 +163,7 @@ export const disclaimerData = {
       body: [
         {
           type: "paragraph",
-          text: "Veltex Services Private Limited reserves the right to modify, update, or revise this Disclaimer at any time and without prior notice. Any amendments will be effective immediately upon publication on the Platform. The date of the most recent revision will be indicated at the top of this document as the \"Last Updated\" date."
+          text: "Valeenza services LLc  reserves the right to modify, update, or revise this Disclaimer at any time and without prior notice. Any amendments will be effective immediately upon publication on the Platform. The date of the most recent revision will be indicated at the top of this document as the \"Last Updated\" date."
         },
         {
           type: "paragraph",
