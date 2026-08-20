@@ -15,7 +15,7 @@ import Select from "react-select";
 const EMPTY_FORM = {
   name: "",
   email: "",
-  country_code: "+91",
+  country_code: "+1",
   mobile: "",
   alternative_mobile: "",
   pincode: "",
@@ -356,7 +356,7 @@ const AddressSection = () => {
                 </p>
 
                 <p className="text-[11px] font-medium text-gray-400 mt-auto">
-                  📞 {addr.country_code || "+91"} {addr.mobile}
+                  📞 {addr.country_code || "+1"} {addr.mobile}
                 </p>
               </label>
             );
@@ -479,7 +479,7 @@ const AddressSection = () => {
               inputMode="numeric"
               value={formData.pincode}
               onChange={handlePincodeChange}
-              placeholder="Pincode *"
+              placeholder="Zip Code *"
               className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:border-amber-400 bg-white"
             />
 
@@ -580,6 +580,10 @@ const AddressSection = () => {
                 ? "Fetching Pincode..."
                 : "Save and Use This Address"}
           </button>
+          <p className="col-span-12 w-full mt-2 text-center text-xs font-semibold text-red-600">
+            Please save your address first before placing your order. Unsaved
+            addresses cannot be used for checkout.
+          </p>
         </form>
       )}
     </div>
