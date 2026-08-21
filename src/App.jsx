@@ -28,15 +28,24 @@ import GoogleTagManager from "./components/common/GoogleTagManager";
 
 const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 // const CartPage = lazy(() => import("./pages/CartPage"));
-const DisclaimerPage = lazy(() => import("./pages/legal/DisclaimerPage"));
+
+// all policies and conditions
+
 const PrivacyPolicyPage = lazy(() => import("./pages/legal/PrivacyPolicyPage"));
-const RefundPolicyPage = lazy(() => import("./pages/legal/RefundPolicyPage"));
-const ShippingPolicyPage = lazy(
-  () => import("./pages/legal/ShippingPolicyPage"),
-);
-const TermsAndConditionsPage = lazy(
-  () => import("./pages/legal/TermsAndConditionsPage"),
-);
+const AstrologyAndAIDisclaimerPage = lazy(() => import("./pages/legal/AstrologyAndAIDisclaimerPage"));
+const CaliforniaPrivacyNoticePage = lazy(() => import("./pages/legal/CaliforniaPrivacyNoticePage"));
+const CookiePolicyPage = lazy(() => import("./pages/legal/CookiePolicyPage"));
+const DigitalProductsAndServicesTermsPage = lazy(() => import("./pages/legal/DigitalProductsAndServicesTermsPage"));
+const HealthAndWellnessDisclaimerPage = lazy(() => import("./pages/legal/HealthAndWellnessDisclaimerPage"));
+const LegalNoticeContactAndAccessibilityStatementPage = lazy(() => import("./pages/legal/LegalNoticeContactAndAccessibilityStatementPage"));
+const NoticeatCollectionPage = lazy(() => import("./pages/legal/NoticeatCollectionPage"));
+const ReturnAndRefundPolicyPage = lazy(() => import("./pages/legal/ReturnAndRefundPolicyPage"));
+const ShippingAndDeliveryPolicyPage = lazy(() => import("./pages/legal/ShippingAndDeliveryPolicyPage"));
+const TermsAndConditionsPage = lazy(() => import("./pages/legal/TermsAndConditionsPage"));
+const YourPrivacyChoicesDoNotSellOrSharePage = lazy(() => import("./pages/legal/YourPrivacyChoicesDoNotSellOrSharePage"));
+
+
+
 const ProfilePage = lazy(() => import("./pages/ProfilePage"));
 const AddressesPage = lazy(() => import("./pages/AddressesPage"));
 const MyOrderDetailsPage = lazy(() => import("./pages/MyOrderDetailsPage"));
@@ -87,14 +96,20 @@ function App() {
           <Route path="/product/:slug" element={<ProductDetailsPage />} />
 
           {/* Policies and T&C */}
-          <Route path="/disclaimer" element={<DisclaimerPage />} />
+          
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/refund-policy" element={<RefundPolicyPage />} />
-          <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
-          <Route
-            path="/terms-conditions"
-            element={<TermsAndConditionsPage />}
-          />
+          <Route path="/privacy-policy" element={<AstrologyAndAIDisclaimerPage />} />
+          <Route path="/privacy-policy" element={<CaliforniaPrivacyNoticePage />} />
+          <Route path="/privacy-policy" element={<CookiePolicyPage />} />
+          <Route path="/privacy-policy" element={<DigitalProductsAndServicesTermsPage />} />
+          <Route path="/privacy-policy" element={<HealthAndWellnessDisclaimerPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          
           {/* product catogaries page */}
           <Route path="/category/:slug" element={<CategoryPage />} />
 
