@@ -179,14 +179,14 @@ const handleDownloadInvoice = async () => {
           <div className="flex justify-between items-center mb-6">
             <button
               onClick={() => navigate("/orders")}
-              className="flex items-center gap-2 text-amber-600 hover:underline cursor-pointer"
+              className="flex items-center gap-2 text-sky-600 hover:underline cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Orders
             </button>
             {!isCancelled && (
               <button
                 onClick={handleDownloadInvoice}
-                className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition font-medium cursor-pointer"
+                className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition font-medium cursor-pointer"
               >
                 <Download className="w-4 h-4" />{" "}
                 {downloadInvoiceLoading ? "Downloading..." : "Download Invoice"}
@@ -372,7 +372,7 @@ const handleDownloadInvoice = async () => {
                                   setOtherReason("");
                                 }
                               }}
-                              className="h-4 w-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+                              className="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500"
                             />
                             <span className="text-gray-800 text-xs">
                               {reason}
@@ -393,7 +393,7 @@ const handleDownloadInvoice = async () => {
                             value={otherReason}
                             onChange={(e) => setOtherReason(e.target.value)}
                             placeholder="Type your reason here..."
-                            className="w-full border rounded-md p-2 text-xs focus:ring-1 focus:ring-amber-500  resize-none"
+                            className="w-full border rounded-md p-2 text-xs focus:ring-1 focus:ring-sky-500  resize-none"
                             rows="2"
                           />
                         </div>
@@ -432,7 +432,7 @@ const handleDownloadInvoice = async () => {
                             }
                             await handleCancelOrder(reasons);
                           }}
-                          className="flex-1 py-2 bg-amber-600 text-sm  text-white rounded disabled:opacity-50 hover:bg-amber-700 transition"
+                          className="flex-1 py-2 bg-sky-600 text-sm  text-white rounded disabled:opacity-50 hover:bg-sky-700 transition"
                         >
                           Confirm
                         </button>

@@ -428,13 +428,13 @@ const ProductDetailsPage = () => {
             <li>
               <a
                 href="/"
-                className="hover:text-amber-600 transition cursor-pointer"
+                className="hover:text-sky-600 transition cursor-pointer"
               >
                 Home
               </a>
             </li>
             <li className="mx-1">/</li>
-            <li className="text-amber-700 font-medium truncate max-w-[200px]">
+            <li className="text-sky-700 font-medium truncate max-w-[200px]">
               {product?.name}
             </li>
           </ol>
@@ -507,7 +507,7 @@ const ProductDetailsPage = () => {
                       onClick={() => setSelectedMediaIndex(idx)}
                       className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-sm md:rounded-lg border-2 overflow-hidden transition-all cursor-pointer ${
                         selectedMediaIndex === idx
-                          ? "border-amber-600 shadow-md"
+                          ? "border-sky-600 shadow-md"
                           : "border-gray-200 hover:border-gray-300"
                       }`}
                     >
@@ -597,7 +597,7 @@ const ProductDetailsPage = () => {
                       onClick={() => setSelectedRatti(opt.ratti)}
                       className={`px-4 py-2 border rounded-lg text-sm font-medium transition-all cursor-pointer ${
                         selectedRatti === opt.ratti
-                          ? "border-amber-600 bg-amber-50 text-amber-700"
+                          ? "border-sky-600 bg-sky-50 text-sky-700"
                           : "border-gray-300 hover:border-gray-400 text-gray-700"
                       }`}
                     >
@@ -796,7 +796,7 @@ const ProductDetailsPage = () => {
           {certificates.length > 0 && (
             <section className="bg-white py-6 rounded-xl border border-gray-100">
               <h1 className="text-3xl text-center font-semibold text-gray-800 mb-4 flex items-center justify-center gap-2">
-                <Award className="w-6 h-6 text-amber-500" /> Our Certificates
+                <Award className="w-6 h-6 text-sky-500" /> Our Certificates
               </h1>
               <p className="text-sm text-gray-500 text-center mb-8 max-w-2xl mx-auto">
                 Every product comes with authentic lab certificates to guarantee
@@ -838,7 +838,7 @@ const ProductDetailsPage = () => {
                       <span
                         className={`text-sm ${
                           openFaq === idx
-                            ? "text-amber-500 font-medium"
+                            ? "text-sky-500 font-medium"
                             : "text-gray-700"
                         }`}
                       >
@@ -847,7 +847,7 @@ const ProductDetailsPage = () => {
                       <ChevronDown
                         className={`w-5 h-5 transition-transform ${
                           openFaq === idx
-                            ? "rotate-180 text-amber-500"
+                            ? "rotate-180 text-sky-500"
                             : "text-gray-400"
                         }`}
                       />
@@ -888,7 +888,7 @@ const ProductDetailsPage = () => {
                 {product?.name}
               </div>
               <div className="flex items-center md:gap-2">
-                <span className="text-amber-600 font-bold text-lg md:text-xl">
+                <span className="text-sky-600 font-bold text-lg md:text-xl">
                   ${displayAfterPrice.toLocaleString()}
                 </span>
                 {displayBeforePrice > displayAfterPrice && (

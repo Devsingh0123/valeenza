@@ -13,7 +13,7 @@ const ProductOffers = ({ offers }) => {
   return (
     <div>
       <h3 className="flex items-center gap-2 font-bold text-stone-900 text-lg mb-2">
-        <Tag className="w-5 h-5 text-amber-500" />
+        <Tag className="w-5 h-5 text-sky-500" />
         Best Offers
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-1 gap-5">
@@ -30,14 +30,14 @@ const ProductOffers = ({ offers }) => {
                   </h4>
                   <p className="text-xs text-stone-500">{offer.description}</p>
                 </div>
-                <div className="border-t border-dashed bg-amber-50 px-5 py-3 flex justify-between items-center">
+                <div className="border-t border-dashed bg-sky-50 px-5 py-3 flex justify-between items-center">
                   <span className="font-semibold text-stone-800 text-sm">
 
-                    <span className="text-amber-600 font-bold text-base">{offer.price}</span>
+                    <span className="text-sky-600 font-bold text-base">{offer.price}</span>
                   </span>
                   <button
                     onClick={() => handleCopyCoupon(offer.code)}
-                    className="text-amber-600 font-semibold text-sm flex items-center gap-1 hover:underline cursor-pointer"
+                    className="text-sky-600 font-semibold text-sm flex items-center gap-1 hover:underline cursor-pointer"
                   >
                     {offer.code} ⧉
                   </button>
@@ -56,8 +56,8 @@ const ProductOffers = ({ offers }) => {
                   </h4>
                   <p className="text-xs text-stone-500">{offer.description}</p>
                 </div>
-                <div className="border-t border-dashed bg-amber-50 px-5 py-3 flex items-center justify-between">
-                  <span className="text-amber-600 font-semibold text-sm flex items-center gap-1">
+                <div className="border-t border-dashed bg-sky-50 px-5 py-3 flex items-center justify-between">
+                  <span className="text-sky-600 font-semibold text-sm flex items-center gap-1">
                     AUTO-APPLIED ✔
                   </span>
                 </div>

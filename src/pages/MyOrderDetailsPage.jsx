@@ -230,7 +230,7 @@ const MyOrderDetailsPage = () => {
           {/* BACK */}
           <button
             onClick={() => navigate("/orders")}
-            className="flex items-center gap-2 text-amber-600 hover:underline cursor-pointer"
+            className="flex items-center gap-2 text-sky-600 hover:underline cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Orders
@@ -241,7 +241,7 @@ const MyOrderDetailsPage = () => {
             <button
               onClick={handleDownloadInvoice}
               disabled={downloadInvoiceLoading}
-              className="flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition font-medium cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition font-medium cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Download className="w-4 h-4" />
 
@@ -474,7 +474,7 @@ const MyOrderDetailsPage = () => {
                                 setOtherReason("");
                               }
                             }}
-                            className="h-4 w-4 text-amber-600 border-gray-300 rounded focus:ring-amber-500"
+                            className="h-4 w-4 text-sky-600 border-gray-300 rounded focus:ring-sky-500"
                           />
 
                           <span className="text-gray-800 text-xs">
@@ -498,7 +498,7 @@ const MyOrderDetailsPage = () => {
                           value={otherReason}
                           onChange={(e) => setOtherReason(e.target.value)}
                           placeholder="Type your reason here..."
-                          className="w-full border rounded-md p-2 text-xs focus:ring-1 focus:ring-amber-500 resize-none"
+                          className="w-full border rounded-md p-2 text-xs focus:ring-1 focus:ring-sky-500 resize-none"
                           rows="2"
                         />
                       </div>
@@ -544,7 +544,7 @@ const MyOrderDetailsPage = () => {
 
                           await handleCancelOrder(reasons);
                         }}
-                        className="flex-1 py-2 bg-amber-600 text-sm text-white rounded disabled:opacity-50 hover:bg-amber-700 transition"
+                        className="flex-1 py-2 bg-sky-600 text-sm text-white rounded disabled:opacity-50 hover:bg-sky-700 transition"
                       >
                         Confirm
                       </button>

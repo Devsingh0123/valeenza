@@ -46,7 +46,7 @@ const BecomeAnAffiliate = () => {
           <h1 className="text-2xl md:text-5xl font-bold text-white mb-4">
             Recommend Products.
             <br />
-            <span className="text-amber-500">Earn Advertising Fees.</span>
+            <span className="text-sky-500">Earn Advertising Fees.</span>
           </h1>
           <p className="text-white text-sm md:text-lg  mb-4">
             Join Valeenza Affiliate Program, the  spiritual
@@ -54,7 +54,7 @@ const BecomeAnAffiliate = () => {
           </p>
           <Link
             to="/become-an-affiliate/affiliate-signup"
-            className="inline-flex items-center px-4 py-1.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg transition"
+            className="inline-flex items-center px-4 py-1.5 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg transition"
           >
             Sign up <ArrowRight className="ml-2 w-4 h-4" />
           </Link>
@@ -79,7 +79,7 @@ const BecomeAnAffiliate = () => {
         {/* Steps in three columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
           <div className="text-center ">
-            <div className="w-8 h-8 bg-amber-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
+            <div className="w-8 h-8 bg-sky-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
               1
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mt-2 mb-4 ">
@@ -91,7 +91,7 @@ const BecomeAnAffiliate = () => {
             </p>
           </div>
           <div className="text-center ">
-            <div className="w-8 h-8 bg-amber-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
+            <div className="w-8 h-8 bg-sky-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
               2
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mt-2 mb-4 ">
@@ -104,7 +104,7 @@ const BecomeAnAffiliate = () => {
             </p>
           </div>
           <div className="text-center">
-            <div className="w-8 h-8 bg-amber-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
+            <div className="w-8 h-8 bg-sky-600 text-gray-900 rounded-full flex items-center justify-center text-sm font-bold mx-auto">
               3
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mt-2 mb-4">

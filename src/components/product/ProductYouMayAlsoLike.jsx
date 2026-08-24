@@ -33,11 +33,11 @@ const YouMayAlsoLikeCard = ({ product }) => {
             className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
           />
         ) : (
-          <Gem className="w-12 h-12 text-gray-400 group-hover:text-amber-600 transition-colors group-hover:scale-105" />
+          <Gem className="w-12 h-12 text-gray-400 group-hover:text-sky-600 transition-colors group-hover:scale-105" />
         )}
         {discountPercent > 0 && (
           <div className="absolute top-2 right-2">
-            <span className="bg-gradient-to-br from-amber-600 to-amber-700 text-white font-bold rounded-md shadow-md text-[10px] px-2 py-0.5">
+            <span className="bg-gradient-to-br from-sky-600 to-sky-700 text-white font-bold rounded-md shadow-md text-[10px] px-2 py-0.5">
               {discountPercent}% OFF
             </span>
           </div>
@@ -48,7 +48,7 @@ const YouMayAlsoLikeCard = ({ product }) => {
           {product?.name}
         </h3>
         <div className="mt-1 flex items-center gap-1 flex-wrap">
-          <span className="text-amber-600 font-bold text-sm">
+          <span className="text-sky-600 font-bold text-sm">
             ${afterPrice.toLocaleString()}
           </span>
           {beforePrice > afterPrice && (

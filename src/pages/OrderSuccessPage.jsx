@@ -177,7 +177,7 @@ const OrderSuccessPage = () => {
           <div className="flex flex-col gap-3">
             <Link
               to="/orders"
-              className="inline-block bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition"
+              className="inline-block bg-sky-600 text-white px-6 py-2 rounded hover:bg-sky-700 transition"
             >
               View My Orders
             </Link>
@@ -217,7 +217,7 @@ const OrderSuccessPage = () => {
           <div className="flex flex-col gap-3">
             <Link
               to="/orders"
-              className="inline-block bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition"
+              className="inline-block bg-sky-600 text-white px-6 py-2 rounded hover:bg-sky-700 transition"
             >
               View My Orders
             </Link>
@@ -462,7 +462,7 @@ const OrderSuccessPage = () => {
                   )}
 
                   {walletUsed > 0 && (
-                    <tr className="text-amber-600">
+                    <tr className="text-sky-600">
                       <td colSpan="3" className="pt-1 text-right">
                         Wallet Used:
                       </td>
@@ -546,7 +546,7 @@ const OrderSuccessPage = () => {
               For any queries, contact us at{" "}
               <a
                 href="mailto:care@valeenza.co"
-                className="text-amber-600 hover:underline"
+                className="text-sky-600 hover:underline"
               >
                 care@valeenza.co
               </a>
@@ -576,7 +576,7 @@ const OrderSuccessPage = () => {
             </Link>
             <Link
               to="/"
-              className="flex items-center justify-center px-5 py-2.5 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition text-sm font-medium"
+              className="flex items-center justify-center px-5 py-2.5 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition text-sm font-medium"
             >
               Continue Shopping
             </Link>

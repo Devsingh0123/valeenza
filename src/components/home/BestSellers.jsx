@@ -42,7 +42,7 @@ const BestSellers = ({ onAddToCart }) => {
             //         </span>
             //       )}
             //       {discount && (
-            //         <span className="text-[10px] text-amber-600 font-semibold">
+            //         <span className="text-[10px] text-sky-600 font-semibold">
             //           {discount}% OFF
             //         </span>
             //       )}

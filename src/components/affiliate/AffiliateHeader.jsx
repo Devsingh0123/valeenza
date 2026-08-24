@@ -11,13 +11,13 @@ const AffiliateHeader = () => {
           <div className="flex items-center gap-4">
             <Link
               to="https://backend.valeenza.co/"
-              className="text-sm font-medium text-gray-700 hover:text-amber-600 transition"
+              className="text-sm font-medium text-gray-700 hover:text-sky-600 transition"
             >
               Sign in
             </Link>
             <Link
               to="/become-an-affiliate/affiliate-signup"
-              className="inline-flex items-center px-4 py-1.5 bg-amber-600 text-white text-sm font-semibold rounded-lg hover:bg-amber-700 transition shadow-sm"
+              className="inline-flex items-center px-4 py-1.5 bg-sky-600 text-white text-sm font-semibold rounded-lg hover:bg-sky-700 transition shadow-sm"
             >
               Sign up
             </Link>

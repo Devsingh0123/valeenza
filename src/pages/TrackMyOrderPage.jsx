@@ -93,14 +93,14 @@ const TrackMyOrderPage = () => {
   if (loading) return <Loader data="Loading tracking details..." />;
   if (!currentOrder) return (
     <div className="min-h-[60vh] flex flex-col items-center justify-center p-4">
-      <div className="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-3 text-amber-600">
+      <div className="w-12 h-12 bg-sky-50 rounded-full flex items-center justify-center mb-3 text-sky-600">
         <ShoppingBag className="w-6 h-6" />
       </div>
       <h3 className="text-lg font-bold text-gray-800">Order Not Found</h3>
       <p className="text-xs text-gray-500 mt-1 mb-5">We couldn't find details for this order.</p>
       <button 
         onClick={() => navigate('/orders')} 
-        className="px-4 py-2 bg-amber-600 text-white text-xs font-medium rounded-lg hover:bg-amber-700 transition cursor-pointer"
+        className="px-4 py-2 bg-sky-600 text-white text-xs font-medium rounded-lg hover:bg-sky-700 transition cursor-pointer"
       >
         Back to Orders
       </button>
@@ -121,7 +121,7 @@ const TrackMyOrderPage = () => {
         <div className="flex items-center justify-between">
           <button
                     onClick={() => navigate("/orders")}
-                    className="flex items-center gap-2 text-amber-600 hover:underline cursor-pointer"
+                    className="flex items-center gap-2 text-sky-600 hover:underline cursor-pointer"
                   >
                     <ArrowLeft className="w-4 h-4" /> Back to Orders
                   </button>
@@ -130,7 +130,7 @@ const TrackMyOrderPage = () => {
             isCancelled 
               ? 'bg-red-50 text-red-600 border border-red-200' 
               : isRto 
-              ? 'bg-amber-50 text-amber-700 border border-amber-200' 
+              ? 'bg-sky-50 text-sky-700 border border-sky-200' 
               : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
           }`}>
             {order.status}
@@ -177,7 +177,7 @@ const TrackMyOrderPage = () => {
                   {isCancelled ? (
                     <XCircle className="w-6 h-6 text-red-500" />
                   ) : (
-                    <RotateCcw className="w-6 h-6 text-amber-500" />
+                    <RotateCcw className="w-6 h-6 text-sky-500" />
                   )}
                 </div>
                 <h3 className="text-base font-bold text-gray-800">
@@ -203,7 +203,7 @@ const TrackMyOrderPage = () => {
                   
                   {/* Active Progress Line */}
                   <div 
-                    className="absolute top-4 left-[12.5%] h-0.5 bg-amber-500 transition-all duration-300 -z-0"
+                    className="absolute top-4 left-[12.5%] h-0.5 bg-sky-500 transition-all duration-300 -z-0"
                     style={{ width: `${(activeStep / (STEPS.length - 1)) * 75}%` }}
                   />
 
@@ -221,7 +221,7 @@ const TrackMyOrderPage = () => {
                       <div key={step.key} className="flex flex-col items-center text-center relative z-10">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
                           isCompleted 
-                            ? 'bg-amber-600 text-white shadow-xs' 
+                            ? 'bg-sky-600 text-white shadow-xs' 
                             : 'bg-white border-2 border-gray-300 text-gray-400'
                         }`}>
                           <IconComponent className="w-4 h-4" />
@@ -249,7 +249,7 @@ const TrackMyOrderPage = () => {
                   
                   {/* Active Line */}
                   <div 
-                    className="absolute left-[19px] top-4 w-0.5 bg-amber-500 transition-all duration-300 -z-0"
+                    className="absolute left-[19px] top-4 w-0.5 bg-sky-500 transition-all duration-300 -z-0"
                     style={{ height: `${(activeStep / (STEPS.length - 1)) * 100}%` }}
                   />
 
@@ -267,7 +267,7 @@ const TrackMyOrderPage = () => {
                       <div key={step.key} className="flex items-start gap-3.5 relative z-10">
                         <div className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 ${
                           isCompleted 
-                            ? 'bg-amber-600 text-white shadow-xs' 
+                            ? 'bg-sky-600 text-white shadow-xs' 
                             : 'bg-white border-2 border-gray-300 text-gray-400'
                         }`}>
                           <IconComponent className="w-3.5 h-3.5" />

@@ -70,13 +70,13 @@ const LoginStep = ({ onLoginSuccess, onSignupClick }) => {
               }
             }}
             placeholder="Mobile number"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-300 focus:border-transparent transition"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-sky-300 focus:border-transparent transition"
             required
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-700 transition disabled:opacity-50"
+            className="w-full py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition disabled:opacity-50"
           >
             {loading ? 'Sending...' : 'Send OTP'}
           </button>
@@ -88,13 +88,13 @@ const LoginStep = ({ onLoginSuccess, onSignupClick }) => {
             value={otp}
             onChange={(e) => setOtp(e.target.value)}
             placeholder="6-digit OTP"
-            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-300"
+            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-1 focus:ring-sky-300"
             required
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-700"
+            className="w-full py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700"
           >
             {loading ? 'Verifying...' : 'Login'}
           </button>
@@ -104,7 +104,7 @@ const LoginStep = ({ onLoginSuccess, onSignupClick }) => {
               setStep('mobile');
               setOtp('');
             }}
-            className="w-full text-amber-600 text-sm hover:underline"
+            className="w-full text-sky-600 text-sm hover:underline"
           >
             ← Back to mobile number
           </button>
@@ -112,7 +112,7 @@ const LoginStep = ({ onLoginSuccess, onSignupClick }) => {
       )}
       <p className="text-center text-gray-500">
         New user?{' '}
-        <button onClick={onSignupClick} className="text-amber-600 font-medium hover:underline">
+        <button onClick={onSignupClick} className="text-sky-600 font-medium hover:underline">
           Create account
         </button>
       </p>

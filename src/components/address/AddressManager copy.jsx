@@ -223,19 +223,19 @@ const AddressManager = () => {
     <div className="max-w-4xl mx-auto p-4 sm:p-6">
       <button
         onClick={() => navigate('/')}
-        className="flex items-center gap-2 text-amber-600 hover:underline mb-6 cursor-pointer"
+        className="flex items-center gap-2 text-sky-600 hover:underline mb-6 cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Home
       </button>
       <div className="flex items-center gap-2 mb-6">
-        <MapPin className="w-5 h-5 text-amber-600" />
+        <MapPin className="w-5 h-5 text-sky-600" />
         <h2 className="text-2xl font-semibold text-gray-800">Manage Addresses</h2>
       </div>
 
       <div className="bg-white rounded-lg shadow-md overflow-hidden mb-8">
         <div className="px-4 py-3 bg-gray-50 border-b border-gray-100">
           <h3 className="text-md font-semibold text-gray-700 flex items-center gap-2">
-            {editingId ? <Edit className="w-4 h-4 text-amber-600" /> : <Plus className="w-4 h-4 text-amber-600" />}
+            {editingId ? <Edit className="w-4 h-4 text-sky-600" /> : <Plus className="w-4 h-4 text-sky-600" />}
             {editingId ? 'Edit Address' : 'Add New Address'}
           </h3>
         </div>
@@ -243,40 +243,40 @@ const AddressManager = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Label */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Name <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Name <span className="text-sky-600">*</span></label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter Your Name*"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Email <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email <span className="text-sky-600">*</span></label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="care@astrotring.com*"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* Mobile */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Mobile <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Mobile <span className="text-sky-600">*</span></label>
               <input
                 type="tel"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleChange}
                 placeholder="9876543210"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
@@ -289,13 +289,13 @@ const AddressManager = () => {
                 value={formData.alternative_mobile}
                 onChange={handleChange}
                 placeholder="Optional"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* Country Code */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Country Code <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Country Code <span className="text-sky-600">*</span></label>
               {loadingCodes ? (
                 <div className="border border-gray-300 rounded-md px-3 py-2 bg-gray-50 text-gray-500">Loading codes...</div>
               ) : (
@@ -334,14 +334,14 @@ const AddressManager = () => {
 
             {/* Pincode */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Pincode <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Pincode <span className="text-sky-600">*</span></label>
               <input
                 type="text"
                 name="pincode"
                 value={formData.pincode}
                 onChange={handlePincodeChange}
                 placeholder="6-digit pincode"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
               {pincodeLoading && <p className="text-xs text-gray-500 mt-1">Fetching location...</p>}
               {pincodeError && <p className="text-xs text-red-500 mt-1">{pincodeError}</p>}
@@ -349,34 +349,34 @@ const AddressManager = () => {
 
             {/* Country */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Country <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Country <span className="text-sky-600">*</span></label>
               <input
                 type="text"
                 name="country"
                 value={formData.country}
                 onChange={handleChange}
                 placeholder="India"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* City */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">City <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">City <span className="text-sky-600">*</span></label>
               <input
                 type="text"
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
                 placeholder="Mumbai"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* State */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                State {formData.state_code ? `(${formData.state_code})` : ''} <span className="text-amber-600">*</span>
+                State {formData.state_code ? `(${formData.state_code})` : ''} <span className="text-sky-600">*</span>
               </label>
               <input
                 type="text"
@@ -384,20 +384,20 @@ const AddressManager = () => {
                 value={formData.state}
                 onChange={handleChange}
                 placeholder="Maharashtra"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
 
             {/* Full Address */}
             <div className="sm:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Address <span className="text-amber-600">*</span></label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Address <span className="text-sky-600">*</span></label>
               <input
                 type="text"
                 name="address"
                 value={formData.address}
                 onChange={handleChange}
                 placeholder="House No., Street, Area"
-                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
               />
             </div>
           </div>
@@ -409,7 +409,7 @@ const AddressManager = () => {
               checked={formData.by_default}
               onChange={handleChange}
               id="default"
-              className="border border-gray-300 rounded-md focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+              className="border border-gray-300 rounded-md focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500"
             />
             <label htmlFor="default" className="text-sm text-gray-700">Set as default address</label>
           </div>
@@ -417,7 +417,7 @@ const AddressManager = () => {
           <div className="flex gap-3 pt-2">
             <button
               type="submit"
-              className="bg-amber-600 hover:bg-amber-700 text-white font-medium px-4 py-2 rounded-md transition flex items-center gap-2"
+              className="bg-sky-600 hover:bg-sky-700 text-white font-medium px-4 py-2 rounded-md transition flex items-center gap-2"
             >
               {editingId ? <Edit className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
               {editingId ? 'Update Address' : 'Add Address'}
@@ -437,13 +437,13 @@ const AddressManager = () => {
 
       {loading ? (
         <div className="text-center py-10">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-amber-600 border-t-transparent"></div>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-sky-600 border-t-transparent"></div>
           <p className="mt-2 text-gray-500">Loading addresses...</p>
         </div>
       ) : (
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <MapPin className="w-5 h-5 text-amber-600" />
+            <MapPin className="w-5 h-5 text-sky-600" />
             <h3 className="text-xl font-semibold text-gray-800">Saved Addresses</h3>
           </div>
           {addresses.length === 0 ? (
@@ -456,18 +456,18 @@ const AddressManager = () => {
               {addresses.map((addr) => (
                 <div
                   key={addr.id}
-                  className={`border rounded-lg p-4 transition-all hover:shadow-md ${addr.by_default ? 'border-amber-300 bg-amber-50' : 'border-gray-200 bg-white'
+                  className={`border rounded-lg p-4 transition-all hover:shadow-md ${addr.by_default ? 'border-sky-300 bg-sky-50' : 'border-gray-200 bg-white'
                     }`}
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex items-center gap-2">
-                      <Home className="w-4 h-4 text-amber-600" />
+                      <Home className="w-4 h-4 text-sky-600" />
                       <span className="font-medium text-gray-800">{addr.name}</span>
                       
 
                       {Number(addr.by_default) === 1 && (
-                        <span className="inline-flex items-center gap-1 text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">
-                          <Star className="w-3 h-3 fill-amber-500" /> Default
+                        <span className="inline-flex items-center gap-1 text-xs bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full">
+                          <Star className="w-3 h-3 fill-sky-500" /> Default
                         </span>
                       )}
                     </div>

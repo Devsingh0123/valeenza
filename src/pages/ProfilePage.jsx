@@ -160,10 +160,10 @@ const ProfilePage = () => {
       <div className="max-w-3xl mx-auto px-4">
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
           {/* Header */}
-          <div className="bg-amber-600 px-6 py-4 flex justify-between items-center">
+          <div className="bg-sky-600 px-6 py-4 flex justify-between items-center">
             <h1 className="text-2xl font-bold text-white">My Profile</h1>
             {isEditing && (
-              <button onClick={handleCancelEdit} className="text-white hover:text-amber-200 transition">
+              <button onClick={handleCancelEdit} className="text-white hover:text-sky-200 transition">
                 <FaTimes />
               </button>
             )}
@@ -179,11 +179,11 @@ const ProfilePage = () => {
                     <img
                       src={displayImage}
                       alt={user.name}
-                      className="w-20 h-20 rounded-full object-cover border-2 border-amber-500"
+                      className="w-20 h-20 rounded-full object-cover border-2 border-sky-500"
                     />
                   ) : (
-                    <div className="w-20 h-20 rounded-full bg-amber-100 flex items-center justify-center">
-                      <FaUserCircle className="w-12 h-12 text-amber-600" />
+                    <div className="w-20 h-20 rounded-full bg-sky-100 flex items-center justify-center">
+                      <FaUserCircle className="w-12 h-12 text-sky-600" />
                     </div>
                   )}
                   <div>
@@ -199,7 +199,7 @@ const ProfilePage = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 border-t pt-6">
                   <div className="flex items-center gap-3">
-                    <FaEnvelope className="text-amber-600" />
+                    <FaEnvelope className="text-sky-600" />
                     <div>
                       <p className="text-sm text-gray-500">Email</p>
                       <p className="text-gray-800">{user.email}</p>
@@ -207,7 +207,7 @@ const ProfilePage = () => {
                   </div>
                   {user.mobile && (
                     <div className="flex items-center gap-3">
-                      <FaPhoneAlt className="text-amber-600" />
+                      <FaPhoneAlt className="text-sky-600" />
                       <div>
                         <p className="text-sm text-gray-500">Mobile</p>
                         <p className="text-gray-800">{user.mobile}</p>
@@ -216,7 +216,7 @@ const ProfilePage = () => {
                   )}
                   {user.username && (
                     <div className="flex items-center gap-3">
-                      <FaUser className="text-amber-600" />
+                      <FaUser className="text-sky-600" />
                       <div>
                         <p className="text-sm text-gray-500">Username</p>
                         <p className="text-gray-800">{user.username}</p>
@@ -230,7 +230,7 @@ const ProfilePage = () => {
                   <div className="flex justify-end gap-3 border-t pt-6 mt-6">
                     <button
                       onClick={() => setIsEditing(true)}
-                      className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition cursor-pointer"
+                      className="flex items-center gap-2 px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition cursor-pointer"
                     >
                       <FaEdit /> Edit Profile
                     </button>
@@ -253,14 +253,14 @@ const ProfilePage = () => {
                       <img
                         src={displayImage}
                         alt="Profile Preview"
-                        className="w-24 h-24 rounded-full object-cover border-2 border-amber-500"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-sky-500"
                       />
                     ) : (
-                      <div className="w-24 h-24 rounded-full bg-amber-100 flex items-center justify-center">
-                        <FaUserCircle className="w-16 h-16 text-amber-600" />
+                      <div className="w-24 h-24 rounded-full bg-sky-100 flex items-center justify-center">
+                        <FaUserCircle className="w-16 h-16 text-sky-600" />
                       </div>
                     )}
-                    <label className="absolute bottom-0 right-0 bg-amber-600 rounded-full p-1 cursor-pointer hover:bg-amber-700">
+                    <label className="absolute bottom-0 right-0 bg-sky-600 rounded-full p-1 cursor-pointer hover:bg-sky-700">
                       <FaCamera className="w-4 h-4 text-white" />
                       <input
                         type="file"
@@ -287,7 +287,7 @@ const ProfilePage = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
                     />
                   </div>
                   <div>
@@ -300,7 +300,7 @@ const ProfilePage = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
                     />
                   </div>
                   <div>
@@ -312,7 +312,7 @@ const ProfilePage = () => {
                       name="mobile"
                       value={formData.mobile}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
                     />
                   </div>
                   <div>
@@ -324,7 +324,7 @@ const ProfilePage = () => {
                       name="username"
                       value={formData.username}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
                     />
                   </div>
                 </div>
@@ -341,7 +341,7 @@ const ProfilePage = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+                    className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 disabled:opacity-50 flex items-center gap-2 cursor-pointer"
                   >
                     {isSubmitting ? (
                       "Saving..."
@@ -390,7 +390,7 @@ const ProfilePage = () => {
 
       <div
         onClick={() => navigate('/')}
-        className="flex items-center justify-center gap-2 text-amber-600  mt-4 hover:underline mb-6 text-center cursor-pointer"
+        className="flex items-center justify-center gap-2 text-sky-600  mt-4 hover:underline mb-6 text-center cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4 text-center" /> Back to Home
       </div>

@@ -136,7 +136,7 @@ const CartPage = () => {
 
       {/* Table Sub-headers (PRODUCT / TOTAL) */}
       {cartItems.length > 0 && (
-        <div className="flex justify-between px-6 text-[10px] tracking-widest text-amber-500 font-semibold uppercase border-b border-gray-100 pb-2">
+        <div className="flex justify-between px-6 text-[10px] tracking-widest text-sky-500 font-semibold uppercase border-b border-gray-100 pb-2">
           <span>Products ({cartItems.length})</span>
           <span>Total</span>
         </div>

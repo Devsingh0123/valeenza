@@ -290,7 +290,7 @@ const PaymentStep = forwardRef(
           <input type="checkbox" checked={useWallet} onChange={(e) => {
             setUseWallet(e.target.checked);
             setWalletAmount(e.target.checked ? Math.min(walletBalance, grandTotal) : 0);
-          }} className="w-4 h-4 text-amber-600" />
+          }} className="w-4 h-4 text-sky-600" />
           <span className="font-medium">Use Wallet (balance: ${walletBalance.toLocaleString()})</span>
         </label>
         {useWallet && (
@@ -301,7 +301,7 @@ const PaymentStep = forwardRef(
               onChange={(e) => setWalletAmount(Math.min(walletBalance, grandTotal, Math.max(0, parseFloat(e.target.value) || 0)))}
               min="0"
               max={Math.min(walletBalance, grandTotal)}
-              className="w-full px-3 py-2 border rounded-lg focus:ring-amber-500"
+              className="w-full px-3 py-2 border rounded-lg focus:ring-sky-500"
             />
             <p className="text-xs text-gray-500 mt-1">Max: ${Math.min(walletBalance, grandTotal).toLocaleString()}</p>
           </div>
@@ -315,7 +315,7 @@ const PaymentStep = forwardRef(
               value="online"
               checked={selectedPaymentMethod === "online"}
               onChange={() => onPaymentMethodChange("online")}
-              className="mt-1 w-4 h-4 text-amber-600 accent-amber-600"
+              className="mt-1 w-4 h-4 text-sky-600 accent-sky-600"
             />
 
             <div className="flex flex-col gap-2">
@@ -327,25 +327,25 @@ const PaymentStep = forwardRef(
               <div className="flex items-center gap-3 flex-wrap">
                 {/* UPI */}
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-50 border border-gray-200">
-                  <FastForward size={14} className="text-amber-600" />
+                  <FastForward size={14} className="text-sky-600" />
                   <span className="text-xs text-gray-600">UPI</span>
                 </div>
 
                 {/* Wallet */}
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-50 border border-gray-200">
-                  <Wallet size={14} className="text-amber-600" />
+                  <Wallet size={14} className="text-sky-600" />
                   <span className="text-xs text-gray-600">Wallet</span>
                 </div>
 
                 {/* Cards */}
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-50 border border-gray-200">
-                  <CreditCard size={14} className="text-amber-600" />
+                  <CreditCard size={14} className="text-sky-600" />
                   <span className="text-xs text-gray-600">Cards</span>
                 </div>
 
                 {/* Netbanking */}
                 <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-gray-50 border border-gray-200">
-                  <Landmark size={14} className="text-amber-600" />
+                  <Landmark size={14} className="text-sky-600" />
                   <span className="text-xs text-gray-600">Netbanking</span>
                 </div>
               </div>
@@ -363,12 +363,12 @@ const PaymentStep = forwardRef(
                 value="cod"
                 checked={selectedPaymentMethod === "cod"}
                 onChange={() => onPaymentMethodChange("cod")}
-                className="w-4 h-4 text-amber-600 accent-amber-600"
+                className="w-4 h-4 text-sky-600 accent-sky-600"
               />
               <span className="font-medium text-sm text-gray-800">COD</span>
               <details className="relative inline-flex">
                 <summary className="list-none inline-flex cursor-pointer">
-                  <Info className="w-4 h-4 text-gray-400 hover:text-amber-500 transition-colors" />
+                  <Info className="w-4 h-4 text-gray-400 hover:text-sky-500 transition-colors" />
                 </summary>
                 <div className="absolute z-10 bottom-full left-2 w-64 p-3 bg-gray-800 text-white text-[10px] rounded-tl-2xl rounded-br-2xl shadow-lg">
                   <ul className="list-disc pl-4">

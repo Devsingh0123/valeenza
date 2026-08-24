@@ -74,7 +74,7 @@ const CheckoutPopup = () => {
           {!isLoggedIn ? (
             <AuthSection />
           ) : (
-            <div className="p-3 bg-amber-50 border border-amber-100 text-green-600 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-sm">
+            <div className="p-3 bg-sky-50 border border-sky-100 text-green-600 rounded-lg text-xs font-semibold flex items-center gap-2 shadow-sm">
               <span className="flex items-center justify-center w-4 h-4 rounded-full bg-emerald-600 text-white text-[10px]">
                 ✓
               </span>
@@ -97,7 +97,7 @@ const CheckoutPopup = () => {
               <Link
                 to="/privacy-policy"
                 target="_blank"
-                className="text-amber-500 hover:underline"
+                className="text-sky-500 hover:underline"
               >
                 Privacy Policy
               </Link>
@@ -105,7 +105,7 @@ const CheckoutPopup = () => {
               <Link
                 to="/terms-conditions"
                 target="_blank"
-                className="text-amber-500 hover:underline"
+                className="text-sky-500 hover:underline"
               >
                 T&Cs.
               </Link>
@@ -134,7 +134,7 @@ const CheckoutPopup = () => {
               </button>
               <button
                 onClick={handleConfirmClose}
-                className="flex-1 px-4 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer"
+                className="flex-1 px-4 py-2.5 bg-sky-500 hover:bg-sky-600 text-white font-semibold text-sm rounded-xl transition-colors cursor-pointer"
               >
                 Yes
               </button>

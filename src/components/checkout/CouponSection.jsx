@@ -132,7 +132,7 @@ const CouponSection = () => {
 
               <button
                 onClick={() => handleApplyCoupon(defaultRecommendedCoupon?.code)}
-                className="text-sm font-bold text-amber-500 hover:text-amber-600 px-1 py-0.5 cursor-pointer transition-colors shrink-0"
+                className="text-sm font-bold text-sky-500 hover:text-sky-600 px-1 py-0.5 cursor-pointer transition-colors shrink-0"
               >
                 Apply
               </button>
@@ -167,7 +167,7 @@ const CouponSection = () => {
                 setLocalError(null);
                 setIsModalOpen(true);
               }}
-              className="text-xs font-bold text-amber-500 hover:text-amber-600 cursor-pointer transition-colors"
+              className="text-xs font-bold text-sky-500 hover:text-sky-600 cursor-pointer transition-colors"
             >
               Enter Code
             </button>
@@ -199,7 +199,7 @@ const CouponSection = () => {
 
             <button
               onClick={handleRemoveCoupon}
-              className="text-sm font-bold text-amber-500 hover:text-amber-600 cursor-pointer transition-colors"
+              className="text-sm font-bold text-sky-500 hover:text-sky-600 cursor-pointer transition-colors"
             >
               Remove
             </button>
@@ -210,7 +210,7 @@ const CouponSection = () => {
               setLocalError(null);
               setIsModalOpen(true);
             }}
-            className="text-xs font-semibold text-amber-500 hover:text-amber-600 mt-3 block transition-colors cursor-pointer"
+            className="text-xs font-semibold text-sky-500 hover:text-sky-600 mt-3 block transition-colors cursor-pointer"
           >
             Enter another coupon &gt;
           </button>
@@ -240,7 +240,7 @@ const CouponSection = () => {
             </h2>
 
             <div className="space-y-1.5 mb-5">
-              <div className="relative flex items-center border border-amber-400 rounded-xl bg-white px-3 py-2.5 shadow-xs focus-within:ring-1 focus-within:ring-amber-200">
+              <div className="relative flex items-center border border-sky-400 rounded-xl bg-white px-3 py-2.5 shadow-xs focus-within:ring-1 focus-within:ring-sky-200">
                 <input
                   type="text"
                   value={couponInput}
@@ -254,7 +254,7 @@ const CouponSection = () => {
                 <button
                   onClick={() => handleApplyCoupon(couponInput)}
                   disabled={!couponInput.trim()}
-                  className="absolute right-3 text-xs font-extrabold text-amber-500 disabled:text-gray-300 hover:text-amber-600 cursor-pointer transition-colors"
+                  className="absolute right-3 text-xs font-extrabold text-sky-500 disabled:text-gray-300 hover:text-sky-600 cursor-pointer transition-colors"
                 >
                   Apply
                 </button>
@@ -274,7 +274,7 @@ const CouponSection = () => {
             <div className="space-y-3 max-h-[280px] overflow-y-auto pr-1 custom-scrollbar">
               {loading ? (
                 <div className="flex items-center gap-2 py-6 text-xs text-gray-400 italic font-medium justify-center">
-                  <Loader2 size={14} className="animate-spin text-amber-500" />
+                  <Loader2 size={14} className="animate-spin text-sky-500" />
                   <span>Scanning active promotions...</span>
                 </div>
               ) : coupons && coupons.length > 0 ? (
@@ -308,7 +308,7 @@ const CouponSection = () => {
                         <button
                           onClick={() => handleApplyCoupon(cp.code)}
                           disabled={appliedCoupon === cp.code || !cp.is_valid}
-                          className="border border-amber-500 text-amber-500 disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0"
+                          className="border border-sky-500 text-sky-500 disabled:bg-gray-50 disabled:text-gray-400 disabled:border-gray-200 px-4 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer shrink-0"
                         >
                           {appliedCoupon === cp.code ? "Applied" : "Apply"}
                         </button>

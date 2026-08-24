@@ -25,14 +25,14 @@ const product_Categories = [...productCategories,...productCategories,...product
               onClick={() => navigate(`/category/${category.slug}`)}
               className="flex flex-col items-center gap-1.5 cursor-pointer flex-shrink-0 transition-transform hover:scale-105"
             >
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-100 overflow-hidden border border-slate-100 p-1 shadow-sm">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-gray-100 p-1 shadow-sm">
                 <img
                   src={category?.cat_image}
                   alt={category.name}
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
-              <span className="text-xs font-medium text-slate-700 max-w-[80px] text-center truncate">
+              <span className="text-xs font-medium text-gray-700 max-w-[80px] text-center truncate">
                 {category.name}
               </span>
             </div>

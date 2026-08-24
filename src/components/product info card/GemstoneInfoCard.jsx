@@ -12,7 +12,7 @@ const GemstoneInfoCard = ({ gemstone }) => {
       className="group block bg-white transition-all duration-300 overflow-hidden"
     >
       {/* Top: Name */}
-      <div className="text-center py-2 px-3 bg-amber-500">
+      <div className="text-center py-2 px-3 bg-sky-500">
         <h3
           className="text-sm truncate font-bold text-white/85 group-hover:text-orange-600 transition-colors"
           title={name} 

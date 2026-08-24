@@ -154,7 +154,7 @@ useEffect(() => {
 
               {appliedCoupon && <span className="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">Coupon</span>}
             </div>
-            <span className="text-xs font-bold text-amber-600">${displayTotal.toLocaleString()}</span>
+            <span className="text-xs font-bold text-sky-600">${displayTotal.toLocaleString()}</span>
 
           </button>
 
@@ -191,7 +191,7 @@ useEffect(() => {
                   </div>
                 )}
                 {selectedPaymentMethod === 'cod' && (
-                  <div className="flex justify-between text-amber-600 text-sm">
+                  <div className="flex justify-between text-sky-600 text-sm">
                     <span>COD charge</span>
                     <span>{isCodLoading ? '...' : `$${codCharge}`}</span>
                   </div>
@@ -235,7 +235,7 @@ useEffect(() => {
             <button
               onClick={bottomButton.onClick}
               disabled={bottomButton.disabled}
-              className="w-full py-3.5 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {bottomButton.label}
             </button>

@@ -145,7 +145,7 @@ const WalletPage = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-2xl mx-auto px-4">
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
-          <div className="bg-amber-600 px-6 py-4">
+          <div className="bg-sky-600 px-6 py-4">
             <h1 className="text-2xl font-bold text-white flex items-center gap-2">
               <Wallet className="w-6 h-6" /> My Wallet
             </h1>
@@ -157,7 +157,7 @@ const WalletPage = () => {
               onClick={() => setActiveTab('balance')}
               className={`flex-1 py-3 text-center font-medium transition whitespace-nowrap ${
                 activeTab === 'balance'
-                  ? 'text-amber-600 border-b-2 border-amber-600'
+                  ? 'text-sky-600 border-b-2 border-sky-600'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -167,7 +167,7 @@ const WalletPage = () => {
               onClick={() => setActiveTab('history')}
               className={`flex-1 py-3 text-center font-medium transition whitespace-nowrap ${
                 activeTab === 'history'
-                  ? 'text-amber-600 border-b-2 border-amber-600'
+                  ? 'text-sky-600 border-b-2 border-sky-600'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -177,7 +177,7 @@ const WalletPage = () => {
               onClick={() => setActiveTab('spendHistory')}
               className={`flex-1 py-3 text-center font-medium transition whitespace-nowrap ${
                 activeTab === 'spendHistory'
-                  ? 'text-amber-600 border-b-2 border-amber-600'
+                  ? 'text-sky-600 border-b-2 border-sky-600'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -187,7 +187,7 @@ const WalletPage = () => {
               onClick={() => setActiveTab('summary')}
               className={`flex-1 py-3 text-center font-medium transition whitespace-nowrap ${
                 activeTab === 'summary'
-                  ? 'text-amber-600 border-b-2 border-amber-600'
+                  ? 'text-sky-600 border-b-2 border-sky-600'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
@@ -201,7 +201,7 @@ const WalletPage = () => {
               <>
                 <div className="text-center mb-8">
                   <p className="text-sm text-gray-500">Available Balance</p>
-                  <p className="text-4xl font-bold text-amber-600">
+                  <p className="text-4xl font-bold text-sky-600">
                     ${formatBalance(balance)}
                   </p>
                 </div>
@@ -221,7 +221,7 @@ const WalletPage = () => {
                     <button
                       type="submit"
                       disabled={adding || loading}
-                      className="px-6 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 disabled:opacity-50 flex items-center justify-center gap-2"
+                      className="px-6 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 disabled:opacity-50 flex items-center justify-center gap-2"
                     >
                       {adding ? 'Processing...' : <><PlusCircle className="w-4 h-4" /> Add Money</>}
                     </button>
@@ -307,7 +307,7 @@ const WalletPage = () => {
                   </div>
                   <div className="flex justify-between pt-2">
                     <span className="font-semibold text-gray-800">Net Balance</span>
-                    <span className="font-bold text-amber-600 text-lg">
+                    <span className="font-bold text-sky-600 text-lg">
                       ${formatBalance(balance)}
                     </span>
                   </div>
@@ -319,7 +319,7 @@ const WalletPage = () => {
       </div>
       <div
         onClick={() => navigate('/')}
-        className="flex items-center justify-center gap-2 text-amber-600 mt-4 hover:underline mb-6 text-center cursor-pointer"
+        className="flex items-center justify-center gap-2 text-sky-600 mt-4 hover:underline mb-6 text-center cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Home
       </div>

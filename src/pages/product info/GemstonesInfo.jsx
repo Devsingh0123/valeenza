@@ -46,7 +46,7 @@ const Gemstonesinfo = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">
+          <h1 className="text-4xl md:text-5xl font-bold text-sky-600 mb-2">
             Gemstones Info
           </h1>
           <div className="w-24 h-1 bg-orange-200 mx-auto rounded-full my-3"></div>
@@ -105,7 +105,7 @@ export default Gemstonesinfo;
 //       <div className="max-w-7xl mx-auto">
 //         {/* Header */}
 //         <div className="text-center mb-10">
-//           <h1 className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">
+//           <h1 className="text-4xl md:text-5xl font-bold text-sky-600 mb-2">
 //             Gemstones Info
 //           </h1>
 //           <div className="w-24 h-1 bg-orange-200 mx-auto rounded-full my-3"></div>

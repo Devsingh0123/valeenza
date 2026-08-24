@@ -203,7 +203,7 @@ const AddressSection = () => {
       {/* Upper Action Banner */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-amber-400/10 text-amber-500 rounded-lg shrink-0">
+          <div className="p-2 bg-sky-400/10 text-sky-500 rounded-lg shrink-0">
             <MapPin size={20} />
           </div>
           <div>
@@ -216,7 +216,7 @@ const AddressSection = () => {
         <button
           type="button"
           onClick={() => setShowNewForm(!showNewForm)}
-          className="self-start sm:self-center text-xs font-bold text-amber-500 hover:text-amber-600 bg-amber-50 hover:bg-amber-100 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+          className="self-start sm:self-center text-xs font-bold text-sky-500 hover:text-sky-600 bg-sky-50 hover:bg-sky-100 px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
         >
           {showNewForm ? "Saved Addresses" : "+ Add New Address"}
         </button>
@@ -233,7 +233,7 @@ const AddressSection = () => {
                 key={addr.id}
                 className={`relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all ${
                   isTargeted
-                    ? "border-amber-400 bg-amber-50 ring-1 ring-amber-400"
+                    ? "border-sky-400 bg-sky-50 ring-1 ring-sky-400"
                     : "border-gray-200 hover:border-gray-300 bg-white"
                 }`}
               >
@@ -243,7 +243,7 @@ const AddressSection = () => {
                       {addr.name}
                     </span>
                     {Number(addr.by_default) === 1 && (
-                      <span className="text-[10px] font-extrabold px-2 py-0.5 bg-amber-100 text-amber-700 rounded-md uppercase tracking-wider">
+                      <span className="text-[10px] font-extrabold px-2 py-0.5 bg-sky-100 text-sky-700 rounded-md uppercase tracking-wider">
                         Default
                       </span>
                     )}
@@ -257,7 +257,7 @@ const AddressSection = () => {
                       dispatch(setSelectedAddressId(addr.id));
                       dispatch(setSelectedAddress(addr));
                     }}
-                    className="h-4 w-4 text-amber-500 accent-amber-600 border-gray-300 focus:ring-amber-500 cursor-pointer"
+                    className="h-4 w-4 text-sky-500 accent-sky-600 border-gray-300 focus:ring-sky-500 cursor-pointer"
                   />
                 </div>
 
@@ -287,7 +287,7 @@ const AddressSection = () => {
             value={formData.name}
             onChange={handleInputChange}
             placeholder="Enter Your Name *"
-            className="col-span-12 sm:col-span-6 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-6 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/* Email */}
@@ -299,7 +299,7 @@ const AddressSection = () => {
               onChange={handleInputChange}
               placeholder="Enter Your Email*"
               required
-              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
             />
           </div>
 
@@ -377,7 +377,7 @@ const AddressSection = () => {
               }))
             }
             placeholder="Mobile Number *"
-            className="col-span-8 sm:col-span-4 px-4 ml-4 sm:ml-0 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-8 sm:col-span-4 px-4 ml-4 sm:ml-0 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/* ====== Alternative Mobile (optional) ====== */}
@@ -393,7 +393,7 @@ const AddressSection = () => {
               }))
             }
             placeholder="Alternate Mobile (Optional)"
-            className="col-span-12 sm:col-span-5 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-5 px-4 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  Pincode Input (Compact with absolute loading text) */}
@@ -406,15 +406,15 @@ const AddressSection = () => {
               value={formData.pincode}
               onChange={handlePincodeChange}
               placeholder="Pincode *"
-              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+              className="w-full px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
             />
             {pincodeLoading && (
-              <span className="absolute right-2 top-2.5 text-[9px] font-bold text-amber-500 animate-pulse">
+              <span className="absolute right-2 top-2.5 text-[9px] font-bold text-sky-500 animate-pulse">
                 Syncing...
               </span>
             )}
             {pincodeError && (
-              <p className="text-[9px] text-amber-600 font-bold mt-0.5 pl-1 absolute bg-gray-50 px-1 rounded border border-gray-100 z-10">
+              <p className="text-[9px] text-sky-600 font-bold mt-0.5 pl-1 absolute bg-gray-50 px-1 rounded border border-gray-100 z-10">
                 {pincodeError}
               </p>
             )}
@@ -428,7 +428,7 @@ const AddressSection = () => {
             value={formData.city}
             onChange={handleInputChange}
             placeholder="City Name *"
-            className="col-span-7 sm:col-span-8 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-7 sm:col-span-8 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  Full Address Line */}
@@ -439,7 +439,7 @@ const AddressSection = () => {
             value={formData.address}
             onChange={handleInputChange}
             placeholder="Flat, House No., Building, Apartment, Street Area *"
-            className="col-span-12 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  State Input */}
@@ -450,7 +450,7 @@ const AddressSection = () => {
             value={formData.state}
             onChange={handleInputChange}
             placeholder="State Name *"
-            className="col-span-12 sm:col-span-5 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-12 sm:col-span-5 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  State Code Input (Compact width) */}
@@ -461,7 +461,7 @@ const AddressSection = () => {
             value={formData.state_code}
             onChange={handleInputChange}
             placeholder="State Code*"
-            className="col-span-4 sm:col-span-3 px-3 py-2 text-xs font-semibold text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-4 sm:col-span-3 px-3 py-2 text-xs font-semibold text-center border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  Country Input */}
@@ -472,7 +472,7 @@ const AddressSection = () => {
             value={formData.country}
             onChange={handleInputChange}
             placeholder="Country *"
-            className="col-span-8 sm:col-span-4 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-400/10 focus:border-amber-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
+            className="col-span-8 sm:col-span-4 px-3 py-2 text-xs font-semibold border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-400/10 focus:border-sky-400 bg-white text-gray-800 transition-all placeholder:font-medium placeholder:text-gray-400"
           />
 
           {/*  Default Checklist Option */}
@@ -487,7 +487,7 @@ const AddressSection = () => {
                   by_default: e.target.checked,
                 }))
               }
-              className="h-4 w-4 text-amber-500 accent-amber-500 border-gray-300 rounded focus:ring-amber-500 cursor-pointer"
+              className="h-4 w-4 text-sky-500 accent-sky-500 border-gray-300 rounded focus:ring-sky-500 cursor-pointer"
             />
             Set as default delivery location
           </label>
@@ -496,7 +496,7 @@ const AddressSection = () => {
           <button
             type="submit"
             disabled={adding}
-            className="col-span-12 w-full py-2.5 bg-amber-500 text-white font-extrabold text-xs rounded-lg hover:bg-amber-600 transition-all tracking-wide shadow-sm cursor-pointer mt-1 disabled:opacity-50"
+            className="col-span-12 w-full py-2.5 bg-sky-500 text-white font-extrabold text-xs rounded-lg hover:bg-sky-600 transition-all tracking-wide shadow-sm cursor-pointer mt-1 disabled:opacity-50"
           >
             {adding ? "Saving Destination..." : "Save and Use This Address"}
           </button>
