@@ -41,7 +41,7 @@ Valeenza does not generally store complete payment-card information.
 7. Shipping
 Shipping and delivery are governed by our Shipping & Delivery Policy.
 We will make reasonable efforts to meet stated shipping estimates.
-Federal law generally requires online sellers to have a reasonable basis for advertised shipment periods and, where no period is stated, generally to be able to ship within 30 days. (<a href="https://www.ftc.gov/legal-library/browse/rules/mail-internet-or-telephone-order-merchandise-rule" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Federal Trade Commission</a>)
+Federal law generally requires online sellers to have a reasonable basis for advertised shipment periods and, where no period is stated, generally to be able to ship within 30 days.
 
 8. Returns and Refunds
 Returns and refunds are governed by our Return & Refund Policy.

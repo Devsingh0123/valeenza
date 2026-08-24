@@ -54,5 +54,5 @@ Valeenza Services LLC
 Bakersfield, CA 93311
 United States
 Email: care@valeenza.co
-The site should make the return/refund terms readily available before purchase. The FTC's consumer guidance specifically highlights return periods, refund availability, return shipping and restocking fees as information consumers should be able to determine. (<a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Consumer FTC</a>)
+The site should make the return/refund terms readily available before purchase. The FTC's consumer guidance specifically highlights return periods, refund availability, return shipping and restocking fees as information consumers should be able to determine.
 `;

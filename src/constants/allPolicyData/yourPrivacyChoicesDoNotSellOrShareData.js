@@ -5,7 +5,6 @@ If applicable under California law, you may request that we do not sell or share
 Do Not Sell or Share My Personal Information
 To submit a request:
 Email: care@valeenza.co
-Online: [INSERT PRIVACY REQUEST URL]
 You do not need to create an account to submit an opt-out request.
 Global Privacy Control
 Where applicable, we recognize Global Privacy Control signals as requests to opt out of sale or sharing.
@@ -25,5 +24,5 @@ Valeenza Services LLC
 Bakersfield, CA 93311
 United States
 Privacy Email: care@valeenza.co
-California's AG specifically states that covered businesses must provide an opt-out mechanism where applicable and that GPC can function as an opt-out signal. (<a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">California Attorney General</a>)
+California's AG specifically states that covered businesses must provide an opt-out mechanism where applicable and that GPC can function as an opt-out signal.
 `;
