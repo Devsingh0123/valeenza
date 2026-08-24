@@ -197,7 +197,7 @@ const generateInvoiceBase64 = async (element) => {
           <div className="flex flex-col gap-3">
             <Link
               to="/orders"
-              className="inline-block bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition"
+              className="inline-block bg-sky-600 text-white px-6 py-2 rounded hover:bg-sky-700 transition"
             >
               View My Orders
             </Link>
@@ -237,7 +237,7 @@ const generateInvoiceBase64 = async (element) => {
           <div className="flex flex-col gap-3">
             <Link
               to="/orders"
-              className="inline-block bg-amber-600 text-white px-6 py-2 rounded hover:bg-amber-700 transition"
+              className="inline-block bg-sky-600 text-white px-6 py-2 rounded hover:bg-sky-700 transition"
             >
               View My Orders
             </Link>
@@ -476,7 +476,7 @@ const generateInvoiceBase64 = async (element) => {
                   )}
 
                   {walletUsed > 0 && (
-                    <tr className="text-amber-600">
+                    <tr className="text-sky-600">
                       <td colSpan="3" className="pt-1 text-right">
                         Wallet Used:
                       </td>
@@ -560,7 +560,7 @@ const generateInvoiceBase64 = async (element) => {
               For any queries, contact us at{" "}
               <a
                 href="mailto:care@astrotring.com"
-                className="text-amber-600 hover:underline"
+                className="text-sky-600 hover:underline"
               >
                 care@astrotring.com
               </a>
@@ -586,7 +586,7 @@ const generateInvoiceBase64 = async (element) => {
             </Link>
             <Link
               to="/"
-              className="flex items-center justify-center px-5 py-2.5 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition text-sm font-medium"
+              className="flex items-center justify-center px-5 py-2.5 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition text-sm font-medium"
             >
               Continue Shopping
             </Link>

@@ -134,12 +134,12 @@ const ProductDetailsPage = () => {
         <nav className="flex mb-4 text-xs sm:text-sm text-gray-500">
           <ol className="flex items-center flex-wrap gap-1">
             <li>
-              <a href="/" className="hover:text-amber-600 transition cursor-pointer">
+              <a href="/" className="hover:text-sky-600 transition cursor-pointer">
                 Home
               </a>
             </li>
             <li className="mx-1">/</li>
-            <li className="text-amber-700 font-medium truncate max-w-[200px]">
+            <li className="text-sky-700 font-medium truncate max-w-[200px]">
               {product?.name}
             </li>
           </ol>
@@ -199,7 +199,7 @@ const ProductDetailsPage = () => {
                       onClick={() => setSelectedMediaIndex(idx)}
                       className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg border-2 overflow-hidden transition-all cursor-pointer ${
                         selectedMediaIndex === idx
-                          ? "border-amber-600 shadow-md"
+                          ? "border-sky-600 shadow-md"
                           : "border-gray-200 hover:border-gray-300"
                       }`}
                     >
@@ -286,14 +286,14 @@ const ProductDetailsPage = () => {
                     >
                       <span
                         className={`text-sm ${
-                          openFaq === idx ? "text-amber-500 font-medium" : "text-gray-700"
+                          openFaq === idx ? "text-sky-500 font-medium" : "text-gray-700"
                         }`}
                       >
                         {faq.question}
                       </span>
                       <ChevronDown
                         className={`w-5 h-5 transition-transform ${
-                          openFaq === idx ? "rotate-180 text-amber-500" : "text-gray-400"
+                          openFaq === idx ? "rotate-180 text-sky-500" : "text-gray-400"
                         }`}
                       />
                     </button>
@@ -376,7 +376,7 @@ export default ProductDetailsPage;
 //         if (!properties) return null;
 //         return (
 //             <section className="my-10">
-//                 <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-amber-500 pl-3 mb-5">{title}</h2>
+//                 <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-sky-500 pl-3 mb-5">{title}</h2>
 //                 <div className="overflow-x-auto bg-white border border-gray-200 rounded-lg">
 //                     <table className="min-w-full divide-y divide-gray-200">
 //                         <tbody className="divide-y divide-gray-100">
@@ -400,16 +400,16 @@ export default ProductDetailsPage;
 //             <div className="max-w-6xl mx-auto">
 //                 {/* Breadcrumb */}
 //                 <div className="text-sm text-gray-500 mb-6">
-//                     <Link to="/" className="hover:text-amber-600">Home</Link>
+//                     <Link to="/" className="hover:text-sky-600">Home</Link>
 //                     <span className="mx-2">/</span>
-//                     <Link to="/gemstones" className="hover:text-amber-600">Gemstones</Link>
+//                     <Link to="/gemstones" className="hover:text-sky-600">Gemstones</Link>
 //                     <span className="mx-2">/</span>
 //                     <span className="text-gray-700">{gem.name}</span>
 //                 </div>
 
 //                 {/* Heading */}
 //                 <div className="mb-10 flex flex-col items-center">
-//                     <h1 className="text-4xl md:text-5xl font-bold text-amber-700">{gem.name}</h1>
+//                     <h1 className="text-4xl md:text-5xl font-bold text-sky-700">{gem.name}</h1>
 //                     <p className="text-sm text-gray-600 mt-2">{gem.shortDesc}</p>
 //                 </div>
 
@@ -429,14 +429,14 @@ export default ProductDetailsPage;
 //                                         />
 //                                         {section.imageCaption && section.imageDiscription && (
 //                                             <div className="text-center mt-2">
-//                                                 <span className="text-sm text-amber-500 italic">{section.imageCaption}</span>
+//                                                 <span className="text-sm text-sky-500 italic">{section.imageCaption}</span>
 //                                                 <span className="text-sm text-gray-500 italic ml-1">{section.imageDiscription}</span>
 //                                             </div>
 //                                         )}
 //                                     </div>
 //                                 </div>
 //                                 {/* Text content – will wrap around the floated image */}
-//                                 <h3 className="text-xl font-bold text-amber-600 mb-3">{section.title}</h3>
+//                                 <h3 className="text-xl font-bold text-sky-600 mb-3">{section.title}</h3>
 //                                 <p className="text-gray-600 leading-relaxed">{section.content}</p>
 //                                 <div className="clear-both"></div> {/* Clear float after content */}
 //                             </div>
@@ -450,17 +450,17 @@ export default ProductDetailsPage;
 
 //                 {/* Birthstone, Zodiac, Anniversary info row */}
 //                 {(gem.birthstone || gem.zodiac || gem.anniversary) && (
-//                     <div className="my-10 bg-amber-50 p-5 rounded-xl flex flex-wrap justify-around text-center">
-//                         {gem.birthstone && <div><span className="font-bold text-amber-800">Birthstone</span><br />{gem.birthstone}</div>}
-//                         {gem.zodiac && <div><span className="font-bold text-amber-800">Zodiac</span><br />{gem.zodiac}</div>}
-//                         {gem.anniversary && <div><span className="font-bold text-amber-800">Anniversary</span><br />{gem.anniversary}</div>}
+//                     <div className="my-10 bg-sky-50 p-5 rounded-xl flex flex-wrap justify-around text-center">
+//                         {gem.birthstone && <div><span className="font-bold text-sky-800">Birthstone</span><br />{gem.birthstone}</div>}
+//                         {gem.zodiac && <div><span className="font-bold text-sky-800">Zodiac</span><br />{gem.zodiac}</div>}
+//                         {gem.anniversary && <div><span className="font-bold text-sky-800">Anniversary</span><br />{gem.anniversary}</div>}
 //                     </div>
 //                 )}
 
 //                 {/* FAQ */}
 //                 {gem.faq && gem.faq.length > 0 && (
 //                     <section className="my-10">
-//                         <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-amber-500 pl-3 mb-5">Frequently Asked Questions</h2>
+//                         <h2 className="text-2xl font-bold text-gray-800 border-l-4 border-sky-500 pl-3 mb-5">Frequently Asked Questions</h2>
 //                         <div className="space-y-4">
 //                             {gem.faq.map((item, idx) => (
 //                                 <div key={idx} className="bg-gray-50 p-4 rounded-lg">
@@ -474,8 +474,8 @@ export default ProductDetailsPage;
 
 //                 {/* Trivia */}
 //                 {gem.trivia && (
-//                     <div className="bg-amber-50 border-l-4 border-amber-500 p-4 rounded my-8 italic text-gray-700">
-//                         <span className="font-bold text-amber-700">Trivia:</span> {gem.trivia}
+//                     <div className="bg-sky-50 border-l-4 border-sky-500 p-4 rounded my-8 italic text-gray-700">
+//                         <span className="font-bold text-sky-700">Trivia:</span> {gem.trivia}
 //                     </div>
 //                 )}
 

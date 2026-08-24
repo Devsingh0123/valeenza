@@ -17,7 +17,7 @@ For questions regarding:
 •	Digital Services
 please contact:
 Email: care@valeenza.co
-Phone: [INSERT PHONE NUMBER]
+Phone: +1 626-362-4253
 3. Privacy Requests
 Privacy-related requests may be sent to:
 Privacy Email: care@valeenza.co

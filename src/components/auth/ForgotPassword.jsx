@@ -114,7 +114,7 @@ const ForgotPassword = ({ onSuccess, onCancel, userType }) => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your registered email"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
             />
             {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
           </div>
@@ -137,7 +137,7 @@ const ForgotPassword = ({ onSuccess, onCancel, userType }) => {
               onChange={(e) => setOtp(e.target.value)}
               placeholder="Enter 6-digit OTP"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
             />
             {errors.otp && <p className="text-red-500 text-sm mt-1">{errors.otp}</p>}
           </div>
@@ -161,7 +161,7 @@ const ForgotPassword = ({ onSuccess, onCancel, userType }) => {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Minimum 6 characters"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
             />
             {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
           </div>
@@ -173,7 +173,7 @@ const ForgotPassword = ({ onSuccess, onCancel, userType }) => {
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Re-enter new password"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
             />
             {errors.confirm && <p className="text-red-500 text-sm mt-1">{errors.confirm}</p>}
           </div>

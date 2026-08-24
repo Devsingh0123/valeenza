@@ -173,7 +173,7 @@ const AuthSection = () => {
               value={mobile}
               onChange={(e) => setMobile(e.target.value.replace(/\D/g, ""))}
               placeholder="Enter 10-digit mobile number"
-              className="flex-1 w-full px-4 py-2.5 text-xs font-semibold tracking-wider border border-gray-200 bg-gray-50/50 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-50 focus:border-amber-500 transition-all placeholder:normal-case placeholder:font-medium placeholder:text-gray-400"
+              className="flex-1 w-full px-4 py-2.5 text-xs font-semibold tracking-wider border border-gray-200 bg-gray-50/50 rounded-xl focus:outline-none focus:ring-1 focus:ring-sky-50 focus:border-sky-500 transition-all placeholder:normal-case placeholder:font-medium placeholder:text-gray-400"
               required
             />
           </div>
@@ -181,7 +181,7 @@ const AuthSection = () => {
           <button
             type="submit"
             disabled={mobile.length !== 10 || loading}
-            className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-100 disabled:text-gray-500 text-white font-bold text-xs rounded-xl tracking-wide shadow-sm transition-all duration-200 shrink-0 cursor-pointer"
+            className="px-6 py-2.5 bg-sky-500 hover:bg-sky-600 disabled:bg-gray-100 disabled:text-gray-500 text-white font-bold text-xs rounded-xl tracking-wide shadow-sm transition-all duration-200 shrink-0 cursor-pointer"
           >
             {loading ? "Sending..." : "Send OTP"}
           </button>
@@ -201,7 +201,7 @@ const AuthSection = () => {
               value={otp}
               onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
               placeholder="Enter 6-digit verification code"
-              className="flex-1 px-4 py-2.5 text-xs  font-bold tracking-[0.25em] border border-gray-200 bg-gray-50/50 rounded-xl focus:outline-none focus:ring-1 focus:ring-amber-400 focus:border-amber-400 transition-all placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-400"
+              className="flex-1 px-4 py-2.5 text-xs  font-bold tracking-[0.25em] border border-gray-200 bg-gray-50/50 rounded-xl focus:outline-none focus:ring-1 focus:ring-sky-400 focus:border-sky-400 transition-all placeholder:tracking-normal placeholder:font-medium placeholder:text-gray-400"
               required
             />
             <div className="flex gap-2 shrink-0">

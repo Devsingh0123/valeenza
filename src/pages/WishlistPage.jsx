@@ -33,7 +33,7 @@ const WishlistCard = ({ product, onRemove }) => {
           />
           {discountPercent > 0 && (
             <div className="absolute top-2 right-2">
-              <span className="bg-gradient-to-br from-amber-600 to-amber-700 text-white font-bold rounded-md shadow-md text-[10px] px-2 py-0.5">
+              <span className="bg-gradient-to-br from-sky-600 to-sky-700 text-white font-bold rounded-md shadow-md text-[10px] px-2 py-0.5">
                 {discountPercent}% OFF
               </span>
             </div>
@@ -129,7 +129,7 @@ const WishlistPage = () => {
           <FaHeart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
           <h2 className="text-2xl font-semibold text-gray-800">Your wishlist is empty</h2>
           <p className="text-gray-500 mt-2">Start adding products you love!</p>
-          <Link to="/" className="inline-block mt-4 bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700">
+          <Link to="/" className="inline-block mt-4 bg-sky-600 text-white px-6 py-2 rounded-lg hover:bg-sky-700">
             Continue Shopping
           </Link>
         </div>

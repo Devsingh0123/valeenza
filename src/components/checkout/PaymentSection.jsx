@@ -151,7 +151,7 @@ const StripePaymentForm = ({ onSuccess, onCancel, onReady, isReady }) => {
         <button
           type="submit"
           disabled={!stripe || !elements || !isReady || processing}
-          className="flex-1 px-4 py-3 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-lg disabled:bg-gray-200 disabled:text-gray-500 transition-all flex items-center justify-center gap-2 cursor-pointer"
+          className="flex-1 px-4 py-3 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-lg disabled:bg-gray-200 disabled:text-gray-500 transition-all flex items-center justify-center gap-2 cursor-pointer"
         >
           {processing ? (
             <>
@@ -709,7 +709,7 @@ const PaymentSection = () => {
 
       {(globalPaymentLoading || stripeLoading) && (
         <div className="fixed inset-0 bg-white/20 backdrop-blur-sm flex flex-col items-center justify-center z-[9999] h-screen">
-          <Loader2 className="w-12 h-12 animate-spin text-amber-500" />
+          <Loader2 className="w-12 h-12 animate-spin text-sky-500" />
 
           <p className="mt-4 text-sm font-medium text-gray-700">
             Please do not refresh the page
@@ -729,7 +729,7 @@ const PaymentSection = () => {
         ======================================== */}
 
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-amber-500/10 text-amber-500 rounded-lg shrink-0">
+          <div className="p-2 bg-sky-500/10 text-sky-500 rounded-lg shrink-0">
             <CreditCard size={20} />
           </div>
 
@@ -756,7 +756,7 @@ const PaymentSection = () => {
           <label
             className={`flex items-center gap-3 p-3.5 border rounded-xl cursor-pointer transition-all ${
               selectedPaymentMethod === "online"
-                ? "border-amber-500 bg-amber-500/5 ring-1 ring-amber-500"
+                ? "border-sky-500 bg-sky-500/5 ring-1 ring-sky-500"
                 : "border-gray-200 bg-white hover:border-gray-300"
             }`}
           >
@@ -771,7 +771,7 @@ const PaymentSection = () => {
                 setStripeClientSecret("");
                 setStripePaymentIntentId("");
               }}
-              className="h-4 w-4 text-amber-500 accent-amber-600 focus:ring-amber-500 border-gray-300 cursor-pointer"
+              className="h-4 w-4 text-sky-500 accent-sky-600 focus:ring-sky-500 border-gray-300 cursor-pointer"
             />
 
             <div className="text-left">
@@ -795,7 +795,7 @@ const PaymentSection = () => {
                 ${!codAvailable ? "opacity-50 cursor-not-allowed" : ""}
                 ${
                   selectedPaymentMethod === "cod" && codAvailable
-                    ? "border-amber-500 bg-amber-500/5 ring-1 ring-amber-500"
+                    ? "border-sky-500 bg-sky-500/5 ring-1 ring-sky-500"
                     : "border-gray-200 bg-white hover:border-gray-300"
                 }`}
             >
@@ -807,7 +807,7 @@ const PaymentSection = () => {
                   codAvailable && dispatch(setPaymentMethod("cod"))
                 }
                 disabled={!codAvailable}
-                className="h-4 w-4 flex-shrink-0 text-amber-500 accent-amber-600 focus:ring-amber-500 border-gray-300 cursor-pointer"
+                className="h-4 w-4 flex-shrink-0 text-sky-500 accent-sky-600 focus:ring-sky-500 border-gray-300 cursor-pointer"
               />
 
               <div className="text-left">
@@ -924,7 +924,7 @@ const PaymentSection = () => {
           <div className="flex justify-between items-center text-sm font-bold text-gray-900 px-1 sm:px-4">
             <span>Payable Amount:</span>
 
-            <span className="text-amber-500 text-base tracking-wide">
+            <span className="text-sky-500 text-base tracking-wide">
               $
               {Number(finalPayableAmount || 0).toLocaleString("en-US", {
                 minimumFractionDigits: 2,
@@ -979,7 +979,7 @@ const PaymentSection = () => {
                 isDeliveryLoading ||
                 isCodLoading
               }
-              className="w-full py-3.5 bg-amber-500 hover:bg-amber-600 disabled:bg-gray-100 disabled:text-gray-400 text-white font-extrabold text-xs uppercase tracking-wider rounded-md transition-all shadow-sm flex items-center justify-center gap-2 transform active:scale-[0.99] cursor-pointer"
+              className="w-full py-3.5 bg-sky-500 hover:bg-sky-600 disabled:bg-gray-100 disabled:text-gray-400 text-white font-extrabold text-xs uppercase tracking-wider rounded-md transition-all shadow-sm flex items-center justify-center gap-2 transform active:scale-[0.99] cursor-pointer"
             >
               {globalPaymentLoading || stripeLoading ? (
                 <>

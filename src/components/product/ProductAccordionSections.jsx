@@ -32,7 +32,7 @@ const ProductAccordionSections = ({
           {benefitsParagraphs.map((para, idx) =>
             para.includes(":") ? (
               <p key={idx} className="text-gray-700 leading-relaxed mb-2 flex">
-                <span className="text-amber-500">
+                <span className="text-sky-500">
                   {para.split(":")[0]} :{" "}
                   <span className="text-gray-700">{para.split(":")[1]}</span>
                 </span>
@@ -40,7 +40,7 @@ const ProductAccordionSections = ({
             ) : (
               <ol className="space-y-3">
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center mt-0.5">
+                  <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 text-xs font-bold flex items-center justify-center mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="text-gray-700">{para}</span>
@@ -57,7 +57,7 @@ const ProductAccordionSections = ({
           {howToUseSteps.map((step, idx) =>
             step.includes(":") ? (
               <p key={idx} className="text-gray-700 leading-relaxed mb-2 flex">
-                <span className="text-amber-500">
+                <span className="text-sky-500">
                   {step.split(":")[0]} :{" "}
                   <span className="text-gray-700">{step.split(":")[1]}</span>
                 </span>
@@ -65,7 +65,7 @@ const ProductAccordionSections = ({
             ) : (
               <ol className="space-y-3">
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center mt-0.5">
+                  <span className="w-6 h-6 rounded-full bg-sky-100 text-sky-700 text-xs font-bold flex items-center justify-center mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="text-gray-700">{step}</span>

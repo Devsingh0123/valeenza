@@ -224,15 +224,15 @@ const CartPage = () => {
             <ShoppingCart
               size={22}
               strokeWidth={2}
-              className="text-amber-600"
+              className="text-sky-600"
             />
             <h1 className="text-xl font-bold text-stone-900">My Cart</h1>
-            <span className="bg-amber-600 text-white text-xs font-semibold w-6 h-6 rounded-full flex items-center justify-center">
+            <span className="bg-sky-600 text-white text-xs font-semibold w-6 h-6 rounded-full flex items-center justify-center">
               {cartItems.length}
             </span>
           </div>
           <button
-            className="w-10 h-10 rounded-lg bg-white border border-stone-200 flex items-center justify-center shadow-sm hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-colors cursor-pointer"
+            className="w-10 h-10 rounded-lg bg-white border border-stone-200 flex items-center justify-center shadow-sm hover:bg-sky-600 hover:text-white hover:border-sky-600 transition-colors cursor-pointer"
             onClick={() => dispatch(closeCartDrawer())}
             aria-label="Go back"
           >
@@ -344,7 +344,7 @@ const CartPage = () => {
                 {/* Delivery info */}
                 <div className="bg-white rounded-xl border border-stone-200 shadow-md overflow-hidden">
                   <div className="p-4 border-b border-stone-200 flex items-center gap-2">
-                    <Truck size={16} className="text-amber-600" />
+                    <Truck size={16} className="text-sky-600" />
                     <span className="text-sm font-semibold text-stone-900">
                       Delivery
                     </span>
@@ -366,7 +366,7 @@ const CartPage = () => {
                         </p>
                         <div className="w-full h-1.5 bg-stone-200 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-amber-600 to-amber-500 transition-all"
+                            className="h-full bg-gradient-to-r from-sky-600 to-sky-500 transition-all"
                             style={{
                               width: `${Math.min(100, (subtotal / MIN_FREE_SHIPPING) * 100)}%`,
                             }}
@@ -380,7 +380,7 @@ const CartPage = () => {
                 {/* Coupon block */}
                 <div className="bg-white rounded-xl border border-stone-200 shadow-md overflow-hidden">
                   <div className="p-4 border-b border-stone-200 flex items-center gap-2">
-                    <Tag size={16} className="text-amber-600" />
+                    <Tag size={16} className="text-sky-600" />
                     <span className="text-sm font-semibold text-stone-900">
                       Promo Code
                     </span>
@@ -391,7 +391,7 @@ const CartPage = () => {
                         <div className="flex gap-2">
                           <input
                             type="text"
-                            className="flex-1 px-3 py-2 rounded-lg border border-stone-200 text-xs font-medium uppercase focus:outline-none focus:border-amber-600 focus:bg-stone-50"
+                            className="flex-1 px-3 py-2 rounded-lg border border-stone-200 text-xs font-medium uppercase focus:outline-none focus:border-sky-600 focus:bg-stone-50"
                             placeholder="e.g. WELCOME10"
                             value={couponCode}
                             onChange={(e) => setCouponCode(e.target.value)}
@@ -400,7 +400,7 @@ const CartPage = () => {
                             }
                           />
                           <button
-                            className="px-4 py-2 bg-amber-600 text-white rounded-lg text-xs font-semibold hover:bg-amber-700 transition-colors cursor-pointer disabled:opacity-50"
+                            className="px-4 py-2 bg-sky-600 text-white rounded-lg text-xs font-semibold hover:bg-sky-700 transition-colors cursor-pointer disabled:opacity-50"
                             onClick={applyCoupon}
                             disabled={couponValidating}
                           >
@@ -419,14 +419,14 @@ const CartPage = () => {
                         )}
                       </>
                     ) : (
-                      <div className="flex justify-between items-center bg-amber-50 border border-amber-300 border-dashed rounded-lg p-2">
+                      <div className="flex justify-between items-center bg-sky-50 border border-sky-300 border-dashed rounded-lg p-2">
                         <div className="flex items-center gap-2">
-                          <Tag size={15} className="text-amber-600" />
+                          <Tag size={15} className="text-sky-600" />
                           <div>
-                            <span className="text-amber-700 font-semibold text-xs">
+                            <span className="text-sky-700 font-semibold text-xs">
                               {appliedCoupon.code}
                             </span>
-                            <p className="text-amber-600 text-[10px]">
+                            <p className="text-sky-600 text-[10px]">
                               {appliedCoupon.label} applied
                             </p>
                           </div>
@@ -445,7 +445,7 @@ const CartPage = () => {
                 {/* Order Summary */}
                 <div className="bg-white rounded-xl border border-stone-200 shadow-md overflow-hidden sticky top-4">
                   <div className="p-4 border-b border-stone-200 flex items-center gap-2">
-                    <Package size={16} className="text-amber-600" />
+                    <Package size={16} className="text-sky-600" />
                     <span className="text-sm font-semibold text-stone-900">
                       Order Summary
                     </span>
@@ -486,14 +486,14 @@ const CartPage = () => {
                       </span>
                     </div>
                     {totalSavings > 0 && (
-                      <div className="flex items-center gap-1 bg-amber-50 text-amber-700 font-semibold rounded px-3 py-2 text-xs">
-                        <Sparkles size={15} className="text-amber-600" /> You're
+                      <div className="flex items-center gap-1 bg-sky-50 text-sky-700 font-semibold rounded px-3 py-2 text-xs">
+                        <Sparkles size={15} className="text-sky-600" /> You're
                         saving ${totalSavings.toLocaleString()} on this order!
                       </div>
                     )}
                     {/* The checkout button - now opens the simple popup */}
                     <button
-                      className={`w-full mt-2 py-4 bg-gradient-to-r from-amber-600 to-amber-700 text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all hover:shadow-md cursor-pointer ${
+                      className={`w-full mt-2 py-4 bg-gradient-to-r from-sky-600 to-sky-700 text-white rounded-xl font-bold text-base flex items-center justify-center gap-2 transition-all hover:shadow-md cursor-pointer ${
                         isCheckingOut ? "opacity-70 pointer-events-none" : ""
                       }`}
                       onClick={() => {

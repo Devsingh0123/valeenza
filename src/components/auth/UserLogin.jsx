@@ -329,7 +329,7 @@ const UserLogin = () => {
                       }));
                     }}
                     placeholder="Enter your email"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     required
                     autoComplete="email"
                   />
@@ -356,7 +356,7 @@ const UserLogin = () => {
                         form: "",
                       });
                     }}
-                    className="text-amber-600 hover:underline cursor-pointer"
+                    className="text-sky-600 hover:underline cursor-pointer"
                   >
                     Sign Up
                   </button>
@@ -395,7 +395,7 @@ const UserLogin = () => {
                         setOtp(value);
                       }
                     }}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     placeholder="6-digit OTP"
                     required
                     autoComplete="one-time-code"
@@ -416,7 +416,7 @@ const UserLogin = () => {
                     setStep("email");
                     setOtp("");
                   }}
-                  className="text-sm text-amber-600 hover:underline block text-center w-full"
+                  className="text-sm text-sky-600 hover:underline block text-center w-full"
                 >
                   ← Back to email
                 </button>
@@ -434,7 +434,7 @@ const UserLogin = () => {
                   placeholder="Full Name *"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                   required
                 />
 
@@ -444,7 +444,7 @@ const UserLogin = () => {
                     placeholder="+91"
                     value={form.country_code}
                     onChange={handleChange}
-                    className="w-1/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-1/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                   />
 
                   <input
@@ -453,7 +453,7 @@ const UserLogin = () => {
                     placeholder="Mobile *"
                     value={form.mobile}
                     onChange={handleChange}
-                    className="w-2/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-2/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     required
                   />
                 </div>
@@ -464,7 +464,7 @@ const UserLogin = () => {
                   placeholder="Enter your email"
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                   required
                 />
 
@@ -482,7 +482,7 @@ const UserLogin = () => {
                     <Link
                       to="/terms-conditions"
                       target="_blank"
-                      className="text-amber-600 hover:underline"
+                      className="text-sky-600 hover:underline"
                     >
                       Terms & Conditions
                     </Link>{" "}
@@ -490,7 +490,7 @@ const UserLogin = () => {
                     <Link
                       to="/privacy-policy"
                       target="_blank"
-                      className="text-amber-600 hover:underline"
+                      className="text-sky-600 hover:underline"
                     >
                       Privacy Policy
                     </Link>
@@ -519,7 +519,7 @@ const UserLogin = () => {
                       });
                       setOtp("");
                     }}
-                    className="text-amber-600 hover:underline cursor-pointer"
+                    className="text-sky-600 hover:underline cursor-pointer"
                   >
                     Login
                   </button>

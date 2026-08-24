@@ -36,7 +36,7 @@ const CheckoutHeader = ({onBackClick}) => {
       </div>
 
       {/* Under-Header Promo Banner Strip */}
-      <div className="w-full bg-amber-500 py-1.5 px-4 text-center shadow-inner">
+      <div className="w-full bg-sky-500 py-1.5 px-4 text-center shadow-inner">
         <p className="text-[11px] font-bold text-white tracking-wider">
           ✦ Good Fortune Awaits — Shop & Save!
         </p>

@@ -15,10 +15,10 @@ const Footer = () => {
     .filter((cat) => cat.slug !== "all");
 
   const sectionTitleClass =
-    "text-[#1E3354] font-semibold text-sm tracking-wide uppercase";
+    "text-sky-700 font-semibold text-sm tracking-wide uppercase";
 
   const linkClass =
-    "text-sm text-stone-600 hover:text-[#D63B3B] transition-colors duration-200";
+    "text-sm text-gray-600 hover:text-red-500 transition-colors duration-200";
 
   const socialLinks = [
     {
@@ -40,14 +40,14 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mt-12 bg-white border-t border-stone-200">
+    <footer className="mt-12 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-10 border-b border-stone-200">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-10 border-b border-gray-200">
           <div className="lg:col-span-4">
             <Link to="/">
               <img src={logo} alt="Valeenza" className="h-9 mb-5" />
             </Link>
-            <p className="text-sm text-stone-600 leading-relaxed max-w-sm">
+            <p className="text-sm text-gray-600 leading-relaxed max-w-sm">
               Valeenza is your destination for curated, premium products —
               thoughtfully selected to elevate everyday living with quality,
               style, and trust.
@@ -124,7 +124,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link to="/shipping-and-delivery-policy" className={linkClass}>
-                   Return & Refund Policy
+                  Shipping & Delivery Policy
                   </Link>
                 </li>
                 <li>
@@ -187,13 +187,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10">
           <div>
             <h2 className={sectionTitleClass}>Contact</h2>
-            <p className="text-sm text-stone-600 leading-relaxed mt-4 max-w-md">
+            <p className="text-sm text-gray-600 leading-relaxed mt-4 max-w-md">
               We are available 24×7 on chat support.{" "}
               <a
                 href="https://wa.me/16263624253?text=Hi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#D63B3B] hover:text-[#1E3354] font-medium transition-colors"
+                className="text-red-500 hover:text-sky-900 font-medium transition-colors"
               >
                 Start a chat
               </a>
@@ -201,9 +201,9 @@ const Footer = () => {
 
             <a
               href="mailto:care@valeenza.co"
-              className="inline-flex items-center gap-3 mt-4 text-sm text-stone-600 hover:text-[#1E3354] transition-colors group"
+              className="inline-flex items-center gap-3 mt-4 text-sm text-gray-600 hover:text-sky-700 transition-colors group"
             >
-              <span className="flex items-center justify-center w-9 h-9 rounded-full border border-stone-200 text-[#1E3354] group-hover:border-[#1E3354] group-hover:bg-stone-50 transition-colors">
+              <span className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-sky-700 group-hover:border-sky-700 group-hover:bg-gray-50 transition-colors">
                 <Mail size={16} strokeWidth={1.75} />
               </span>
               care@valeenza.co
@@ -219,7 +219,7 @@ const Footer = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-stone-200 text-[#1E3354] hover:bg-[#1E3354] hover:border-[#1E3354] hover:text-white transition-colors duration-200"
+                  className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-sky-700 hover:bg-sky-700 hover:border-sky-700 hover:text-white transition-colors duration-200"
                 >
                   <Icon size={16} strokeWidth={1.75} />
                 </a>
@@ -229,7 +229,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="bg-[#1E3354] text-white/90 text-center text-sm py-5 px-4">
+      <div className="bg-sky-700 text-white/90 text-center text-sm py-5 px-4">
         © {new Date().getFullYear()} Valeenza. All Rights Reserved.
       </div>
     </footer>

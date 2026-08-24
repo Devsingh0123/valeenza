@@ -472,7 +472,7 @@ const AffiliateSignup = () => {
                     <Link
                       to="/terms-conditions"
                       target="_blank"
-                      className="text-amber-600 hover:underline"
+                      className="text-sky-600 hover:underline"
                     >
                       Terms & Conditions
                     </Link>
@@ -525,11 +525,11 @@ const AffiliateSignup = () => {
                         .
                       </p>
 
-                      <div className="bg-amber-50 p-4 rounded-lg text-left">
-                        <p className="text-amber-800 font-medium mb-2">
+                      <div className="bg-sky-50 p-4 rounded-lg text-left">
+                        <p className="text-sky-800 font-medium mb-2">
                            What happens next?
                         </p>
-                        <ul className="text-xs text-amber-700 space-y-1 list-disc list-inside">
+                        <ul className="text-xs text-sky-700 space-y-1 list-disc list-inside">
                           <li>
                             Our team will review your application.
                           </li>
@@ -553,7 +553,7 @@ const AffiliateSignup = () => {
                     <div className="mt-4 pt-3 border-t border-gray-100">
                       <p className="text-xs text-gray-400">
                         Reference ID:{" "}
-                        <span className="font-mono font-semibold text-amber-600">
+                        <span className="font-mono font-semibold text-sky-600">
                           {registrationCode}
                         </span>
                       </p>
@@ -564,7 +564,7 @@ const AffiliateSignup = () => {
                         setShowSuccessModal(false);
                         navigate("/become-an-affiliate");
                       }}
-                      className="mt-5 w-full px-4 py-2 bg-gradient-to-r from-amber-400 to-amber-500 text-white  rounded-xl hover:from-amber-500 hover:to-amber-600 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
+                      className="mt-5 w-full px-4 py-2 bg-gradient-to-r from-sky-400 to-sky-500 text-white  rounded-xl hover:from-sky-500 hover:to-sky-600 transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer"
                     >
                       Back to Affiliate Page
                     </button>

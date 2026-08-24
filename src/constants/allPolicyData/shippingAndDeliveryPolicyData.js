@@ -31,7 +31,7 @@ Delivery may be affected by:
 •	Government restrictions
 •	Other events beyond our reasonable control
 If we cannot ship within the promised period, applicable law may require us to notify you and provide appropriate cancellation/refund options.
-Federal FTC rules require sellers to have a reasonable basis for advertised shipping periods and generally require shipment within 30 days where no shipping period is stated. (Federal Trade Commission)
+Federal FTC rules require sellers to have a reasonable basis for advertised shipping periods and generally require shipment within 30 days where no shipping period is stated. (<a href="https://www.ftc.gov/legal-library/browse/rules/mail-internet-or-telephone-order-merchandise-rule" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">Federal Trade Commission)</a>)
 7. Incorrect Addresses
 Customers are responsible for providing accurate shipping information.
 Additional charges may apply where a shipment must be reshipped because of an incorrect address supplied by the customer.

@@ -47,12 +47,12 @@ const ProductCard = ({ product, addToCart, compact = false }) => {
     ? "text-[8px] px-1.5 py-0.5"
     : "text-[10px] px-2 py-0.5";
   const overlayButtonClass = compact
-    ? "flex-1 py-1 bg-white text-amber-900 border border-amber-300 rounded-lg text-[9px] font-bold hover:bg-amber-50 transition-colors cursor-pointer"
-    : "flex-1 py-1.5 bg-white text-amber-900 border border-amber-300 rounded-lg text-xs font-bold hover:bg-amber-50 transition-colors cursor-pointer";
+    ? "flex-1 py-1 bg-white text-sky-900 border border-sky-300 rounded-lg text-[9px] font-bold hover:bg-sky-50 transition-colors cursor-pointer"
+    : "flex-1 py-1.5 bg-white text-sky-900 border border-sky-300 rounded-lg text-xs font-bold hover:bg-sky-50 transition-colors cursor-pointer";
 
   const overlayCartClass = compact
-    ? "flex-1 py-1 bg-amber-600 text-white border-none rounded-lg text-[9px] font-bold flex items-center justify-center gap-0.5 hover:bg-amber-700 transition-colors cursor-pointer"
-    : "flex-1 py-1.5 bg-amber-600 text-white border-none rounded-lg text-xs font-bold flex items-center justify-center gap-1 hover:bg-amber-700 transition-colors cursor-pointer";
+    ? "flex-1 py-1 bg-sky-600 text-white border-none rounded-lg text-[9px] font-bold flex items-center justify-center gap-0.5 hover:bg-sky-700 transition-colors cursor-pointer"
+    : "flex-1 py-1.5 bg-sky-600 text-white border-none rounded-lg text-xs font-bold flex items-center justify-center gap-1 hover:bg-sky-700 transition-colors cursor-pointer";
 
   const nameClass = compact
     ? "text-[11px] font-bold text-stone-800 truncate"
@@ -100,7 +100,7 @@ const ProductCard = ({ product, addToCart, compact = false }) => {
         {/* <div className="absolute top-2 left-2 flex flex-col gap-1">
           {product?.isBestseller && (
             <span
-              className={`bg-gradient-to-br from-amber-600 to-amber-700 text-white font-bold rounded-md tracking-wider uppercase shadow-md ${badgeSize}`}
+              className={`bg-gradient-to-br from-sky-600 to-sky-700 text-white font-bold rounded-md tracking-wider uppercase shadow-md ${badgeSize}`}
             >
               ⚡ Best Seller
             </span>
@@ -110,7 +110,7 @@ const ProductCard = ({ product, addToCart, compact = false }) => {
         {savings > 0 && (
           <div className="absolute top-2 right-2">
             <span
-              className={`bg-gradient-to-br from-amber-600 to-amber-700 text-white font-bold rounded-md shadow-md ${badgeSize}`}
+              className={`bg-gradient-to-br from-sky-600 to-sky-700 text-white font-bold rounded-md shadow-md ${badgeSize}`}
             >
               {savings}% OFF
             </span>

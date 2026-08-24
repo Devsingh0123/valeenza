@@ -146,7 +146,7 @@ useEffect(() => {
             <label
               key={addr.id}
               className={`flex gap-3 p-4 border rounded-xl cursor-pointer transition-all ${
-                selectedAddressId === addr.id ? 'border-amber-500 bg-amber-50' : 'border-gray-200 hover:border-amber-300'
+                selectedAddressId === addr.id ? 'border-sky-500 bg-sky-50' : 'border-gray-200 hover:border-sky-300'
               }`}
             >
               <input
@@ -155,13 +155,13 @@ useEffect(() => {
                 value={addr.id}
                 checked={selectedAddressId === addr.id}
                 onChange={() => onSelectAddress(addr.id)}
-                className="mt-1 text-amber-600"
+                className="mt-1 text-sky-600"
               />
               <div className="flex-1">
                 <div className="flex items-center gap-2 flex-wrap">
                   <Home className="w-4 h-4 text-gray-500" />
                   <span className="font-medium">{addr.name}</span>
-                  {Number(addr.by_default) === 1 && <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full">Default</span>}
+                  {Number(addr.by_default) === 1 && <span className="text-xs bg-sky-100 text-sky-700 px-2 py-0.5 rounded-full">Default</span>}
                 </div>
                 <p className="text-gray-600 text-sm mt-1">{addr.address}, {addr.city}, {addr.state} - {addr.pincode}</p>
                 <p className="text-gray-500 text-xs mt-1">Mobile: {addr.country_code} {addr.mobile}</p>
@@ -173,7 +173,7 @@ useEffect(() => {
 
       {/* Add Address Form */}
       {!showAddForm ? (
-        <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1 text-amber-600 text-sm font-medium hover:underline">
+        <button onClick={() => setShowAddForm(true)} className="flex items-center gap-1 text-sky-600 text-sm font-medium hover:underline">
           <Plus size={16} /> Add new address
         </button>
       ) : (
@@ -191,7 +191,7 @@ useEffect(() => {
             placeholder="Label (e.g., Home, Office)"
             value={newAddress.name}
             onChange={(e) => setNewAddress({ ...newAddress, name: e.target.value })}
-            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
             required
           />
 
@@ -201,7 +201,7 @@ useEffect(() => {
             placeholder="Mobile number"
             value={newAddress.mobile}
             onChange={(e) => setNewAddress({ ...newAddress, mobile: e.target.value })}
-            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
             required
           />
 
@@ -211,7 +211,7 @@ useEffect(() => {
               name="country_code"
               value={newAddress.country_code}
               onChange={(e) => setNewAddress({ ...newAddress, country_code: e.target.value })}
-              className="w-1/3 p-3 border rounded-lg bg-white border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+              className="w-1/3 p-3 border rounded-lg bg-white border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
             >
               <option value="+91">+91 (India)</option>
               <option value="+1">+1 (US)</option>
@@ -222,7 +222,7 @@ useEffect(() => {
               placeholder="Country"
               value={newAddress.country}
               onChange={(e) => setNewAddress({ ...newAddress, country: e.target.value })}
-              className="flex-1 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+              className="flex-1 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
               required
             />
           </div>
@@ -234,7 +234,7 @@ useEffect(() => {
               placeholder="Pincode (6 digits)"
               value={newAddress.pincode}
               onChange={handlePincodeChange}
-              className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+              className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
               required
             />
             {pincodeLoading && <p className="text-xs text-gray-500 mt-1">Fetching location...</p>}
@@ -247,7 +247,7 @@ useEffect(() => {
             placeholder="Street, House No., Area"
             value={newAddress.address}
             onChange={(e) => setNewAddress({ ...newAddress, address: e.target.value })}
-            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+            className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
             required
           />
 
@@ -258,7 +258,7 @@ useEffect(() => {
               placeholder="City"
               value={newAddress.city}
               onChange={(e) => setNewAddress({ ...newAddress, city: e.target.value })}
-              className="flex-1 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+              className="flex-1 p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
               required
             />
             <div className="flex-1">
@@ -267,7 +267,7 @@ useEffect(() => {
                 placeholder="State"
                 value={newAddress.state}
                 onChange={(e) => setNewAddress({ ...newAddress, state: e.target.value })}
-                className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 transition"
+                className="w-full p-3 border rounded-lg border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 transition"
                 required
               />
               {newAddress.state_code && (
@@ -290,7 +290,7 @@ useEffect(() => {
           <button
             type="submit"
             disabled={adding}
-            className="w-full bg-amber-600 text-white py-2 rounded-lg hover:bg-amber-700 transition"
+            className="w-full bg-sky-600 text-white py-2 rounded-lg hover:bg-sky-700 transition"
           >
             {adding ? 'Saving...' : 'Save Address'}
           </button>

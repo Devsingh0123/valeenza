@@ -92,13 +92,13 @@ const ProductReviews = ({ catId }) => {
                 value={review}
                 onChange={(e) => setReview(e.target.value)}
                 placeholder="Share your experience with this product..."
-                className="w-full px-3 py-2 border focus:outline-none border-gray-300 rounded-lg focus:ring-amber-500 focus:border-amber-500"
+                className="w-full px-3 py-2 border focus:outline-none border-gray-300 rounded-lg focus:ring-sky-500 focus:border-sky-500"
               />
             </div>
             <button
               type="submit"
               disabled={submitLoading}
-              className="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 disabled:opacity-50"
+              className="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 disabled:opacity-50"
             >
               {submitLoading ? 'Submitting...' : 'Submit Review'}
             </button>

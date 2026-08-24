@@ -47,7 +47,7 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
           placeholder="Full name *"
           value={form.name}
           onChange={handleChange}
-          className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 focus:border-amber-300 transition"
+          className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 focus:border-sky-300 transition"
           required
         />
       
@@ -56,7 +56,7 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
             name="country_code"
             value={form.country_code}
             onChange={handleChange}
-            className="px-3 py-3 border rounded-xl bg-white border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 focus:border-amber-300 transition"
+            className="px-3 py-3 border rounded-xl bg-white border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 focus:border-sky-300 transition"
           >
             <option value="+91">+91</option>
             <option value="+1">+1</option>
@@ -67,7 +67,7 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
             placeholder="Mobile number *"
             value={form.mobile}
             onChange={handleChange}
-            className="flex-1 px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 focus:border-amber-300 transition"
+            className="flex-1 px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 focus:border-sky-300 transition"
             required
           />
         </div>
@@ -77,7 +77,7 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
           placeholder="Enter your email"
           value={form.email}
           onChange={handleChange}
-          className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-amber-300 focus:border-amber-300 transition"
+          className="w-full px-4 py-3 border rounded-xl border-gray-300 focus:outline-none focus:ring-1 focus:ring-sky-300 focus:border-sky-300 transition"
         />
 
         {/* Terms and conditions checkbox */}
@@ -92,11 +92,11 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
           />
           <label htmlFor="terms" className="text-xs text-gray-600">
             I have read and agree to the{" "}
-            <Link to="/terms-conditions" target="_blank" className="text-amber-600 hover:underline">
+            <Link to="/terms-conditions" target="_blank" className="text-sky-600 hover:underline">
               Terms & Conditions
             </Link>{" "}
             and{" "}
-            <Link to="/privacy-policy" target="_blank" className="text-amber-600 hover:underline">
+            <Link to="/privacy-policy" target="_blank" className="text-sky-600 hover:underline">
               Privacy Policy
             </Link>.
           </label>
@@ -105,14 +105,14 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full py-3 bg-amber-600 text-white rounded-xl font-semibold hover:bg-amber-700 transition"
+          className="w-full py-3 bg-sky-600 text-white rounded-xl font-semibold hover:bg-sky-700 transition"
         >
           {loading ? 'Creating...' : 'Sign Up'}
         </button>
       </form>
       <p className="text-center text-gray-500">
         Already have an account?{' '}
-        <button onClick={onBackToLogin} className="text-amber-600 font-medium hover:underline">
+        <button onClick={onBackToLogin} className="text-sky-600 font-medium hover:underline">
           Login
         </button>
       </p>

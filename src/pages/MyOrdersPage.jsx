@@ -118,7 +118,7 @@ const MyOrdersPage = () => {
       <div className="max-w-4xl mx-auto px-4">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-amber-600 hover:underline mb-6 cursor-pointer"
+          className="flex items-center gap-2 text-sky-600 hover:underline mb-6 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
@@ -215,7 +215,7 @@ const MyOrdersPage = () => {
                     <div className="flex sm:flex-row flex-col gap-3">
                       <button
                         onClick={(e) => handleViewDetails(e, order.order_id)}
-                        className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-amber-600 bg-amber-50 rounded-lg hover:bg-amber-100 transition-all duration-200 cursor-pointer"
+                        className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-sky-600 bg-sky-50 rounded-lg hover:bg-sky-100 transition-all duration-200 cursor-pointer"
                       >
                         View Details <ArrowRight className="w-4 h-4" />
                       </button>

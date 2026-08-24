@@ -98,7 +98,7 @@ const HeroBanner = () => {
               onClick={() => setCurrentIndex(index)}
               className={`w-3 h-3 rounded transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-amber-500 scale-110 shadow-md"
+                  ? "bg-sky-500 scale-110 shadow-md"
                   : "bg-white/50 hover:bg-white/70"
               } cursor-pointer`}
               aria-label={`Go to slide ${index + 1}`}

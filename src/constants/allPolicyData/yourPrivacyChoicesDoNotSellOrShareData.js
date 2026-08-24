@@ -25,5 +25,5 @@ Valeenza Services LLC
 Bakersfield, CA 93311
 United States
 Privacy Email: care@valeenza.co
-California's AG specifically states that covered businesses must provide an opt-out mechanism where applicable and that GPC can function as an opt-out signal. (California Attorney General)
+California's AG specifically states that covered businesses must provide an opt-out mechanism where applicable and that GPC can function as an opt-out signal. (<a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">California Attorney General</a>)
 `;

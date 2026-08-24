@@ -32,7 +32,7 @@ const WalletBalance = () => {
   return (
     <div className="bg-white rounded-lg shadow p-4">
       <h3 className="text-lg font-semibold mb-2">Wallet</h3>
-      <p className="text-2xl font-bold text-amber-600 mb-3">${balance.toLocaleString()}</p>
+      <p className="text-2xl font-bold text-sky-600 mb-3">${balance.toLocaleString()}</p>
       <form onSubmit={handleAddMoney} className="flex gap-2">
         <input
           type="number"
@@ -44,7 +44,7 @@ const WalletBalance = () => {
         <button
           type="submit"
           disabled={adding}
-          className="bg-amber-600 text-white px-3 py-1 rounded hover:bg-amber-700 disabled:opacity-50"
+          className="bg-sky-600 text-white px-3 py-1 rounded hover:bg-sky-700 disabled:opacity-50"
         >
           {adding ? 'Adding...' : 'Add Money'}
         </button>

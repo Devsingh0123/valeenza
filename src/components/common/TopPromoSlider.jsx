@@ -42,7 +42,7 @@ const TopPromoSlider = () => {
   };
 
   return (
-    <div className="w-full bg-amber-900  text-white">
+    <div className="w-full bg-sky-900  text-white">
       <div className=" mx-auto px-4 py-1">
         <div className="flex items-center justify-between gap-4">
           {/* left arrow */}
@@ -73,12 +73,12 @@ const TopPromoSlider = () => {
                   <a 
                    href={slide.path}
                   className="font-medium text-xs tracking-wide text-center relative inline-block
-             after:content-[''] after:absolute after:left-0 after:bottom-[-0px] after:w-0 after:h-[1px] after:bg-amber-200
-             hover:after:w-full after:transition-all after:duration-700 ease-in-out hover:text-amber-200">
+             after:content-[''] after:absolute after:left-0 after:bottom-[-0px] after:w-0 after:h-[1px] after:bg-sky-200
+             hover:after:w-full after:transition-all after:duration-700 ease-in-out hover:text-sky-200">
                     {slide.text}
                   </a>
                   {/* Dot */}
-                  <Circle className="w-1 h-1 fill-amber-400 text-amber-400 flex-shrink-0 animate-pulse hidden sm:inline " />
+                  <Circle className="w-1 h-1 fill-sky-400 text-sky-400 flex-shrink-0 animate-pulse hidden sm:inline " />
                   {/* Shop Now Button */}
                   <a
                     href={slide.path}

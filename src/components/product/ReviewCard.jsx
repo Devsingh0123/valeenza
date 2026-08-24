@@ -28,8 +28,8 @@ const ReviewCard = ({ review }) => {
     <div className="bg-white p-2 rounded-xl shadow-sm border border-gray-200 flex flex-col">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
-            <User className="w-4 h-4 text-amber-600" />
+          <div className="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center">
+            <User className="w-4 h-4 text-sky-600" />
           </div>
           <span className="font-medium text-gray-800">
             {review?.user?.name || 'Anonymous'}
@@ -49,7 +49,7 @@ const ReviewCard = ({ review }) => {
         {isLong && (
           <button
             onClick={toggleExpand}
-            className="mt-2 text-amber-600 hover:text-amber-700 text-sm font-medium focus:outline-none"
+            className="mt-2 text-sky-600 hover:text-sky-700 text-sm font-medium focus:outline-none"
           >
             {isExpanded ? 'View Less' : 'View More'}
           </button>

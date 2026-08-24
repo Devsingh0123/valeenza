@@ -15,7 +15,7 @@ const Slider = ({ children, showBtn = true }) => {
       {showBtn && (
         <button
           ref={prevRef}
-          className="absolute left-2  top-1/3 z-10 -translate-y-1/2 bg-gradient-to-br from-amber-100 to-amber-200 text-amber-900 font-bold shadow-[inset_0_0_0_1.5px_#fcd34d] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
+          className="absolute left-2  top-1/3 z-10 -translate-y-1/2 bg-gradient-to-br from-sky-100 to-sky-200 text-sky-900 font-bold shadow-[inset_0_0_0_1.5px_#fcd34d] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
         >
           <FaArrowLeft />
         </button>
@@ -23,7 +23,7 @@ const Slider = ({ children, showBtn = true }) => {
       {showBtn && (
         <button
           ref={nextRef}
-          className="absolute right-2  top-1/3 z-10 -translate-y-1/2 bg-gradient-to-br from-amber-100 to-amber-200 text-amber-900 font-bold shadow-[inset_0_0_0_1.5px_#fcd34d] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
+          className="absolute right-2  top-1/3 z-10 -translate-y-1/2 bg-gradient-to-br from-sky-100 to-sky-200 text-sky-900 font-bold shadow-[inset_0_0_0_1.5px_#fcd34d] rounded-full w-8 h-8 flex items-center justify-center cursor-pointer"
         >
           <FaArrowRight />
         </button>

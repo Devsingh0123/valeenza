@@ -290,7 +290,7 @@ const UserLogin = () => {
                       if (value.length <= 10) setMobile(value);
                     }}
                     placeholder="Enter 10-digit mobile"
-                    className="flex-1 w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="flex-1 w-full px-3 py-1.5 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     required
                   />
                 </div>
@@ -310,7 +310,7 @@ const UserLogin = () => {
                       setStep("mobile");
                       setErrors({ fields: {}, form: "" });
                     }}
-                    className="text-amber-600 hover:underline cursor-pointer"
+                    className="text-sky-600 hover:underline cursor-pointer"
                   >
                     Sign Up
                   </button>
@@ -329,7 +329,7 @@ const UserLogin = () => {
                     type="text"
                     value={otp}
                     onChange={(e) => setOtp(e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     placeholder="6-digit OTP"
                     required
                   />
@@ -347,7 +347,7 @@ const UserLogin = () => {
                     setStep("mobile");
                     setOtp("");
                   }}
-                  className="text-sm text-amber-600 hover:underline block text-center w-full"
+                  className="text-sm text-sky-600 hover:underline block text-center w-full"
                 >
                   ← Back to mobile number
                 </button>
@@ -362,7 +362,7 @@ const UserLogin = () => {
                   placeholder="Full Name *"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                   required
                 />
                 <div className="flex gap-2">
@@ -433,7 +433,7 @@ const UserLogin = () => {
                     placeholder="Mobile *"
                     value={form.mobile}
                     onChange={handleChange}
-                    className="w-3/4 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                    className="w-3/4 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                     required
                   />
                 </div>
@@ -443,7 +443,7 @@ const UserLogin = () => {
                   placeholder="Enter your email"
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                 />
 
                 <div className="flex items-start gap-2">
@@ -459,7 +459,7 @@ const UserLogin = () => {
                     <Link
                       to="/terms-conditions"
                       target="_blank"
-                      className="text-amber-600 hover:underline"
+                      className="text-sky-600 hover:underline"
                     >
                       Terms & Conditions
                     </Link>{" "}
@@ -467,7 +467,7 @@ const UserLogin = () => {
                     <Link
                       to="/privacy-policy"
                       target="_blank"
-                      className="text-amber-600 hover:underline"
+                      className="text-sky-600 hover:underline"
                     >
                       Privacy Policy
                     </Link>
@@ -492,7 +492,7 @@ const UserLogin = () => {
                       setErrors({ fields: {}, form: "" });
                       setOtp("");
                     }}
-                    className="text-amber-600 hover:underline cursor-pointer"
+                    className="text-sky-600 hover:underline cursor-pointer"
                   >
                     Login
                   </button>
@@ -717,7 +717,7 @@ export default UserLogin;
 //                     value={form.username}
 //                     onChange={handleChange}
 //                     placeholder="Enter your username/email"
-//                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                   />
 //                 </div>
 //                 <div>
@@ -730,7 +730,7 @@ export default UserLogin;
 //                     value={form.password}
 //                     onChange={handleChange}
 //                     placeholder="Enter your password"
-//                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                     className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                   />
 //                 </div>
 //                 <div className="text-right">
@@ -740,7 +740,7 @@ export default UserLogin;
 //                       setMode("forgot");
 //                       setUserType("user");
 //                     }}
-//                     className="text-sm text-amber-600 hover:underline cursor-pointer"
+//                     className="text-sm text-sky-600 hover:underline cursor-pointer"
 //                   >
 //                     Forgot Password?
 //                   </button>
@@ -760,7 +760,7 @@ export default UserLogin;
 //                       setMode("signup");
 //                       setErrors({ fields: {}, form: "" });
 //                     }}
-//                     className="text-amber-600 hover:underline cursor-pointer"
+//                     className="text-sky-600 hover:underline cursor-pointer"
 //                   >
 //                     Sign Up
 //                   </button>
@@ -775,14 +775,14 @@ export default UserLogin;
 //                   placeholder="Full Name"
 //                   value={form.name}
 //                   onChange={handleChange}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                 />
 //                 <input
 //                   name="email"
 //                   placeholder="Email"
 //                   value={form.email}
 //                   onChange={handleChange}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                 />
 //                 <div className="flex gap-2">
 //                   <input
@@ -790,14 +790,14 @@ export default UserLogin;
 //                     placeholder="+91"
 //                     value={form.country_code}
 //                     onChange={handleChange}
-//                     className="w-1/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                     className="w-1/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                   />
 //                   <input
 //                     name="mobile"
 //                     placeholder="Mobile"
 //                     value={form.mobile}
 //                     onChange={handleChange}
-//                     className="w-2/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                     className="w-2/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                   />
 //                 </div>
 //                 <input
@@ -805,7 +805,7 @@ export default UserLogin;
 //                   placeholder="Username"
 //                   value={form.username}
 //                   onChange={handleChange}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                 />
 
 //                 <div className="space-y-1.5">
@@ -886,7 +886,7 @@ export default UserLogin;
 //                   placeholder="Password"
 //                   value={form.password}
 //                   onChange={handleChange}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                 />
 //                 <input
 //                   type="password"
@@ -894,7 +894,7 @@ export default UserLogin;
 //                   placeholder="Confirm Password"
 //                   value={form.confirmPassword}
 //                   onChange={handleChange}
-//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-amber-500 focus:border-amber-500"
+//                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
 //                 />
 
 //                 <div className="flex items-start gap-2">
@@ -910,7 +910,7 @@ export default UserLogin;
 //                     <Link
 //                       to="/terms-conditions"
 //                       target="_blank"
-//                       className="text-amber-600 hover:underline"
+//                       className="text-sky-600 hover:underline"
 //                     >
 //                       Terms & Conditions
 //                     </Link>{" "}
@@ -918,7 +918,7 @@ export default UserLogin;
 //                     <Link
 //                       to="/privacy-policy"
 //                       target="_blank"
-//                       className="text-amber-600 hover:underline"
+//                       className="text-sky-600 hover:underline"
 //                     >
 //                       Privacy Policy
 //                     </Link>
@@ -941,7 +941,7 @@ export default UserLogin;
 //                       setMode("login");
 //                       setErrors({ fields: {}, form: "" });
 //                     }}
-//                     className="text-amber-600 hover:underline cursor-pointer"
+//                     className="text-sky-600 hover:underline cursor-pointer"
 //                   >
 //                     Login
 //                   </button>

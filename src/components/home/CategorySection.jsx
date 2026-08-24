@@ -33,14 +33,14 @@ const CategorySection = ({ category, products, onAddToCart }) => {
         <div className="flex gap-2">
           <button
             onClick={() => scroll('left')}
-            className="p-1.5 rounded-full border border-gray-300 hover:bg-amber-600 hover:text-white transition"
+            className="p-1.5 rounded-full border border-gray-300 hover:bg-sky-600 hover:text-white transition"
             aria-label="Scroll left"
           >
             <ChevronLeft size={18} className='hidden sm:block' />
           </button>
           <button
             onClick={() => scroll('right')}
-            className="p-1.5 rounded-full border border-gray-300 hover:bg-amber-600 hover:text-white transition"
+            className="p-1.5 rounded-full border border-gray-300 hover:bg-sky-600 hover:text-white transition"
             aria-label="Scroll right"
           >
             <ChevronRight size={18} className='hidden sm:block' />
