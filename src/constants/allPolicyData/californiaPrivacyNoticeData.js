@@ -46,10 +46,9 @@ Subject to applicable exceptions, California residents may have rights to:
 5. Requests
 Requests may be submitted by:
 Email: care@valeenza.co
-Web: [INSERT PRIVACY REQUEST URL]
 We may verify your identity before completing certain requests.
 6. Response Period
-California law generally provides a 45-day response period for certain verified consumer requests, subject to applicable extension rules. (<a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">California Attorney General</a>)
+California law generally provides a 45-day response period for certain verified consumer requests, subject to applicable extension rules.
 7. Do Not Sell or Share
 Where applicable, consumers may opt out of the sale or sharing of personal information by using our Your Privacy Choices / Do Not Sell or Share mechanism.
 We will honor applicable Global Privacy Control signals.

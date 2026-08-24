@@ -1,7 +1,7 @@
 // src/constants/noticeatCollectionData.js
 export const noticeatCollectionData = `
 Valeenza Services LLC provides this Notice at Collection to explain the categories of personal information we may collect and the purposes for which we may use that information.
-California law requires covered businesses to provide this information at or before the point personal information is collected. (<a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">California Attorney General</a>)
+California law requires covered businesses to provide this information at or before the point personal information is collected.
 Categories We May Collect
 Depending on your interaction with Valeenza, we may collect:
 Identifiers: name, email address, telephone number, postal address and online identifiers.

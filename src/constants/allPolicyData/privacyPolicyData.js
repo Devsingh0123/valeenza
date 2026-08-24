@@ -152,5 +152,5 @@ Bakersfield, CA 93311
 United States
 Privacy Email: care@valeenza.co 
 Website: valeenza.co
-Implementation note: If you use Meta Pixel, Google Analytics/Ads, TikTok, email platforms, chat systems or other advertising technology, the final policy should name the categories of providers and accurately describe what they receive. California's AG specifically expects privacy disclosures to explain collection, use, sharing/sale and consumer rights. (<a href="https://www.oag.ca.gov/privacy/ccpa" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">California Attorney General</a>)
+Implementation note: If you use Meta Pixel, Google Analytics/Ads, TikTok, email platforms, chat systems or other advertising technology, the final policy should name the categories of providers and accurately describe what they receive. California's AG specifically expects privacy disclosures to explain collection, use, sharing/sale and consumer rights.
 `;
