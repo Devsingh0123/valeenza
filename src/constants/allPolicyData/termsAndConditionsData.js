@@ -1,7 +1,5 @@
 // src/constants/termsAndConditionsData.js
-export const termsAndConditionsData = `Terms & Conditions
-Effective Date: August, 20th 2026
-Last Updated: August, 20th 2026
+export const termsAndConditionsData = `
 These Terms & Conditions ("Terms") govern your access to and use of websites, products and services operated by Valeenza Services LLC ("Valeenza," "we," "us," or "our"), including valeenza.co, and related Services.
 By accessing or using our Services, you agree to these Terms.
 If you do not agree, please do not use our Services.

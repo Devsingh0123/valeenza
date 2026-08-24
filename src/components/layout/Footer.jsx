@@ -113,25 +113,61 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/terms-conditions" className={linkClass}>
+                  <Link to="/terms-and-conditions" className={linkClass}>
                     Terms & Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link to="/refund-policy" className={linkClass}>
-                    Refund & Cancellation
+                  <Link to="/return-and-refund-policy" className={linkClass}>
+                    Return & Refund Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/shipping-policy" className={linkClass}>
-                    Shipping Policy
+                  <Link to="/shipping-and-delivery-policy" className={linkClass}>
+                   Return & Refund Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="/disclaimer" className={linkClass}>
-                    Disclaimer
+                  <Link to="/cookie-policy" className={linkClass}>
+                    Cookie Policy
                   </Link>
                 </li>
+                <li>
+                  <Link to="/california-privacy-notice" className={linkClass}>
+                    California Privacy Notice
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/notice-at-collection" className={linkClass}>
+                    Notice at Collection
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/your-privacy-choices-do-not-sell-or-share" className={linkClass}>
+                    Your Privacy Choices
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/astrology-and-ai-disclaimer" className={linkClass}>
+                   Astrology & AI Disclaimer
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/health-and-wellness-disclaimer" className={linkClass}>
+                    Health & Wellness Disclaimer
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/digital-products-and-services-terms" className={linkClass}>
+                    Digital Products & Services Terms
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/legal-notice-contact-and-accessibility-statement" className={linkClass}>
+                    Legal Notice, Contact & Accessibility Statement
+                  </Link>
+                </li>
+              
               </ul>
             </div>
 

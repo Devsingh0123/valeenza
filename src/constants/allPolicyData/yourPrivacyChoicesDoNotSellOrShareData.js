@@ -1,6 +1,5 @@
 // src/constants/yourPrivacyChoicesDoNotSellOrShareData.js
-export const yourPrivacyChoicesDoNotSellOrShareData = `Your Privacy Choices
-Last Updated: August, 20th 2026
+export const yourPrivacyChoicesDoNotSellOrShareData = `
 Valeenza Services LLC respects your privacy choices.
 If applicable under California law, you may request that we do not sell or share your personal information for purposes covered by the CCPA.
 Do Not Sell or Share My Personal Information

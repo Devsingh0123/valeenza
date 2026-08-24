@@ -17,23 +17,24 @@ const PolicyAndConditionsCard = ({ title, lastUpdated, text }) => {
         return (
           <h3
             key={index}
-            className="text-xl font-semibold text-stone-900 mt-8 mb-3"
+            className="text-xl font-semibold text-gray-900 mt-8 mb-3"
           >
             {trimmed}
-            <hr className="mt-1 border-stone-300" />
+            <hr className="mt-1 border-gray-300" />
           </h3>
         );
       }
 
       // HEADING 2: If the line starts with "A.", "B.", or "C." (Sub-headings)
-      if (/^[A-Z]\./.test(trimmed) && trimmed.length <= 5) {
+      if (/^[A-Z]\./.test(trimmed)) {
         return (
-          <h4
+          <h3
             key={index}
-            className="text-lg font-medium text-stone-800 mt-5 mb-2"
+            className="text-lg font-medium text-gray-900 mt-5 mb-2"
           >
             {trimmed}
-          </h4>
+            <hr className="mt-1 border-gray-300" />
+          </h3>
         );
       }
 
@@ -41,7 +42,7 @@ const PolicyAndConditionsCard = ({ title, lastUpdated, text }) => {
       if (trimmed.startsWith("•")) {
         return (
           <li key={index} className="flex items-start gap-3 ml-2 my-1">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-violet-500 mt-2 flex-shrink-0"></span>
+            <span className="inline-block w-1.5 h-1.5 rounded-full bg-gray-500 mt-2 flex-shrink-0"></span>
             <span className="flex-1">{trimmed.substring(1).trim()}</span>
           </li>
         );
@@ -65,18 +66,18 @@ const PolicyAndConditionsCard = ({ title, lastUpdated, text }) => {
           {/* Parent container text-center hi rahega taaki block center me rahe */}
           <div className="text-center mb-8">
             {/* w-fit aur mx-auto lagane se ye box sirf content ke barabar hi wide hoga */}
-            <div className="inline-block w-fit pb-2 border-b-[2px] border-stone-200">
-              <h1 className="text-3xl font-bold text-stone-900 mb-2 tracking-tight">
+            <div className="inline-block w-fit pb-2 border-b-[2px] border-gray-200">
+              <h1 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">
                 {title}
               </h1>
-              <p className="text-stone-400 text-sm">
+              <p className="text-gray-400 text-sm">
                 Last Updated: {lastUpdated}
               </p>
             </div>
           </div>
 
           {/* Content Section */}
-          <div className="space-y-1 text-stone-600 text-sm leading-relaxed">
+          <div className="space-y-1 text-gray-600 text-sm leading-relaxed">
             {formatText(text)}
           </div>
         </div>

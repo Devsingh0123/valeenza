@@ -1,6 +1,5 @@
 // src/constants/digitalProductsAndServicesTermsData.js
-export const digitalProductsAndServicesTermsData = `Digital Products & Services Terms
-Effective Date: August, 20th 2026
+export const digitalProductsAndServicesTermsData = `
 These Terms apply to digital products and services provided by Valeenza Services LLC.
 1. Digital Services
 Digital Services may include:

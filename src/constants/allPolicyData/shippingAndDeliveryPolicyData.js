@@ -1,6 +1,5 @@
 // src/constants/shippingAndDeliveryPolicyData.js
-export const shippingAndDeliveryPolicyData = `Shipping & Delivery Policy
-Effective Date: August, 20th 2026
+export const shippingAndDeliveryPolicyData = `
 This Shipping & Delivery Policy applies to physical products purchased through Valeenza-operated websites and stores.
 1. Order Processing
 Orders are generally processed within [1–3 business days] after payment confirmation.

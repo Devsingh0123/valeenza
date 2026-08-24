@@ -1,6 +1,5 @@
 // src/constants/healthAndWellnessDisclaimerData.js
-export const healthAndWellnessDisclaimerData = `Health & Wellness Disclaimer
-Effective Date: August, 20th 2026Products and content offered through Valeenza may relate to spirituality, wellness, traditional practices, meditation, astrology and personal beliefs.
+export const healthAndWellnessDisclaimerData = `Products and content offered through Valeenza may relate to spirituality, wellness, traditional practices, meditation, astrology and personal beliefs.
 No Medical Claims
 Unless expressly stated otherwise and supported by applicable law, our products and content are not intended to diagnose, treat, cure or prevent any disease or medical condition.
 Products such as Rudraksha, crystals, gemstones and spiritual accessories should not be used as substitutes for medical treatment.

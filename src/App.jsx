@@ -30,7 +30,6 @@ const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
 // const CartPage = lazy(() => import("./pages/CartPage"));
 
 // all policies and conditions
-
 const PrivacyPolicyPage = lazy(() => import("./pages/legal/PrivacyPolicyPage"));
 const AstrologyAndAIDisclaimerPage = lazy(() => import("./pages/legal/AstrologyAndAIDisclaimerPage"));
 const CaliforniaPrivacyNoticePage = lazy(() => import("./pages/legal/CaliforniaPrivacyNoticePage"));
@@ -96,19 +95,18 @@ function App() {
           <Route path="/product/:slug" element={<ProductDetailsPage />} />
 
           {/* Policies and T&C */}
-          
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<AstrologyAndAIDisclaimerPage />} />
-          <Route path="/privacy-policy" element={<CaliforniaPrivacyNoticePage />} />
-          <Route path="/privacy-policy" element={<CookiePolicyPage />} />
-          <Route path="/privacy-policy" element={<DigitalProductsAndServicesTermsPage />} />
-          <Route path="/privacy-policy" element={<HealthAndWellnessDisclaimerPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+          <Route path="/return-and-refund-policy" element={<ReturnAndRefundPolicyPage />} />
+          <Route path="/shipping-and-delivery-policy" element={<ShippingAndDeliveryPolicyPage />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+          <Route path="/california-privacy-notice" element={<CaliforniaPrivacyNoticePage />} />
+          <Route path="/notice-at-collection" element={<NoticeatCollectionPage />} />
+          <Route path="/your-privacy-choices-do-not-sell-or-share" element={<YourPrivacyChoicesDoNotSellOrSharePage />} />
+          <Route path="/astrology-and-ai-disclaimer" element={<AstrologyAndAIDisclaimerPage />} />
+          <Route path="/health-and-wellness-disclaimer" element={<HealthAndWellnessDisclaimerPage />} />
+          <Route path="/digital-products-and-services-terms" element={<DigitalProductsAndServicesTermsPage />} />
+          <Route path="/legal-notice-contact-and-accessibility-statement" element={<LegalNoticeContactAndAccessibilityStatementPage />} />
           
           {/* product catogaries page */}
           <Route path="/category/:slug" element={<CategoryPage />} />

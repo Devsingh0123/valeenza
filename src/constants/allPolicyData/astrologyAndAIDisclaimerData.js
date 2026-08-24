@@ -1,6 +1,5 @@
 // src/constants/astrologyAndAIDisclaimerData.js
-export const astrologyAndAIDisclaimerData = `Astrology & AI Disclaimer
-Effective Date: August, 20th 2026
+export const astrologyAndAIDisclaimerData = `
 Valeenza.co is a service operated by Valeenza Services LLC.
 Valeenza.co may provide Vedic astrology, numerology, AI-generated interpretations, spiritual guidance, astrology reports and related content.
 1. For Informational and Entertainment Purposes

@@ -1,6 +1,5 @@
 // src/constants/cookiePolicyData.js
-export const cookiePolicyData = `Cookie Policy
-Effective Date: August, 20th 2026
+export const cookiePolicyData = `
 Valeenza Services LLC uses cookies and similar technologies on and related Services.
 1. What Are Cookies?
 Cookies are small text files stored on your device when you visit a website.

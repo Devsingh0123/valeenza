@@ -1,6 +1,5 @@
 // src/constants/return&RefundPolicyData.js.js
-export const returnAndRefundPolicyData = `Return & Refund Policy
-Effective Date: August, 20th 2026
+export const returnAndRefundPolicyData = `
 At Valeenza, we want you to be satisfied with your purchase.
 This policy applies to physical products purchased through our online Services unless a product page states different terms.
 1. Return Period

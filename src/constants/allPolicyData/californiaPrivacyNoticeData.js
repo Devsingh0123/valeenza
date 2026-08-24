@@ -1,6 +1,5 @@
 // src/constants/californiaPrivacyNoticedata.js
-export const californiaPrivacyNoticeData = `California Privacy Notice
-Last Updated: August, 20th 2026
+export const californiaPrivacyNoticeData = `
 This California Privacy Notice supplements the Valeenza Privacy Policy and applies to California residents to the extent the California Consumer Privacy Act, as amended ("CCPA"), applies to Valeenza Services LLC.
 1. Categories of Personal Information
 Depending on how you interact with us, we may collect categories including:

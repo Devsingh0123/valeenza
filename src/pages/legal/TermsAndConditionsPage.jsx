@@ -1,8 +1,14 @@
 import React from 'react'
+import PolicyAndConditionsCard from "@/components/policyAndConditions/policyAndConditionsCard";
+import { termsAndConditionsData } from '@/constants/allPolicyData/termsAndConditionsData';
 
 const TermsAndConditionsPage = () => {
   return (
-    <div>TermsAndConditionsPage</div>
+    <PolicyAndConditionsCard
+      title="TERMS & CONDITIONS"
+      lastUpdated="August 20, 2026"
+      text={termsAndConditionsData}
+    />
   )
 }
 
