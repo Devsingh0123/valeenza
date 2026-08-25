@@ -319,7 +319,7 @@ const WalletPage = () => {
       </div>
       <div
         onClick={() => navigate('/')}
-        className="flex items-center justify-center gap-2 text-sky-600 mt-4 hover:underline mb-6 text-center cursor-pointer"
+        className="flex items-center justify-center gap-2 text-red-600 hover:text-sky-600 mt-4  mb-6 text-center cursor-pointer"
       >
         <ArrowLeft className="w-4 h-4" /> Back to Home
       </div>

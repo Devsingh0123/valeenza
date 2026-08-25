@@ -14,7 +14,7 @@ const GemstoneInfoCard = ({ gemstone }) => {
       {/* Top: Name */}
       <div className="text-center py-2 px-3 bg-sky-500">
         <h3
-          className="text-sm truncate font-bold text-white/85 group-hover:text-orange-600 transition-colors"
+          className="text-sm truncate font-bold text-white/85 group-hover:text-red-500 transition-colors"
           title={name} 
         >
           {name}
@@ -34,7 +34,7 @@ const GemstoneInfoCard = ({ gemstone }) => {
       <div className="pl-2 py-2">
         <div className="text-gray-600 text-sm">
           <span
-            className="text-orange-600 truncate group-hover:text-orange-700"
+            className="text-sky-600 truncate group-hover:text-red-500"
             title={name} 
           >
             {name}

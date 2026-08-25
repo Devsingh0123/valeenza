@@ -134,7 +134,7 @@ const ProductDetailsPage = () => {
         <nav className="flex mb-4 text-xs sm:text-sm text-gray-500">
           <ol className="flex items-center flex-wrap gap-1">
             <li>
-              <a href="/" className="hover:text-sky-600 transition cursor-pointer">
+              <a href="/" className="hover:text-sky-600 text-red-500 transition cursor-pointer">
                 Home
               </a>
             </li>
@@ -312,7 +312,7 @@ const ProductDetailsPage = () => {
           {suggestedProducts.length > 0 && <ProductYouMayAlsoLike products={suggestedProducts} />}
 
           {/* Product Reviews */}
-          <ProductReviews productId={product.id} />
+          <ProductReviews catId={product?.category_id} />
         </div>
       </div>
     </div>

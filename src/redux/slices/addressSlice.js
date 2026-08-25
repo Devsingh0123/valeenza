@@ -105,7 +105,7 @@ export const fetchPincodeDetails = createAsyncThunk(
       }
 
       const response = await api.post(
-        "/user/get-pincode-data",
+        "/get-pincode-data",
         {
           pincode: cleanPincode,
         },

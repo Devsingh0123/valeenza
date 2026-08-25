@@ -25,8 +25,8 @@ const OrderSuccessPage = () => {
   } = useSelector((state) => state.order);
 
   // Navigation state se orderId lo
-  // const orderId = 406;
-  const orderId = location.state?.orderData;
+  const orderId = 435;
+  // const orderId = location.state?.orderData;
 
   // console.log(order);
 

@@ -78,9 +78,7 @@ const CheckoutPopup = () => {
               <span className="flex items-center justify-center w-4 h-4 rounded-full bg-emerald-600 text-white text-[10px]">
                 ✓
               </span>
-              <span>
-                You are successfully logged in.
-              </span>
+              <span>You are successfully logged in.</span>
             </div>
           )}
 
@@ -92,25 +90,22 @@ const CheckoutPopup = () => {
 
           <div className="text-center">
             <label htmlFor="terms" className="text-xs text-gray-400">
-              I accept that I have read & understood {" "}
-
+              I accept that I have read & understood{" "}
               <Link
                 to="/privacy-policy"
                 target="_blank"
                 className="text-sky-500 hover:underline"
               >
                 Privacy Policy
-              </Link>
-               {" "}and{" "}
+              </Link>{" "}
+              and{" "}
               <Link
-                to="/terms-conditions"
+                to="/terms-and-conditions"
                 target="_blank"
                 className="text-sky-500 hover:underline"
               >
                 T&Cs.
               </Link>
-             
-  
             </label>
           </div>
         </div>

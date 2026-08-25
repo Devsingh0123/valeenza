@@ -118,7 +118,7 @@ const MyOrdersPage = () => {
       <div className="max-w-4xl mx-auto px-4">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-sky-600 hover:underline mb-6 cursor-pointer"
+          className="flex items-center gap-2 text-red-500 hover:text-sky-600 mb-6 cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>

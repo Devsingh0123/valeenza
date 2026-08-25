@@ -92,7 +92,7 @@ const SignupStep = ({ onSignupSuccess, onBackToLogin }) => {
           />
           <label htmlFor="terms" className="text-xs text-gray-600">
             I have read and agree to the{" "}
-            <Link to="/terms-conditions" target="_blank" className="text-sky-600 hover:underline">
+            <Link to="/terms-and-conditions" target="_blank" className="text-sky-600 hover:underline">
               Terms & Conditions
             </Link>{" "}
             and{" "}
