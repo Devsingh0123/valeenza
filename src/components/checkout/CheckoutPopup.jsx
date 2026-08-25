@@ -103,7 +103,7 @@ const CheckoutPopup = () => {
               </Link>
                {" "}and{" "}
               <Link
-                to="/terms-conditions"
+                to="/terms-and-conditions"
                 target="_blank"
                 className="text-sky-500 hover:underline"
               >

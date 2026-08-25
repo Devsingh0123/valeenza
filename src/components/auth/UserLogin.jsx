@@ -338,7 +338,7 @@ const UserLogin = () => {
                 <button
                   type="submit"
                   disabled={loadingBtn}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 px-4 rounded-md hover:from-yellow-600 hover:to-yellow-700 disabled:opacity-50 cursor-pointer"
+                  className="w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 px-4 rounded-md hover:from-sky-600 hover:to-sky-700 disabled:opacity-50 cursor-pointer"
                 >
                   {loadingBtn ? "Sending..." : "Send OTP"}
                 </button>
@@ -405,7 +405,7 @@ const UserLogin = () => {
                 <button
                   type="submit"
                   disabled={loadingBtn}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 px-4 rounded-md hover:from-yellow-600 hover:to-yellow-700 disabled:opacity-50 cursor-pointer"
+                  className="w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 px-4 rounded-md hover:from-sky-600 hover:to-sky-700 disabled:opacity-50 cursor-pointer"
                 >
                   {loadingBtn ? "Verifying..." : "Login"}
                 </button>
@@ -480,7 +480,7 @@ const UserLogin = () => {
                   <label htmlFor="terms" className="text-xs text-gray-600">
                     I have read and agree to the{" "}
                     <Link
-                      to="/terms-conditions"
+                      to="/terms-and-conditions"
                       target="_blank"
                       className="text-sky-600 hover:underline"
                     >
@@ -501,7 +501,7 @@ const UserLogin = () => {
                 <button
                   type="submit"
                   disabled={loadingBtn}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-white py-2 px-4 rounded-md hover:from-yellow-600 hover:to-yellow-700 disabled:opacity-50 cursor-pointer"
+                  className="w-full bg-gradient-to-r from-sky-500 to-sky-600 text-white py-2 px-4 rounded-md hover:from-sky-600 hover:to-sky-700 disabled:opacity-50 cursor-pointer"
                 >
                   {loadingBtn ? "Creating..." : "Sign Up"}
                 </button>

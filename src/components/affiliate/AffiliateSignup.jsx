@@ -7,8 +7,8 @@ import { affiliateRegister } from "@/redux/slices/affiliateSlice";
 
 // Static country codes (only common ones)
 const countryCodes = [
-  { code: "+91", name: "India (+91)" },
   { code: "+1", name: "USA (+1)" },
+  { code: "+91", name: "India (+91)" },
   { code: "+44", name: "UK (+44)" },
   { code: "+61", name: "Australia (+61)" },
   { code: "+971", name: "UAE (+971)" },
@@ -54,7 +54,7 @@ const AffiliateSignup = () => {
   const [form, setForm] = useState({
     name: "",
     email: "",
-    country_code: "+91",
+    country_code: "+1",
     mobile: "",
     username: "",
     company_name: "",
@@ -183,14 +183,14 @@ const AffiliateSignup = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50 py-10">
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-sky-50 to-red-50 py-10">
       <div className="max-w-4xl mx-auto px-4">
         <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 px-8 py-6">
+          <div className="bg-gradient-to-r from-sky-500 to-sky-600 px-8 py-6">
             <h2 className="text-3xl font-bold text-white">
               Affiliate Registration
             </h2>
-            <p className="text-orange-100 mt-1">
+            <p className="text-sky-100 mt-1">
               Join our affiliate program and start earning
             </p>
           </div>
@@ -212,7 +212,7 @@ const AffiliateSignup = () => {
                       name="name"
                       value={form.name}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.name ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.name ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Enter your full name"
                     />
                     {errors.name && (
@@ -228,7 +228,7 @@ const AffiliateSignup = () => {
                       name="username"
                       value={form.username}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.username ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.username ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Choose a unique username"
                     />
                     {errors.username && (
@@ -244,7 +244,7 @@ const AffiliateSignup = () => {
                       name="email"
                       value={form.email}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.email ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.email ? "border-red-500" : "border-gray-300"}`}
                       placeholder="your@email.com"
                     />
                     {errors.email && (
@@ -262,7 +262,7 @@ const AffiliateSignup = () => {
                         onChange={(e) =>
                           handleSelect("country_code", e.target.value)
                         }
-                        className="w-28 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500"
+                        className="w-28 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500"
                       >
                         {countryCodes.map((c) => (
                           <option key={c.code} value={c.code}>
@@ -276,7 +276,7 @@ const AffiliateSignup = () => {
                         value={form.mobile}
                         onChange={handleChange}
                         maxLength={10}
-                        className={`flex-1 px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.mobile ? "border-red-500" : "border-gray-300"}`}
+                        className={`flex-1 px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.mobile ? "border-red-500" : "border-gray-300"}`}
                         placeholder="1234567890"
                       />
                     </div>
@@ -293,7 +293,7 @@ const AffiliateSignup = () => {
                       name="password"
                       value={form.password}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.password ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.password ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Min 6 characters"
                     />
                     {errors.password && (
@@ -309,7 +309,7 @@ const AffiliateSignup = () => {
                       name="confirmPassword"
                       value={form.confirmPassword}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.confirmPassword ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.confirmPassword ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Re-enter password"
                     />
                     {errors.confirmPassword && (
@@ -336,7 +336,7 @@ const AffiliateSignup = () => {
                       name="company_name"
                       value={form.company_name}
                       onChange={handleChange}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.company_name ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.company_name ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Your business name"
                     />
                     {errors.company_name && (
@@ -354,7 +354,7 @@ const AffiliateSignup = () => {
                       onChange={(e) =>
                         handleSelect("affiliate_type", e.target.value)
                       }
-                      className={`w-full px-3 py-2 border focus:outline-none  rounded-lg focus:ring-2 focus:ring-yellow-500 ${errors.affiliate_type ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none  rounded-lg focus:ring-2 focus:ring-sky-500 ${errors.affiliate_type ? "border-red-500" : "border-gray-300"}`}
                     >
                       <option value="">Select type</option>
                       {affiliateTypes.map((type) => (
@@ -417,7 +417,7 @@ const AffiliateSignup = () => {
                       onChange={(e) =>
                         handleSelect("expected_leads", e.target.value)
                       }
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 ${errors.expected_leads ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 ${errors.expected_leads ? "border-red-500" : "border-gray-300"}`}
                     >
                       <option value="">Select range</option>
                       {expectedLeadsOptions.map((opt) => (
@@ -441,7 +441,7 @@ const AffiliateSignup = () => {
                       value={form.promotion_plan}
                       onChange={handleChange}
                       rows={4}
-                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent ${errors.promotion_plan ? "border-red-500" : "border-gray-300"}`}
+                      className={`w-full px-3 py-2 border focus:outline-none rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent ${errors.promotion_plan ? "border-red-500" : "border-gray-300"}`}
                       placeholder="Describe how you plan to promote our products (at least 20 characters)"
                     ></textarea>
                     {errors.promotion_plan && (
@@ -470,7 +470,7 @@ const AffiliateSignup = () => {
                   <label htmlFor="terms" className="text-sm text-gray-600">
                     I have read and agree to the{" "}
                     <Link
-                      to="/terms-conditions"
+                      to="/terms-and-conditions"
                       target="_blank"
                       className="text-sky-600 hover:underline"
                     >
@@ -491,7 +491,7 @@ const AffiliateSignup = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full md:w-auto px-8 py-3 text-lg font-semibold bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all disabled:opacity-70 cursor-pointer"
+                  className="w-full md:w-auto px-8 py-3 text-lg font-semibold bg-gradient-to-r from-sky-500 to-sky-600 text-white rounded-lg shadow-md hover:shadow-lg transition-all disabled:opacity-70 cursor-pointer"
                 >
                   {loading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -577,7 +577,7 @@ const AffiliateSignup = () => {
               Already have an account?{" "}
               <a
                 href="https://backend.valeenza.co/"
-                className="text-orange-600 hover:underline"
+                className="text-sky-600 hover:underline"
               >
                 Login here
               </a>

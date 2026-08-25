@@ -457,7 +457,7 @@ const UserLogin = () => {
                   <label htmlFor="terms" className="text-xs text-gray-600">
                     I have read and agree to the{" "}
                     <Link
-                      to="/terms-conditions"
+                      to="/terms-and-conditions"
                       target="_blank"
                       className="text-sky-600 hover:underline"
                     >
@@ -908,7 +908,7 @@ export default UserLogin;
 //                   <label htmlFor="terms" className="text-xs text-gray-600">
 //                     I have read and agree to the{" "}
 //                     <Link
-//                       to="/terms-conditions"
+//                       to="/terms-and-conditions"
 //                       target="_blank"
 //                       className="text-sky-600 hover:underline"
 //                     >

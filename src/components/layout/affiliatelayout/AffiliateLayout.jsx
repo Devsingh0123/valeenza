@@ -7,7 +7,7 @@ import Loader from "@/components/common/Loader";
 
 const AffiliateLayout = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-orange-50 via-yellow-50 to-red-50">
+    <div className="min-h-screen flex flex-col">
       <AffiliateHeader />
       <main className="">
         <Suspense fallback={<Loader data="Loading..." />}>
