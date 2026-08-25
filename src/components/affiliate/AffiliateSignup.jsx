@@ -545,7 +545,7 @@ const AffiliateSignup = () => {
                       </div>
 
                       <p className="text-xs text-gray-500">
-                      Please check your inbox for updates
+                      Please check your Email for updates
                         from us.
                       </p>
                     </div>

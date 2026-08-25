@@ -869,7 +869,7 @@ const ProductDetailsPage = () => {
             <ProductYouMayAlsoLike products={suggestedProducts} />
           )}
           {/* product reviews */}
-          <ProductReviews catId={product.category_id} />
+          <ProductReviews catId={product?.category_id} />
         </div>
       </div>
 

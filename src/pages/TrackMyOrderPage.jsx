@@ -121,7 +121,7 @@ const TrackMyOrderPage = () => {
         <div className="flex items-center justify-between">
           <button
                     onClick={() => navigate("/orders")}
-                    className="flex items-center gap-2 text-sky-600 hover:underline cursor-pointer"
+                    className="flex items-center gap-2 text-red-500 hover:text-sky-600  cursor-pointer"
                   >
                     <ArrowLeft className="w-4 h-4" /> Back to Orders
                   </button>

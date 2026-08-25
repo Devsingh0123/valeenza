@@ -230,7 +230,7 @@ const MyOrderDetailsPage = () => {
           {/* BACK */}
           <button
             onClick={() => navigate("/orders")}
-            className="flex items-center gap-2 text-sky-600 hover:underline cursor-pointer"
+            className="flex items-center gap-2 hover:text-sky-600 text-red-500 cursor-pointer"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Orders
@@ -241,11 +241,11 @@ const MyOrderDetailsPage = () => {
             <button
               onClick={handleDownloadInvoice}
               disabled={downloadInvoiceLoading}
-              className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition font-medium cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+              className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-sm text-red-500 rounded-lg hover:bg-sky-600 transition font-normal cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
               <Download className="w-4 h-4" />
 
-              {downloadInvoiceLoading ? "Downloading..." : "Download Invoice"}
+              {downloadInvoiceLoading ? "Downloading..." : "Invoice"}
             </button>
           )}
         </div>

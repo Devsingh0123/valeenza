@@ -191,7 +191,7 @@ const ForgotPassword = ({ onSuccess, onCancel, userType }) => {
       <div className="text-center mt-4">
         <span
           onClick={onCancel}
-          className="text-sm cursor-pointer hover:underline text-orange-600"
+          className="text-sm cursor-pointer text-red-600 hover:text-sky-600 "
         >
           ← Back to Login
         </span>
