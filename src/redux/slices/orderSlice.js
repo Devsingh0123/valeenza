@@ -1,117 +1,146 @@
 // src/redux/slices/orderSlice.js
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { api } from '../baseApi';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { api } from "../baseApi";
 
 // ---------- THUNKS ----------
 // create or place order
 export const placeOrder = createAsyncThunk(
-  'order/placeOrder',
+  "order/placeOrder",
   async (orderData, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to place order');
-      const response = await api.post('/user/order/place', orderData);
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to place order");
+      const response = await api.post("/user/order/place", orderData);
       // console.log("Place order",response.data.data)
       return response.data.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to place order');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to place order",
+      );
     }
-  }
+  },
 );
 // fetch my all orders
 export const fetchMyOrders = createAsyncThunk(
-  'order/fetchMyOrders',
+  "order/fetchMyOrders",
   async (_, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to view orders');
-      const response = await api.get('/user/orders');
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to view orders");
+      const response = await api.get("/user/orders");
       // console.log("my orders",response.data.data)
       return response.data.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to fetch orders');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch orders",
+      );
     }
-  }
+  },
 );
 // fetch single order details
 export const fetchOrderDetails = createAsyncThunk(
-  'order/fetchOrderDetails',
+  "order/fetchOrderDetails",
   async (orderId, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to view order details');
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to view order details");
       const response = await api.get(`/user/orders/${orderId}`);
       // console.log("fetchOrderDetails",response.data.data)
       return response.data.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to fetch order details');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch order details",
+      );
     }
-  }
+  },
 );
 // mark order delivered currently not in use
 export const markOrderDelivered = createAsyncThunk(
-  'order/markOrderDelivered',
+  "order/markOrderDelivered",
   async (orderId, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to update order');
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to update order");
       const response = await api.post(`/order/${orderId}/delivered`);
       return { orderId, data: response.data };
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to update order');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to update order",
+      );
     }
-  }
+  },
 );
-
 
 // cancel cod order
 export const cancelCodOrder = createAsyncThunk(
-  'order/cancelCodOrder',
+  "order/cancelCodOrder",
   async ({ orderId, cancel_reason }, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to cancel order');
-      const response = await api.post(`/store/cod/cancel/${orderId}`, { cancel_reason },  {
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to cancel order");
+      const response = await api.post(
+        `/store/cod/cancel/${orderId}`,
+        { cancel_reason },
+        {
           headers: {
-            'Content-Type': 'application/json', // Force JSON
+            "Content-Type": "application/json", // Force JSON
           },
-        });
+        },
+      );
 
       // console.log(response)
       if (response.data.status) {
         return { orderId, success: true };
       } else {
         // console.log(response.data)
-        return rejectWithValue(response.data.message || 'Failed to cancel COD order');
+        return rejectWithValue(
+          response.data.message || "Failed to cancel COD order",
+        );
       }
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to cancel COD order');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to cancel COD order",
+      );
     }
-  }
+  },
 );
 // cancel online or prepaid order
 export const cancelOrder = createAsyncThunk(
-  'order/cancelOrder',
+  "order/cancelOrder",
   async ({ orderId, cancel_reason }, { rejectWithValue, getState }) => {
     try {
       const { userAuth } = getState();
-      if (!userAuth.isLoggedIn) return rejectWithValue('Please login to cancel order');
-      const response = await api.post(`/store/order/cancel/${orderId}`, { cancel_reason },  {
+      if (!userAuth.isLoggedIn)
+        return rejectWithValue("Please login to cancel order");
+      const response = await api.post(
+        `/store/order/cancel/${orderId}`,
+        { cancel_reason },
+        {
           headers: {
-            'Content-Type': 'application/json', // Force JSON
+            "Content-Type": "application/json", // Force JSON
           },
-        });
+        },
+      );
       // Backend only returns { status: true, message, refund, pricing }
       if (response.data.status) {
         // Return just the orderId – we will refetch details later
         return { orderId, success: true };
       } else {
-        return rejectWithValue(response.data.message || 'Failed to cancel order');
+        return rejectWithValue(
+          response.data.message || "Failed to cancel order",
+        );
       }
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'Failed to cancel order');
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to cancel order",
+      );
     }
-  }
+  },
 );
 
 // upload invoice to backend
@@ -125,9 +154,27 @@ export const uploadInvoice = createAsyncThunk(
       });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || "Invoice upload failed");
+      return rejectWithValue(
+        error.response?.data?.message || "Invoice upload failed",
+      );
     }
-  }
+  },
+);
+
+// fetch order invoice from backend
+export const fetchOrderInvoice = createAsyncThunk(
+  "order/fetchOrderInvoice",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`/user/orders/${id}/invoice`);
+      console.log("order invoice", response);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch invoice",
+      );
+    }
+  },
 );
 
 // ---------- INITIAL STATE ----------
@@ -135,13 +182,14 @@ const initialState = {
   orders: [],
   currentOrder: null,
   loading: false,
+  invoiceLoading: false,
   error: null,
   placeOrderSuccess: false,
 };
 
 // ---------- SLICE ----------
 const orderSlice = createSlice({
-  name: 'order',
+  name: "order",
   initialState,
   reducers: {
     clearOrderError: (state) => {
@@ -209,12 +257,12 @@ const orderSlice = createSlice({
       .addCase(markOrderDelivered.fulfilled, (state, action) => {
         state.loading = false;
         const { orderId, data } = action.payload;
-        const index = state.orders.findIndex(o => o.id === orderId);
+        const index = state.orders.findIndex((o) => o.id === orderId);
         if (index !== -1) {
-          state.orders[index].status = 'delivered';
+          state.orders[index].status = "delivered";
         }
         if (state.currentOrder?.id === orderId) {
-          state.currentOrder.status = 'delivered';
+          state.currentOrder.status = "delivered";
         }
       })
       .addCase(markOrderDelivered.rejected, (state, action) => {
@@ -247,8 +295,22 @@ const orderSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+
+      // fetch invoice from backend
+      .addCase(fetchOrderInvoice.pending, (state) => {
+        state.invoiceLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchOrderInvoice.fulfilled, (state) => {
+        state.invoiceLoading = false;
+      })
+      .addCase(fetchOrderInvoice.rejected, (state, action) => {
+        state.invoiceLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { clearOrderError, resetPlaceOrderSuccess, clearCurrentOrder } = orderSlice.actions;
+export const { clearOrderError, resetPlaceOrderSuccess, clearCurrentOrder } =
+  orderSlice.actions;
 export default orderSlice.reducer;

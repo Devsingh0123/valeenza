@@ -535,7 +535,7 @@ const PaymentSection = () => {
       } catch (err) {
         console.error("Stripe initialization error:", err);
 
-        toast.error("Unable to start payment. Please try again.");
+        toast.error(err || "Unable to start payment. Please try again.");
       } finally {
         setStripeLoading(false);
       }
@@ -653,7 +653,7 @@ const PaymentSection = () => {
     } catch (err) {
       console.error("Stripe verification error:", err);
 
-      toast.error("Payment verification failed. Please try again.");
+      toast.error(err || "Payment verification failed. Please try again.");
     } finally {
       setStripeLoading(false);
     }

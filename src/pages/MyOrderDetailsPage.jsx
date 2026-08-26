@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -8,11 +10,13 @@ import {
   clearCurrentOrder,
   cancelOrder,
   cancelCodOrder,
+  fetchOrderInvoice,
 } from "../redux/slices/orderSlice";
 
 import { api } from "@/redux/baseApi";
 
 import { toast } from "react-toastify";
+
 import Loader from "@/components/common/Loader";
 
 import {
@@ -28,10 +32,14 @@ import {
 
 const MyOrderDetailsPage = () => {
   const { id } = useParams();
+
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const { currentOrder, loading, error } = useSelector((state) => state.order);
+  const { currentOrder, loading, error, invoiceLoading } = useSelector(
+    (state) => state.order,
+  );
 
   const { isLoggedIn } = useSelector((state) => state.userAuth);
 
@@ -46,55 +54,88 @@ const MyOrderDetailsPage = () => {
   const [otherReason, setOtherReason] = useState("");
 
   // ==========================================
+
   // DOWNLOAD INVOICE
+
   // Backend API:
+
   // GET /api/user/orders/{order_id}/invoice
+
   // ==========================================
 
   const handleDownloadInvoice = async () => {
+
     if (!id) {
+
       toast.error("Order ID not found.");
+
       return;
+
     }
 
     setDownloadInvoiceLoading(true);
 
     try {
-      // Backend generates/returns the invoice URL.
-      // Response example:
-      // {
-      //   status: true,
-      //   pdf_url: "https://backend.valeenza.co/storage/invoices/invoice_414.pdf"
-      // }
-      const response = await api.get(`/user/orders/${id}/invoice`);
 
-      const { status, pdf_url, message } = response?.data || {};
+      // Backend generates/returns the invoice URL.
+
+      // Response example:
+
+      // {
+
+      //   status: true,
+
+      //   pdf_url: "https://backend.valeenza.co/storage/invoices/invoice_414.pdf"
+
+      // }
+
+      const response = await dispatch(fetchOrderInvoice(id)).unwrap();
+
+      const { status, pdf_url, message } = response || {};
 
       if (!status || !pdf_url) {
+
         throw new Error(
+
           message || "Invoice PDF URL was not returned by the server.",
+
         );
+
       }
 
       // Open the actual backend-generated PDF.
+
       window.open(pdf_url, "_blank", "noopener,noreferrer");
 
       toast.success("Invoice opened successfully.");
+
     } catch (error) {
+
       console.error("Invoice API error:", error);
 
       toast.error(
-        error?.response?.data?.message ||
+
+        error?.response?.message ||
+
           error?.message ||
+
           "Failed to open invoice.",
+
       );
+
     } finally {
+
       setDownloadInvoiceLoading(false);
+
     }
+
   };
 
+
   // ==========================================
+
   // FETCH ORDER DETAILS
+
   // ==========================================
 
   useEffect(() => {
@@ -108,18 +149,23 @@ const MyOrderDetailsPage = () => {
   }, [dispatch, id, isLoggedIn]);
 
   // ==========================================
+
   // ERROR HANDLING
+
   // ==========================================
 
   useEffect(() => {
     if (error && !cancelling) {
       toast.error(error);
+
       dispatch(clearOrderError());
     }
   }, [error, dispatch, cancelling]);
 
   // ==========================================
+
   // LOGIN CHECK
+
   // ==========================================
 
   if (!isLoggedIn) {
@@ -131,7 +177,9 @@ const MyOrderDetailsPage = () => {
   }
 
   // ==========================================
+
   // LOADING
+
   // ==========================================
 
   if (loading) {
@@ -139,7 +187,9 @@ const MyOrderDetailsPage = () => {
   }
 
   // ==========================================
+
   // ORDER NOT FOUND
+
   // ==========================================
 
   if (!currentOrder) {
@@ -149,7 +199,9 @@ const MyOrderDetailsPage = () => {
   const order = currentOrder;
 
   // ==========================================
+
   // ORDER CALCULATIONS
+
   // ==========================================
 
   const subtotal =
@@ -178,7 +230,9 @@ const MyOrderDetailsPage = () => {
   const grandTotal = Number(order?.pricing?.total_amount || 0);
 
   // ==========================================
+
   // CANCEL ORDER
+
   // ==========================================
 
   const handleCancelOrder = async (reasons = null) => {
@@ -191,6 +245,7 @@ const MyOrderDetailsPage = () => {
         await dispatch(
           cancelCodOrder({
             orderId: id,
+
             cancel_reason: cancelReasons,
           }),
         ).unwrap();
@@ -198,6 +253,7 @@ const MyOrderDetailsPage = () => {
         await dispatch(
           cancelOrder({
             orderId: id,
+
             cancel_reason: cancelReasons,
           }),
         ).unwrap();
@@ -206,7 +262,9 @@ const MyOrderDetailsPage = () => {
       await dispatch(fetchOrderDetails(id)).unwrap();
 
       setSelectedCancelReasons([]);
+
       setOtherReason("");
+
       setShowCancelReason(false);
     } catch (err) {
       console.error("Cancellation error:", err);
@@ -216,18 +274,23 @@ const MyOrderDetailsPage = () => {
   };
 
   // ==========================================
+
   // RENDER
+
   // ==========================================
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4">
         {/* ======================================
+
             TOP ACTIONS
+
         ====================================== */}
 
         <div className="flex justify-between items-center mb-6">
           {/* BACK */}
+
           <button
             onClick={() => navigate("/orders")}
             className="flex items-center gap-2 hover:text-sky-600 text-red-500 cursor-pointer"
@@ -237,26 +300,39 @@ const MyOrderDetailsPage = () => {
           </button>
 
           {/* DOWNLOAD INVOICE */}
+
           {!isCancelled && (
             <button
+
               onClick={handleDownloadInvoice}
+
               disabled={downloadInvoiceLoading}
+
               className="flex items-center gap-2 px-4 py-2 bg-sky-500 text-sm text-red-500 rounded-lg hover:bg-sky-600 transition font-normal cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+
             >
+
               <Download className="w-4 h-4" />
 
               {downloadInvoiceLoading ? "Downloading..." : "Invoice"}
+
             </button>
+
+           
           )}
         </div>
 
         {/* ======================================
+
             ORDER CARD
+
         ====================================== */}
 
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
           {/* ====================================
+
               HEADER
+
           ==================================== */}
 
           <div className="px-6 py-4 bg-gray-50 border-b border-gray-200 flex flex-wrap justify-between items-center gap-3">
@@ -320,7 +396,9 @@ const MyOrderDetailsPage = () => {
           </div>
 
           {/* ====================================
+
               ITEMS
+
           ==================================== */}
 
           <div className="p-6">
@@ -384,7 +462,9 @@ const MyOrderDetailsPage = () => {
             </div>
 
             {/* ==================================
+
                 SUMMARY + CANCEL
+
             ================================== */}
 
             <div className="mt-6 pt-4 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -429,7 +509,9 @@ const MyOrderDetailsPage = () => {
               </div>
 
               {/* ==================================
+
                   CANCEL MODAL
+
               ================================== */}
 
               {showCancelReason && (
@@ -442,12 +524,19 @@ const MyOrderDetailsPage = () => {
                     <div className="space-y-3">
                       {[
                         "I ordered the wrong product",
+
                         "I want to change the size/weight/quality.",
+
                         "I found a better price elsewhere.",
+
                         "I ordered by mistake.",
+
                         "Delivery is taking longer than expected.",
+
                         "I want to change my delivery address.",
+
                         "I placed another order instead.",
+
                         "Other (Please specify).",
                       ].map((reason) => (
                         <label
@@ -498,7 +587,7 @@ const MyOrderDetailsPage = () => {
                           value={otherReason}
                           onChange={(e) => setOtherReason(e.target.value)}
                           placeholder="Type your reason here..."
-                          className="w-full border rounded-md p-2 text-xs focus:ring-1 focus:ring-sky-500 resize-none"
+                          className="w-full border border-sky-500 rounded-md p-2 text-xs  focus:outline-none focus:ring-1 focus:ring-sky-500 resize-none"
                           rows="2"
                         />
                       </div>
@@ -515,7 +604,7 @@ const MyOrderDetailsPage = () => {
 
                           setOtherReason("");
                         }}
-                        className="flex-1 py-2 bg-gray-200 text-sm text-gray-800 rounded hover:bg-gray-300 transition"
+                        className="flex-1 py-2 bg-gray-200 text-sm text-gray-800 rounded hover:bg-gray-300 transition cursor-pointer"
                       >
                         Back
                       </button>
@@ -544,7 +633,7 @@ const MyOrderDetailsPage = () => {
 
                           await handleCancelOrder(reasons);
                         }}
-                        className="flex-1 py-2 bg-sky-600 text-sm text-white rounded disabled:opacity-50 hover:bg-sky-700 transition"
+                        className="flex-1 py-2 bg-sky-600 text-sm text-white rounded disabled:opacity-50 hover:bg-sky-700 transition cursor-pointer"
                       >
                         Confirm
                       </button>
@@ -554,7 +643,9 @@ const MyOrderDetailsPage = () => {
               )}
 
               {/* ==================================
+
                   PRICE SUMMARY
+
               ================================== */}
 
               <div className="text-right">
@@ -598,7 +689,9 @@ const MyOrderDetailsPage = () => {
           </div>
 
           {/* ======================================
+
               DELIVERY ADDRESS
+
           ====================================== */}
 
           <div className="border-t border-gray-200 p-6">
@@ -654,7 +747,9 @@ const MyOrderDetailsPage = () => {
           </div>
 
           {/* ======================================
+
               PAYMENT
+
           ====================================== */}
 
           <div className="border-t border-gray-200 p-6">

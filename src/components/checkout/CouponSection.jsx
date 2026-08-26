@@ -7,6 +7,7 @@ import {
   setAppliedCoupon,
 } from "@/redux/slices/couponSlice";
 import { BadgePercent, Ticket, AlertCircle, Loader2, Calendar } from "lucide-react";
+import { toast } from "react-toastify";
 
 /**
  * CouponSection Component
@@ -28,6 +29,9 @@ const CouponSection = () => {
     couponDiscount,
   } = useSelector((state) => state.coupon);
 
+const { items } = useSelector((state) => state.cart);
+  console.log("applied coupan",appliedCoupon)
+
   // Fetch coupons on mount
   useEffect(() => {
     dispatch(fetchCoupons());
@@ -47,6 +51,16 @@ const CouponSection = () => {
     }
   };
 
+
+
+  const subTotalAmount =
+    items?.reduce((sum, item) => {
+      const basePrice = Number( item?.price || 0);
+      return sum + basePrice * (Number(item.quantity) || 1);
+    }, 0) || 0;
+
+
+    console.log("subTotalAmount",subTotalAmount)
   /**
    * Dispatches validation queries to evaluate voucher tokens
    */
@@ -57,7 +71,10 @@ const CouponSection = () => {
     try {
       const result = await dispatch(validateCoupon(code.trim())).unwrap();
 
-      // console.log(result)
+      console.log(result)
+      if (subTotalAmount<result?.min_amount){
+        return toast.error(`Valid on orders above  $${result?.min_amount}`)
+      }
       dispatch(
         setAppliedCoupon({
           coupon: result,
@@ -85,6 +102,7 @@ const CouponSection = () => {
 
   const appliedCouponDetails = coupons?.find(cp => cp.code === appliedCoupon?.code);
 
+  console.log("appliedCouponDetails",appliedCouponDetails)
   return (
     <div className="w-full">
       {/* ========================================================================= */}
