@@ -487,7 +487,7 @@ const ProductDetailsPage = () => {
                 </>
               )}
               {discountText && (
-                <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-md">
+                <div className="absolute top-4 right-4 bg-red-600 text-white px-3 py-1.5 rounded-full text-sm font-bold shadow-md">
                   {discountText}
                 </div>
               )}

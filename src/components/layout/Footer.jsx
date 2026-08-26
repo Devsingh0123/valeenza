@@ -23,11 +23,11 @@ const Footer = () => {
   const socialLinks = [
     {
       Icon: Facebook,
-      href: "https://www.facebook.com/profile.php?id=61589487082042",
+      href: "coming-soon",
     },
     {
       Icon: Instagram,
-      href: "https://www.instagram.com/astrotring/",
+      href: "https://www.instagram.com/valeenzastore/",
     },
     {
       Icon: Twitter,

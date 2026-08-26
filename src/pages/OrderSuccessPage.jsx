@@ -259,7 +259,7 @@ const OrderSuccessPage = () => {
   const remainingCod = order?.pricing?.remaining_cod_amount;
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
-      {/* ✅ Loader overlay – सिर्फ tab dikhe jab loading/upload चल रहा हो */}
+      {/*  Loader overlay – सिर्फ tab dikhe jab loading/upload चल रहा हो */}
       {(loading || invoiceLoading) && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/20 backdrop-blur-xs">
           <Loader
@@ -339,23 +339,10 @@ const OrderSuccessPage = () => {
               <h3 className="text-xs font-semibold text-gray-400 uppercase">
                 Delivery Address :
               </h3>
-              <p className="font-sm text-gray-800">
-                {order.address.snapshot.name},
-              </p>
-              <p className="font-sm text-gray-800">
-                {order.address.snapshot.email},
-              </p>
-              <p className="text-sm text-gray-600">
-                {order.address.snapshot.address},
-              </p>
-              <p className="text-sm text-gray-600">
-                {order.address.snapshot.city}
-                {"  "}, {order.address.snapshot.state} -{" "}
-                {order.address.snapshot.pincode},
-              </p>
-              <p className="text-sm text-gray-500">
-                Mobile: {order.address.snapshot.mobile}
-              </p>
+              <span className="text-sm text-gray-600">
+                {order.address.snapshot.name},{" "}{order.address.snapshot.email},{" "}{order.address.snapshot.address},{" "}{order.address.snapshot.city},{" "}{order.address.snapshot.state} -{" "}{" "}{order.address.snapshot.pincode},{" "}Mobile: {order.address.snapshot.mobile},
+              </span>
+             
             </div>
           )}
 
