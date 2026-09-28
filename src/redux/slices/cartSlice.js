@@ -341,26 +341,7 @@ const cartSlice = createSlice({
       .addCase(addToCart.fulfilled, (state, action) => {
         state.loading = false;
 
-        // ---------- CRITEO ADD TO CART TRACKING (SIRF YEH 6 LINES) ----------
-        const { product_id, quantity, name, price } = action.meta.arg;
-        if (window.dataLayer) {
-          window.dataLayer.push({
-            event: "addToCart",
-            ecommerce: {
-             
-              items: [
-                {
-                  item_id: String(product_id || ""),
-                  item_name: name || "",
-                  price: Number(price) || 0,
-                  quantity: Number(quantity) || 1,
-                },
-              ],
-            },
-          });
 
-          console.log("addToCart datalayer", window.dataLayer);
-        }
         // If guest cart, update items from localStorage
         if (action.payload?.isGuest) {
           state.items = getGuestCart();

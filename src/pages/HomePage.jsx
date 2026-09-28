@@ -68,11 +68,6 @@ const HomePage = () => {
   const [filters, setFilters] = useState(initialFilterState);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  // GTM Tracking
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: "viewHome" });
-  }, []);
 
   // Fetch Products & Categories on Mount
   useEffect(() => {

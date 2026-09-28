@@ -18,7 +18,7 @@ import HomePage from "./pages/HomePage";
 // import GemstoneDetails from "./pages/product info/GemstoneDetails";
 // import TrackMyOrderPage from "./pages/TrackMyOrderPage";
 // import ComingSoon from "./components/common/ComingSoon";
-import GoogleTagManager from "./components/common/GoogleTagManager";
+
 // import OrderInvoice from "./pages/OrderInvoice";
 // import BecomeAnAffiliate from "./components/affiliate/BecomeAnAffiliate";
 // import AffiliateSignup from "./components/affiliate/AffiliateSignup";
@@ -88,7 +88,6 @@ function App() {
   }, [path]);
   return (
     <>
-      <GoogleTagManager />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

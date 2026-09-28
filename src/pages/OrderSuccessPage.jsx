@@ -42,38 +42,6 @@ const OrderSuccessPage = () => {
     };
   }, [dispatch, orderId]);
 
-  // ---------- add dataLayer for gtm tracking ----------
-  useEffect(() => {
-    const items = order?.items || order?.order_items || [];
-
-    if (order && items.length > 0) {
-      const transactionId = String(order?.payment?.transaction_id);
-      const totalValue = parseFloat(order.pricing?.total_amount) || 0;
-      const discount = order.pricing?.discount || 0;
-
-      // console.log(discount)
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "purchase",
-        ecommerce: {
-          transaction_id: transactionId,
-          currency: "INR",
-          order_value: totalValue,
-          order_id: orderId,
-          coupan_discount: discount,
-          items: items.map((item) => ({
-            item_id: String(item.product_id || item.product.id),
-            name: String(item.name || item.product.name),
-            price: parseFloat(item.price) || 0,
-            quantity: parseInt(item.quantity),
-          })),
-        },
-      });
-
-      console.log("trackTransaction datalayer", window.dataLayer);
-    }
-  }, [order]);
 
   // ========================================
   // BACKEND INVOICE
