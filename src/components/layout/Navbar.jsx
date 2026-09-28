@@ -222,10 +222,10 @@ const Navbar = () => {
   // ------------------------------------------------------------
 
   const iconBtn =
-    "relative flex items-center justify-center w-10 h-10 rounded-full text-gray-700 hover:-100 transition-colors duration-200";
+    "relative flex items-center justify-center w-10 h-10 rounded-full text-gray-700 hover:-100 transition-colors duration-200 cursor-pointer";
 
   const menuLink =
-    "flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-sky-700 hover:-50 rounded-lg transition-colors";
+    "flex items-center gap-3 px-4 py-2.5 text-sm text-gray-600 hover:text-sky-700 hover:-50 rounded-lg transition-colors cursor-pointer";
 
   // ------------------------------------------------------------
   // Render
@@ -552,12 +552,11 @@ const Navbar = () => {
               <button
                 type="button"
                 onClick={() => dispatch(openLoginModal())}
-                className="hidden sm:flex items-center gap-2 h-9 px-5 rounded-full text-sm font-medium text-white bg-sky-700 hover:bg-sky-800 transition-colors"
+                className="hidden sm:flex items-center gap-2 h-9 px-5 rounded-full text-sm font-medium text-white bg-sky-700 hover:bg-sky-800 transition-colors cursor-pointer"
               >
                 <User size={16} />
                 Sign In
               </button>
-
               <button
                 type="button"
                 onClick={() => dispatch(openLoginModal())}

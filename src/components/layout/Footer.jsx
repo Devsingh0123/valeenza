@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import logo from "../../assets/logo.png";
 import { useSelector } from "react-redux";
 
@@ -22,20 +23,24 @@ const Footer = () => {
 
   const socialLinks = [
     {
-      Icon: Facebook,
+      Icon: FaFacebook,
       href: "coming-soon",
+      textColor: "text-[#1877F2]",
     },
     {
-      Icon: Instagram,
+      Icon: FaInstagram,
       href: "https://www.instagram.com/valeenzastore/",
+      textColor: "text-[#E4405F]",
     },
     {
-      Icon: Twitter,
+      Icon: FaTwitter,
       href: "coming-soon",
+      textColor: "text-[#1DA1F2]",
     },
     {
-      Icon: Youtube,
+      Icon: FaYoutube,
       href: "coming-soon",
+      textColor: "text-[#FF0000]",
     },
   ];
 
@@ -213,15 +218,15 @@ const Footer = () => {
           <div className="md:text-right">
             <h2 className={`${sectionTitleClass} md:text-right`}>Follow Us</h2>
             <div className="flex gap-2 mt-4 md:justify-end">
-              {socialLinks.map(({ Icon, href }, i) => (
+              {socialLinks.map(({ Icon, href,textColor }, i) => (
                 <a
                   key={i}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 text-sky-700 hover:bg-sky-700 hover:border-sky-700 hover:text-white transition-colors duration-200"
+                  className="flex items-center justify-center w-9 h-9 rounded-full border border-gray-200 hover:border-sky-700 hover:text-white transition-colors duration-200"
                 >
-                  <Icon size={16} strokeWidth={1.75} />
+                  <Icon size={22} strokeWidth={1.75} className={`${textColor}`} />
                 </a>
               ))}
             </div>

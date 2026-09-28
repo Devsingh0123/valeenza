@@ -578,10 +578,10 @@ if (isCod && COD_SURCHARGE > 0) {
             </div>
           </div>
           <p className="mb-1">
-            Email: care@astrotring.shop | Tel: +91 11 41103510
+            Email: care@valeenza.co | Tel: +1 626-362-4253
           </p>
           <p className="text-[8px] font-bold">
-            Customers desirous of availing input GST credit are requested to write an email at care@astrotring.com
+            Customers desirous of availing input GST credit are requested to write an email at care@valeenza.co
             and get a Business account on Business eligible offers.
           </p>
         </div>

@@ -61,32 +61,6 @@ const handleAddToCart = async ({ product_id, quantity, name, ratti,price ,image,
 
 // console.log(products)
 
-// ---------- add dataLayer for gtm tracking ----------
-useEffect(() => {
-  if (products.length === 0) return;
-
-  const firstThree = products.slice(0, 3);
-  const categoryId = firstThree[0]?.category_id || '';
-  const items = firstThree.map(product => ({
-    item_id: String(product.id),
-    item_name: product.name || '',
-    price: Number(product.after_price || product.price || 0),
-    item_category: product.category?.name || slug || ''
-  }));
-
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "viewList", 
-    ecommerce: {
-     
-      category: categoryId ,
-      items: items,
-      page_number: "1"
-    }
-  });
-
-  console.log("viewList datalayer", window.dataLayer);
-}, [products, slug]);
 
 
   if (loading) return <Loader data="Loading..." />;

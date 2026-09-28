@@ -29,8 +29,8 @@ const CouponSection = () => {
     couponDiscount,
   } = useSelector((state) => state.coupon);
 
-const { items } = useSelector((state) => state.cart);
-  console.log("applied coupan",appliedCoupon)
+  const { items } = useSelector((state) => state.cart);
+  console.log("applied coupan", appliedCoupon)
 
   // Fetch coupons on mount
   useEffect(() => {
@@ -55,12 +55,12 @@ const { items } = useSelector((state) => state.cart);
 
   const subTotalAmount =
     items?.reduce((sum, item) => {
-      const basePrice = Number( item?.price || 0);
+      const basePrice = Number(item?.price || 0);
       return sum + basePrice * (Number(item.quantity) || 1);
     }, 0) || 0;
 
 
-    console.log("subTotalAmount",subTotalAmount)
+  console.log("subTotalAmount", subTotalAmount)
   /**
    * Dispatches validation queries to evaluate voucher tokens
    */
@@ -72,7 +72,7 @@ const { items } = useSelector((state) => state.cart);
       const result = await dispatch(validateCoupon(code.trim())).unwrap();
 
       console.log(result)
-      if (subTotalAmount<result?.min_amount){
+      if (subTotalAmount < result?.min_amount) {
         return toast.error(`Valid on orders above  $${result?.min_amount}`)
       }
       dispatch(
@@ -102,7 +102,7 @@ const { items } = useSelector((state) => state.cart);
 
   const appliedCouponDetails = coupons?.find(cp => cp.code === appliedCoupon?.code);
 
-  console.log("appliedCouponDetails",appliedCouponDetails)
+  console.log("appliedCouponDetails", appliedCouponDetails)
   return (
     <div className="w-full">
       {/* ========================================================================= */}
@@ -124,7 +124,7 @@ const { items } = useSelector((state) => state.cart);
                   <span className="text-sm font-bold text-gray-900 tracking-wide uppercase">
                     {defaultRecommendedCoupon?.code}
                   </span>
-                  
+
                   {/* Recommended Type Badge */}
                   {defaultRecommendedCoupon?.discount_type === "percentage" ? (
                     <span className="bg-blue-50 text-green-600 text-[10px] font-bold px-1.5 py-0.5 rounded-md">
@@ -205,7 +205,7 @@ const { items } = useSelector((state) => state.cart);
               <h4 className="text-sm font-bold text-gray-900 tracking-wide truncate uppercase">
                 {appliedCoupon?.code}
               </h4>
-              
+
               {/* Dynamic Saved Badge checking for Type percentage vs flat */}
               <span className="bg-green-600 text-white text-[11px] font-bold px-2 py-0.5 rounded-md tracking-tight shadow-sm shrink-0">
                 {appliedCouponDetails?.discount_type === "percentage"

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ReactDOM from "react-dom";
+import Select from "react-select";
 
 import {
   userProfile,
@@ -17,6 +18,7 @@ import ForgotPassword from "./ForgotPassword";
 import { Link } from "react-router-dom";
 import { fetchCart, mergeGuestCart } from "@/redux/slices/cartSlice";
 import { X } from "lucide-react";
+import { useCountryCodes } from "@/hooks/useCountryCodes";
 
 const UserLogin = () => {
   const dispatch = useDispatch();
@@ -29,6 +31,7 @@ const UserLogin = () => {
 
   // login steps: email -> otp
   const [step, setStep] = useState("email");
+  const [isCreateAccount, setIsCreateAccount] = useState(false);
 
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -37,10 +40,16 @@ const UserLogin = () => {
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [loadingBtn, setLoadingBtn] = useState(false);
 
+  const { countryCodes, loading: loadingCodes } = useCountryCodes();
+  const countryOptions = countryCodes.map((code) => ({
+    value: code.value,
+    label: code.label,
+  }));
+
   const [form, setForm] = useState({
     name: "",
     email: "",
-    country_code: "+91",
+    country_code: "+1",
     mobile: "",
   });
 
@@ -89,7 +98,7 @@ const UserLogin = () => {
       setForm({
         name: "",
         email: "",
-        country_code: "+91",
+        country_code: "+1",
         mobile: "",
       });
 
@@ -239,7 +248,7 @@ const UserLogin = () => {
       setForm({
         name: "",
         email: "",
-        country_code: "+91",
+        country_code: "+1",
         mobile: "",
       });
 
@@ -279,7 +288,10 @@ const UserLogin = () => {
 
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold">
-                {mode === "login" && step === "email" && "Login"}
+                {/* {mode === "login" && step === "email" && "Login"} */}
+                
+                {mode === "login" && step === "email" && (isCreateAccount ? "Create Account" : "Login")}
+
 
                 {mode === "login" && step === "otp" && "Enter OTP"}
 
@@ -344,12 +356,13 @@ const UserLogin = () => {
                 </button>
 
                 <p className="text-center text-sm">
-                  Don't have an account?{" "}
+                    {isCreateAccount ? "Already have an account?" : "Don't have an account?"}{" "}
                   <button
                     type="button"
                     onClick={() => {
-                      setMode("signup");
+                      setMode("login");
                       setStep("email");
+                      setIsCreateAccount((prev)=>!prev)
 
                       setErrors({
                         fields: {},
@@ -358,9 +371,33 @@ const UserLogin = () => {
                     }}
                     className="text-sky-600 hover:underline cursor-pointer"
                   >
-                    Sign Up
+                    {isCreateAccount ? "Login" : "Sign Up"}
                   </button>
                 </p>
+
+                <div className="flex items-start gap-2">
+                  
+
+                  <label htmlFor="terms" className="text-xs font-semibold text-gray-400">
+                    I accept that I have read & understood valeenza.co{" "}
+                    <Link
+                      to="/terms-and-conditions"
+                      target="_blank"
+                      className="text-sky-600 hover:underline"
+                    >
+                      Terms & Conditions
+                    </Link>{" "}
+                    and{" "}
+                    <Link
+                      to="/privacy-policy"
+                      target="_blank"
+                      className="text-sky-600 hover:underline"
+                    >
+                      Privacy Policy
+                    </Link>
+                    .
+                  </label>
+                </div>
               </form>
             )}
 
@@ -437,26 +474,81 @@ const UserLogin = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
                   required
                 />
-
                 <div className="flex gap-2">
-                  <input
-                    name="country_code"
-                    placeholder="+91"
-                    value={form.country_code}
-                    onChange={handleChange}
-                    className="w-1/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
-                  />
-
+                  {loadingCodes ? (
+                    <div className="w-1/4 px-3 py-2 text-xs font-bold text-gray-400 border border-gray-300 rounded-md bg-gray-50 text-center">
+                      Loading...
+                    </div>
+                  ) : (
+                    <Select
+                      options={countryOptions}
+                      value={countryOptions.find(
+                        (opt) => opt.value === form.country_code,
+                      )}
+                      onChange={(selected) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          country_code: selected ? selected.value : "+1",
+                        }))
+                      }
+                      placeholder="Code"
+                      classNamePrefix="react-select"
+                      isClearable={false}
+                      isSearchable={true}
+                      formatOptionLabel={(option, { context }) => {
+                  //  Show only value in the input (context === 'value')
+                  if (context === "value") {
+                    return option.value; // e.g., "+1"
+                  }
+                  //  Show full label in dropdown menu
+                  return option.label; // e.g., "+1 (USA)"
+                }}
+                      styles={{
+                        control: (base) => ({
+                          ...base,
+                          borderColor: "#197cb19a",
+                          boxShadow: "none",
+                          "&:hover": { borderColor: "#197cb19a" },
+                          borderRadius: "0.375rem",
+                          minHeight: "2.5rem",
+                          width: "100px",
+                          fontSize: "0.75rem",
+                          fontWeight: '600',
+                          textAlign: 'center'
+                        }),
+                        menu: (base) => ({
+                          ...base,
+                          zIndex: 9999,
+                          width: "220px",
+                        }),
+                        option: (base, state) => ({
+                          ...base,
+                          backgroundColor: state.isSelected
+                            ? "#00598A"
+                            : state.isFocused
+                              ? "#197cb19a"
+                              : "white",
+                          color: state.isSelected ? "white" : "#374151",
+                          "&:active": { backgroundColor: "#197cb19a" },
+                          fontSize: "0.75rem",
+                          
+                        }),
+                      }}
+                    />
+                  )}
                   <input
                     name="mobile"
-                    maxLength={10}
+                   
                     placeholder="Mobile *"
                     value={form.mobile}
                     onChange={handleChange}
-                    className="w-2/3 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500"
+                    className="w-3/4 px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-50 focus:outline-none focus:ring-sky-500 focus:border-sky-500 "
                     required
                   />
                 </div>
+
+              
+                
 
                 <input
                   name="email"

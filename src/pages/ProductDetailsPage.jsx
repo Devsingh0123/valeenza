@@ -168,25 +168,6 @@ const ProductDetailsPage = () => {
     return () => footerObserver.disconnect();
   }, []);
 
-  // ---------- add dataLayer for gtm tracking ----------
-  useEffect(() => {
-    if (product?.id) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "viewItem",
-        ecommerce: {
-          items: [
-            {
-              item_id: String(product.id),
-              item_name: product.name || "",
-              price: Number(product.after_price),
-            },
-          ],
-        },
-      });
-      console.log("viewItem datalayer", window.dataLayer);
-    }
-  }, [product]);
 
   // --- Related products (only from API, no fallback) ---
   const suggestedProducts = useMemo(() => {
@@ -236,6 +217,8 @@ const ProductDetailsPage = () => {
 
   const ratingValue = parseFloat(product?.rating_avg) || 0;
   const reviewsCount = product?.rating_count || 0;
+
+  const subName = product?.sub_name || [];
 
   // --- Media: objects with url, type, and thumbnail ---
   let mediaItems = [];
@@ -348,7 +331,7 @@ const ProductDetailsPage = () => {
           name: product.name,
           price: displayAfterPrice,
           image: product.image,
-          stockAvilable:product?.stock_qty
+          stockAvilable: product?.stock_qty,
         }),
       ).unwrap();
       toast.success(`${product?.name} added to cart!`);
@@ -371,7 +354,7 @@ const ProductDetailsPage = () => {
           name: product.name,
           price: displayAfterPrice,
           image: product?.image,
-          stockAvilable:product?.stock_qty
+          stockAvilable: product?.stock_qty,
         }),
       ).unwrap();
       toast.success(`${product?.name} added to cart!`);
@@ -424,7 +407,7 @@ const ProductDetailsPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6">
         {/* Breadcrumb */}
         <nav className="flex mb-4 text-xs sm:text-sm text-gray-500">
-          <ol className="flex items-center flex-wrap gap-1">
+          <ol className="flex items-center flex-wrap ">
             <li>
               <a
                 href="/"
@@ -433,7 +416,13 @@ const ProductDetailsPage = () => {
                 Home
               </a>
             </li>
-            <li className="mx-1">/</li>
+            <li className="mx-1">
+              <ChevronRight
+                size={16}
+                strokeWidth={2.5}
+                className="text-gray-400"
+              />
+            </li>
             <li className="text-sky-700 font-medium truncate max-w-[200px]">
               {product?.name}
             </li>
@@ -462,12 +451,12 @@ const ProductDetailsPage = () => {
                 />
               ) : (
                 <Link to={mediaItems[selectedMediaIndex]?.url || fallbackImage}>
-                <img
-                  src={mediaItems[selectedMediaIndex]?.url || fallbackImage}
-                  alt={product?.name}
-                  className="w-full h-full object-cover"
-                  onError={handleImageError}
-                />
+                  <img
+                    src={mediaItems[selectedMediaIndex]?.url || fallbackImage}
+                    alt={product?.name}
+                    className="w-full h-full object-cover"
+                    onError={handleImageError}
+                  />
                 </Link>
               )}
               {totalMedia > 1 && (
@@ -521,14 +510,12 @@ const ProductDetailsPage = () => {
                           playsInline
                         />
                       ) : (
-                        
                         <img
                           src={thumbUrl}
                           alt={`thumb-${idx}`}
                           className="w-full h-full object-cover"
                           onError={handleImageError}
                         />
-                       
                       )}
                     </button>
                   );
@@ -538,12 +525,32 @@ const ProductDetailsPage = () => {
           </div>
 
           {/* RIGHT COLUMN: PRODUCT INFO */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {/* Basic Info */}
             <div>
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
                 {product?.name}
               </h1>
+              {subName &&
+                subName.map((name, idx) => {
+                  // 1. Random background classes list
+                  const bgClasses = [
+                    "bg-amber-100  border-amber-200",
+                    "bg-gray-300  border-gray-200",
+                  ];
+
+                  // 2. Index ke basis par alag background select karna
+                  const randomBg = bgClasses[idx % bgClasses.length];
+
+                  return (
+                    <button
+                      key={idx}
+                      className={`text-sm mt-3 rounded-full font-light text-gray-700 px-4 py-1 border m-1 ${randomBg}`}
+                    >
+                      {name}
+                    </button>
+                  );
+                })}
               <div className="flex items-center gap-3 mt-2">
                 {/* <StarRating value={ratingValue} size={16} />
                 <span className="text-sm text-gray-600">
@@ -551,7 +558,7 @@ const ProductDetailsPage = () => {
                 </span> */}
 
                 <div className="flex items-center gap-1 text-green-600">
-                 <BadgePercent size={20} className="font-bold animate-spin"/>
+                  <BadgePercent size={20} className="font-bold animate-spin" />
                   <span className="text-lg font-semibold">Best price</span>
                   <span className="font-semibold text-xl">
                     ${displayAfterPrice.toLocaleString()}
@@ -865,7 +872,6 @@ const ProductDetailsPage = () => {
 
           {/* You May Also Like */}
           {suggestedProducts.length > 0 && (
-            
             <ProductYouMayAlsoLike products={suggestedProducts} />
           )}
           {/* product reviews */}

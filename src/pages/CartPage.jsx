@@ -34,23 +34,7 @@ const CartPage = () => {
     }
   }, [error, dispatch]);
 
-  // ---------- GTM Tracking (View Basket) ----------
-  useEffect(() => {
-    if (cartItems && cartItems.length > 0) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "viewBasket",
-        ecommerce: {
-          items: cartItems.map((item) => ({
-            item_id: String(item.product_id),
-            price: Number(item.price),
-            quantity: Number(item.quantity),
-          })),
-        },
-      });
-      console.log("viewBasket datalayer", window.dataLayer);
-    }
-  }, [cartItems]);
+
 
   const handleRemoveItem = (id) => {
     setRemovingId(id);
@@ -87,22 +71,6 @@ const CartPage = () => {
   };
 
   const handleCheckout = () => {
-    // ---------- add dataLayer for gtm tracking ----------
-    if (cartItems && cartItems.length > 0) {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "proceedToCheckout",
-        ecommerce: {
-          items: cartItems.map((item) => ({
-            item_id: String(item.product_id),
-            price: Number(item.price),
-            quantity: Number(item.quantity),
-          })),
-        },
-      });
-      console.log("proceedToCheckout datalayer", window.dataLayer);
-    }
-    // ORIGINAL CHECKOUT OPEN
     dispatch(openCheckout());
   };
 
