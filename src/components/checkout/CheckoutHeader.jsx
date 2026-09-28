@@ -1,13 +1,25 @@
 import React from "react";
 import logo from "@/assets/logo.png"
 import { ArrowLeft, ChevronLeft } from "lucide-react";
+import { useSelector } from "react-redux";
 
 /**
  * CheckoutHeader Component
- * Renders the top navigation bar, logo layout, and discount status banner
- * matching the visual interface from image_7a088a.jpg.
+ * Renders the top navigation bar, logo layout, and step progress banner.
  */
 const CheckoutHeader = ({onBackClick}) => {
+  const { isLoggedIn } = useSelector((state) => state.userAuth);
+  const { selectedAddressId } = useSelector((state) => state.address);
+
+  // Determine current step: 1 = Login, 2 = Address, 3 = Payment
+  const currentStep = !isLoggedIn ? 1 : !selectedAddressId ? 2 : 3;
+
+  const steps = [
+    { number: 1, label: "Login" },
+    { number: 2, label: "Address" },
+    { number: 3, label: "Payment" },
+  ];
+
   return (
     <div className="flex flex-col w-full shrink-0 bg-white">
       {/* Top Navigation Strip */}
@@ -35,11 +47,54 @@ const CheckoutHeader = ({onBackClick}) => {
         <div className="w-8" aria-hidden="true"> </div>
       </div>
 
-      {/* Under-Header Promo Banner Strip */}
-      <div className="w-full bg-sky-500 py-1.5 px-4 text-center shadow-inner">
-        <p className="text-[11px] font-bold text-white tracking-wider">
-          ✦ Good Fortune Awaits — Shop & Save!
-        </p>
+      {/* Step Progress Banner */}
+      <div className="w-full bg-gradient-to-r from-sky-500 to-sky-600 py-2.5 px-4 shadow-inner">
+        <div className="flex items-center justify-center gap-1 sm:gap-2 max-w-xs mx-auto">
+          {steps.map((step, idx) => {
+            const isCompleted = step.number < currentStep;
+            const isActive = step.number === currentStep;
+            const isPending = step.number > currentStep;
+
+            return (
+              <React.Fragment key={step.number}>
+                {/* Step indicator */}
+                <div className="flex items-center gap-1.5">
+                  <div
+                    className={`flex items-center justify-center w-5 h-5 rounded-full text-[10px] font-extrabold transition-all duration-300 ${
+                      isCompleted
+                        ? "bg-white text-sky-600"
+                        : isActive
+                          ? "bg-white text-sky-600 ring-2 ring-white/40 ring-offset-1 ring-offset-sky-500"
+                          : "bg-sky-400/50 text-white/70"
+                    }`}
+                  >
+                    {isCompleted ? "✓" : step.number}
+                  </div>
+                  <span
+                    className={`text-[11px] font-bold tracking-wide transition-all duration-300 ${
+                      isCompleted || isActive
+                        ? "text-white"
+                        : "text-white/50"
+                    }`}
+                  >
+                    {step.label}
+                  </span>
+                </div>
+
+                {/* Connector line between steps */}
+                {idx < steps.length - 1 && (
+                  <div
+                    className={`flex-1 h-[2px] min-w-[20px] max-w-[40px] rounded-full transition-all duration-300 ${
+                      step.number < currentStep
+                        ? "bg-white"
+                        : "bg-white/30"
+                    }`}
+                  />
+                )}
+              </React.Fragment>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

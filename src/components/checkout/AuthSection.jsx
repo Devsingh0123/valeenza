@@ -9,6 +9,7 @@ import {
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { User } from "lucide-react";
 
 const AuthSection = () => {
   const dispatch = useDispatch();
@@ -116,11 +117,21 @@ const AuthSection = () => {
   };
 
   return (
-    <div className="w-full bg-white border border-gray-100 rounded-xl p-4 shadow-sm space-y-2 text-left">
+    <div className="w-full bg-white border border-gray-100 rounded-xl p-4 shadow-sm space-y-3 text-left">
       {/* Module Title */}
-      <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
-        Account Login
-      </h3>
+      <div className="flex items-center gap-3">
+        <div className="p-2 bg-sky-500/10 text-sky-500 rounded-lg shrink-0">
+          <User size={20} />
+        </div>
+        <div>
+          <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
+            Step 1: Account Login
+          </h3>
+          <p className="text-xs text-gray-500 font-medium">
+            Enter your email to receive a verification OTP
+          </p>
+        </div>
+      </div>
 
       {/* ========================================
           STAGE 1: EMAIL

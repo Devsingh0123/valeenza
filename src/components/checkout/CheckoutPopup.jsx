@@ -18,6 +18,7 @@ const CheckoutPopup = () => {
   const dispatch = useDispatch();
   const [showConfirm, setShowConfirm] = useState(false);
   const { isLoggedIn } = useSelector((state) => state.userAuth);
+  const { selectedAddressId } = useSelector((state) => state.address);
   const isOpen = useSelector((state) => state.ui.isCheckoutOpen);
 
   // Sync state data on visibility lifecycle triggers and handle underlying body scrolling limits
@@ -78,15 +79,18 @@ const CheckoutPopup = () => {
               <span className="flex items-center justify-center w-4 h-4 rounded-full bg-emerald-600 text-white text-[10px]">
                 ✓
               </span>
-              <span>You are successfully logged in.</span>
+              <span>
+                <strong className="font-bold">Step 1: Account Login</strong> — Successfully logged in.
+              </span>
             </div>
           )}
 
           {/* Module 4: Shipping Profiles / Destination Target forms */}
-          <AddressSection />
+          <AddressSection isLocked={!isLoggedIn} />
 
           {/* Module 5: Payment Gateway triggers (Razorpay integrations / COD routes) */}
-          <PaymentSection />
+          <PaymentSection isLocked={!isLoggedIn || !selectedAddressId} />
+
 
           <div className="text-center">
             <label htmlFor="terms" className="text-xs text-gray-400">

@@ -27,7 +27,7 @@ const EMPTY_FORM = {
   by_default: false,
 };
 
-const AddressSection = () => {
+const AddressSection = ({ isLocked = false }) => {
   const dispatch = useDispatch();
 
   const { countryCodes, loading: loadingCodes } = useCountryCodes();
@@ -274,7 +274,7 @@ const AddressSection = () => {
   // =========================================================
   // LOADING
   // =========================================================
-  if (loading && addresses.length === 0) {
+  if (loading && addresses.length === 0 && !isLocked) {
     return (
       <div className="text-center py-6 text-sm font-medium text-gray-500">
         Loading your addresses...
@@ -283,7 +283,17 @@ const AddressSection = () => {
   }
 
   return (
-    <div className="w-full bg-white border border-gray-100 rounded-xl p-4 sm:p-5 shadow-sm space-y-4 text-left">
+    <div className={`w-full bg-white border rounded-xl p-4 sm:p-5 shadow-sm space-y-4 text-left relative ${isLocked ? 'border-gray-200 opacity-60' : 'border-gray-100'}`}>
+      {/* Locked overlay */}
+      {isLocked && (
+        <div className="absolute inset-0 z-10 bg-white/70 backdrop-blur-[1px] rounded-xl flex flex-col items-center justify-center gap-2 cursor-not-allowed">
+          <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <p className="text-xs font-bold text-gray-500">Please login first to continue</p>
+          <p className="text-[10px] text-gray-400">Step 1 → Login required</p>
+        </div>
+      )}
       {/* HEADER */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div className="flex items-center gap-3">
@@ -291,9 +301,14 @@ const AddressSection = () => {
             <MapPin size={20} />
           </div>
 
-          <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
-            Delivery Address
-          </h3>
+          <div>
+            <h3 className="text-sm font-extrabold text-gray-900 tracking-tight">
+              Step 2: Delivery Address
+            </h3>
+            <p className="text-xs text-gray-500 font-medium">
+              Select or add your shipping address
+            </p>
+          </div>
         </div>
 
         <button
@@ -316,11 +331,10 @@ const AddressSection = () => {
             return (
               <label
                 key={addr.id}
-                className={`relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all ${
-                  isSelected
-                    ? "border-sky-400 bg-sky-50 ring-1 ring-sky-400"
-                    : "border-gray-200 hover:border-gray-300 bg-white"
-                }`}
+                className={`relative flex flex-col p-4 border rounded-xl cursor-pointer transition-all ${isSelected
+                  ? "border-sky-400 bg-sky-50 ring-1 ring-sky-400"
+                  : "border-gray-200 hover:border-gray-300 bg-white"
+                  }`}
               >
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
@@ -580,10 +594,7 @@ const AddressSection = () => {
                 ? "Fetching Pincode..."
                 : "Save and Use This Address"}
           </button>
-          <p className="col-span-12 w-full mt-2 text-center text-xs font-semibold text-red-600">
-            Please save your address first before placing your order. Unsaved
-            addresses cannot be used for checkout.
-          </p>
+
         </form>
       )}
     </div>
