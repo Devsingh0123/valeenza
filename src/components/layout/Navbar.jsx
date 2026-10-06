@@ -267,7 +267,8 @@ const Navbar = () => {
               dispatch(clearSearch());
             }}
           >
-            <img src={logo} alt="Valeenza" className="h-8 lg:h-9 w-auto" />
+            <img src={logo} alt="Valeenza"  loading="eager"
+    fetchPriority="high" className="h-8 lg:h-9 w-auto"  />
           </Link>
 
           {/* ==================================================
