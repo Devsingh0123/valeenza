@@ -624,13 +624,13 @@ const ProductDetailsPage = () => {
 
             {/* Shipping Info Summary */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 border-t border-gray-200 pt-4">
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <Truck className="w-5 h-5 text-gray-500" />
                 <div className="text-xs">
                   <p className="font-semibold">Free Shipping</p>
                   <p className="text-gray-500">on $799+</p>
                 </div>
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
                 <RefreshCw className="w-5 h-5 text-gray-500" />
                 <div className="text-xs">

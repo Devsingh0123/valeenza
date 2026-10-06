@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { api } from "../baseApi";
-import { success } from "zod";
 
 export const userLogin = createAsyncThunk(
   "user/login",
