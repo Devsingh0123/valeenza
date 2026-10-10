@@ -79,7 +79,7 @@ const ProductAccordionSections = ({
       {/* Return and Exchange – static */}
       <AccordionSection title="Return and Exchange" icon={RefreshCcw}>
         <p className="text-gray-700 leading-relaxed">
-          Returns are applicable within 7 days and only apply to defective,
+          Returns are applicable within 30 days and only apply to defective,
           damaged, or incorrect products in unused condition with original
           packaging. Note: Natural variations in Rudraksha or gemstones are not
           defects. Non-returnable items include any used, altered, or

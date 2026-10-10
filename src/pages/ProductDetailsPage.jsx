@@ -634,7 +634,7 @@ const ProductDetailsPage = () => {
               <div className="flex items-center gap-2">
                 <RefreshCw className="w-5 h-5 text-gray-500" />
                 <div className="text-xs">
-                  <p className="font-semibold">7-Day Returns</p>
+                  <p className="font-semibold">30-Day Returns</p>
                   <p className="text-gray-500">easy policy</p>
                 </div>
               </div>

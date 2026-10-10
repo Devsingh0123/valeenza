@@ -70,7 +70,7 @@ export const categoryStaticData = {
   default: {
     about: "Discover authentic, high‑quality products crafted to enhance your spiritual journey and well‑being.",
     benefits: "Experience positive energy, mental clarity, and emotional balance with our carefully selected items.",
-    qualityPrice: "We guarantee authenticity, fair pricing, and a 7‑day return policy. Each product is sourced from trusted suppliers.",
+    qualityPrice: "We guarantee authenticity, fair pricing, and a 30‑day return policy. Each product is sourced from trusted suppliers.",
     faqs: [
       { q: "Are the products genuine?", a: "Yes, all items are sourced from certified suppliers and come with authenticity documentation where applicable." },
       { q: "What is the return policy?", a: "We offer a 7‑day return policy for unused products in original packaging." },
