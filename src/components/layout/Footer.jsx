@@ -48,7 +48,7 @@ const Footer = () => {
     <footer className="mt-12 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pb-10 border-b border-gray-200">
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4 ">
             <Link to="/">
               <img src={logo} alt="Valeenza" className="h-9 mb-5" />
             </Link>
@@ -59,7 +59,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+          <div className="lg:col-span-8 grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-3 gap-8">
             <div>
               <h2 className={sectionTitleClass}>Collections</h2>
               <ul className="mt-4 space-y-2.5">
@@ -73,7 +73,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            <div>
+            {/* <div>
               <h2 className={sectionTitleClass}>Explore</h2>
               <ul className="mt-4 space-y-2.5">
                 <li>
@@ -107,7 +107,7 @@ const Footer = () => {
                   </Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
 
             <div>
               <h2 className={sectionTitleClass}>Policies</h2>

@@ -18,8 +18,8 @@ const CartSummary = () => {
   );
   const { selectedPaymentMethod } = useSelector((state) => state.payment);
 
-  // console.log(items);
-  // console.log("deliveryCharge", deliveryCharge);
+  console.log(items);
+  console.log("deliveryCharge", deliveryCharge);
   // console.log("codCharge",codCharge);
 
   // Compute total dynamic item count inside active state array
@@ -33,6 +33,8 @@ const CartSummary = () => {
       return sum + basePrice * (Number(item.quantity) || 1);
     }, 0) || 0;
 
+
+  console.log(subTotalAmount)
   // Calculate standard price totals to figure out base discount metrics
   const standardPriceTotal =
     items?.reduce((sum, item) => {
