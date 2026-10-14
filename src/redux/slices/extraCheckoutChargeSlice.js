@@ -8,23 +8,32 @@ import { api } from "../baseApi";
 // Is thunk ko hum ek object bhejenge jisme address_id aur coupon_code dono honge
 export const calculateDeliveryCharge = createAsyncThunk(
   "extraCheckoutCharge/calculateDeliveryCharge",
-  async ({ address_id,coupon_code }, { rejectWithValue }) => {
+  async ({ address_id, coupon_code }, { rejectWithValue }) => {
     try {
       // Aapke reference ke hisab se POST call ho rahi hai yahan
-      const response = await api.post("/store/calculate-summary", { 
+      const response = await api.post("/store/calculate-summary", {
         address_id,
-        coupon_code, 
+        coupon_code,
       });
 
       if (response?.data?.status) {
         // Reference ke mutabik breakdown.delivery_charge return kar rahe hain
-        return response?.data?.breakdown?.delivery_charge; 
+
+        const data = response.data.data;
+        return {
+          deliveryCharge: data?.delivery?.charge || 0,
+          netAmountBeforeDiscount:
+            data?.products?.net_amount_before_discount || 0,
+          tax: data?.tax || {}, // pura tax object as-is
+        };
       }
       return 0;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || "Delivery charge calculation failed");
+      return rejectWithValue(
+        error.response?.data?.message || "Delivery charge calculation failed",
+      );
     }
-  }
+  },
 );
 
 // =========================================================================
@@ -33,10 +42,10 @@ export const calculateDeliveryCharge = createAsyncThunk(
 // Is thunk ko hum sirf address_id bhejenge
 export const calculateCodCharge = createAsyncThunk(
   "extraCheckoutCharge/calculateCodCharge",
-  async ({address_id}, { rejectWithValue }) => {
+  async ({ address_id }, { rejectWithValue }) => {
     try {
       // Aapke reference ke hisab se yeh GET request hai parameters ke sath
-      const response = await api.get("/store/cod-charge", { 
+      const response = await api.get("/store/cod-charge", {
         address_id,
       });
 
@@ -46,15 +55,19 @@ export const calculateCodCharge = createAsyncThunk(
       }
       return 0;
     } catch (error) {
-      return rejectWithValue(error.response?.data?.message || "COD charge calculation failed");
+      return rejectWithValue(
+        error.response?.data?.message || "COD charge calculation failed",
+      );
     }
-  }
+  },
 );
 
 const extraCheckoutChargeSlice = createSlice({
   name: "extraCheckoutCharge",
   initialState: {
     deliveryCharge: 0,
+    netAmountBeforeDiscount: 0,
+    tax: {},
     codCharge: 0,
     isDeliveryLoading: false,
     isCodLoading: false,
@@ -74,29 +87,33 @@ const extraCheckoutChargeSlice = createSlice({
     // Agar address unselect ho jaye toh ise call karo
     clearDeliveryCharge: (state) => {
       state.deliveryCharge = 0;
-    }
+  state.netAmountBeforeDiscount = 0;
+  state.tax = {};
+    },
   },
   extraReducers: (builder) => {
     builder
       // --- Delivery Charge Handlers ---
-      .addCase(calculateDeliveryCharge.pending, (state) => { 
-        state.isDeliveryLoading = true; 
+      .addCase(calculateDeliveryCharge.pending, (state) => {
+        state.isDeliveryLoading = true;
         state.error = null;
       })
       .addCase(calculateDeliveryCharge.fulfilled, (state, action) => {
         state.isDeliveryLoading = false;
         // Thunk ne direct number return kiya hai, isliye action.payload hi direct charge hai
-        state.deliveryCharge = action.payload; 
+        state.deliveryCharge = action.payload.deliveryCharge;
+        state.netAmountBeforeDiscount = action.payload.netAmountBeforeDiscount;
+        state.tax = action.payload.tax;
       })
       .addCase(calculateDeliveryCharge.rejected, (state, action) => {
         state.isDeliveryLoading = false;
         state.error = action.payload;
         state.deliveryCharge = 0;
       })
-      
+
       // --- COD Charge Handlers ---
-      .addCase(calculateCodCharge.pending, (state) => { 
-        state.isCodLoading = true; 
+      .addCase(calculateCodCharge.pending, (state) => {
+        state.isCodLoading = true;
         state.error = null;
       })
       .addCase(calculateCodCharge.fulfilled, (state, action) => {
@@ -112,5 +129,6 @@ const extraCheckoutChargeSlice = createSlice({
   },
 });
 
-export const { resetCheckout, clearCodCharge, clearDeliveryCharge } = extraCheckoutChargeSlice.actions;
+export const { resetCheckout, clearCodCharge, clearDeliveryCharge } =
+  extraCheckoutChargeSlice.actions;
 export default extraCheckoutChargeSlice.reducer;
